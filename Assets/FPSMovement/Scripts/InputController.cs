@@ -22,7 +22,8 @@ public class InputController : MonoBehaviour
     [Tooltip("The speed the player moves at")]
     [SerializeField] private float walkSpeed = 60f;
 
-    [SerializeField] private bool advancedSettings;
+    [Tooltip("The players movement speed when airborn")]
+    [SerializeField] private float airSpeed = 30f;
 
     [Tooltip("The maximum angle the player can walk up without losing speed")]
     [SerializeField] private float maxSlopeAngle = 45f;
@@ -30,7 +31,7 @@ public class InputController : MonoBehaviour
     [Tooltip("The height the floating rigidbody is offset from the ground")]
     [SerializeField] private float heightOffset = 1f;
 
-    [Tooltip("How much is added to the heightOffset")]
+    [Tooltip("How long the raycast detecting the ground is")]
     [SerializeField] private float offsetRayDistance = 1f;
 
     [Tooltip("Adds force to the total Y-offset")]
@@ -42,7 +43,11 @@ public class InputController : MonoBehaviour
     [Tooltip("Adds more drag to the players velocity")]
     [SerializeField] private float dragRate = 5f;
 
-    [SerializeField] private float jumpHeight = 50f;
+    [Tooltip("The amount of air resistance the player experiences")]
+    [SerializeField] private float airDragRate = 3f;
+
+    [Tooltip("How high the player can jump")]
+    [SerializeField] private float jumpForce = 50f;
 
     [Tooltip("The layers the player can walk on")]
     [SerializeField] private LayerMask groundLayer;
@@ -92,9 +97,6 @@ public class InputController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         cam = GetComponentInChildren<Camera>();
-
-        //To confirm the ray distance is longer than the height offset
-        offsetRayDistance += heightOffset;
     }
 
     void Update()
@@ -103,7 +105,11 @@ public class InputController : MonoBehaviour
     }
 
     //Movement
-    void FixedUpdate() => Move();
+    void FixedUpdate()
+    {
+        Move();
+        AirControl();
+    }
     private Vector3 MoveDirection()
     {
         //Read player input
@@ -156,6 +162,18 @@ public class InputController : MonoBehaviour
         //Add forces to rigidbody
         rb.AddForce((combinedForces - dampingForces) * (100 * Time.fixedDeltaTime));
     }
+    private void AirControl()
+    {
+        if (isGrounded) return;
+
+        Vector3 moveForce = airSpeed * MoveDirection();
+
+        Vector3 dampingForces = rb.velocity * airDragRate;
+
+        Vector3 totalForce = new(moveForce.x - dampingForces.x, moveForce.y, moveForce.z - dampingForces.z);
+
+        rb.AddForce((100 * Time.fixedDeltaTime) * totalForce);
+    }
 
     //Camera movement
     void LateUpdate() => Look();
@@ -200,7 +218,7 @@ public class InputController : MonoBehaviour
 
         Vector3 currentDirection = MoveDirection();
 
-        rb.AddForce(new(currentDirection.x, jumpHeight, currentDirection.z), ForceMode.Impulse);
+        rb.AddForce(new(currentDirection.x, jumpForce, currentDirection.z), ForceMode.Impulse);
     }
 
     private void OnEnable()

@@ -121,7 +121,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390676662645113971}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -139,7 +139,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8939591259619301516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,13 +157,15 @@ MonoBehaviour:
   minSensitivity: 1
   maxSensitivity: 30
   walkSpeed: 45
-  advancedSettings: 1
+  airSpeed: 17
   maxSlopeAngle: 45
   heightOffset: 1.5
-  offsetRayDistance: 0.5
-  offsetStrength: 200
-  offsetDamper: 10
+  offsetRayDistance: 1.5
+  offsetStrength: 300
+  offsetDamper: 25
   dragRate: 5
+  airDragRate: 3
+  jumpForce: 22
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
