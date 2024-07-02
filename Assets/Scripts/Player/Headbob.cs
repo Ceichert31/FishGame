@@ -34,9 +34,9 @@ public class Headbob : MonoBehaviour
 
     private void Start()
     {
-        inputController = GetComponent<InputController>();
+        inputController = GameManager.Instance.Player.GetComponent<InputController>();
 
-        rb = GetComponent<Rigidbody>();
+        rb = GameManager.Instance.Player.GetComponent<Rigidbody>();
 
         if (headbobTarget == null)
             headbobTarget = transform.GetChild(0);
