@@ -29,63 +29,39 @@
             float2 uv : TEXCOORD0;
             float4 screenPosition : TEXCOORD1;
         };
+
+static const float4x4 ditherPatterns[5] =
+{
+            //Patern 1
+    float4x4(0, 1, 0, 1,
+                        1, 0, 1, 0,
+                        0, 1, 0, 1,
+                        1, 0, 1, 0),
+            //Pattern 2
+                float4x4(0.23, 0.2, 0.6, 0.2,
+                    0.2, 0.43, 0.2, 0.77,
+                    0.88, 0.2, 0.87, 0.2,
+                    0.2, 0.46, 0.2, 0),
+            //Pattern 3
+                float4x4(-4.0, 0.0, -3.0, 1.0,
+                     2.0, -2.0, 3.0, -1.0,
+                     -3.0, 1.0, -4.0, 0.0,
+                     3.0, -1.0, 2.0, -2.0),
+             //Pattern 4 
+                float4x4(1, 0, 0, 1,
+                          0, 1, 1, 0,
+                         0, 1, 1, 0,
+                        1, 0, 0, 1),
+             //Pattern 5 
+                float4x4(1, 1, 1, 1,
+                        1, 1, 1, 1,
+                        1, 1, 1, 1,
+                        1, 1, 1, 1)
+};
         
         float4x4 GetDitherPattern(uint index)
         {
-            float4x4 pattern;
-      
-            if(index == 0)
-            {
-                pattern = float4x4
-                (
-                    0 , 1 , 0 , 1 ,
-                    1 , 0 , 1 , 0 ,
-                    0 , 1 , 0 , 1 ,
-                    1 , 0 , 1 , 0 
-                );
-            }         
-            else if(index == 1)
-            {
-                pattern = float4x4
-                (
-                    0.23 , 0.2 , 0.6 , 0.2 ,
-                    0.2 , 0.43 , 0.2 , 0.77,
-                    0.88 , 0.2 , 0.87 , 0.2 ,
-                    0.2 , 0.46 , 0.2 , 0 
-                );
-            }           
-            else if(index == 2)
-            {
-                pattern = float4x4
-                (
-                     -4.0, 0.0, -3.0, 1.0,
-                     2.0, -2.0, 3.0, -1.0,
-                     -3.0, 1.0, -4.0, 0.0,
-                     3.0, -1.0, 2.0, -2.0
-                );
-            }       
-            else if(index == 3)
-            {
-                pattern = float4x4
-                (
-                    1 , 0 , 0 , 1 ,
-                    0 , 1 , 1 , 0 ,
-                    0 , 1 , 1 , 0 ,
-                    1 , 0 , 0 , 1 
-                );
-            }          
-            else 
-            {
-                pattern = float4x4
-                (
-                    1 , 1 , 1 , 1 ,
-                    1 , 1 , 1 , 1 ,
-                    1 , 1 , 1 , 1 ,
-                    1 , 1 , 1 , 1 
-                );
-            }
-            
-            return pattern;
+            return ditherPatterns[index];
         }
         
         float PixelBrightness(float3 col)

@@ -57,10 +57,6 @@ public class InputController : MonoBehaviour
 
     [SerializeField] private float dashForce = 50f;
 
-    [SerializeField] private float fovIncrease = 35f;
-
-    [SerializeField] private float fovDecayTime = 2f;
-
     private bool canDash = true;
 
     //Input References
@@ -206,7 +202,7 @@ public class InputController : MonoBehaviour
 
         rb.AddForce(MoveDirection() * dashForce, ForceMode.Impulse);
 
-        fovEventChannel.IncreaseFOV(fovIncrease, fovDecayTime);
+        fovEventChannel.IncreaseFOV();
 
         Invoke(nameof(ResetDash), dashCooldown);
     }

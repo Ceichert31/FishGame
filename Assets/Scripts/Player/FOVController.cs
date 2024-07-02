@@ -8,6 +8,9 @@ public class FOVController : MonoBehaviour
     [SerializeField] private FOVEventChannel fovEventChannel;
 
     [Header("Field of View Settings")]
+    [SerializeField] private float targetFOV = 10f;
+    [SerializeField] private float decayTime = 1f;
+
     [SerializeField] private float fieldOfViewScale = 10f;
     [SerializeField] private float baseFOV = 60f;
     [SerializeField] private float maxFOV = 100f;
@@ -43,10 +46,10 @@ public class FOVController : MonoBehaviour
     /// </summary>
     /// <param name="targetFOV"></param>
     /// <param name="timeBeforeDecay"></param>
-    private void IncreaseFOV(float targetFOV, float timeBeforeDecay)
+    private void IncreaseFOV()
     {
         additionalFOV = targetFOV;
-        StartCoroutine(DecreaseFOV(targetFOV, timeBeforeDecay));
+        StartCoroutine(DecreaseFOV(targetFOV, decayTime));
     }
     IEnumerator DecreaseFOV(float targetFOV, float timeBeforeDecay)
     {

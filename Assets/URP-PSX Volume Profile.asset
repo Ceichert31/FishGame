@@ -154,34 +154,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32eb3b8fb939d9b41b04b5621e6d36dd, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 0.5
   fogDistance:
     m_OverrideState: 1
-    m_Value: 4.7
+    m_Value: 10
   fogColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 0.4452207, g: 0.63598174, b: 0.6509434, a: 0}
   ambientColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 1, g: 1, b: 1, a: 0}
   fogNear:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   fogFar:
     m_OverrideState: 0
-    m_Value: 81.3
+    m_Value: 100
   fogAltScale:
     m_OverrideState: 0
     m_Value: 10
   fogThinning:
     m_OverrideState: 0
-    m_Value: 458
+    m_Value: 100
   noiseScale:
     m_OverrideState: 1
-    m_Value: 843
+    m_Value: 1000
   noiseStrength:
     m_OverrideState: 1
-    m_Value: 0.029
+    m_Value: 0
