@@ -241,6 +241,74 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &501646793
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.0318727
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.7771611
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 181144557f3c91a4d8fefb6ff386c8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: LureBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 181144557f3c91a4d8fefb6ff386c8b1, type: 3}
 --- !u!1 &1462927606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
@@ -425,7 +493,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8fe2fe4d99426a14eac8899a6b8b96d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -546,3 +614,4 @@ SceneRoots:
   - {fileID: 1825130995}
   - {fileID: 1949585047}
   - {fileID: 1502359739}
+  - {fileID: 501646793}
