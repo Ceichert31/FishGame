@@ -13,7 +13,11 @@ public class FishingController : MonoBehaviour
     [Tooltip("How fast the pole will charge")]
     [SerializeField] private float chargeTimeMultiplier = 1.5f;
 
+    [SerializeField] private float chargeMaxThreshold = 5f;
+
     private InputController inputController;
+
+    private Animator poleAnimator;
 
     private bool isCharging;
 
@@ -21,6 +25,8 @@ public class FishingController : MonoBehaviour
     void Awake()
     {
         inputController = GetComponent<InputController>();
+
+        poleAnimator = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
     void ChargeCast(bool isCast)
@@ -37,6 +43,8 @@ public class FishingController : MonoBehaviour
 
         isCharging = true;
 
+        poleAnimator.SetBool("IsCharging", isCharging);
+
         while (isCharging)
         {
             currentPoleCharge += Time.unscaledDeltaTime * chargeTimeMultiplier;
@@ -44,12 +52,11 @@ public class FishingController : MonoBehaviour
             if (currentPoleCharge >= maxPoleCharge)
                 isCharging = false;
 
-            Debug.Log("Current Charge: " +  currentPoleCharge);
-
             yield return null;
         }
-        Debug.Log("CAST!");
-        CastPole(currentPoleCharge);
+
+        poleAnimator.SetBool("IsCharging", isCharging);
+
     }
 
     void CastPole(float castDistance)
