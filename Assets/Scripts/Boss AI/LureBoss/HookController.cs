@@ -33,7 +33,7 @@ public class HookController : MonoBehaviour
     {
         rotateDirection = directionTracker.PlayerDirection;
 
-        if(rotateDirection.magnitude == 0)
+        if (rotateDirection.magnitude == 0)
         {
             for (int i = 0; i < hooks.Count; i++)
             {
@@ -55,8 +55,6 @@ public class HookController : MonoBehaviour
             // Clamp angles within the specified range
             float tempHookX = Mathf.Clamp(eulerAngles.x, -maxXRot, maxXRot);
             float tempHookY = Mathf.Clamp(eulerAngles.y, -maxYRot, maxYRot);
-
-            Debug.Log(tempHookY);
 
             // Apply the clamped angles back to the hook
             hooks[i].localEulerAngles = new Vector3(tempHookX, tempHookY, eulerAngles.z);

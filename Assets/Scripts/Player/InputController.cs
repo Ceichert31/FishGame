@@ -75,6 +75,9 @@ public class InputController : MonoBehaviour
 
     private Vector2 moveInput;
 
+    public delegate void FishingControllerDelegate(bool isCast);
+    public event FishingControllerDelegate castPole;
+
     //Getters
     private bool isGrounded;
     private bool isMoving;
@@ -217,6 +220,10 @@ public class InputController : MonoBehaviour
         rb.AddForce(new(currentDirection.x, jumpForce, currentDirection.z), ForceMode.Impulse);
     }
 
+    private void ChargeFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(false);
+
+    private void CastFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(true);
+
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -224,6 +231,10 @@ public class InputController : MonoBehaviour
         playerMovement.Dash.performed += Dash;
 
         playerMovement.Jump.performed += Jump;
+
+        playerMovement.Fire.performed += ChargeFishingPole;
+
+        playerMovement.Fire.canceled += CastFishingPole;
     }
     private void OnDisable()
     {
@@ -232,5 +243,9 @@ public class InputController : MonoBehaviour
         playerMovement.Dash.performed -= Dash;
 
         playerMovement.Jump.performed -= Jump;
+
+        playerMovement.Fire.performed -= ChargeFishingPole;
+
+        playerMovement.Fire.canceled -= CastFishingPole;
     }
 }
