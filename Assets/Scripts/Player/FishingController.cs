@@ -71,6 +71,7 @@ public class FishingController : MonoBehaviour
     {
         bobberObject.SetActive(true);
 
+        rb.AddForce(castDistance * transform.up, ForceMode.Impulse);
         rb.AddForce(castDistance * transform.forward, ForceMode.Force);
         
     }

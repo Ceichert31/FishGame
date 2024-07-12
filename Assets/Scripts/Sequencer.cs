@@ -14,6 +14,7 @@ public class Sequencer : MonoBehaviour
             action.Initialize(gameObject);
     }
 
+    [ContextMenu("Test")]
     public void InitializeSequence()
     {
         if (instance != null) return;
