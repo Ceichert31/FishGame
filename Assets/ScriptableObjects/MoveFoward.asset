@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70f6afe1479cde34fa9ec2601ade994d, type: 3}
-  m_Name: MoveUpward
+  m_Name: MoveFoward
   m_EditorClassIdentifier: 
   movementForce: 10
   movementDuration: 1
   forceMode: 1
-  movementDirection: {x: 0, y: 1, z: 0}
-  directionFoward: 0
+  movementDirection: {x: 0, y: 0, z: 1}
+  directionFoward: 1

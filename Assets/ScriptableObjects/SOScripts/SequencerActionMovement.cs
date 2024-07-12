@@ -6,9 +6,13 @@ public class SequencerActionMovement : SequencerAction
 {
     [SerializeField] private float movementForce;
 
+    [SerializeField] private float movementDuration;
+
     [SerializeField] private ForceMode forceMode;
 
-    private Vector3 movementDirection;
+    [SerializeField] private Vector3 movementDirection;
+
+    [SerializeField] private bool directionFoward;
 
     private Rigidbody rb;
 
@@ -16,12 +20,21 @@ public class SequencerActionMovement : SequencerAction
     {
         rb = obj.GetComponent<Rigidbody>();
 
-        movementDirection = obj.transform.forward;
+        if (directionFoward )
+            movementDirection = obj.transform.forward;
     }
 
     public override IEnumerator StartSequence(Sequencer ctx)
     {
-        rb.AddForce(movementForce * Time.unscaledDeltaTime * movementDirection, forceMode);
-        yield return new WaitForSeconds(1); 
+        float currentTime = 0f;
+
+        while (currentTime < movementDuration)
+        {
+            currentTime += Time.deltaTime;
+
+            rb.AddForce(movementForce * Time.unscaledDeltaTime * movementDirection, forceMode);
+
+            yield return null;
+        }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(InputController))]
 public class FishingController : MonoBehaviour
 {   
     [Header("Fishing Pole Settings")]
@@ -15,6 +14,10 @@ public class FishingController : MonoBehaviour
 
     [SerializeField] private float chargeMaxThreshold = 5f;
 
+    private GameObject bobberObject;
+
+    private Rigidbody rb;
+
     private InputController inputController;
 
     private Animator poleAnimator;
@@ -24,9 +27,13 @@ public class FishingController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        inputController = GetComponent<InputController>();
+        inputController = GetComponentInParent<InputController>();
 
-        poleAnimator = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Animator>();
+        poleAnimator = GetComponent<Animator>();
+
+        bobberObject = transform.GetChild(1).GetChild(0).gameObject;
+
+        rb = bobberObject.GetComponent<Rigidbody>();
     }
 
     void ChargeCast(bool isCast)
@@ -57,14 +64,15 @@ public class FishingController : MonoBehaviour
 
         poleAnimator.SetBool("IsCharging", isCharging);
 
+        CastPole(currentPoleCharge);
     }
 
     void CastPole(float castDistance)
     {
-        Debug.Log(castDistance);
+        bobberObject.SetActive(true);
 
-        //Cast bobber with addforce
-        //Bobber needs rigidbody
+        rb.AddForce(castDistance * transform.forward, ForceMode.Force);
+        
     }
 
     private void OnEnable()
