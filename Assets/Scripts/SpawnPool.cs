@@ -7,20 +7,6 @@ public class SpawnPool : MonoBehaviour
     [Header("Spawn Pool Settings")]
     [Tooltip("Fish that can spawn in this water source")]
     [SerializeField] private List<FishSO> spawnPool;
-    
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     [ContextMenu("Spawn Fish")]
     void FishSpawnPool()

@@ -75,6 +75,8 @@ public class InputController : MonoBehaviour
 
     private Vector2 moveInput;
 
+    private PlayerInteractor playerInteractor;  
+
     public delegate void FishingControllerDelegate(bool isCast);
     public event FishingControllerDelegate castPole;
 
@@ -96,6 +98,8 @@ public class InputController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         cam = GetComponentInChildren<Camera>();
+
+        playerInteractor = GetComponentInChildren<PlayerInteractor>();
     }
 
     void Update()
@@ -220,8 +224,10 @@ public class InputController : MonoBehaviour
         rb.AddForce(new(currentDirection.x, jumpForce, currentDirection.z), ForceMode.Impulse);
     }
 
-    private void ChargeFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(false);
+    private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
+    private void EndInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(false);
 
+    private void ChargeFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(false);
     private void CastFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(true);
 
     private void OnEnable()
@@ -231,6 +237,10 @@ public class InputController : MonoBehaviour
         playerMovement.Dash.performed += Dash;
 
         playerMovement.Jump.performed += Jump;
+
+        playerMovement.Interact.performed += StartInteract;
+
+        playerMovement.Interact.canceled += EndInteract;
 
         playerMovement.Fire.performed += ChargeFishingPole;
 
@@ -243,6 +253,10 @@ public class InputController : MonoBehaviour
         playerMovement.Dash.performed -= Dash;
 
         playerMovement.Jump.performed -= Jump;
+
+        playerMovement.Interact.performed -= StartInteract;
+
+        playerMovement.Interact.canceled -= EndInteract;
 
         playerMovement.Fire.performed -= ChargeFishingPole;
 
