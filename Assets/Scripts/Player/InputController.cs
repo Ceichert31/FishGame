@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FOVEventChannel fieldofViewSO;
     [SerializeField] private InputEventChannel input_EventChannel;
+    [SerializeField] private FishingEventChannel fishing_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -76,10 +77,7 @@ public class InputController : MonoBehaviour
 
     private Vector2 moveInput;
 
-    private PlayerInteractor playerInteractor;  
-
-    public delegate void FishingControllerDelegate(bool isCast);
-    public event FishingControllerDelegate castPole;
+    private PlayerInteractor playerInteractor;
 
     //Getters
     private bool isGrounded;
@@ -108,6 +106,7 @@ public class InputController : MonoBehaviour
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
 
         input_EventChannel.CallEvent(new InputEvent(playerControls));
+
     }
 
     void Update()
@@ -236,9 +235,6 @@ public class InputController : MonoBehaviour
     private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
     private void EndInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(false);
 
-    private void ChargeFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(false);
-    private void CastFishingPole(InputAction.CallbackContext ctx) => castPole?.Invoke(true);
-
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -250,10 +246,6 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed += StartInteract;
 
         playerMovement.Interact.canceled += EndInteract;
-
-        playerMovement.Fire.performed += ChargeFishingPole;
-
-        playerMovement.Fire.canceled += CastFishingPole;
     }
     private void OnDisable()
     {
@@ -266,9 +258,5 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed -= StartInteract;
 
         playerMovement.Interact.canceled -= EndInteract;
-
-        playerMovement.Fire.performed -= ChargeFishingPole;
-
-        playerMovement.Fire.canceled -= CastFishingPole;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class FishingController : MonoBehaviour
 {   
@@ -14,8 +15,6 @@ public class FishingController : MonoBehaviour
     [Tooltip("How fast the pole will charge")]
     [SerializeField] private float chargeTimeMultiplier = 1.5f;
 
-    private InputController inputController;
-
     private BobberController bobberController;
 
     private Animator poleAnimator;
@@ -26,11 +25,8 @@ public class FishingController : MonoBehaviour
 
     private const float MINPOLECHARGE = 2f;
 
-    // Start is called before the first frame update
     void Awake()
     {
-        inputController = GetComponentInParent<InputController>();
-
         poleAnimator = GetComponent<Animator>();
 
         bobberController = GetComponentInChildren<BobberController>();
@@ -56,8 +52,13 @@ public class FishingController : MonoBehaviour
         {
             currentPoleCharge += Time.unscaledDeltaTime * chargeTimeMultiplier;
 
+            Mathf.Clamp(currentPoleCharge, MINPOLECHARGE, maxPoleCharge);
+
+
             if (currentPoleCharge >= maxPoleCharge)
-                isCharging = false;
+            {
+                Debug.Log("Fully Charged!");
+            }
 
             yield return null;
         }
@@ -84,6 +85,10 @@ public class FishingController : MonoBehaviour
     /// <param name="ctx"></param>
     void ReelIn(InputAction.CallbackContext ctx) => poleAnimator.SetTrigger("ReelIn");
 
+    public void StartCast(InputAction.CallbackContext ctx) => ChargeCast(false);
+
+    public void StopCast(InputAction.CallbackContext ctx) => ChargeCast(true);
+
     /// <summary>
     /// Subscribes functions to the correct controls
     /// </summary>
@@ -91,13 +96,9 @@ public class FishingController : MonoBehaviour
     public void InitializeControls(InputEvent ctx)
     {
         ctx.Action.Movement.ReelIn.performed += ReelIn;
-    }
-    private void OnEnable()
-    {
-        inputController.castPole += ChargeCast;
-    }
-    private void OnDisable()
-    {
-        inputController.castPole -= ChargeCast;
+
+        ctx.Action.Movement.Fire.performed += StartCast;
+
+        ctx.Action.Movement.Fire.canceled += StopCast;
     }
 }
