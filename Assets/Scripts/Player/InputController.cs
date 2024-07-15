@@ -5,6 +5,7 @@ public class InputController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private FOVEventChannel fieldofViewSO;
+    [SerializeField] private InputEventChannel input_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -100,6 +101,8 @@ public class InputController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
 
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
+
+        input_EventChannel.CallEvent(new InputEvent(playerControls));
     }
 
     void Update()

@@ -2,27 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour
 {   
     [Header("Fishing Pole Settings")]
-    [Tooltip("The maximum distance the bobber can be cast")]
+    [Tooltip("The maximum amount of charge the pole can gain")]
     [SerializeField] private float maxPoleCharge = 10f;
+
+    [Tooltip("The initial Y-Velocity of the bobber")]
+    [SerializeField] private float initialBobberVelocityY = 1.3f;
 
     [Tooltip("How fast the pole will charge")]
     [SerializeField] private float chargeTimeMultiplier = 1.5f;
 
-    [SerializeField] private float chargeMaxThreshold = 5f;
-
-    private GameObject bobberObject;
-
-    private Rigidbody rb;
-
     private InputController inputController;
+
+    private BobberController bobberController;
 
     private Animator poleAnimator;
 
     private bool isCharging;
+
+    private float currentPoleCharge;
+
+    private const float MINPOLECHARGE = 2f;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,9 +35,7 @@ public class FishingController : MonoBehaviour
 
         poleAnimator = GetComponent<Animator>();
 
-        bobberObject = transform.GetChild(1).GetChild(0).gameObject;
-
-        rb = bobberObject.GetComponent<Rigidbody>();
+        bobberController = GetComponentInChildren<BobberController>();
     }
 
     void ChargeCast(bool isCast)
@@ -46,7 +48,7 @@ public class FishingController : MonoBehaviour
 
     IEnumerator ChargeFishingPole()
     {
-        float currentPoleCharge = 1f;
+        currentPoleCharge = MINPOLECHARGE;
 
         isCharging = true;
 
@@ -63,19 +65,33 @@ public class FishingController : MonoBehaviour
         }
 
         poleAnimator.SetBool("IsCharging", isCharging);
-
-        CastPole(currentPoleCharge);
     }
 
-    void CastPole(float castDistance)
+    /// <summary>
+    /// Called by animator
+    /// </summary>
+    public void Cast()
     {
-        bobberObject.SetActive(true);
-
-        rb.AddForce(castDistance * transform.up, ForceMode.Impulse);
-        rb.AddForce(castDistance * transform.forward, ForceMode.Force);
-        
+        bobberController.ApplyForcesOnBobber(currentPoleCharge, initialBobberVelocityY);
     }
 
+    /// <summary>
+    /// Destroys Fishing Bobber
+    /// </summary>
+    /// <param name="ctx"></param>
+    void ReelIn(InputAction.CallbackContext ctx)
+    {
+        bobberController.DisableBobber();
+    }
+
+    /// <summary>
+    /// Subscribes functions to the correct controls
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void InitializeControls(InputEvent ctx)
+    {
+        ctx.Action.Movement.ReelIn.performed += ReelIn;
+    }
     private void OnEnable()
     {
         inputController.castPole += ChargeCast;
