@@ -90,6 +90,11 @@ public class InputController : MonoBehaviour
     public bool ApplyMovementEffects { get { return applyMovementEffects; } }
     public Vector2 MoveInput { get { return moveInput; } }
 
+
+    private const float EFFECTTHRESHOLD = 80f;
+    private const float LOOKCLAMP = 90f;
+    private const float SENSITIVITYSCALEFACTOR = 100f;
+
     void Awake()
     {
         //Initialize Controls
@@ -186,19 +191,20 @@ public class InputController : MonoBehaviour
     private void Look()
     {
         //Check if player is looking too far up or down
-        applyMovementEffects = lookRotation > 80 || lookRotation < -80;
+        applyMovementEffects = lookRotation > EFFECTTHRESHOLD || lookRotation < -EFFECTTHRESHOLD;
 
         //Read mouse input
+        //If implementing pausing, change this
         Vector2 lookForce = playerMovement.Look?.ReadValue<Vector2>() ?? Vector2.zero;
 
         //Turn the player with the X-input
-        gameObject.transform.Rotate(lookForce.x * sensitivity * Vector3.up / 100);
+        gameObject.transform.Rotate(lookForce.x * (sensitivity * Vector3.up) / SENSITIVITYSCALEFACTOR);
 
         //Add Y-input multiplied by sensitivity to float
-        lookRotation += (-lookForce.y * sensitivity / 100);
+        lookRotation += (-lookForce.y * sensitivity / SENSITIVITYSCALEFACTOR);
 
         //Clamp the look rotation so the player can't flip the camera
-        lookRotation = Mathf.Clamp(lookRotation, -90, 90);
+        lookRotation = Mathf.Clamp(lookRotation, -LOOKCLAMP, LOOKCLAMP);
 
         //Set cameras rotation
         cam.transform.eulerAngles = new(lookRotation, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);

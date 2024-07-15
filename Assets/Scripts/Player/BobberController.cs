@@ -10,13 +10,11 @@ public class BobberController : MonoBehaviour
 
     private GameObject bobberInstance;
 
-    // Start is called before the first frame update
     void Start()
     {
         bobberLineRenderer = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         bobberLineRenderer.SetPosition(0, transform.position);
@@ -37,8 +35,11 @@ public class BobberController : MonoBehaviour
 
         rb.velocity = castDistance * new Vector3(transform.parent.forward.x, initialVelocity, transform.parent.forward.z);
     }
+
     public void DisableBobber()
     {
+        bobberLineRenderer.SetPosition(1, transform.position);
+
         bobberLineRenderer.enabled = false;
 
         if (bobberInstance != null)

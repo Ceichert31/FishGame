@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -76,13 +74,15 @@ public class FishingController : MonoBehaviour
     }
 
     /// <summary>
-    /// Destroys Fishing Bobber
+    /// Called by animator
+    /// </summary>
+    public void DisableBobber() => bobberController.DisableBobber();
+
+    /// <summary>
+    /// Changes animation to reel in animation
     /// </summary>
     /// <param name="ctx"></param>
-    void ReelIn(InputAction.CallbackContext ctx)
-    {
-        bobberController.DisableBobber();
-    }
+    void ReelIn(InputAction.CallbackContext ctx) => poleAnimator.SetTrigger("ReelIn");
 
     /// <summary>
     /// Subscribes functions to the correct controls
@@ -96,7 +96,6 @@ public class FishingController : MonoBehaviour
     {
         inputController.castPole += ChargeCast;
     }
-
     private void OnDisable()
     {
         inputController.castPole -= ChargeCast;
