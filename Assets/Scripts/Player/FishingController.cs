@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class FishingController : MonoBehaviour
 {   
@@ -95,10 +94,12 @@ public class FishingController : MonoBehaviour
     /// <param name="ctx"></param>
     public void InitializeControls(InputEvent ctx)
     {
-        ctx.Action.Movement.ReelIn.performed += ReelIn;
+        ctx.Action.Fishing.Enable();
 
-        ctx.Action.Movement.Fire.performed += StartCast;
+        ctx.Action.Fishing.ReelIn.performed += ReelIn;
 
-        ctx.Action.Movement.Fire.canceled += StopCast;
+        ctx.Action.Fishing.Fire.performed += StartCast;
+
+        ctx.Action.Fishing.Fire.canceled += StopCast;
     }
 }

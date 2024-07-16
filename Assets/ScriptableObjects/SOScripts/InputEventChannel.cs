@@ -2,7 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Events/Input Event Channel")]
-public class InputEventChannel : GenericEventChannel<InputEvent> { }
+public class InputEventChannel : GenericEventChannel<InputEvent> 
+{
+    public void SwitchControlModes(InputEvent ctx, bool isInCombat)
+    {
+        if (isInCombat)
+        {
+            ctx.Action.Fishing.Disable();
+            ctx.Action.Combat.Enable();
+        }
+        else
+        {
+            ctx.Action.Fishing.Enable();
+            ctx.Action.Combat.Disable();
+        }
+    }
+}
 [System.Serializable]
 public struct InputEvent
 {

@@ -3,7 +3,6 @@ using UnityEngine;
 public class BobberController : MonoBehaviour
 {
     [Header("Bobber References")]
-
     private LineRenderer bobberLineRenderer;
 
     [SerializeField] private GameObject bobberPrefab;
@@ -45,4 +44,6 @@ public class BobberController : MonoBehaviour
         if (bobberInstance != null)
             Destroy(bobberInstance);
     }
+
+   
 }

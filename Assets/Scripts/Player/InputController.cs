@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class InputController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private FOVEventChannel fieldofViewSO;
     [SerializeField] private InputEventChannel input_EventChannel;
-    [SerializeField] private FishingEventChannel fishing_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -65,6 +65,8 @@ public class InputController : MonoBehaviour
     private PlayerControls playerControls;
     private PlayerControls.MovementActions playerMovement;
 
+    private InputEvent inputEvent;
+
     //Physics References
     private Rigidbody rb;
 
@@ -88,7 +90,7 @@ public class InputController : MonoBehaviour
     public bool ApplyMovementEffects { get { return applyMovementEffects; } }
     public Vector2 MoveInput { get { return moveInput; } }
 
-
+    //Constants
     private const float EFFECTTHRESHOLD = 80f;
     private const float LOOKCLAMP = 90f;
     private const float SENSITIVITYSCALEFACTOR = 100f;
@@ -99,18 +101,21 @@ public class InputController : MonoBehaviour
         playerControls = new PlayerControls();
         playerMovement = playerControls.Movement;
 
+        //Initialize inputs on other scripts
+        inputEvent = new InputEvent(playerControls);
+
+        input_EventChannel.CallEvent(inputEvent);
+
         rb = GetComponent<Rigidbody>();
 
         cam = GetComponentInChildren<Camera>();
 
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
-
-        input_EventChannel.CallEvent(new InputEvent(playerControls));
-
     }
 
     void Update()
     {
+        //Ground raycast
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, out groundHit, offsetRayDistance, groundLayer);
     }
 
@@ -258,5 +263,15 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed -= StartInteract;
 
         playerMovement.Interact.canceled -= EndInteract;
+
+        playerControls.Fishing.Disable();
+
+        playerControls.Combat.Disable();
+    }
+
+    [ContextMenu("Switch Mode")]
+    public void SwitchInputMode()
+    {
+        input_EventChannel.SwitchControlModes(inputEvent);
     }
 }

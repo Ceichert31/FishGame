@@ -28,15 +28,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""f4011b1d-cdf8-49ba-923c-2cbfe4942bd7"",
             ""actions"": [
                 {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""656be61c-b315-4b71-9b92-0968bee99364"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""7414bbf0-257a-413b-959c-2df8fb679696"",
@@ -76,15 +67,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""cc8a0351-c8d9-411f-a956-fc7b3f6407e7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reel In"",
-                    ""type"": ""Button"",
-                    ""id"": ""254c69df-e060-443f-8387-3369f413f462"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -259,61 +241,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6a107195-0b60-4aea-a4bd-f2ed3b430f6e"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""08844d01-50ca-41f5-9954-dcb307647017"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""130c876e-f5ff-4565-8b70-ffa0d9415568"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ba35a15e-d81d-4330-b37f-61b87d74aef3"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""44dbcba4-e299-472e-b4b0-3b411c135b95"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""a91844f8-07d5-4c5c-a198-11a0725d8ee0"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -344,10 +271,91 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Combat"",
+            ""id"": ""3e2f5747-7474-4665-b8f7-903e0d1b51d8"",
+            ""actions"": [
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""6986f665-7c05-4158-b8b6-0634e596abac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reel In"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb828f42-eb67-4746-b441-77c50723f2a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c1516ed0-da9e-41dd-8e81-b6cccf4e2d73"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""97fa9c48-3765-479d-be4f-4995ab4a53d1"",
+                    ""id"": ""7d617cda-e5da-4d56-b32f-3dbbe6c5cbb4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92ebc70d-3fa6-41da-9c21-cc3b503f7103"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c91c5d3a-9cb6-4d2c-806e-b25c22d0f11b"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d73c0b43-1818-43e5-97bb-89f5a17ab3b3"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba48c891-38f6-4aee-a35f-670dae2a44ec"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -873,19 +881,113 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Fishing"",
+            ""id"": ""96e2299d-0eda-4426-ab56-c1e422e0b563"",
+            ""actions"": [
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c504a24-0a3b-48e2-a80c-dd48402455f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reel In"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ecfba91-baae-4a39-a15e-82e5f6bce581"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""83d601c5-d328-481e-b7e7-b81af7aa972e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reel In"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf1b8593-aadf-465d-8754-10e2d4674c87"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f921e2a-649b-42b6-ab47-4e4f03501610"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d75a835-f503-4ab1-a8bf-22f40f689c4a"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""017d0b67-d8f0-44f4-bbc6-b9a22d145a49"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c29e461b-276f-494d-b4c3-f7257d58a727"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Fire = m_Movement.FindAction("Fire", throwIfNotFound: true);
         m_Movement_Look = m_Movement.FindAction("Look", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
-        m_Movement_ReelIn = m_Movement.FindAction("Reel In", throwIfNotFound: true);
+        // Combat
+        m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
+        m_Combat_Fire = m_Combat.FindAction("Fire", throwIfNotFound: true);
+        m_Combat_ReelIn = m_Combat.FindAction("Reel In", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -898,6 +1000,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Fishing
+        m_Fishing = asset.FindActionMap("Fishing", throwIfNotFound: true);
+        m_Fishing_Fire = m_Fishing.FindAction("Fire", throwIfNotFound: true);
+        m_Fishing_ReelIn = m_Fishing.FindAction("Reel In", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -959,24 +1065,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Movement
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Fire;
     private readonly InputAction m_Movement_Look;
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Dash;
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Interact;
-    private readonly InputAction m_Movement_ReelIn;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
         public MovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Fire => m_Wrapper.m_Movement_Fire;
         public InputAction @Look => m_Wrapper.m_Movement_Look;
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Dash => m_Wrapper.m_Movement_Dash;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
-        public InputAction @ReelIn => m_Wrapper.m_Movement_ReelIn;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -986,9 +1088,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
@@ -1004,16 +1103,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @ReelIn.started += instance.OnReelIn;
-            @ReelIn.performed += instance.OnReelIn;
-            @ReelIn.canceled += instance.OnReelIn;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
         {
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
@@ -1029,9 +1122,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @ReelIn.started -= instance.OnReelIn;
-            @ReelIn.performed -= instance.OnReelIn;
-            @ReelIn.canceled -= instance.OnReelIn;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -1049,6 +1139,60 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public MovementActions @Movement => new MovementActions(this);
+
+    // Combat
+    private readonly InputActionMap m_Combat;
+    private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
+    private readonly InputAction m_Combat_Fire;
+    private readonly InputAction m_Combat_ReelIn;
+    public struct CombatActions
+    {
+        private @PlayerControls m_Wrapper;
+        public CombatActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fire => m_Wrapper.m_Combat_Fire;
+        public InputAction @ReelIn => m_Wrapper.m_Combat_ReelIn;
+        public InputActionMap Get() { return m_Wrapper.m_Combat; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CombatActions set) { return set.Get(); }
+        public void AddCallbacks(ICombatActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CombatActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CombatActionsCallbackInterfaces.Add(instance);
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+            @ReelIn.started += instance.OnReelIn;
+            @ReelIn.performed += instance.OnReelIn;
+            @ReelIn.canceled += instance.OnReelIn;
+        }
+
+        private void UnregisterCallbacks(ICombatActions instance)
+        {
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+            @ReelIn.started -= instance.OnReelIn;
+            @ReelIn.performed -= instance.OnReelIn;
+            @ReelIn.canceled -= instance.OnReelIn;
+        }
+
+        public void RemoveCallbacks(ICombatActions instance)
+        {
+            if (m_Wrapper.m_CombatActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICombatActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CombatActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CombatActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CombatActions @Combat => new CombatActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1167,14 +1311,71 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Fishing
+    private readonly InputActionMap m_Fishing;
+    private List<IFishingActions> m_FishingActionsCallbackInterfaces = new List<IFishingActions>();
+    private readonly InputAction m_Fishing_Fire;
+    private readonly InputAction m_Fishing_ReelIn;
+    public struct FishingActions
+    {
+        private @PlayerControls m_Wrapper;
+        public FishingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fire => m_Wrapper.m_Fishing_Fire;
+        public InputAction @ReelIn => m_Wrapper.m_Fishing_ReelIn;
+        public InputActionMap Get() { return m_Wrapper.m_Fishing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(FishingActions set) { return set.Get(); }
+        public void AddCallbacks(IFishingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_FishingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_FishingActionsCallbackInterfaces.Add(instance);
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+            @ReelIn.started += instance.OnReelIn;
+            @ReelIn.performed += instance.OnReelIn;
+            @ReelIn.canceled += instance.OnReelIn;
+        }
+
+        private void UnregisterCallbacks(IFishingActions instance)
+        {
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+            @ReelIn.started -= instance.OnReelIn;
+            @ReelIn.performed -= instance.OnReelIn;
+            @ReelIn.canceled -= instance.OnReelIn;
+        }
+
+        public void RemoveCallbacks(IFishingActions instance)
+        {
+            if (m_Wrapper.m_FishingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IFishingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_FishingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_FishingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public FishingActions @Fishing => new FishingActions(this);
     public interface IMovementActions
     {
-        void OnFire(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface ICombatActions
+    {
+        void OnFire(InputAction.CallbackContext context);
         void OnReelIn(InputAction.CallbackContext context);
     }
     public interface IUIActions
@@ -1189,5 +1390,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IFishingActions
+    {
+        void OnFire(InputAction.CallbackContext context);
+        void OnReelIn(InputAction.CallbackContext context);
     }
 }
