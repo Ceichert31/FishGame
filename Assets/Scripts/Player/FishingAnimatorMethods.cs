@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class FishingAnimatorMethods : MonoBehaviour
 {
-
-
     private FishingController fishingController;
+
+    private CombatController combatController;
 
     private Animator animator;
 
     private void Start()
     {
         fishingController = GetComponentInParent<FishingController>();
+
+        combatController = GetComponentInParent<CombatController>();
 
         animator = GetComponent<Animator>();
     }
@@ -31,4 +33,9 @@ public class FishingAnimatorMethods : MonoBehaviour
     {
         animator.SetBool("IsInCombat", ctx.Value);
     }
+
+    /// <summary>
+    /// Called by animator
+    /// </summary>
+    public void CastGrapple() => fishingController.Cast();
 }

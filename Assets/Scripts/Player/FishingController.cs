@@ -31,6 +31,10 @@ public class FishingController : MonoBehaviour
         bobberController = GetComponentInChildren<BobberController>();
     }
 
+    /// <summary>
+    /// Initiate casting fishing rod
+    /// </summary>
+    /// <param name="isCast"></param>
     void ChargeCast(bool isCast)
     {
         if (!isCast)
@@ -39,6 +43,10 @@ public class FishingController : MonoBehaviour
             isCharging = false;
     }
 
+    /// <summary>
+    /// Determine amount of power when casting
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ChargeFishingPole()
     {
         currentPoleCharge = MINPOLECHARGE;
@@ -65,6 +73,9 @@ public class FishingController : MonoBehaviour
         poleAnimator.SetBool("IsCharging", isCharging);
     }
 
+    /// <summary>
+    /// Apply forces to bobber
+    /// </summary>
     public void Cast()
     {
         bobberController.ApplyForcesOnBobber(currentPoleCharge, initialBobberVelocityY);
