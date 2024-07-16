@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportManager : MonoBehaviour
+public class TransitionManager : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private ModeEventChannel mode_EventChannel;
+    [SerializeField] private VoidEventChannel void_EventChannel;
 
     [Header("Teleport Manager Settings")]
     [SerializeField] private Transform arenaTransform;
@@ -26,7 +27,11 @@ public class TeleportManager : MonoBehaviour
         //Teleport player to arena
         Player.position = arenaTransform.position;
 
-        mode_EventChannel.TriggerEvent();
+        //Switch to combat mode
+        mode_EventChannel.TriggerEvent(true);
+
+        //Disable line renderer
+        void_EventChannel.CallEvent(new());
     }
 
     /// <summary>
@@ -34,8 +39,10 @@ public class TeleportManager : MonoBehaviour
     /// </summary>
     public void ReturnToSavedPos()
     {
+        //Return player
         Player.position = lastPosition.position;
 
-        mode_EventChannel.TriggerEvent();
+        //Switch to fishing mode
+        mode_EventChannel.TriggerEvent(false);
     }
 }

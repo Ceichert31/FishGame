@@ -7,6 +7,7 @@ public class InputController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FOVEventChannel fieldofViewSO;
     [SerializeField] private InputEventChannel input_EventChannel;
+    [SerializeField] private ModeEventChannel mode_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -251,6 +252,8 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed += StartInteract;
 
         playerMovement.Interact.canceled += EndInteract;
+
+        mode_EventChannel.SwitchModes += SwitchInputMode;
     }
     private void OnDisable()
     {
@@ -264,14 +267,16 @@ public class InputController : MonoBehaviour
 
         playerMovement.Interact.canceled -= EndInteract;
 
+        mode_EventChannel.SwitchModes -= SwitchInputMode;
+
         playerControls.Fishing.Disable();
 
         playerControls.Combat.Disable();
     }
 
     [ContextMenu("Switch Mode")]
-    public void SwitchInputMode()
+    public void SwitchInputMode(bool isInCombat)
     {
-        input_EventChannel.SwitchControlModes(inputEvent);
+        input_EventChannel.SwitchControlModes(inputEvent, isInCombat);
     }
 }
