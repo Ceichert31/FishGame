@@ -8,12 +8,10 @@ public class InputEventChannel : GenericEventChannel<InputEvent>
     {
         if (isInCombat)
         {
-            ctx.Action.Fishing.Disable();
             ctx.Action.Combat.Enable();
         }
         else
         {
-            ctx.Action.Fishing.Enable();
             ctx.Action.Combat.Disable();
         }
     }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -7,7 +8,6 @@ public class InputController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FOVEventChannel fieldofViewSO;
     [SerializeField] private InputEventChannel input_EventChannel;
-    [SerializeField] private ModeEventChannel mode_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -105,13 +105,13 @@ public class InputController : MonoBehaviour
         //Initialize inputs on other scripts
         inputEvent = new InputEvent(playerControls);
 
-        input_EventChannel.CallEvent(inputEvent);
-
         rb = GetComponent<Rigidbody>();
 
         cam = GetComponentInChildren<Camera>();
 
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
+
+        input_EventChannel.CallEvent(inputEvent);
     }
 
     void Update()
@@ -252,8 +252,6 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed += StartInteract;
 
         playerMovement.Interact.canceled += EndInteract;
-
-        mode_EventChannel.SwitchModes += SwitchInputMode;
     }
     private void OnDisable()
     {
@@ -267,16 +265,13 @@ public class InputController : MonoBehaviour
 
         playerMovement.Interact.canceled -= EndInteract;
 
-        mode_EventChannel.SwitchModes -= SwitchInputMode;
-
         playerControls.Fishing.Disable();
 
         playerControls.Combat.Disable();
     }
 
-    [ContextMenu("Switch Mode")]
-    public void SwitchInputMode(bool isInCombat)
+    public void SwitchInputMode(BoolEvent isInCombat)
     {
-        input_EventChannel.SwitchControlModes(inputEvent, isInCombat);
+        input_EventChannel.SwitchControlModes(inputEvent, isInCombat.Value);
     }
 }

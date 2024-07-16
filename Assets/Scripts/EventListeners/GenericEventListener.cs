@@ -9,10 +9,9 @@ public abstract class GenericEventListener<TEventChannel, TEventType> : MonoBeha
 
     protected virtual void OnEnable()
     {
-        if (eventChannel != null)
-        {
-            eventChannel.OnEventCalled.AddListener(OnEventCalled);
-        }
+        if (eventChannel == null) return;
+
+        eventChannel.OnEventCalled.AddListener(OnEventCalled);
     }
 
     protected virtual void OnDisable()

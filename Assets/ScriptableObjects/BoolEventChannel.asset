@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94c515379d7d57439a54878d5a15dfe, type: 3}
-  m_Name: ModeEventChannel
+  m_Script: {fileID: 11500000, guid: 46a07a6d498601d4ab63ac18ec9ad4fe, type: 3}
+  m_Name: BoolEventChannel
   m_EditorClassIdentifier: 
+  OnEventCalled:
+    m_PersistentCalls:
+      m_Calls: []

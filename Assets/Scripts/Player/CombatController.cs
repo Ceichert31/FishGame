@@ -8,16 +8,16 @@ public class CombatController : MonoBehaviour
 
     private float parryCooldown;
 
-    private Animator animator;
+    private Animator hookAnimator;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        hookAnimator = transform.GetChild(1).GetComponent<Animator>();
     }
 
     void FireGrapple(InputAction.CallbackContext ctx)
     {
-        Debug.Log("1");
+        
     }
 
     void Parry(InputAction.CallbackContext ctx) 
@@ -27,7 +27,7 @@ public class CombatController : MonoBehaviour
         {
             parryCooldown = Time.time + parryDelay;
 
-            animator.SetTrigger("Parry");
+            hookAnimator.SetTrigger("Parry");
         }
     }   
 

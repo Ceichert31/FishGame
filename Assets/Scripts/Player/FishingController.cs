@@ -26,7 +26,7 @@ public class FishingController : MonoBehaviour
 
     void Awake()
     {
-        poleAnimator = GetComponent<Animator>();
+        poleAnimator = transform.GetChild(0).GetComponent<Animator>();
 
         bobberController = GetComponentInChildren<BobberController>();
     }
@@ -65,9 +65,6 @@ public class FishingController : MonoBehaviour
         poleAnimator.SetBool("IsCharging", isCharging);
     }
 
-    /// <summary>
-    /// Called by animator
-    /// </summary>
     public void Cast()
     {
         bobberController.ApplyForcesOnBobber(currentPoleCharge, initialBobberVelocityY);
@@ -82,7 +79,12 @@ public class FishingController : MonoBehaviour
     /// Changes animation to reel in animation
     /// </summary>
     /// <param name="ctx"></param>
-    void ReelIn(InputAction.CallbackContext ctx) => poleAnimator.SetTrigger("ReelIn");
+    void ReelIn(InputAction.CallbackContext ctx)
+    {
+        if (poleAnimator.GetBool("IsInCombat")) return;
+
+        poleAnimator.SetTrigger("ReelIn");
+    }
 
     public void StartCast(InputAction.CallbackContext ctx) => ChargeCast(false);
 

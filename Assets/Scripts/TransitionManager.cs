@@ -5,8 +5,8 @@ using UnityEngine;
 public class TransitionManager : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
-    [SerializeField] private ModeEventChannel mode_EventChannel;
     [SerializeField] private VoidEventChannel void_EventChannel;
+    [SerializeField] private BoolEventChannel mode_EventChannel;
 
     [Header("Teleport Manager Settings")]
     [SerializeField] private Transform arenaTransform;
@@ -28,7 +28,7 @@ public class TransitionManager : MonoBehaviour
         Player.position = arenaTransform.position;
 
         //Switch to combat mode
-        mode_EventChannel.TriggerEvent(true);
+        mode_EventChannel.CallEvent(new(true));
 
         //Disable line renderer
         void_EventChannel.CallEvent(new());
@@ -43,6 +43,6 @@ public class TransitionManager : MonoBehaviour
         Player.position = lastPosition.position;
 
         //Switch to fishing mode
-        mode_EventChannel.TriggerEvent(false);
+        mode_EventChannel.CallEvent(new(false));
     }
 }
