@@ -604,8 +604,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3535347646761719364, guid: 80846315aa7f15d448f46fb91a8284e3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080805000177488321}
   m_SourcePrefab: {fileID: 100100000, guid: 80846315aa7f15d448f46fb91a8284e3, type: 3}
+--- !u!4 &1080805000177488319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2371654997809709866, guid: 80846315aa7f15d448f46fb91a8284e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1080805000177488318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1080805000177488320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3535347646761719364, guid: 80846315aa7f15d448f46fb91a8284e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1080805000177488318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1080805000177488321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080805000177488320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008781e71439ae4ebf5deb765b5b8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
+    type: 3}
+  poolSize: 10
+  maxPoolSize: 100
+  defaultSpawnLocation: {fileID: 1080805000177488319}
+  defaultProjectileAmmount: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
