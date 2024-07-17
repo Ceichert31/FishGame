@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BobberInstance : MonoBehaviour
 {
-   
-
     [Header("Bobber Settings")]
     [SerializeField] private int waterLayer = 4;
 

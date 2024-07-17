@@ -9,30 +9,19 @@ public class CombatController : MonoBehaviour
 
     [SerializeField] private float grappleRange = 20f;
 
-    [SerializeField] private float grappleFireTime = 3f;
+    [SerializeField] private float grappleFireTime = 1f;
 
-    private Transform bobberHolder;
-
-    private Transform bobberObject;
+    private BobberController bobberController;
 
     private float parryCooldown;
 
     private Animator hookAnimator;
 
-    private bool canGrapple;
-
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
 
-        bobberHolder = transform.GetChild(0).GetChild(1);
-
-        bobberObject = transform.GetChild(0).GetChild(1).GetChild(0);
-    }
-
-    private void Update()
-    {
-        Debug.DrawRay(transform.position, transform.forward * grappleRange, Color.red);
+        bobberController = GetComponentInChildren<BobberController>();
     }
 
     /// <summary>
@@ -42,68 +31,15 @@ public class CombatController : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange))
         {
-            StartCoroutine(ShootGrapple(grappleFireTime, hitInfo.point));
-
             if (hitInfo.collider.CompareTag("Weakpoint"))
             {
-                //Lerp player to point
-                Debug.Log("Grapple!");
-                canGrapple = true;
+                bobberController.StartGrapple(grappleFireTime, hitInfo.point, true);
             }
             else
             {
-                //Retract grapple
-                canGrapple = false;
-                Debug.Log("Can't Grapple!");
+                bobberController.StartGrapple(grappleFireTime, hitInfo.point, false);
             }
         }
-    }
-
-    IEnumerator ShootGrapple(float totalTime, Vector3 hitPoint)
-    {
-        bobberObject.parent = null;
-
-        Vector3 startPos = bobberObject.position;
-
-        float timeElapsed = 0f;
-
-        while (timeElapsed < totalTime)
-        {
-            timeElapsed += Time.deltaTime;
-
-            bobberObject.position = Vector3.Lerp(startPos, hitPoint, timeElapsed / totalTime);
-
-            yield return null;
-        }
-        bobberObject.position = hitPoint;
-
-        if (canGrapple)
-        {
-
-        }
-        else
-        {
-            StartCoroutine(RetractGrapple(grappleFireTime));
-        }
-    }
-
-    IEnumerator RetractGrapple(float totalTime)
-    {
-        Vector3 startPos = bobberObject.position;
-
-        float timeElapsed = 0f;
-
-        while (timeElapsed < totalTime)
-        {
-            timeElapsed += Time.deltaTime;
-
-            bobberObject.position = Vector3.Lerp(startPos, bobberHolder.position, timeElapsed / totalTime);
-
-            yield return null;
-        }
-        bobberObject.position = bobberHolder.position;
-
-        bobberObject.parent = bobberHolder;
     }
 
     /// <summary>
