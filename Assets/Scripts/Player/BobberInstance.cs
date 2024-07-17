@@ -13,7 +13,7 @@ public class BobberInstance : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out SpawnPool waterInstance))
             {
-                waterInstance.FishSpawnPool();
+                waterInstance.StartFishing();
             }
         }
     }

@@ -150,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eac8588cf693649b2785316c067043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobberPrefab: {fileID: 4266251878843577404, guid: 8e6526d52dd481e40a550860c9693656,
-    type: 3}
 --- !u!114 &440158524576203949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryDelay: 1
+  grappleRange: 20
+  grappleFireTime: 3
 --- !u!114 &3262913617914932328
 MonoBehaviour:
   m_ObjectHideFlags: 0

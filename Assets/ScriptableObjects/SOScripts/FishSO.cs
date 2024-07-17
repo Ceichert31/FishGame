@@ -8,7 +8,7 @@ public class FishSO : ScriptableObject
     public RangedFloat spawnChance;
 
     [Tooltip("Fish's prefab")]
-    public GameObject fishModel;
+    public GameObject fishPrefab;
 }
 [Serializable]
 public struct RangedFloat
