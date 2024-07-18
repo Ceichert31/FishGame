@@ -13,6 +13,9 @@ public class BobberController : MonoBehaviour
     private Transform bobberObject;
 
     private Rigidbody rb;
+
+    private Sequencer sequencer;
+
     private Transform Player => GameManager.Instance.Player.transform;
 
     void Start()
@@ -22,6 +25,8 @@ public class BobberController : MonoBehaviour
         bobberObject = transform.GetChild(0);
 
         rb = bobberObject.GetComponent<Rigidbody>();
+
+        sequencer = GetComponent<Sequencer>();
     }
 
     void Update()
@@ -145,6 +150,8 @@ public class BobberController : MonoBehaviour
         float timeElapsed = 0f;
 
         fov_EventChannel.CallEvent(new());
+
+        sequencer.InitializeSequence();
 
         while (timeElapsed < totalTime)
         {
