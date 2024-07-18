@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FishingAnimatorMethods : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private VoidEventChannel reeledIn_EventChannel;
+
     private FishingController fishingController;
 
     private CombatController combatController;
@@ -38,4 +41,10 @@ public class FishingAnimatorMethods : MonoBehaviour
     /// Called by animator
     /// </summary>
     public void CastGrapple() => fishingController.Cast();
+
+
+    public void ReeledInEventCall()
+    {
+        reeledIn_EventChannel.CallEvent(new());
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnPool : MonoBehaviour
@@ -14,14 +15,27 @@ public class SpawnPool : MonoBehaviour
     [Tooltip("How often it will be determined if a fish has been hooked")]
     [SerializeField] private float fishingTickRate = 2f;
 
+    [Tooltip("How long the fish will be hooked before it is lost")]
+    [SerializeField] private float fishWaitTime = 3f;
+
+    private bool hasReeledIn;
+
     public void StartFishing()
     {
+        StopAllCoroutines();
         StartCoroutine(StartFishingTimer());
+    }
+
+    private void Update()
+    {
+        Debug.Log(hasReeledIn);
     }
 
     IEnumerator StartFishingTimer()
     {
         bool caughtFish = false;
+
+        Debug.Log(caughtFish);
 
         while (!caughtFish)
         {
@@ -33,10 +47,36 @@ public class SpawnPool : MonoBehaviour
 
             if (chance == 0)
                 caughtFish = true;
-                
+
+            yield return null;
+        }
+        StartCoroutine(FishHookedWindow());
+    }
+
+    IEnumerator FishHookedWindow()
+    {
+        float currentTime = Time.time + fishWaitTime;
+
+        while (!hasReeledIn)
+        {
+
+            //Play animation for bobber
+            Debug.Log("FISH HOOKED!");
+
+            //If player takes too long to reel in exit coroutine
+            if (currentTime < Time.time)
+            {
+                Debug.Log("Fish got away");
+
+                StartCoroutine(StartFishingTimer());
+
+                StopCoroutine(FishHookedWindow());
+            }
+
             yield return null;
         }
 
+        //If reeled in decide fish
         FishSpawnPool();
     }
 
@@ -73,5 +113,14 @@ public class SpawnPool : MonoBehaviour
             //No fish bite
         }
 
+    }
+
+    /// <summary>
+    /// Listens for the signal the player has reeled in
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void HasReeledIn(VoidEvent ctx)
+    {
+        hasReeledIn = !hasReeledIn;
     }
 }

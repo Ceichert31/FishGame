@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour
-{   
+{
     [Header("Fishing Pole Settings")]
     [Tooltip("The maximum amount of charge the pole can gain")]
     [SerializeField] private float maxPoleCharge = 10f;
@@ -94,6 +94,7 @@ public class FishingController : MonoBehaviour
     {
         if (poleAnimator.GetBool("IsInCombat")) return;
 
+        //Trigger animation
         poleAnimator.SetTrigger("ReelIn");
     }
 
