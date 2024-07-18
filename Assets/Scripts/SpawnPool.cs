@@ -20,22 +20,18 @@ public class SpawnPool : MonoBehaviour
 
     private bool hasReeledIn;
 
+    private Coroutine instance = null;
+
     public void StartFishing()
     {
         StopAllCoroutines();
-        StartCoroutine(StartFishingTimer());
-    }
 
-    private void Update()
-    {
-        Debug.Log(hasReeledIn);
+        instance = StartCoroutine(StartFishingTimer());
     }
 
     IEnumerator StartFishingTimer()
     {
         bool caughtFish = false;
-
-        Debug.Log(caughtFish);
 
         while (!caughtFish)
         {
@@ -50,11 +46,13 @@ public class SpawnPool : MonoBehaviour
 
             yield return null;
         }
+
         StartCoroutine(FishHookedWindow());
     }
 
     IEnumerator FishHookedWindow()
     {
+        //Timer
         float currentTime = Time.time + fishWaitTime;
 
         while (!hasReeledIn)
@@ -68,9 +66,7 @@ public class SpawnPool : MonoBehaviour
             {
                 Debug.Log("Fish got away");
 
-                StartCoroutine(StartFishingTimer());
-
-                StopCoroutine(FishHookedWindow());
+                StopAllCoroutines();
             }
 
             yield return null;
@@ -80,6 +76,9 @@ public class SpawnPool : MonoBehaviour
         FishSpawnPool();
     }
 
+    /// <summary>
+    /// When called, Sends a fish Scriptable Object to Boss Manager
+    /// </summary>
     void FishSpawnPool()
     {
         //Fish spawn chance
@@ -122,5 +121,10 @@ public class SpawnPool : MonoBehaviour
     public void HasReeledIn(VoidEvent ctx)
     {
         hasReeledIn = !hasReeledIn;
+
+        Debug.Log("Reeled IN!");
+
+        if (instance != null)
+            StopCoroutine(instance);
     }
 }
