@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.iOS;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private UIEventChannel ui_EventChannel;
-
-
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI promptText;
 
@@ -16,16 +14,18 @@ public class UIManager : MonoBehaviour
     [Header("Typing Effect Settings")]
     [SerializeField] private float timePerLetter = 0.1f;
 
-
-    public void UpdateTextPrompt(string prompt)
+    public void UpdateTextPrompt(TextEvent ctx)
     {
-        if (prompt == string.Empty)
+        if (ctx.TextPrompt == string.Empty)
         {
             StopAllCoroutines();
             promptText.text = string.Empty;
             return;
         }
-        StartCoroutine(DisplayText(prompt));
+        StartCoroutine(DisplayText(ctx.TextPrompt));
+
+        if (ctx.CanClear)
+            Invoke(nameof(ClearText), ctx.ClearTime);
     }
 
     IEnumerator DisplayText(string prompt)
@@ -39,12 +39,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    void ClearText()
     {
-        ui_EventChannel.UpdatePrompt += UpdateTextPrompt;
-    }
-    private void OnDisable()
-    {
-        ui_EventChannel.UpdatePrompt -= UpdateTextPrompt;
+        promptText.text = string.Empty;
     }
 }

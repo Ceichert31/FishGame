@@ -7,6 +7,7 @@ public class SpawnPool : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private HookedFishEventChannel hooked_EventChannel;
+    [SerializeField] private TextEventChannel ui_EventChannel;
 
     [Header("Spawn Pool Settings")]
     [Tooltip("Fish that can spawn in this water source")]
@@ -20,7 +21,19 @@ public class SpawnPool : MonoBehaviour
 
     private bool hasReeledIn;
 
+    private TextEvent 
+        fishHookedEvent,
+        fishLostEvent;
+
     private Coroutine instance = null;
+
+
+    private void Start()
+    {
+        fishHookedEvent = new TextEvent("Hooked Fish!", 2f, true);
+
+        fishLostEvent = new TextEvent("Fish Got Away...", 2.5f, true);
+    }
 
     public void StartFishing()
     {
@@ -59,12 +72,12 @@ public class SpawnPool : MonoBehaviour
         {
 
             //Play animation for bobber
-            Debug.Log("FISH HOOKED!");
+            Debug.Log("Fish Hooked");
 
             //If player takes too long to reel in exit coroutine
             if (currentTime < Time.time)
             {
-                Debug.Log("Fish got away");
+                ui_EventChannel.CallEvent(fishLostEvent);
 
                 StopAllCoroutines();
             }
