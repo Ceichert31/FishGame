@@ -4,9 +4,6 @@ using UnityEngine.InputSystem.iOS;
 
 public class FOVController : MonoBehaviour
 {
-    [Header("Scriptable Object Reference")]
-    [SerializeField] private FOVEventChannel fovEventChannel;
-
     [Header("Field of View Settings")]
     [SerializeField] private float targetFOV = 10f;
     [SerializeField] private float decayTime = 1f;
@@ -41,12 +38,13 @@ public class FOVController : MonoBehaviour
 
         mainCamera.fieldOfView = Mathf.SmoothDamp(mainCamera.fieldOfView, fieldOfViewTarget + additionalFOV, ref currentVelocity, smoothTime);
     }
+
     /// <summary>
-    /// Called by event channel
+    /// Inreases cameras FOV when called
     /// </summary>
     /// <param name="targetFOV"></param>
     /// <param name="timeBeforeDecay"></param>
-    private void IncreaseFOV()
+    public void IncreaseFOV(VoidEvent ctx)
     {
         additionalFOV = targetFOV;
         StartCoroutine(DecreaseFOV(targetFOV, decayTime));
@@ -56,6 +54,4 @@ public class FOVController : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeDecay);
         additionalFOV -= targetFOV;
     }
-    private void OnEnable() => fovEventChannel.FOVControllerUpdate += IncreaseFOV;
-    private void OnDisable() => fovEventChannel.FOVControllerUpdate -= IncreaseFOV;
 }

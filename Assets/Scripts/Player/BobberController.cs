@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BobberController : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private VoidEventChannel fov_EventChannel;
+
     [Header("Bobber References")]
     private LineRenderer bobberLineRenderer;
 
@@ -140,6 +143,8 @@ public class BobberController : MonoBehaviour
         Vector3 startPos = Player.position;
 
         float timeElapsed = 0f;
+
+        fov_EventChannel.CallEvent(new());
 
         while (timeElapsed < totalTime)
         {

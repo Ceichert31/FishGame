@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class InputController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
-    [SerializeField] private FOVEventChannel fieldofViewSO;
+    [SerializeField] private VoidEventChannel fov_EventChannel;
     [SerializeField] private InputEventChannel input_EventChannel;
 
     [Header("Camera Settings")]
@@ -223,7 +223,7 @@ public class InputController : MonoBehaviour
 
         rb.AddForce(MoveDirection() * dashForce, ForceMode.Impulse);
 
-        fieldofViewSO.IncreaseFOV();
+        fov_EventChannel.CallEvent(new());
 
         Invoke(nameof(ResetDash), dashCooldown);
     }
