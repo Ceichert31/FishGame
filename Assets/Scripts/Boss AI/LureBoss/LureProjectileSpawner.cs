@@ -6,6 +6,7 @@ public class LureProjectileSpawner : ProjectileManager
 {
     [SerializeField] Transform defaultSpawnLocation;
     [SerializeField] int defaultProjectileAmmount;
+    [SerializeField] GameObject specialProjectile;
     private void Start()
     {
         OnStart();
@@ -14,15 +15,32 @@ public class LureProjectileSpawner : ProjectileManager
     [ContextMenu("SpawnObjects")]
     void DevSpawnObjects()
     {
-        InitalizeProjectileSpawner(defaultProjectileAmmount, 1, defaultSpawnLocation);
+        InitalizeProjectileSpawner(null, defaultProjectileAmmount, 1, defaultSpawnLocation);
     }
 
-    public override IEnumerator SpawnObjects()
+    [ContextMenu("SpawnSpecialObjects")]
+    void DevSpawnSpecialObject()
     {
-        for (int i = 0; i < projectileAmmount; i++)
+        InitalizeProjectileSpawner(specialProjectile, defaultProjectileAmmount, 1, defaultSpawnLocation);
+    }
+
+    public override IEnumerator SpawnProjectiles(GameObject projectile, int _projectileAmmount)
+    {
+        if (projectile != null)
         {
-            pool.Get();
-            yield return wfs;
+            for (int i = 0; i < _projectileAmmount; i++)
+            {
+                Instantiate(projectile, spefSpawnLocation.position, Quaternion.identity);
+                yield return wfs;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _projectileAmmount; i++)
+            {
+                pool.Get();
+                yield return wfs;
+            }
         }
     }
 }

@@ -18,7 +18,6 @@ public abstract class ProjectileManager : MonoBehaviour
     [Header("TempProjectileInfo")]
     protected Transform spefSpawnLocation;
     protected WaitForSeconds wfs;
-    protected int projectileAmmount;
 
     /// <summary>
     /// Initializes the pool
@@ -29,24 +28,23 @@ public abstract class ProjectileManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Must be called in order to spawn objects
+    /// Must be called in order to spawn objects, if you want normal proj make first variable null
     /// </summary>
     /// <param name="_projectileAmmount"></param>
     /// <param name="timeBetweenProjectile"></param>
     /// <param name="specificSpawnLocation"></param>
-    public virtual void InitalizeProjectileSpawner(int _projectileAmmount, float timeBetweenProjectile, Transform specificSpawnLocation)
+    public virtual void InitalizeProjectileSpawner(GameObject projectile, int _projectileAmmount, float timeBetweenProjectile, Transform specificSpawnLocation)
     {
-        projectileAmmount = _projectileAmmount;
         wfs = new WaitForSeconds(timeBetweenProjectile);
         spefSpawnLocation = specificSpawnLocation;
-        StartCoroutine(nameof(SpawnObjects));
+        StartCoroutine(SpawnProjectiles(projectile, _projectileAmmount));
     }
 
     /// <summary>
     /// IEnumerator that spawns objects based on subscribed behavior
     /// </summary>
     /// <returns></returns>
-    public abstract IEnumerator SpawnObjects();
+    public abstract IEnumerator SpawnProjectiles(GameObject projectile, int _projectileAmmount);
 
     //All methods below are for the creation of the object pool, they are virtual so their behavior is completely up to you if u want to modify it
 
