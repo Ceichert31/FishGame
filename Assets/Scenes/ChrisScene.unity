@@ -736,7 +736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceActions: []
+  sequenceActions:
+  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
+  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
 --- !u!1001 &525744994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,21 +752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
-    - target: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953243081603150980, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953243081603150980, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1607456494}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -815,36 +802,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4893733725445465475, guid: b59b9ea62f378d04da1442badcd2d715,
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: shakeCurve.m_PostInfinity
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5526150300217116315, guid: b59b9ea62f378d04da1442badcd2d715,
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: shakeCurve.m_Curve.Array.size
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 7131482662376626994, guid: b59b9ea62f378d04da1442badcd2d715,
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
-      propertyPath: fov_EventChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17,
-        type: 2}
-    - target: {fileID: 8939591259619301516, guid: b59b9ea62f378d04da1442badcd2d715,
+      propertyPath: shakeCurve.m_Curve.Array.data[1].time
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
-      propertyPath: fov_EventChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17,
-        type: 2}
+      propertyPath: shakeCurve.m_Curve.Array.data[2].time
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[1].value
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[0].inSlope
+      value: 1.3162495
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[1].inSlope
+      value: -0.07707116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[2].inSlope
+      value: -0.8129442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[0].outSlope
+      value: 1.3162495
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[1].inWeight
+      value: 0.21212125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[1].outSlope
+      value: -0.07707116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[2].inWeight
+      value: 0.12437137
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[2].outSlope
+      value: -0.8129442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[0].outWeight
+      value: 0.12063622
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724979756446761185, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: shakeCurve.m_Curve.Array.data[1].outWeight
+      value: 0.116766214
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1635707468}
     - targetCorrespondingSourceObject: {fileID: 1999262351226947678, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       insertIndex: -1
@@ -2219,6 +2255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a3266b27e536b428a354c87f68eeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake_EventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34,
+    type: 2}
   textPrompt: Test!
 --- !u!114 &1383519602
 MonoBehaviour:
@@ -2665,58 +2703,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 1c66b3374bfdfbf45ba60c5bf940f029, type: 3}
---- !u!4 &1607456494 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3306898884867616923, guid: b59b9ea62f378d04da1442badcd2d715,
-    type: 3}
-  m_PrefabInstance: {fileID: 525744994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635707456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
     type: 3}
   m_PrefabInstance: {fileID: 525744994}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1635707459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2155931795023883272, guid: b59b9ea62f378d04da1442badcd2d715,
-    type: 3}
-  m_PrefabInstance: {fileID: 525744994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635707456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55c6132fcbd45d4cbcc762298fc69a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1635707468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635707456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1635707459}
-        m_TargetAssemblyTypeName: FOVController, Assembly-CSharp
-        m_MethodName: IncreaseFOV
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1647507874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,78 +2801,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1784388322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1784388323}
-  - component: {fileID: 1784388324}
-  - component: {fileID: 1784388325}
-  m_Layer: 0
-  m_Name: EventTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1784388323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784388322}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.13052599, z: -0, w: 0.99144495}
-  m_LocalPosition: {x: 27.036005, y: 1.5, z: 27.906824}
-  m_LocalScale: {x: 1, y: 1, z: 16.107752}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
---- !u!65 &1784388324
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784388322}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1784388325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784388322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af39bc712320f04d8f16988be1ceddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
-  textPrompt: Hold [LMB] to charge Fishing Rod
-  textClearTime: 5
-  canClearText: 1
-  isOneTimeUse: 1
-  triggerLayer: 6
 --- !u!1001 &1851626975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3201,12 +3121,12 @@ SceneRoots:
   - {fileID: 1854508718}
   - {fileID: 1647507877}
   - {fileID: 1472551823}
+  - {fileID: 1245451969}
   - {fileID: 66252182}
   - {fileID: 1488626994}
   - {fileID: 1395673340}
   - {fileID: 1292127099}
   - {fileID: 177534961}
-  - {fileID: 1245451969}
   - {fileID: 1383519600}
   - {fileID: 1114564123}
   - {fileID: 145719079}
@@ -3216,4 +3136,3 @@ SceneRoots:
   - {fileID: 986602268}
   - {fileID: 637826343}
   - {fileID: 585196502}
-  - {fileID: 1784388323}

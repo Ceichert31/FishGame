@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TestInteract : MonoBehaviour, IInteract
 {
+    [SerializeField] private FloatEventChannel cameraShake_EventChannel;
+
     [SerializeField] private string textPrompt = "Test!";
 
     public string Prompt { get { return textPrompt; } }
@@ -18,7 +20,8 @@ public class TestInteract : MonoBehaviour, IInteract
 
     public void Interact()
     {
-        testSequencer.InitializeSequence();
+        //testSequencer.InitializeSequence();
+        cameraShake_EventChannel.CallEvent(new(1f));
     }
     public void ExitInteract()
     {

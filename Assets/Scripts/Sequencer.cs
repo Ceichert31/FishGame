@@ -22,6 +22,13 @@ public class Sequencer : MonoBehaviour
         instance = StartCoroutine(nameof(ExecuteSequence));   
     }
 
+    public void InitializeSequence(VoidEvent ctx)
+    {
+        if (instance != null) return;
+
+        instance = StartCoroutine(nameof(ExecuteSequence));
+    }
+
     private IEnumerator ExecuteSequence()
     {
         foreach (SequencerAction action in sequenceActions)

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eac8588cf693649b2785316c067043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
 --- !u!114 &440158524576203949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,15 +197,15 @@ GameObject:
   - component: {fileID: 4893733725445465475}
   - component: {fileID: 2953243081603150980}
   - component: {fileID: 2155931795023883272}
-  - component: {fileID: 6984830378209065211}
   - component: {fileID: 1945164778324247510}
+  - component: {fileID: 6290910717824669202}
   m_Layer: 6
   m_Name: FPSMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4184258596113817863
 Transform:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0f8b16e53a6204184009e4f156c033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldofViewSO: {fileID: 11400000, guid: 527faa6bc3126c34dad27567976f820b, type: 2}
+  fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
   input_EventChannel: {fileID: 11400000, guid: 75403c9808c35f14d88fb5651edefd3a, type: 2}
   sensitivity: 10
   minSensitivity: 1
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c66544aa1f1144981dce73e0d4cfae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 8244151488553780583}
+  mainCamera: {fileID: 3306898884867616923}
   tiltInSpeed: 5
   tiltOutSpeed: 3
   tiltAmount: -2
@@ -463,28 +464,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55c6132fcbd45d4cbcc762298fc69a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovEventChannel: {fileID: 11400000, guid: 527faa6bc3126c34dad27567976f820b, type: 2}
   targetFOV: 10
   decayTime: 1
   fieldOfViewScale: 10
   baseFOV: 75
   maxFOV: 110
   smoothTime: 0.2
---- !u!114 &6984830378209065211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2390676662645113971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sequenceActions:
-  - {fileID: 11400000, guid: 0b2265cfe597f644ca01d4555ca9b91b, type: 2}
-  - {fileID: 11400000, guid: 83c20a862633d0c46add45593eda2fde, type: 2}
 --- !u!114 &1945164778324247510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +489,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8939591259619301516}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
         m_MethodName: SwitchInputMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6290910717824669202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390676662645113971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2155931795023883272}
+        m_TargetAssemblyTypeName: FOVController, Assembly-CSharp
+        m_MethodName: IncreaseFOV
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -673,6 +686,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3306898884867616923}
+  - component: {fileID: 5724979756446761185}
+  - component: {fileID: 2329632361186461140}
   m_Layer: 6
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -696,6 +711,70 @@ Transform:
   - {fileID: 8244151488553780583}
   m_Father: {fileID: 4184258596113817863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5724979756446761185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358661037225534921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.39381647
+      outSlope: 0.39381647
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.092608094
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+--- !u!114 &2329632361186461140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358661037225534921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5724979756446761185}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: StartShaking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7404753998953844394
 GameObject:
   m_ObjectHideFlags: 0
