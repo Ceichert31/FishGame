@@ -229,11 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c66b3374bfdfbf45ba60c5bf940f029,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1784388323}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 1c66b3374bfdfbf45ba60c5bf940f029,
         type: 3}
@@ -604,12 +600,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!4 &307276575 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c66b3374bfdfbf45ba60c5bf940f029,
-    type: 3}
-  m_PrefabInstance: {fileID: 66252182}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &434042017
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.54
+      value: 21.403084
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -769,7 +759,7 @@ PrefabInstance:
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.65
+      value: 24.28082
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -2085,7 +2075,6 @@ GameObject:
   - component: {fileID: 1383519601}
   - component: {fileID: 1383519602}
   - component: {fileID: 1383519603}
-  - component: {fileID: 1383519604}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -2205,8 +2194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
-  - {fileID: 11400000, guid: 0b2265cfe597f644ca01d4555ca9b91b, type: 2}
-  - {fileID: 11400000, guid: 83c20a862633d0c46add45593eda2fde, type: 2}
+  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
+  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
 --- !u!54 &1383519603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2234,34 +2223,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1383519604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383519596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a23a93487938a04b9b11a9fb3fb45b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 75403c9808c35f14d88fb5651edefd3a, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1383519601}
-        m_TargetAssemblyTypeName: TestInteract, Assembly-CSharp
-        m_MethodName: TestEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1395673336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,13 +2756,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784388322}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.933, y: 1, z: -2.863}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.13052599, z: -0, w: 0.99144495}
+  m_LocalPosition: {x: 27.036005, y: 1.5, z: 27.906824}
+  m_LocalScale: {x: 1, y: 1, z: 16.107752}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 307276575}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
 --- !u!65 &1784388324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2821,8 +2782,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.47, z: 0.34}
-  m_Center: {x: -0.0000011920929, y: 0, z: 9.009242e-15}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1784388325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2836,9 +2797,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
-  textPrompt: You feel something watching you
-  textClearTime: 3.5
+  textPrompt: Hold [LMB] to charge Fishing Rod
+  textClearTime: 5
   canClearText: 1
+  isOneTimeUse: 1
   triggerLayer: 6
 --- !u!1001 &1851626975
 PrefabInstance:
@@ -3175,3 +3137,4 @@ SceneRoots:
   - {fileID: 986602268}
   - {fileID: 637826343}
   - {fileID: 585196502}
+  - {fileID: 1784388323}

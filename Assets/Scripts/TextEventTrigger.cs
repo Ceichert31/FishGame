@@ -14,6 +14,8 @@ public class TextEventTrigger : MonoBehaviour
 
     [SerializeField] private bool canClearText = true;
 
+    [SerializeField] private bool isOneTimeUse = true;
+
     [SerializeField] private int triggerLayer;
 
     private TextEvent textEvent;
@@ -26,6 +28,14 @@ public class TextEventTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == triggerLayer)
+        {
             text_EventChannel.CallEvent(textEvent);
+
+            if (isOneTimeUse)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+            
     }
 }
