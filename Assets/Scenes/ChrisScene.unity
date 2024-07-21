@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 1383519602}
   - component: {fileID: 1383519603}
   m_Layer: 7
-  m_Name: Cube
+  m_Name: TestingCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2257,7 +2257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShake_EventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34,
     type: 2}
+  post_EventChannel: {fileID: 11400000, guid: 5b33ebd6997308e4481bcb9a5d33a69a, type: 2}
   textPrompt: Test!
+  profile: {fileID: 11400000, guid: 2151201a3e335a648a08a7b6b9b4d79f, type: 2}
 --- !u!114 &1383519602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2442,6 +2444,8 @@ GameObject:
   - component: {fileID: 1472551821}
   - component: {fileID: 1472551820}
   - component: {fileID: 1472551824}
+  - component: {fileID: 1472551826}
+  - component: {fileID: 1472551825}
   m_Layer: 0
   m_Name: GlobalVolume
   m_TagString: Untagged
@@ -2540,6 +2544,46 @@ MonoBehaviour:
   noiseStrength: 0
   fogColor: {r: 0.07876467, g: 0.09314153, b: 0.09433961, a: 0}
   ambientColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
+--- !u!114 &1472551825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472551819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69fb470136bf164aaebcbe422f1ab7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 5b33ebd6997308e4481bcb9a5d33a69a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1472551826}
+        m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
+        m_MethodName: SetProfile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1472551826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472551819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd09808d66e85d408c7036c030579dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1488626994
 PrefabInstance:
   m_ObjectHideFlags: 0
