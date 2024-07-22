@@ -15,7 +15,6 @@ public class HarpoonController : MonoBehaviour
 
     private Sequencer attackSequencer;
     private Transform Player => GameManager.Instance.Player.transform;
-    private Rigidbody playerRigidbody => Player.GetComponent<Rigidbody>();
 
     private bool isInProgress;
 
@@ -99,15 +98,13 @@ public class HarpoonController : MonoBehaviour
     /// <returns></returns>
     IEnumerator GrapplePlayer(float grappleForce, Vector3 hitPoint)
     {
-        Vector3 direction = (hitPoint - Player.position).normalized;
-
         fov_EventChannel.CallEvent(new());
 
         //attackSequencer.InitializeSequence();
 
         while (Vector3.Distance(hitPoint, Player.position) > GRAPPLEDISTANCE)
         {
-            playerRigidbody.velocity = direction * grappleForce;
+            Player.position = Vector3.MoveTowards(Player.position, hitPoint, grappleForce * Time.deltaTime);
 
             if (Vector3.Distance(hitPoint, Player.position) > 30f)
             {
