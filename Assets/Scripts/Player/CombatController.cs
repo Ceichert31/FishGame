@@ -41,13 +41,18 @@ public class CombatController : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Weakpoint"))
             {
-                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo.point, true);
+                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo, true);
             }
             else
             {
-                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo.point, false);
+                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo, false);
             }
         }
+    }
+
+    public void Attack()
+    {
+        hookAnimator.SetTrigger("Attack");
     }
 
     /// <summary>

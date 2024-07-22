@@ -21,17 +21,17 @@ public class TransitionManager : MonoBehaviour
     /// <param name="ctx"></param>
     public void TeleportToArena(HookedEvent ctx)
     {
+        //Disable line renderer
+        void_EventChannel.CallEvent(new());
+
+        //Switch to combat mode
+        mode_EventChannel.CallEvent(new(true));
+
         //Save players last position
         lastPosition = Player;
 
         //Teleport player to arena
         Player.position = arenaTransform.position;
-
-        //Switch to combat mode
-        mode_EventChannel.CallEvent(new(true));
-
-        //Disable line renderer
-        void_EventChannel.CallEvent(new());
     }
 
     /// <summary>

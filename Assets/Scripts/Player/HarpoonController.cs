@@ -8,12 +8,13 @@ public class HarpoonController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
 
-    [Header("Harpoon References")]
+    private CombatController combatController;
+
+    private Sequencer attackSequencer;
+
     private LineRenderer boltLineRenderer;
 
     private Transform boltObject;
-
-    private Sequencer attackSequencer;
     private Transform Player => GameManager.Instance.Player.transform;
 
     private bool isInProgress;
@@ -28,6 +29,8 @@ public class HarpoonController : MonoBehaviour
 
     private void Start()
     {
+        combatController = GetComponentInParent<CombatController>();
+
         boltLineRenderer = GetComponent<LineRenderer>();
 
         attackSequencer = GetComponent<Sequencer>();
@@ -53,7 +56,7 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
-    public void StartGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint)
+    public void StartGrapple(float reelInSpeed, float grappleForce, RaycastHit hitPoint, bool isWeakPoint)
     {
         //Disable firing harpoon
         isInProgress = true;
@@ -67,18 +70,18 @@ public class HarpoonController : MonoBehaviour
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
     /// <returns></returns>
-    IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint)
+    IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, RaycastHit hitPoint, bool isWeakPoint)
     {
         boltObject.parent = null;
 
-        while (Vector3.Distance(hitPoint, boltObject.position) > GRAPPLEDISTANCE)
+        while (Vector3.Distance(hitPoint.point, boltObject.position) > GRAPPLEDISTANCE)
         {
-            boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, hitPoint, reelInSpeed * Time.deltaTime);
+            boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, hitPoint.point, reelInSpeed * Time.deltaTime);
 
             yield return null;
         }
 
-        boltObject.position = hitPoint;
+        boltObject.position = hitPoint.point;
 
         if (isWeakPoint)
         {
@@ -96,23 +99,28 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <returns></returns>
-    IEnumerator GrapplePlayer(float grappleForce, Vector3 hitPoint)
+    IEnumerator GrapplePlayer(float grappleForce, RaycastHit hitPoint)
     {
         fov_EventChannel.CallEvent(new());
 
         //attackSequencer.InitializeSequence();
 
-        while (Vector3.Distance(hitPoint, Player.position) > GRAPPLEDISTANCE)
-        {
-            Player.position = Vector3.MoveTowards(Player.position, hitPoint, grappleForce * Time.deltaTime);
+        //Transform target = hitPoint.transform.GetChild(0);
 
-            if (Vector3.Distance(hitPoint, Player.position) > 30f)
+        while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
+        {
+            Player.position = Vector3.MoveTowards(Player.position, hitPoint.point, grappleForce * Time.deltaTime);
+
+            if (Vector3.Distance(hitPoint.point, Player.position) > 30f)
             {
                 ResetBolt();
             }
 
             yield return null;
         }
+
+        combatController.Attack();
+        attackSequencer.InitializeSequence();
 
         ResetBolt();
     }
@@ -142,6 +150,9 @@ public class HarpoonController : MonoBehaviour
     void ResetBolt()
     {
         StopAllCoroutines();
+
+        //Clear players parent
+        Player.parent = null;
 
         //Reset parent
         boltObject.parent = transform;
