@@ -32,11 +32,6 @@ public class FishingAnimatorMethods : MonoBehaviour
     /// </summary>
     public void DisableBobber() => fishingController.DisableBobber();
 
-    public void SwitchAnimatorModes(BoolEvent ctx)
-    {
-        animator.SetBool("IsInCombat", ctx.Value);
-    }
-
     /// <summary>
     /// Called by animator
     /// </summary>

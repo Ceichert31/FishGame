@@ -14,10 +14,6 @@ public class BobberController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private Sequencer sequencer;
-
-    private Transform Player => GameManager.Instance.Player.transform;
-
     void Start()
     {
         bobberLineRenderer = GetComponent<LineRenderer>();
@@ -25,8 +21,6 @@ public class BobberController : MonoBehaviour
         bobberObject = transform.GetChild(0);
 
         rb = bobberObject.GetComponent<Rigidbody>();
-
-        sequencer = GetComponent<Sequencer>();
     }
 
     void Update()
@@ -47,7 +41,7 @@ public class BobberController : MonoBehaviour
     {
         DisableBobber();
 
-        EnableBobber(false);
+        EnableBobber();
 
         //Apply forces
         rb.velocity = castDistance * new Vector3(transform.parent.forward.x, initialVelocity, transform.parent.forward.z);
@@ -57,13 +51,10 @@ public class BobberController : MonoBehaviour
     /// Enabled the bobber gameobject
     /// </summary>
     /// <param name="isKinematic"></param>
-    public void EnableBobber(bool isKinematic)
+    public void EnableBobber()
     {
         //Enable bobber
         bobberObject.gameObject.SetActive(true);
-
-        //Set kinematic
-        rb.isKinematic = isKinematic;
 
         //Clear parent
         bobberObject.transform.parent = null;
@@ -91,101 +82,6 @@ public class BobberController : MonoBehaviour
 
         //Disable gameobject
         bobberObject.gameObject.SetActive(false);
-    }
-
-    /// <summary>
-    /// Starts grapple coroutine
-    /// </summary>
-    /// <param name="totalTime"></param>
-    /// <param name="hitPoint"></param>
-    /// <param name="isWeakPoint"></param>
-    public void StartGrapple(float totalTime, Vector3 hitPoint, bool isWeakPoint) => StartCoroutine(ShootGrapple(totalTime, hitPoint, isWeakPoint));
-
-    /// <summary>
-    /// Lerps bobber to target position
-    /// </summary>
-    /// <param name="totalTime"></param>
-    /// <param name="hitPoint"></param>
-    /// <param name="isWeakPoint"></param>
-    /// <returns></returns>
-    IEnumerator ShootGrapple(float totalTime, Vector3 hitPoint, bool isWeakPoint)
-    {
-        EnableBobber(true);
-
-        Vector3 startPos = bobberObject.position;
-
-        float timeElapsed = 0f;
-
-        while (timeElapsed < totalTime)
-        {
-            timeElapsed += Time.deltaTime;
-
-            bobberObject.transform.position = Vector3.Lerp(startPos, hitPoint, timeElapsed / totalTime);
-
-            yield return null;
-        }
-
-        bobberObject.position = hitPoint;
-
-        if (isWeakPoint)
-        {
-            StartCoroutine(GrapplePlayer(totalTime, hitPoint));
-        }
-        else
-        {
-            StartCoroutine(RetractGrapple(totalTime));
-        }
-    }
-    
-    /// <summary>
-    /// Lerps player to target position
-    /// </summary>
-    /// <param name="totalTime"></param>
-    /// <param name="hitPoint"></param>
-    /// <returns></returns>
-    IEnumerator GrapplePlayer(float totalTime, Vector3 hitPoint)
-    {
-        Vector3 startPos = Player.position;
-
-        float timeElapsed = 0f;
-
-        fov_EventChannel.CallEvent(new());
-
-        sequencer.InitializeSequence();
-
-        while (timeElapsed < totalTime)
-        {
-            timeElapsed += Time.deltaTime;
-
-            Player.position = Vector3.Lerp(startPos, hitPoint, timeElapsed / totalTime);
-
-            yield return null;
-        }
-
-        DisableBobber();
-    }
-
-    /// <summary>
-    /// Lerps bobber back to starting position
-    /// </summary>
-    /// <param name="totalTime"></param>
-    /// <returns></returns>
-    IEnumerator RetractGrapple(float totalTime)
-    {
-        Vector3 startPos = bobberObject.position;
-
-        float timeElapsed = 0f;
-
-        while (timeElapsed < totalTime)
-        {
-            timeElapsed += Time.deltaTime;
-
-            bobberObject.position = Vector3.Lerp(startPos, transform.position, timeElapsed / totalTime);
-
-            yield return null;
-        }
-
-        DisableBobber();
     }
 
     /// <summary>

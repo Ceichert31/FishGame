@@ -7,21 +7,27 @@ public class CombatController : MonoBehaviour
     [Header("Hook Settings")]
     [SerializeField] private float parryDelay = 0.8f;
 
+    [Header("Harpoon Settings")]
     [SerializeField] private float grappleRange = 20f;
 
-    [SerializeField] private float grappleFireTime = 1f;
+    [Tooltip("How fast the harpoon pulls the player")]
+    [SerializeField] private float grappleForce = 5f;
 
-    private BobberController bobberController;
+    [Tooltip("How fast the harpoon retracts and fires")]
+    [SerializeField] private float reelInSpeed = 10f;
+
+    private HarpoonController harpoonController;
 
     private float parryCooldown;
 
     private Animator hookAnimator;
+    private bool IsInProgress => harpoonController.IsInProgress;
 
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
 
-        bobberController = GetComponentInChildren<BobberController>();
+        harpoonController = GetComponentInChildren<HarpoonController>();
     }
 
     /// <summary>
@@ -29,15 +35,17 @@ public class CombatController : MonoBehaviour
     /// </summary>
     void FireGrapple(InputAction.CallbackContext ctx)
     {
+        if (IsInProgress) return;
+
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange))
         {
             if (hitInfo.collider.CompareTag("Weakpoint"))
             {
-                bobberController.StartGrapple(grappleFireTime, hitInfo.point, true);
+                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo.point, true);
             }
             else
             {
-                bobberController.StartGrapple(grappleFireTime, hitInfo.point, false);
+                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo.point, false);
             }
         }
     }

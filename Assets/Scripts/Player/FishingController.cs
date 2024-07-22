@@ -92,8 +92,6 @@ public class FishingController : MonoBehaviour
     /// <param name="ctx"></param>
     void ReelIn(InputAction.CallbackContext ctx)
     {
-        if (poleAnimator.GetBool("IsInCombat")) return;
-
         //Trigger animation
         poleAnimator.SetTrigger("ReelIn");
     }

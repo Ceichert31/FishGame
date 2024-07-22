@@ -135,8 +135,6 @@ public class SpawnPool : MonoBehaviour
     {
         hasReeledIn = !hasReeledIn;
 
-        Debug.Log("Reeled IN!");
-
         if (instance != null)
             StopCoroutine(instance);
     }

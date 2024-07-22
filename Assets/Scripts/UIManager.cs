@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 
 public class UIManager : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI promptText;
 
+    [SerializeField] private TextMeshProUGUI testText;
 
     [Header("Typing Effect Settings")]
     [SerializeField] private float timePerLetter = 0.1f;
