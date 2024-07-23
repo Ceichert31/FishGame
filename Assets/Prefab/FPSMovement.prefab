@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
-  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
-  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
+  - {fileID: 11400000, guid: aa7ee6f4d13512f469041b1b8791559d, type: 2}
+  - {fileID: 11400000, guid: a158af4e5cd4d854297e0c9caba7b8e7, type: 2}
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,6 @@ GameObject:
   - component: {fileID: 7802647240829371144}
   - component: {fileID: 8314304548419214937}
   - component: {fileID: 2487077017867768133}
-  - component: {fileID: 4183045972537099845}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1840,87 +1839,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &4183045972537099845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8654829441106256098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2984574519eda545b67e192102a8389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headbobTarget: {fileID: 5719716679102456388}
-  headbobSpeed: {x: 0.5, y: 0.8}
-  headbobIntensity: {x: 0.05, y: 0.1}
-  headbobCurveY:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0016098022
-      value: 0
-      inSlope: 0.9967907
-      outSlope: 0.9967907
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: -0.0016046464
-      outSlope: -0.0016046464
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 4
-  headbobCurveX:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0016098022
-      value: 0
-      inSlope: 0.9967907
-      outSlope: 0.9967907
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: -0.0016046464
-      outSlope: -0.0016046464
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 4
 --- !u!1 &8779821608348814574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1850,7 @@ GameObject:
   - component: {fileID: 5754261505022339715}
   - component: {fileID: 5721318234186303713}
   - component: {fileID: 1557145111719935160}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2018,7 +1936,7 @@ GameObject:
   - component: {fileID: 9035752651341300136}
   - component: {fileID: 3609700905326404032}
   - component: {fileID: 3434542102658035597}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: FightingHook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
