@@ -973,6 +973,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ReelIn"",
+            ""id"": ""5f68539c-c76a-45cf-b0fa-78a876c479a7"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""d915fd88-ed53-4612-b597-76b8886a6614"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d2d79c7f-0ebc-4005-9b3b-1ca57d0740ad"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -1004,6 +1032,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Fishing = asset.FindActionMap("Fishing", throwIfNotFound: true);
         m_Fishing_Fire = m_Fishing.FindAction("Fire", throwIfNotFound: true);
         m_Fishing_ReelIn = m_Fishing.FindAction("Reel In", throwIfNotFound: true);
+        // ReelIn
+        m_ReelIn = asset.FindActionMap("ReelIn", throwIfNotFound: true);
+        m_ReelIn_Click = m_ReelIn.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1365,6 +1396,52 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public FishingActions @Fishing => new FishingActions(this);
+
+    // ReelIn
+    private readonly InputActionMap m_ReelIn;
+    private List<IReelInActions> m_ReelInActionsCallbackInterfaces = new List<IReelInActions>();
+    private readonly InputAction m_ReelIn_Click;
+    public struct ReelInActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ReelInActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_ReelIn_Click;
+        public InputActionMap Get() { return m_Wrapper.m_ReelIn; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ReelInActions set) { return set.Get(); }
+        public void AddCallbacks(IReelInActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ReelInActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ReelInActionsCallbackInterfaces.Add(instance);
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+        }
+
+        private void UnregisterCallbacks(IReelInActions instance)
+        {
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+        }
+
+        public void RemoveCallbacks(IReelInActions instance)
+        {
+            if (m_Wrapper.m_ReelInActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IReelInActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ReelInActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ReelInActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ReelInActions @ReelIn => new ReelInActions(this);
     public interface IMovementActions
     {
         void OnLook(InputAction.CallbackContext context);
@@ -1395,5 +1472,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnFire(InputAction.CallbackContext context);
         void OnReelIn(InputAction.CallbackContext context);
+    }
+    public interface IReelInActions
+    {
+        void OnClick(InputAction.CallbackContext context);
     }
 }

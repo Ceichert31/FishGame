@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a0c0f0c5dcfe04ba67214c85b184ae, type: 3}
-  m_Name: LargeMouth Bass
+  m_Script: {fileID: 11500000, guid: 46a07a6d498601d4ab63ac18ec9ad4fe, type: 3}
+  m_Name: PositionLockEventChannel
   m_EditorClassIdentifier: 
-  spawnChance:
-    minValue: 25
-    maxValue: 60
-  fishPrefab: {fileID: 8245168068529363966, guid: eb8d9d57b21419c48ba6bd7db3568c5c,
-    type: 3}
+  OnEventCalled:
+    m_PersistentCalls:
+      m_Calls: []

@@ -42,9 +42,9 @@ public class BobberInstance : MonoBehaviour
         }
 
         //Create a new Y to be able to track our sin wave via the current time, a given frequncy, and amplitude
-        float newY = startPosition.y + Mathf.Sin(Time.time * frequency) * amplitude;
+        //float newY = startPosition.y + Mathf.Sin(Time.time * frequency) * amplitude;
 
         //Add that new Y to our position
-        transform.position = new Vector3(startPosition.x, newY, startPosition.z);
+        //transform.position = new Vector3(startPosition.x, newY, startPosition.z);
     }
 }

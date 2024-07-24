@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: aa7ee6f4d13512f469041b1b8791559d, type: 2}
+  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
   - {fileID: 11400000, guid: a158af4e5cd4d854297e0c9caba7b8e7, type: 2}
 --- !u!1 &1999262351226947678
 GameObject:
@@ -912,7 +913,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &2587678884208665380
 MonoBehaviour:
@@ -927,6 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterLayer: 4
+  inWater: 0
 --- !u!1 &4347726346386907922
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f473f9d10d7bfd444af4e8ec059d9157, type: 3}
-  m_Name: LockPosition
+  m_Name: UnlockPosition
   m_EditorClassIdentifier: 
-  lockPosition: 1
+  bool_EventChannel: {fileID: 11400000, guid: d0bb61fae6292d841aa8d7197e05c514, type: 2}
+  lockPosition: 0

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HarpoonController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
+    [SerializeField] private VoidEventChannel miniGame_EventChannel;
 
     private CombatController combatController;
 
@@ -103,12 +105,12 @@ public class HarpoonController : MonoBehaviour
     {
         fov_EventChannel.CallEvent(new());
 
-        //attackSequencer.InitializeSequence();
-
-        //Transform target = hitPoint.transform.GetChild(0);
-
         while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
         {
+            //Call UI event
+            miniGame_EventChannel.CallEvent(new());
+
+            //Move player
             Player.position = Vector3.MoveTowards(Player.position, hitPoint.point, grappleForce * Time.deltaTime);
 
             if (Vector3.Distance(hitPoint.point, Player.position) > 30f)
@@ -120,6 +122,7 @@ public class HarpoonController : MonoBehaviour
         }
 
         combatController.Attack();
+
         attackSequencer.InitializeSequence();
 
         ResetBolt();
