@@ -22,7 +22,7 @@ public class DirectionTracker : MonoBehaviour
     }
 
     public Vector3 PlayerDirection
-    { 
-        get { return new Vector3(playerDirection.z, playerDirection.x, 0).normalized; }
+    {
+        get { return new Vector3(playerDirection.x, -playerDirection.z, 0).normalized; }
     }
 }
