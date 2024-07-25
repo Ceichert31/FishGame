@@ -108,6 +108,8 @@ public class HarpoonController : MonoBehaviour
         FloatEvent distance;
         distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
 
+        if (distance.FloatValue < 5f) ResetBolt();
+
         //Call UI event
         miniGame_EventChannel.CallEvent(distance);
 
