@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +9,8 @@ public class HarpoonController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
-    [SerializeField] private VoidEventChannel miniGame_EventChannel;
+    [SerializeField] private FloatEventChannel time_EventChannel;
+    [SerializeField] private FloatEventChannel miniGame_EventChannel;
 
     private CombatController combatController;
 
@@ -103,27 +105,33 @@ public class HarpoonController : MonoBehaviour
     /// <returns></returns>
     IEnumerator GrapplePlayer(float grappleForce, RaycastHit hitPoint)
     {
+        FloatEvent distance;
+        distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
+
+        //Call UI event
+        miniGame_EventChannel.CallEvent(distance);
+
+        //Increase FOV
         fov_EventChannel.CallEvent(new());
+
+        //Start time slow
+        time_EventChannel.CallEvent(distance);
 
         while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
         {
-            //Call UI event
-            miniGame_EventChannel.CallEvent(new());
-
             //Move player
             Player.position = Vector3.MoveTowards(Player.position, hitPoint.point, grappleForce * Time.deltaTime);
-
-            if (Vector3.Distance(hitPoint.point, Player.position) > 30f)
-            {
-                ResetBolt();
-            }
 
             yield return null;
         }
 
+        //End time slow
+        time_EventChannel.CallEvent(distance);
+
+        //Play attack animation
         combatController.Attack();
 
-        attackSequencer.InitializeSequence();
+        //attackSequencer.InitializeSequence();
 
         ResetBolt();
     }

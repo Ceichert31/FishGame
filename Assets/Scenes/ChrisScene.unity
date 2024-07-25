@@ -818,18 +818,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
+      propertyPath: time_EventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 39ea2f08ca78e924fa28bff8793e2255,
+        type: 2}
+    - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
       propertyPath: miniGame_EventChannel
       value: 
-      objectReference: {fileID: 11400000, guid: 7eb0b34c404e92d46b888b267a11907e,
+      objectReference: {fileID: 11400000, guid: 8080118501554834296f27a1293e4df5,
+        type: 2}
+    - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: distanceValues_EventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 8cf91cb726b5ffe4a94f4fd4899df5ec,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      insertIndex: 10
-      addedObject: {fileID: 1635707468}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b9ea62f378d04da1442badcd2d715, type: 3}
 --- !u!1 &559836233
 GameObject:
@@ -2271,10 +2279,10 @@ GameObject:
   - component: {fileID: 1245451967}
   - component: {fileID: 1245451966}
   - component: {fileID: 1245451971}
+  - component: {fileID: 1245451976}
   - component: {fileID: 1245451972}
-  - component: {fileID: 1245451973}
-  - component: {fileID: 1245451974}
   - component: {fileID: 1245451975}
+  - component: {fileID: 1245451977}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2383,12 +2391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 1216244029}
-  transitionScreen: {fileID: 1240333445}
   timePerLetter: 0.1
-  transitionSpeedMultiplier: 3
-  pointer: {fileID: 559836235}
-  scrollSpeed: 2
-  endPos: {fileID: 122325318}
 --- !u!114 &1245451972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,62 +2420,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1245451973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245451965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: c8364126159dd0b4d898e5f430a8909c, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1245451971}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: StartTransition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1245451974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245451965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 7eb0b34c404e92d46b888b267a11907e, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1245451971}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: StartMinigame
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1245451975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2489,9 +2436,52 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245451971}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1245451976}
+        m_TargetAssemblyTypeName: UIMinigame, Assembly-CSharp
         m_MethodName: InitializeControls
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1245451976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199b2a0978a05dc4ca275f61d6712034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 559836235}
+  scrollSpeed: 370
+  endPos: {fileID: 122325318}
+--- !u!114 &1245451977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 8080118501554834296f27a1293e4df5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1245451976}
+        m_TargetAssemblyTypeName: UIMinigame, Assembly-CSharp
+        m_MethodName: StartMinigame
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3550,46 +3540,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 525744994}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1635707462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8939591259619301516, guid: b59b9ea62f378d04da1442badcd2d715,
-    type: 3}
-  m_PrefabInstance: {fileID: 525744994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635707456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0f8b16e53a6204184009e4f156c033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1635707468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635707456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: d0bb61fae6292d841aa8d7197e05c514, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1635707462}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: ToggleControls
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1647507874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,7 +3846,9 @@ GameObject:
   - component: {fileID: 1854508720}
   - component: {fileID: 1854508722}
   - component: {fileID: 1854508723}
+  - component: {fileID: 1854508724}
   - component: {fileID: 1854508721}
+  - component: {fileID: 1854508725}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4069,6 +4021,71 @@ MonoBehaviour:
   void_EventChannel: {fileID: 11400000, guid: c8364126159dd0b4d898e5f430a8909c, type: 2}
   mode_EventChannel: {fileID: 11400000, guid: 218b7a20b115ff644a89917d0ec8d8ea, type: 2}
   arenaTransform: {fileID: 1138227517}
+--- !u!114 &1854508724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9abd08b7546a3408636ac3b59e1ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.27384326
+      outSlope: -0.27384326
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.10705957
+    - serializedVersion: 3
+      time: 0.3
+      value: 0.2
+      inSlope: -2.335184
+      outSlope: -2.335184
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07215824
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 0.3
+--- !u!114 &1854508725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 39ea2f08ca78e924fa28bff8793e2255, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1854508724}
+        m_TargetAssemblyTypeName: TimeController, Assembly-CSharp
+        m_MethodName: SetTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

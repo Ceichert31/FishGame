@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
+  miniGame_EventChannel: {fileID: 11400000, guid: 7eb0b34c404e92d46b888b267a11907e,
+    type: 2}
+  time_EventChannel: {fileID: 11400000, guid: 0e048897ac6743e4e85b690ec0062b09, type: 2}
 --- !u!114 &5178041172322044808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,10 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceActions:
-  - {fileID: 11400000, guid: aa7ee6f4d13512f469041b1b8791559d, type: 2}
-  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
-  - {fileID: 11400000, guid: a158af4e5cd4d854297e0c9caba7b8e7, type: 2}
+  sequenceActions: []
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 2953243081603150980}
   - component: {fileID: 2155931795023883272}
   - component: {fileID: 1945164778324247510}
+  - component: {fileID: 6362311310925123490}
   - component: {fileID: 6290910717824669202}
   m_Layer: 6
   m_Name: FPSMovement
@@ -657,6 +658,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8939591259619301516}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
         m_MethodName: SwitchInputMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6362311310925123490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390676662645113971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: d0bb61fae6292d841aa8d7197e05c514, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8939591259619301516}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: ToggleControls
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

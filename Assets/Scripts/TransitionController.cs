@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransitionManager : MonoBehaviour
+public class TransitionController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel void_EventChannel;

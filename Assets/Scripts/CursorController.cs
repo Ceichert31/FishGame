@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CursorManager : MonoBehaviour
+public class CursorController : MonoBehaviour
 {
     [Header("Cursor Settings")]
     [SerializeField] private CursorLockMode defaultMode;

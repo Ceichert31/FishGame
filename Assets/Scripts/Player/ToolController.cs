@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolManager : MonoBehaviour
+public class ToolController : MonoBehaviour
 {
     private GameObject fishingRod;
 
