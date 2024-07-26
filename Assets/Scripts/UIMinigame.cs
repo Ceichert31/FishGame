@@ -24,9 +24,9 @@ public class UIMinigame : MonoBehaviour
     {
         pointer.transform.localPosition = Vector3.zero;
 
-        StartCoroutine(AttackMinigame(ctx.FloatValue));
+        StartCoroutine(AttackMinigame());
     }
-    IEnumerator AttackMinigame(float distanceMultiplier)
+    IEnumerator AttackMinigame()
     {
         RangedFloat rangedFloat;
         rangedFloat.minValue = -150f;

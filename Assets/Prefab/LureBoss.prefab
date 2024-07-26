@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 7211445995609853433}
   - component: {fileID: 6007197485423933522}
   - component: {fileID: 6025502010461224808}
+  - component: {fileID: 1356088350003915440}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -473,6 +474,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc65706b12e0b9d4ea390406038ae53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1356088350003915440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e5a64c724543e47b69ebfa2d9ec580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 0}
+  walkState: {fileID: 0}
 --- !u!1 &6839625621437434146
 GameObject:
   m_ObjectHideFlags: 0

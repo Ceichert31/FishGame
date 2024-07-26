@@ -12,14 +12,15 @@ public class TimeController : MonoBehaviour
 
     private bool slowTime;
 
+    private const float RANGE_NORMALIZED = 20f;
+
     public void SetTime(FloatEvent targetTime)
     {
         slowTime = !slowTime;
 
         if (slowTime)
         {
-            Time.timeScale = targetTime.FloatValue / 20f;
-            Debug.Log(Time.timeScale);
+            Time.timeScale = targetTime.FloatValue / RANGE_NORMALIZED;
             //StartCoroutine(SlowTime(targetTime.FloatValue));
         }
         else

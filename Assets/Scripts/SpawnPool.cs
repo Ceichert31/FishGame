@@ -10,8 +10,11 @@ public class SpawnPool : MonoBehaviour
     [SerializeField] private TextEventChannel ui_EventChannel;
 
     [Header("Spawn Pool Settings")]
-    [Tooltip("Fish that can spawn in this water source")]
-    [SerializeField] private List<FishSO> spawnPool;
+    [Tooltip("Fish that can spawn in this water source during the day")]
+    [SerializeField] private List<FishSO> daySpawnPool;
+
+    [Tooltip("Fish that can spawn in this water source during the night")]
+    [SerializeField] private List<FishSO> nightSpawnPool;
 
     [Tooltip("How often it will be determined if a fish has been hooked")]
     [SerializeField] private float fishingTickRate = 2f;
@@ -26,6 +29,8 @@ public class SpawnPool : MonoBehaviour
         fishLostEvent;
 
     private Coroutine instance = null;
+
+    private bool isDayTime = true;
 
 
     private void Start()
@@ -90,6 +95,20 @@ public class SpawnPool : MonoBehaviour
     }
 
     /// <summary>
+    /// Returns whether the fish can spawn based on spawn chance
+    /// </summary>
+    /// <param name="spawnChance"></param>
+    /// <param name="instance"></param>
+    /// <returns></returns>
+    bool CalculateSpawnChance(int spawnChance, FishSO instance)
+    {
+        if (spawnChance <= instance.spawnChance.maxValue && spawnChance > instance.spawnChance.minValue)
+            return true;
+        else
+            return false;
+    }
+
+    /// <summary>
     /// When called, Sends a fish Scriptable Object to Boss Manager
     /// </summary>
     void FishSpawnPool()
@@ -99,11 +118,23 @@ public class SpawnPool : MonoBehaviour
         
         List<FishSO> spawnableFish = new();
 
-        //Iterate through each fish and check if fish is within spawn range
-        foreach (FishSO instance in spawnPool) 
+        //Day and night time spawn pools
+        if (isDayTime)
         {
-            if (spawnChance <= instance.spawnChance.maxValue && spawnChance > instance.spawnChance.minValue)
-                spawnableFish.Add(instance);
+            //Iterate through each fish and check if fish is within spawn range
+            foreach (FishSO instance in daySpawnPool)
+            {
+                if (CalculateSpawnChance(spawnChance, instance))
+                    spawnableFish.Add(instance);
+            }
+        }
+        else
+        {
+            foreach (FishSO instance in nightSpawnPool)
+            {
+                if (CalculateSpawnChance(spawnChance, instance))
+                    spawnableFish.Add(instance);
+            }
         }
 
         //Randomly select fish from list

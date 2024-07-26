@@ -516,8 +516,9 @@ MonoBehaviour:
   hooked_EventChannel: {fileID: 11400000, guid: e7f6560abdcfda94eb4ae308edcd3624,
     type: 2}
   ui_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
-  spawnPool:
+  daySpawnPool:
   - {fileID: 11400000, guid: 01c9b22e8f22ccb4a9c88cf8ddea3f71, type: 2}
+  nightSpawnPool: []
   fishingTickRate: 2
   fishWaitTime: 3
 --- !u!64 &177534958
@@ -1905,6 +1906,131 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96eb837519e6fa9429ff4fd4ffadca92, type: 3}
+--- !u!1001 &1122230256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 43.93966
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38000107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.4128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_Name
+      value: LureBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1122230258}
+    - targetCorrespondingSourceObject: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1122230259}
+  m_SourcePrefab: {fileID: 100100000, guid: 4a7019fbdff752948bd326df72cae00f, type: 3}
+--- !u!1 &1122230257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1122230256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1122230258
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122230257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &1122230259
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122230257}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1138227516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,14 +3087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69535f6f005b8d748a741762119ae6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hooked_EventChannel: {fileID: 0}
-  ui_EventChannel: {fileID: 0}
-  spawnPool:
-  - {fileID: 11400000, guid: e84cdb3690fb37b44aac495161d75afe, type: 2}
-  - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
-  - {fileID: 11400000, guid: 7ca77f75295ff47498c60ea88a437227, type: 2}
-  - {fileID: 11400000, guid: 0a81d53f8119c4244968c34d2d9e2cb3, type: 2}
-  - {fileID: 11400000, guid: f2dcaf1f8b48c584b89fbcf1dbd39ea0, type: 2}
+  hooked_EventChannel: {fileID: 11400000, guid: e7f6560abdcfda94eb4ae308edcd3624,
+    type: 2}
+  ui_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
+  daySpawnPool: []
+  nightSpawnPool: []
   fishingTickRate: 2
   fishWaitTime: 0
 --- !u!1 &1432752049
@@ -4110,3 +4233,4 @@ SceneRoots:
   - {fileID: 986602268}
   - {fileID: 637826343}
   - {fileID: 585196502}
+  - {fileID: 1122230256}

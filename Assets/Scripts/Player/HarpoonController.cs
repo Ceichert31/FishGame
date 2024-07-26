@@ -4,6 +4,7 @@ using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class HarpoonController : MonoBehaviour
 {
@@ -108,6 +109,7 @@ public class HarpoonController : MonoBehaviour
         FloatEvent distance;
         distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
 
+        //If too close, prevent from grappling
         if (distance.FloatValue < 5f) ResetBolt();
 
         //Call UI event
@@ -127,13 +129,10 @@ public class HarpoonController : MonoBehaviour
             yield return null;
         }
 
-        //End time slow
-        time_EventChannel.CallEvent(distance);
+        //attackSequencer.InitializeSequence();
 
         //Play attack animation
         combatController.Attack();
-
-        //attackSequencer.InitializeSequence();
 
         ResetBolt();
     }
@@ -163,6 +162,9 @@ public class HarpoonController : MonoBehaviour
     void ResetBolt()
     {
         StopAllCoroutines();
+
+        //End time slow
+        time_EventChannel.CallEvent(new());
 
         //Clear players parent
         Player.parent = null;
