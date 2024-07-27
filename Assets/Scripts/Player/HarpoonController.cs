@@ -129,6 +129,9 @@ public class HarpoonController : MonoBehaviour
             yield return null;
         }
 
+        //End time slow
+        time_EventChannel.CallEvent(new());
+
         //attackSequencer.InitializeSequence();
 
         //Play attack animation
@@ -162,9 +165,6 @@ public class HarpoonController : MonoBehaviour
     void ResetBolt()
     {
         StopAllCoroutines();
-
-        //End time slow
-        time_EventChannel.CallEvent(new());
 
         //Clear players parent
         Player.parent = null;
