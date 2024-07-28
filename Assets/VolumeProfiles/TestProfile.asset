@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.9
   scatter:
     m_OverrideState: 1
     m_Value: 0.7
@@ -47,34 +47,6 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &-8120913381164128531
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: 
-  active: 0
-  postExposure:
-    m_OverrideState: 1
-    m_Value: 88
-  contrast:
-    m_OverrideState: 1
-    m_Value: 82
-  colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
-    m_OverrideState: 1
-    m_Value: -42
-  saturation:
-    m_OverrideState: 1
-    m_Value: 7
 --- !u!114 &-7268622276910365992
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -253,7 +225,6 @@ MonoBehaviour:
   - {fileID: 1685382360176227142}
   - {fileID: 4525188822391847478}
   - {fileID: 6776508014385264662}
-  - {fileID: -8120913381164128531}
 --- !u!114 &169896938054019971
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -275,7 +246,7 @@ MonoBehaviour:
     m_Value: 10
   fogColor:
     m_OverrideState: 1
-    m_Value: {r: 0.07876467, g: 0.09314153, b: 0.09433961, a: 0}
+    m_Value: {r: 0.77687794, g: 0.8113208, b: 0.8113208, a: 0}
   ambientColor:
     m_OverrideState: 1
     m_Value: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
@@ -328,7 +299,7 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 95
+    m_Value: 56
   tint:
     m_OverrideState: 1
     m_Value: -13
@@ -375,7 +346,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.11105501, y: 0.106964886, z: 1, w: -0.4071499}
+    m_Value: {x: 0.7632583, y: 0.7370853, z: 1, w: -0.4071499}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}

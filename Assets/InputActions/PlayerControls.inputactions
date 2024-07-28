@@ -951,34 +951,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "ReelIn",
-            "id": "5f68539c-c76a-45cf-b0fa-78a876c479a7",
-            "actions": [
-                {
-                    "name": "Click",
-                    "type": "Button",
-                    "id": "d915fd88-ed53-4612-b597-76b8886a6614",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "d2d79c7f-0ebc-4005-9b3b-1ca57d0740ad",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []

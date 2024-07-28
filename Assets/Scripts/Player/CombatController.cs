@@ -70,6 +70,11 @@ public class CombatController : MonoBehaviour
         }
     }   
 
+    void RetractHook(InputAction.CallbackContext ctx)
+    {
+        harpoonController.Retract(reelInSpeed);
+    }
+
     /// <summary>
     /// Subscribes functions to the correct controls
     /// </summary>
@@ -79,6 +84,8 @@ public class CombatController : MonoBehaviour
         ctx.Action.Combat.Disable();
 
         ctx.Action.Combat.ReelIn.performed += Parry;
+
+        ctx.Action.Combat.ReelIn.performed += RetractHook;
 
         ctx.Action.Combat.Fire.performed += FireGrapple;
     }

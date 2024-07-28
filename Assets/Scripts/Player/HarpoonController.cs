@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class HarpoonController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
-    [SerializeField] private FloatEventChannel time_EventChannel;
-    [SerializeField] private FloatEventChannel miniGame_EventChannel;
 
     private CombatController combatController;
 
@@ -31,6 +25,8 @@ public class HarpoonController : MonoBehaviour
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
 
     private const float GRAPPLEDISTANCE = 1f;
+
+    private const float SHAKEDURATION = 0.1f;
 
     private void Start()
     {
@@ -109,17 +105,8 @@ public class HarpoonController : MonoBehaviour
         FloatEvent distance;
         distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
 
-        //If too close, prevent from grappling
-        if (distance.FloatValue < 5f) ResetBolt();
-
-        //Call UI event
-        miniGame_EventChannel.CallEvent(distance);
-
         //Increase FOV
         fov_EventChannel.CallEvent(new());
-
-        //Start time slow
-        time_EventChannel.CallEvent(distance);
 
         while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
         {
@@ -129,10 +116,7 @@ public class HarpoonController : MonoBehaviour
             yield return null;
         }
 
-        //End time slow
-        time_EventChannel.CallEvent(new());
-
-        //attackSequencer.InitializeSequence();
+        attackSequencer.InitializeSequence();
 
         //Play attack animation
         combatController.Attack();
@@ -151,6 +135,7 @@ public class HarpoonController : MonoBehaviour
         {
             boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, transform.position, reelInSpeed * Time.deltaTime);
 
+            //If bolt gets too far away, reset it
             if (Vector3.Distance(transform.position, boltObject.position) > 30f)
             {
                 ResetBolt();
@@ -160,6 +145,17 @@ public class HarpoonController : MonoBehaviour
         }
 
         ResetBolt();
+    }
+
+    /// <summary>
+    /// Starts retracting the harpoon bolt
+    /// </summary>
+    /// <param name="reelInSpeed"></param>
+    public void Retract(float reelInSpeed)
+    {
+        StopAllCoroutines();
+
+        StartCoroutine(RetractGrapple(reelInSpeed));
     }
 
     void ResetBolt()

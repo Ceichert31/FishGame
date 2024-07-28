@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeController : MonoBehaviour
@@ -10,35 +9,21 @@ public class TimeController : MonoBehaviour
 
     [SerializeField] private float duration = 0.3f;
 
-    private bool slowTime;
-
-    private const float RANGE_NORMALIZED = 20f;
-
-    public void SetTime(FloatEvent targetTime)
+    public void SetTime(BoolEvent ctx)
     {
-        slowTime = !slowTime;
-
-        if (slowTime)
+        if (ctx.Value)
         {
-            Time.timeScale = targetTime.FloatValue / RANGE_NORMALIZED;
-            //StartCoroutine(SlowTime(targetTime.FloatValue));
+            StartCoroutine(SlowTime());
         }
         else
         {
-            Debug.Log("Resumed");
             StartCoroutine(ResumeTime());
         }
     }
 
-    IEnumerator SlowTime(float distance)
+    IEnumerator SlowTime()
     {
         float elapsedTime = 0f;
-
-        //Grapple has a maximum range of 20, so if we divide by 20 we
-        //Get a value that can affect time scale
-        slowTimeCurve.keys[1].value = distance / 20f;
-
-        Debug.Log(distance / 20f);
 
         while (elapsedTime < duration)
         {
@@ -50,9 +35,8 @@ public class TimeController : MonoBehaviour
         }
 
         Time.timeScale = slowTimeCurve.Evaluate(duration);
-
-        
     }
+
     IEnumerator ResumeTime()
     {
         float elapsedTime = duration;
@@ -67,7 +51,5 @@ public class TimeController : MonoBehaviour
         }
 
         Time.timeScale = slowTimeCurve.Evaluate(0);
-
-        Debug.Log(Time.timeScale);
     }
 }

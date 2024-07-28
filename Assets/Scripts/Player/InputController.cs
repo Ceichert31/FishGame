@@ -274,20 +274,4 @@ public class InputController : MonoBehaviour
     {
         input_EventChannel.SwitchControlModes(inputEvent, isInCombat.Value);
     }
-
-    public void ToggleControls(BoolEvent isInputLocked)
-    {
-        if (isInputLocked.Value)
-        {
-            playerMovement.Disable();
-            playerControls.Combat.Disable();
-            playerControls.ReelIn.Enable();
-        }
-        else
-        {
-            playerMovement.Enable();
-            playerControls.Combat.Enable();
-            playerControls.ReelIn.Disable();
-        }
-    }
 }
