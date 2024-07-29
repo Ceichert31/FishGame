@@ -667,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 177534956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.37, y: 0.38, z: 27.13}
+  m_LocalPosition: {x: 41.94, y: 0.38, z: 28.04}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2597,24 +2597,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240333441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.03529412, g: 0.06666667, b: 0.23529413, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1245451965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2632,8 @@ GameObject:
   - component: {fileID: 1245451966}
   - component: {fileID: 1245451971}
   - component: {fileID: 1245451972}
+  - component: {fileID: 1245451973}
+  - component: {fileID: 1245451974}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2763,6 +2768,72 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1245451973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b378bc22fa4b4483f9eb2b5be90ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 1240333445}
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fadeDuration: 1
+--- !u!114 &1245451974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 96676819900f8b441b696451aad96fad, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1245451973}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: SetFade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1290853995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2839,6 +2910,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1290853997}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3df3ff8e81428b243bb9fa46f76bb5ca,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1290854003}
   m_SourcePrefab: {fileID: 100100000, guid: 3df3ff8e81428b243bb9fa46f76bb5ca, type: 3}
 --- !u!1 &1290853996 stripped
 GameObject:
@@ -2874,6 +2949,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1290853995}
   m_PrefabAsset: {fileID: 0}
+--- !u!167 &1290854003
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290853996}
+  m_Enabled: 1
+  m_MinDistance: 7
+  m_MaxDistance: 13.23
+  m_ReverbPreset: 14
+  m_Room: -1000
+  m_RoomHF: -237
+  m_DecayTime: 2.7
+  m_DecayHFRatio: 0.79
+  m_Reflections: -1214
+  m_ReflectionsDelay: 0.013
+  m_Reverb: 395
+  m_ReverbDelay: 0.02
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &1292127094
 GameObject:
   m_ObjectHideFlags: 0
@@ -9204,8 +9303,10 @@ GameObject:
   - component: {fileID: 1854508720}
   - component: {fileID: 1854508722}
   - component: {fileID: 1854508723}
-  - component: {fileID: 1854508724}
+  - component: {fileID: 1854508726}
+  - component: {fileID: 1854508727}
   - component: {fileID: 1854508721}
+  - component: {fileID: 1854508724}
   - component: {fileID: 1854508725}
   m_Layer: 0
   m_Name: EventSystem
@@ -9340,8 +9441,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1854508723}
-        m_TargetAssemblyTypeName: TeleportManager, Assembly-CSharp
-        m_MethodName: TeleportToArena
+        m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
+        m_MethodName: StartTransition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9376,8 +9477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d76c79d2556b3478bb88e8e4e147ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  void_EventChannel: {fileID: 11400000, guid: c8364126159dd0b4d898e5f430a8909c, type: 2}
-  mode_EventChannel: {fileID: 11400000, guid: 218b7a20b115ff644a89917d0ec8d8ea, type: 2}
   arenaTransform: {fileID: 1138227517}
 --- !u!114 &1854508724
 MonoBehaviour:
@@ -9435,6 +9534,53 @@ MonoBehaviour:
       - m_Target: {fileID: 1854508724}
         m_TargetAssemblyTypeName: TimeController, Assembly-CSharp
         m_MethodName: SetTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1854508726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
+  - {fileID: 11400000, guid: 6abf517120a235e4c9fd45f8f1037ca3, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
+  - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
+  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
+--- !u!114 &1854508727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 42c20aff62f432747a198a4d494d18d0, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1854508723}
+        m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
+        m_MethodName: TransportPlayer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

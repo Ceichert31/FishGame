@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f145237619617b246a7b51ca01948778, type: 3}
-  m_Name: DefaultProfile
+  m_Script: {fileID: 11500000, guid: f81b6cd11a04a72408a6ca29008b8a95, type: 3}
+  m_Name: PlayerTeleport
   m_EditorClassIdentifier: 
-  post_EventChannel: {fileID: 11400000, guid: 5b33ebd6997308e4481bcb9a5d33a69a, type: 2}
-  postProfile:
-    Profile: {fileID: 11400000, guid: 2151201a3e335a648a08a7b6b9b4d79f, type: 2}
+  bool_EventChannel: {fileID: 11400000, guid: 42c20aff62f432747a198a4d494d18d0, type: 2}
+  boolEvent:
+    Value: 1

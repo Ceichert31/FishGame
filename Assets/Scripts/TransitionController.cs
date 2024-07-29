@@ -4,45 +4,48 @@ using UnityEngine;
 
 public class TransitionController : MonoBehaviour
 {
-    [Header("Scriptable Object Reference")]
-    [SerializeField] private VoidEventChannel void_EventChannel;
-    [SerializeField] private BoolEventChannel mode_EventChannel;
-
     [Header("Teleport Manager Settings")]
     [SerializeField] private Transform arenaTransform;
 
     private Transform lastPosition;
-
     private Transform Player => GameManager.Instance.Player.transform;
 
-    /// <summary>
-    /// Teleports the player into the boss arena
-    /// </summary>
-    /// <param name="ctx"></param>
-    public void TeleportToArena(HookedEvent ctx)
+    private Sequencer transitionSequencer;
+
+
+    private void Awake()
     {
-        //Disable line renderer
-        void_EventChannel.CallEvent(new());
-
-        //Switch to combat mode
-        mode_EventChannel.CallEvent(new(true));
-
-        //Save players last position
-        lastPosition = Player;
-
-        //Teleport player to arena
-        Player.position = arenaTransform.position;
+        transitionSequencer = GetComponent<Sequencer>();
     }
 
     /// <summary>
-    /// Returns the player to the last saved position
+    /// Moves player between arena and last position
     /// </summary>
-    public void ReturnToSavedPos()
+    /// <param name="ctx"></param>
+    public void TransportPlayer(BoolEvent ctx)
     {
-        //Return player
-        Player.position = lastPosition.position;
+        if (ctx.Value) 
+        {
+            //Save players last position
+            lastPosition = Player;
 
-        //Switch to fishing mode
-        mode_EventChannel.CallEvent(new(false));
+            //Teleport player to arena
+            Player.position = arenaTransform.position;
+        }
+        else
+        {
+            //Return player
+            Player.position = lastPosition.position;
+        }
+        
+    }
+
+    /// <summary>
+    /// Starts Sequencer for transition to arena
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void StartTransition(HookedEvent ctx)
+    {
+        transitionSequencer.InitializeSequence();
     }
 }

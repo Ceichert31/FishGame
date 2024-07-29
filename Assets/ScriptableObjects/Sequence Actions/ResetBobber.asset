@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81b6cd11a04a72408a6ca29008b8a95, type: 3}
-  m_Name: SlowTime
+  m_Script: {fileID: 11500000, guid: 42a2032ce1eeef8428825710652794e3, type: 3}
+  m_Name: ResetBobber
   m_EditorClassIdentifier: 
-  time_EventChannel: {fileID: 11400000, guid: 0e048897ac6743e4e85b690ec0062b09, type: 2}
-  slowTime:
-    Value: 1
+  void_EventChannel: {fileID: 11400000, guid: c8364126159dd0b4d898e5f430a8909c, type: 2}

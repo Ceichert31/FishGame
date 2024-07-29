@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Sequencer Actions/Animator")]
 public class AnimatorSequencerAction : SequencerAction
 {
+    [SerializeField] private string animationID;
+
     private Animator animator;
 
     public override void Initialize(GameObject obj)
@@ -13,7 +15,7 @@ public class AnimatorSequencerAction : SequencerAction
 
     public override IEnumerator StartSequence(Sequencer ctx)
     {
-        animator.SetTrigger("Collected");
+        animator.SetTrigger(animationID);
 
         yield return null;
     }

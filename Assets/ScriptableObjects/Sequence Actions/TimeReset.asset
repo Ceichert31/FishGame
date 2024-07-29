@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81b6cd11a04a72408a6ca29008b8a95, type: 3}
-  m_Name: ResetTime
+  m_Name: TimeReset
   m_EditorClassIdentifier: 
-  time_EventChannel: {fileID: 11400000, guid: 0e048897ac6743e4e85b690ec0062b09, type: 2}
-  slowTime:
+  bool_EventChannel: {fileID: 11400000, guid: 0e048897ac6743e4e85b690ec0062b09, type: 2}
+  boolEvent:
     Value: 0
