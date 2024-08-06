@@ -21,11 +21,15 @@ public class CombatController : MonoBehaviour
     private float parryCooldown;
 
     private Animator hookAnimator;
+
+    private Animator spearAnimator;
     private bool IsInProgress => harpoonController.IsInProgress;
 
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
+
+        spearAnimator = transform.GetChild(3).GetComponent<Animator>();
 
         harpoonController = GetComponentInChildren<HarpoonController>();
     }
@@ -52,7 +56,7 @@ public class CombatController : MonoBehaviour
 
     public void Attack()
     {
-        hookAnimator.SetTrigger("Attack");
+        spearAnimator.SetTrigger("Attack");
     }
 
     /// <summary>
