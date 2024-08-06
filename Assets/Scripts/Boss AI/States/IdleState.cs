@@ -19,6 +19,16 @@ public class IdleState : AIState
 
         if (currentTime < Time.time)
             ctx.SwitchState(ctx.walkState);
+
+        /*Idle Code:
+         * probably going to switch into this for at least a little bit after each major attack so good job on the timer
+         * I would like some code that checks if we are trying to be grappled to during this state and do something with that info(if we are not ready to be grappled yet shake the mf off
+         * and go straight to attacking
+         * Probably will make a "can grapple to" kind of boolean on the base class for brevaties sake
+         * 
+         * Exit Condition:
+         * We are ready to do our next attack
+        */
     }
 
     public override void ExitState(BossAI ctx)

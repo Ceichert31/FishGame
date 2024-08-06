@@ -13,9 +13,9 @@ public class BossAI : MonoBehaviour
 
     private void Awake()
     {
-        Agent = GetComponent<NavMeshAgent>();
+        Agent = transform.parent.GetComponent<NavMeshAgent>();
 
-        Animator = GetComponent<Animator>();
+        Animator = transform.parent.GetComponent<Animator>();
 
         InitializeDefaultState();
     }
