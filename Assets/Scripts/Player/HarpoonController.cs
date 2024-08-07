@@ -6,6 +6,7 @@ public class HarpoonController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
+    [SerializeField] private FloatEventChannel damage_EventChannel;
 
     private CombatController combatController;
 
@@ -24,9 +25,7 @@ public class HarpoonController : MonoBehaviour
     //Constants
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
 
-    private const float GRAPPLEDISTANCE = 1f;
-
-    private const float SHAKEDURATION = 0.1f;
+    private const float GRAPPLEDISTANCE = 0.5f;
 
     private void Start()
     {
@@ -120,6 +119,9 @@ public class HarpoonController : MonoBehaviour
 
         //Play attack animation
         combatController.Attack();
+
+        //Deal damage
+        damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage));
 
         ResetBolt();
     }

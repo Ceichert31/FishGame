@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
+  damage_EventChannel: {fileID: 11400000, guid: c8dcbb55224e26f48821279352323e06,
+    type: 2}
 --- !u!114 &3100639532301947567
 MonoBehaviour:
   m_ObjectHideFlags: 0

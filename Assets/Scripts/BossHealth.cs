@@ -7,6 +7,7 @@ public class BossHealth : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FloatEventChannel health_EventChannel;
     [SerializeField] private FloatEventChannel maxHealth_EventChannel;
+    [SerializeField] private VoidEventChannel return_EventChannel;
 
     [Header("Boss Health Settings")]
     [SerializeField] private int bossMaxHealth = 100;
@@ -25,11 +26,17 @@ public class BossHealth : MonoBehaviour
     /// <summary>
     /// Updates the boss's health with input value
     /// </summary>
-    /// <param name="subtractedHealth"></param>
-    public void UpdateHealth(int subtractedHealth)
+    /// <param name="ctx"></param>
+    public void UpdateHealth(FloatEvent ctx)
     {
-        currentHealth.FloatValue -= subtractedHealth;
+        currentHealth.FloatValue -= ctx.FloatValue;
 
         health_EventChannel.CallEvent(currentHealth);
+
+        //Fish health hits zero
+        if (currentHealth.FloatValue <= 0 )
+        {
+            return_EventChannel.CallEvent(new());
+        }
     }
 }

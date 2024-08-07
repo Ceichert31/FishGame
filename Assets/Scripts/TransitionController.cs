@@ -7,15 +7,18 @@ public class TransitionController : MonoBehaviour
     [Header("Teleport Manager Settings")]
     [SerializeField] private Transform arenaTransform;
 
-    private Transform lastPosition;
+    private Vector3 lastPosition;
     private Transform Player => GameManager.Instance.Player.transform;
 
-    private Sequencer transitionSequencer;
+    private Sequencer arenaTransition;
 
+    private Sequencer returnTransition;
 
     private void Awake()
     {
-        transitionSequencer = GetComponent<Sequencer>();
+        arenaTransition = transform.GetChild(0).GetComponent<Sequencer>();
+
+        returnTransition = transform.GetChild(1).GetComponent<Sequencer>();
     }
 
     /// <summary>
@@ -25,27 +28,37 @@ public class TransitionController : MonoBehaviour
     public void TransportPlayer(BoolEvent ctx)
     {
         if (ctx.Value) 
-        {
-            //Save players last position
-            lastPosition = Player;
-
-            //Teleport player to arena
-            Player.position = arenaTransform.position;
-        }
+            TransportToArena();
         else
-        {
-            //Return player
-            Player.position = lastPosition.position;
-        }
-        
+            ReturnPlayer();
+    }
+
+    private void TransportToArena()
+    {
+        //Save players last position
+        lastPosition = Player.position;
+
+        //Teleport player to arena
+        Player.position = arenaTransform.position;
+    }
+
+    private void ReturnPlayer()
+    {
+        //Return player
+        Player.position = lastPosition;
     }
 
     /// <summary>
     /// Starts Sequencer for transition to arena
     /// </summary>
     /// <param name="ctx"></param>
-    public void StartTransition(HookedEvent ctx)
+    public void StartArenaTransition(HookedEvent ctx)
     {
-        transitionSequencer.InitializeSequence();
+        arenaTransition.InitializeSequence();
+    }
+
+    public void StartReturnTransition(VoidEvent ctx)
+    {
+        returnTransition.InitializeSequence();
     }
 }

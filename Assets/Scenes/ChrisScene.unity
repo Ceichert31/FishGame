@@ -1216,6 +1216,59 @@ Transform:
   - {fileID: 2020336360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &743175739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743175740}
+  - component: {fileID: 743175741}
+  m_Layer: 0
+  m_Name: ReturnTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &743175740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743175739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1854508718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &743175741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743175739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 092fcf17c0928e94aa557fa128ae457a, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 6b952a26a5a5ea047b96ade883505db7, type: 2}
+  - {fileID: 11400000, guid: 46805d70e7b9918408748326129691cd, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
 --- !u!1 &841114841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4004,9 +4057,9 @@ GameObject:
   - component: {fileID: 1854508720}
   - component: {fileID: 1854508722}
   - component: {fileID: 1854508723}
-  - component: {fileID: 1854508726}
   - component: {fileID: 1854508727}
   - component: {fileID: 1854508721}
+  - component: {fileID: 1854508728}
   - component: {fileID: 1854508724}
   - component: {fileID: 1854508725}
   m_Layer: 0
@@ -4084,7 +4137,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2111886268}
+  - {fileID: 743175740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1854508719
@@ -4143,7 +4198,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1854508723}
         m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
-        m_MethodName: StartTransition
+        m_MethodName: StartArenaTransition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4244,27 +4299,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1854508726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854508715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sequenceActions:
-  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
-  - {fileID: 11400000, guid: 6abf517120a235e4c9fd45f8f1037ca3, type: 2}
-  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
-  - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
-  - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
-  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
-  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
-  - {fileID: 11400000, guid: a503177bbab477c458ddb4629c5fd008, type: 2}
 --- !u!114 &1854508727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4284,6 +4318,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1854508723}
         m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
         m_MethodName: TransportPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1854508728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1854508723}
+        m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
+        m_MethodName: StartReturnTransition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4719,6 +4781,59 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 200065878}
   m_SourcePrefab: {fileID: 100100000, guid: 3df3ff8e81428b243bb9fa46f76bb5ca, type: 3}
+--- !u!1 &2111886267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111886268}
+  - component: {fileID: 2111886269}
+  m_Layer: 0
+  m_Name: ArenaTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111886268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111886267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1854508718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111886269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111886267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
+  - {fileID: 11400000, guid: 6abf517120a235e4c9fd45f8f1037ca3, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
+  - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
+  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: a503177bbab477c458ddb4629c5fd008, type: 2}
 --- !u!4 &2133426328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be91ef3d4f14e8b488c9733d3f222a15,
