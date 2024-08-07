@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 6007197485423933522}
   - component: {fileID: 6025502010461224808}
   - component: {fileID: 1164393372454060404}
+  - component: {fileID: 8515886488007705477}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -457,6 +458,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleState: {fileID: 4801021715315176914}
   walkState: {fileID: 420164756479486982}
+--- !u!114 &8515886488007705477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002dae3747eb2a34bb6d1abb3d383fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health_EventChannel: {fileID: 11400000, guid: 7f6db5de154aa6246b25f1fd05ed3920,
+    type: 2}
+  maxHealth_EventChannel: {fileID: 11400000, guid: e1edea4b9d36fba428b4da495b6b6aa8,
+    type: 2}
+  bossMaxHealth: 35
 --- !u!1 &6839625621437434146
 GameObject:
   m_ObjectHideFlags: 0
