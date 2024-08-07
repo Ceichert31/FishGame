@@ -9,4 +9,9 @@ public class ArenaController : MonoBehaviour
     {
         startingSequencer = GetComponent<Sequencer>();
     }
+
+    public void StartIntroSequencer()
+    {
+
+    }
 }

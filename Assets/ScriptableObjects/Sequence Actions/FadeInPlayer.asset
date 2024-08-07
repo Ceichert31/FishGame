@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81b6cd11a04a72408a6ca29008b8a95, type: 3}
-  m_Name: FadeOut
+  m_Name: FadeInPlayer
   m_EditorClassIdentifier: 
   bool_EventChannel: {fileID: 11400000, guid: 96676819900f8b441b696451aad96fad, type: 2}
   boolEvent:
-    Value: 1
+    Value: 0

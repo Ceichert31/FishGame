@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Upgrade : MonoBehaviour
+public class DamageUpgrade : MonoBehaviour
 {
     [Header("Upgrade Settings")]
     [SerializeField] private int damageIncreaseAmount = 5;
@@ -23,13 +23,8 @@ public class Upgrade : MonoBehaviour
             //Add to damage
             GameManager.Instance.IncreaseDamageStat(damageIncreaseAmount);
 
+            //Play collection sequence
             collectedSequencer.InitializeSequence();
-
-            //Play particle
-            //Play sound effect
-            //Disable object
-
-            //Display text
         }
     }
 }
