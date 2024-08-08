@@ -12,6 +12,8 @@ public class BossHealthUI : MonoBehaviour
 
     private float maxHealth;
 
+    private const int MAXFILLAMOUNT = 1;
+
     private void Start()
     {
         healthBar = GetComponent<Image>();
@@ -19,7 +21,13 @@ public class BossHealthUI : MonoBehaviour
     
     public void SetMaxHealth(FloatEvent ctx)
     {
+        StopAllCoroutines();
+
+        Debug.Log("RESET");
+
         maxHealth = ctx.FloatValue;
+
+        healthBar.fillAmount = MAXFILLAMOUNT;
     }
 
     /// <summary>

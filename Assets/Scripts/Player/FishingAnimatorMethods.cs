@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class FishingAnimatorMethods : MonoBehaviour
 {
@@ -41,5 +42,14 @@ public class FishingAnimatorMethods : MonoBehaviour
     public void ReeledInEventCall()
     {
         reeledIn_EventChannel.CallEvent(new());
+    }
+
+    /// <summary>
+    /// Sets hooked animation
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void SetHookedAnimation(BoolEvent ctx)
+    {
+        animator.SetBool("IsFishHooked", ctx.Value);
     }
 }

@@ -37,6 +37,7 @@ public class BossHealth : MonoBehaviour
         if (currentHealth.FloatValue <= 0 )
         {
             return_EventChannel.CallEvent(new());
+            Destroy(transform.parent.gameObject);
         }
     }
 }
