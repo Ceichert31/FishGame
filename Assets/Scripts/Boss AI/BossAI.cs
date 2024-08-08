@@ -6,7 +6,7 @@ public class BossAI : MonoBehaviour
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
 
-    private AIState currentState;
+    [SerializeField] private AIState currentState;
 
     public IdleState idleState = new();
     public WalkState walkState = new();
@@ -49,4 +49,12 @@ public class BossAI : MonoBehaviour
         currentState.EnterState(this);
     }
 
+
+    //DevTools
+
+    [ContextMenu("TransitionToWalkState")]
+    public void ToWalkState()
+    {
+        SwitchState(walkState);
+    }
 }

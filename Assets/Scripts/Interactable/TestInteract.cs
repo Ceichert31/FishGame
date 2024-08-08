@@ -6,24 +6,29 @@ using UnityEngine.Rendering.Universal;
 
 public class TestInteract : MonoBehaviour, IInteract
 {
-    [SerializeField] private FloatEventChannel cameraShake_EventChannel;
+    [SerializeField] private IntEventChannel testEvet;
 
     [SerializeField] private string textPrompt = "Test!";
 
     public string Prompt { get { return textPrompt; } }
+
+    private IntEvent intEvent;
 
 
     private Sequencer testSequencer;
 
     private void Start()
     {
-        testSequencer = GetComponent<Sequencer>();
+        //intEvent.Value = 5;
+        testSequencer = transform.GetChild(0).GetComponent<Sequencer>();
     }
 
     public void Interact()
     {
         //testSequencer.InitializeSequence();
         //cameraShake_EventChannel.CallEvent(new(1f
+        //testEvet.CallEvent(intEvent);
+        testSequencer.InitializeSequence();
     }
     public void ExitInteract()
     {

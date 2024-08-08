@@ -4,7 +4,9 @@ using UnityEngine;
 using HelperMethods;
 public class WalkState : AIState
 {
+    [SerializeField] LureProjectileSpawner projectileSpawner;
     float maxDistance;
+    float fireTime;
     public override void EnterState(BossAI ctx)
     {
         ctx.Agent.speed = 5f;
@@ -30,7 +32,21 @@ public class WalkState : AIState
         if(Util.DistanceNoY(Player, transform.position) < maxDistance)
         {
             ctx.SwitchState(ctx.idleState);
+            Debug.Log("Close Enough");
         }
+
+        //ProjectileTesting *For Testing A Consistent Firing Pattern
+        if (fireTime <= 0)
+        {
+            float waitTime = 2;
+            projectileSpawner.SpawnPattern(waitTime);
+            fireTime = waitTime * projectileSpawner.SpawnLocationCount;
+        }
+        //In the future might want to make this unscalled to not get messed with by time discrepincies
+        fireTime -= Time.deltaTime;
+
+        //SpawnProjectilesBetweenTheSpawnPoints
+        //projectileSpawner
     }
 
     public override void ExitState(BossAI ctx)

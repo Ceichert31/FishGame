@@ -3220,7 +3220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1383519597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3319,8 +3319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a3266b27e536b428a354c87f68eeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake_EventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34,
-    type: 2}
+  testEvet: {fileID: 0}
   textPrompt: Test!
 --- !u!114 &1383519602
 MonoBehaviour:

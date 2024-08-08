@@ -1,0 +1,1 @@
+public class IntEventListener : GenericEventListener<IntEventChannel, IntEvent> { }

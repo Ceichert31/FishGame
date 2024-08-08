@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class LureProjectileSpawner : ProjectileManager
 {
+    Vector3 playerPosition => GameManager.Instance.Player.transform.position;
+
     [SerializeField] Transform defaultSpawnLocation;
     [SerializeField] int defaultProjectileAmmount;
     [SerializeField] GameObject specialProjectile;
+
+    [SerializeField] List<Transform> projectileSpawnPoints;
     private void Start()
     {
         OnStart();
@@ -38,9 +42,31 @@ public class LureProjectileSpawner : ProjectileManager
         {
             for (int i = 0; i < _projectileAmmount; i++)
             {
-                pool.Get();
+                GameObject instance = pool.Get();
+                instance.transform.LookAt(playerPosition);
                 yield return wfs;
             }
         }
     }
+
+    //PatternSpawning
+    public void SpawnPattern(float timeInbetween)
+    {
+        StartCoroutine(PatternSpawner(timeInbetween));
+    }
+
+    IEnumerator PatternSpawner(float timeInbetween)
+    {
+        for (int i = 0; i < projectileSpawnPoints.Count; i++)
+        {
+            InitalizeProjectileSpawner(null, 1, timeInbetween, projectileSpawnPoints[i]);
+            yield return wfs;
+        }
+    }
+
+    public int SpawnLocationCount
+    {
+        get { return projectileSpawnPoints.Count; }
+    }
+
 }

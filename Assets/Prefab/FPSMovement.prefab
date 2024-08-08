@@ -1509,6 +1509,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6565486206513040709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4081493616867251035}
+  - component: {fileID: 6025490770570100029}
+  - component: {fileID: 7674407696521576547}
+  m_Layer: 2
+  m_Name: ParryBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4081493616867251035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565486206513040709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.0000000037252903, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.73}
+  m_LocalScale: {x: 3.7600002, y: 3.4, z: 2.0499997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8244151488553780583}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6025490770570100029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565486206513040709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7674407696521576547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565486206513040709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df235bc569cf9e42baa56df8104f464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 8244151488553780583}
 --- !u!1 &7404753998953844394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1971,7 @@ Transform:
   - {fileID: 5719716679102456388}
   - {fileID: 5746184116075811942}
   - {fileID: 1024278302426055050}
+  - {fileID: 4081493616867251035}
   m_Father: {fileID: 3306898884867616923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7802647240829371144
@@ -2108,6 +2176,7 @@ GameObject:
   - component: {fileID: 9035752651341300136}
   - component: {fileID: 3609700905326404032}
   - component: {fileID: 3434542102658035597}
+  - component: {fileID: 8674928493737305969}
   m_Layer: 2
   m_Name: FightingHook
   m_TagString: Untagged
@@ -2214,6 +2283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91664189a2c478a44ac75ed742f8d2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8674928493737305969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829397048881863424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44aa0411bbe6cbd4d9755d147e1c3a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryBox: {fileID: 6565486206513040709}
 --- !u!1001 &6169310993996095460
 PrefabInstance:
   m_ObjectHideFlags: 0
