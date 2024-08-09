@@ -16,14 +16,22 @@ public class TextController : MonoBehaviour
 
     public void UpdateTextPrompt(TextEvent ctx)
     {
+        //Cancel any previous textPrompts
+        StopAllCoroutines();
+
+        promptText.text = string.Empty;
+
+        //Empty prompt bootstrap case
         if (ctx.TextPrompt == string.Empty)
         {
             StopAllCoroutines();
             promptText.text = string.Empty;
             return;
         }
-        StartCoroutine(DisplayText(ctx.TextPrompt));
 
+        StartCoroutine(DisplayText(ctx.TextPrompt));
+        
+        //Clear text after waitTime
         if (ctx.CanClear)
             Invoke(nameof(ClearText), ctx.ClearTime);
     }
