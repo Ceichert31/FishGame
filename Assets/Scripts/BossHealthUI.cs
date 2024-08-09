@@ -23,8 +23,6 @@ public class BossHealthUI : MonoBehaviour
     {
         StopAllCoroutines();
 
-        Debug.Log("RESET");
-
         maxHealth = ctx.FloatValue;
 
         healthBar.fillAmount = MAXFILLAMOUNT;

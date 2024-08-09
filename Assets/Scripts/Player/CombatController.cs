@@ -43,7 +43,7 @@ public class CombatController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange))
         {
-            if (hitInfo.collider.CompareTag("Weakpoint"))
+            if (hitInfo.collider.CompareTag("canGrapple"))
             {
                 harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo, true);
             }

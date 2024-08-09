@@ -15,8 +15,10 @@ public class HarpoonController : MonoBehaviour
     private LineRenderer boltLineRenderer;
 
     private Transform boltObject;
+
+    private Rigidbody boltRigidbody;
     private Transform Player => GameManager.Instance.Player.transform;
-    private Rigidbody rb => GameManager.Instance.Player.GetComponent<Rigidbody>();
+    private Rigidbody playerRigidbody => GameManager.Instance.Player.GetComponent<Rigidbody>();
 
     private bool isInProgress;
 
@@ -26,7 +28,7 @@ public class HarpoonController : MonoBehaviour
     //Constants
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
 
-    private const float GRAPPLEDISTANCE = 0.7f;
+    private const float GRAPPLEDISTANCE = 1f;
 
     private const int DAMAGELAYER = 8;
 
@@ -39,6 +41,8 @@ public class HarpoonController : MonoBehaviour
         attackSequencer = GetComponent<Sequencer>();
 
         boltObject = transform.GetChild(0);
+
+        boltRigidbody = boltObject.GetComponent<Rigidbody>();
 
         //Disabled after game starts
         transform.parent.gameObject.SetActive(false);
@@ -75,17 +79,28 @@ public class HarpoonController : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, RaycastHit hitPoint, bool isWeakPoint)
     {
+        boltRigidbody.isKinematic = false;
+
+        //Unparent bolt
         boltObject.parent = null;
 
+        //Move bolt to hitpoint
         while (Vector3.Distance(hitPoint.point, boltObject.position) > GRAPPLEDISTANCE)
         {
-            boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, hitPoint.point, reelInSpeed * Time.deltaTime);
+            //boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, hitPoint.point, reelInSpeed * Time.deltaTime);
+
+            boltRigidbody.velocity = reelInSpeed * (hitPoint.point - boltObject.position).normalized;
 
             yield return null;
         }
 
+        //Stop movement
+        boltRigidbody.velocity = Vector3.zero;
+
+        //Set final position
         boltObject.position = hitPoint.point;
 
+        //Determine if player can grapple to surface or not
         if (isWeakPoint)
         {
             StartCoroutine(GrapplePlayer(grappleForce, hitPoint));
@@ -113,23 +128,26 @@ public class HarpoonController : MonoBehaviour
         //Move player to hitpoint
         while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
         {
-            rb.velocity = grappleForce * (hitPoint.point - Player.position).normalized;
+            playerRigidbody.velocity = grappleForce * (hitPoint.point - Player.position).normalized;
 
             yield return null;
         }
 
-        //Stop velocity
-        rb.velocity = Vector3.zero;
-
-        //Play attack effects
-        attackSequencer.InitializeSequence();
-
-        //Play attack animation
-        combatController.Attack();
-
-        //Deal damage
+        //If weakpoint, deal damage
         if (hitPoint.transform.gameObject.layer == DAMAGELAYER)
+        {
+            //Stop velocity
+            playerRigidbody.velocity = Vector3.zero;
+
+            //Play attack effects
+            attackSequencer.InitializeSequence();
+
+            //Play attack animation
+            combatController.Attack();
+
+            //Deal damage
             damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage));
+        }
 
         ResetBolt();
     }
@@ -143,7 +161,9 @@ public class HarpoonController : MonoBehaviour
     {
         while (Vector3.Distance(transform.position, boltObject.position) > GRAPPLEDISTANCE)
         {
-            boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, transform.position, reelInSpeed * Time.deltaTime);
+            //boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, transform.position, reelInSpeed * Time.deltaTime);
+
+            boltRigidbody.velocity = reelInSpeed * (transform.position - boltObject.position).normalized;
 
             //If bolt gets too far away, reset it
             if (Vector3.Distance(transform.position, boltObject.position) > 30f)
@@ -153,6 +173,9 @@ public class HarpoonController : MonoBehaviour
 
             yield return null;
         }
+
+        //Stop movement
+        boltRigidbody.velocity = Vector3.zero;
 
         ResetBolt();
     }
@@ -171,6 +194,9 @@ public class HarpoonController : MonoBehaviour
     void ResetBolt()
     {
         StopAllCoroutines();
+
+        //Set rigidbody to kinematic
+        boltRigidbody.isKinematic = true;
 
         //Clear players parent
         Player.parent = null;
