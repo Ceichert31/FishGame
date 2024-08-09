@@ -21,7 +21,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Start()
     {
-        emptyEvent = new TextEvent(string.Empty, 0, false);
+        emptyEvent = new TextEvent(string.Empty, 0);
     }
 
     public void CanInteract(bool interactInput) => canInteract = interactInput;
@@ -31,7 +31,7 @@ public class PlayerInteractor : MonoBehaviour
         isInteractableLayer = other.gameObject.layer == interactLayer;
 
         if (other.gameObject.TryGetComponent(out interactableObject))
-            ui_EventChannel.CallEvent(new(interactableObject.Prompt, 0, false));
+            ui_EventChannel.CallEvent(new(interactableObject.Prompt, 0));
     }
 
     private void OnTriggerStay(Collider other)

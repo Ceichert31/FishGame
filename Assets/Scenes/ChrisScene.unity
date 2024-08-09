@@ -1602,13 +1602,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
-  textPrompt: Press [Shift] to dash
-  textClearTime: 3
-  canClearText: 1
+  textList:
+  - TextPrompt: Press [Shift] to dash
+    ClearTime: 0.5
+  - TextPrompt: Press [Space] to jump
+    ClearTime: 0.5
+  - TextPrompt: Press [LMB] to fire harpoon
+    ClearTime: 1
+  - TextPrompt: Press [RMB] to parry
+    ClearTime: 1
   isOneTimeUse: 1
-  hasSecondPrompt: 1
-  secondTextPrompt: Press [Space] to Jump
-  secondPromptDelayTime: 4
 --- !u!65 &657844657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1639,11 +1642,11 @@ Transform:
   m_GameObject: {fileID: 657844655}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.38268274, z: -0, w: 0.9238798}
-  m_LocalPosition: {x: 42.025887, y: 1.5, z: 46.12489}
-  m_LocalScale: {x: 2.3877, y: 2.3877, z: 12.095612}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05340355, y: 0.068423316, z: 0.27053186}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1138227517}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!4 &672436858 stripped
 Transform:
@@ -2562,13 +2565,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
-  textPrompt: Hold [LMB] to cast fishing rod
-  textClearTime: 4
-  canClearText: 1
+  textList:
+  - TextPrompt: Hold [LMB] to cast fishing rod
+    ClearTime: 1
+  - TextPrompt: Press [RMB] to reel in
+    ClearTime: 1
   isOneTimeUse: 1
-  hasSecondPrompt: 1
-  secondTextPrompt: Press [RMB] to reel in
-  secondPromptDelayTime: 5
 --- !u!65 &1074792103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2716,7 +2718,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 657844658}
   m_Father: {fileID: 1292127099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155528416
@@ -6263,4 +6266,3 @@ SceneRoots:
   - {fileID: 674825205}
   - {fileID: 1155528417}
   - {fileID: 1074792104}
-  - {fileID: 657844658}
