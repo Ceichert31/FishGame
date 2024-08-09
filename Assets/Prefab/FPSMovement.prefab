@@ -2426,6 +2426,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4566392870103109663}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddf1ddbeee0261c4d91f2fb748a91463,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8968040311391844833}
   m_SourcePrefab: {fileID: 100100000, guid: ddf1ddbeee0261c4d91f2fb748a91463, type: 3}
 --- !u!4 &5915322894135719951 stripped
 Transform:
@@ -2474,6 +2478,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reeledIn_EventChannel: {fileID: 11400000, guid: 19ad890b70f8b05488fde69c18803bc6,
     type: 2}
+--- !u!114 &8968040311391844833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439200204687254197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 3103e7216622cb049906eca8a1a10a82, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4566392870103109663}
+        m_TargetAssemblyTypeName: FishingAnimatorMethods, Assembly-CSharp
+        m_MethodName: SetHookedAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7169021264448100874
 PrefabInstance:
   m_ObjectHideFlags: 0

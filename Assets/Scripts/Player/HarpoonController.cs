@@ -16,6 +16,7 @@ public class HarpoonController : MonoBehaviour
 
     private Transform boltObject;
     private Transform Player => GameManager.Instance.Player.transform;
+    private Rigidbody rb => GameManager.Instance.Player.GetComponent<Rigidbody>();
 
     private bool isInProgress;
 
@@ -25,7 +26,9 @@ public class HarpoonController : MonoBehaviour
     //Constants
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
 
-    private const float GRAPPLEDISTANCE = 0.5f;
+    private const float GRAPPLEDISTANCE = 0.7f;
+
+    private const int DAMAGELAYER = 8;
 
     private void Start()
     {
@@ -107,21 +110,26 @@ public class HarpoonController : MonoBehaviour
         //Increase FOV
         fov_EventChannel.CallEvent(new());
 
+        //Move player to hitpoint
         while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
         {
-            //Move player
-            Player.position = Vector3.MoveTowards(Player.position, hitPoint.point, grappleForce * Time.deltaTime);
+            rb.velocity = grappleForce * (hitPoint.point - Player.position).normalized;
 
             yield return null;
         }
 
+        //Stop velocity
+        rb.velocity = Vector3.zero;
+
+        //Play attack effects
         attackSequencer.InitializeSequence();
 
         //Play attack animation
         combatController.Attack();
 
         //Deal damage
-        damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage));
+        if (hitPoint.transform.gameObject.layer == DAMAGELAYER)
+            damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage));
 
         ResetBolt();
     }

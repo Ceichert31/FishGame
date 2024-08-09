@@ -7,7 +7,7 @@ public class SpawnPool : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private HookedFishEventChannel hooked_EventChannel;
-    [SerializeField] private TextEventChannel ui_EventChannel;
+    [SerializeField] private TextEventChannel text_EventChannel;
     [SerializeField] private BoolEventChannel animation_EventChannel;
 
     [Header("Spawn Pool Settings")]
@@ -25,6 +25,8 @@ public class SpawnPool : MonoBehaviour
 
     private bool hasReeledIn;
 
+    private TextEvent noFishEvent;
+
     private TextEvent fishLostEvent;
 
     private Coroutine instance = null;
@@ -34,6 +36,8 @@ public class SpawnPool : MonoBehaviour
 
     private void Start()
     {
+        noFishEvent = new TextEvent("No Fish hooked", 2.5f, true);
+
         fishLostEvent = new TextEvent("Fish Got Away...", 2.5f, true);
     }
 
@@ -79,7 +83,7 @@ public class SpawnPool : MonoBehaviour
             //If player takes too long to reel in exit coroutine
             if (currentTime < Time.time)
             {
-                ui_EventChannel.CallEvent(fishLostEvent);
+                text_EventChannel.CallEvent(fishLostEvent);
 
                 animation_EventChannel.CallEvent(new(false));
 
@@ -154,8 +158,8 @@ public class SpawnPool : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Fish Bite");
             //No fish bite
+            text_EventChannel.CallEvent(noFishEvent);
         }
 
     }
