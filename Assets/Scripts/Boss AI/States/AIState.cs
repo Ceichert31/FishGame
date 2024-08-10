@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class AIState : MonoBehaviour
 {
     protected Vector3 Player => GameManager.Instance.Player.transform.position;
+    protected Transform bossTransform;
 
     /// <summary>
     /// This method is called when first entering a new state

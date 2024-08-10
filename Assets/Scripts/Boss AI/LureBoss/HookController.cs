@@ -11,7 +11,7 @@ public class HookController : MonoBehaviour
     [Header("Hook Limits")]
     float maxYRot = 75;
     float maxXRot = 30;
-    float rotateAmmount = 100f;
+    float rotateAmmount = 70f;
     float rotateBackAmmount = 10f;
 
     [SerializeField] float tempHookX;
@@ -20,6 +20,9 @@ public class HookController : MonoBehaviour
 
     DirectionTracker directionTracker;
     Vector3 rotateDirection;
+
+    float currentMagnitude;
+    float previousMagnitude;
     
 
     // Start is called before the first frame update
@@ -31,7 +34,7 @@ public class HookController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotateDirection = directionTracker.PlayerDirection;
+        rotateDirection = directionTracker.ObjectDirection;
 
         if (rotateDirection.magnitude == 0)
         {

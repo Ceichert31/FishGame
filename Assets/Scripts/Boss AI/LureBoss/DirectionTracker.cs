@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class DirectionTracker : MonoBehaviour
 {
-    Transform playerTransform;
+    Transform objectTransform;
     Vector3 previousPosition;
-    Vector3 playerDirection;
-    // Start is called before the first frame update
+    Vector3 objectDirection;
 
     private void Awake()
     {
-        playerTransform = transform.parent;
-        previousPosition = playerTransform.position;
+        objectTransform = transform.parent;
+        previousPosition = objectTransform.position;
     }
 
     private void Update()
     {
-        playerDirection = playerTransform.position - previousPosition;
-        previousPosition = playerTransform.position;
+        // Calculate the direction of movement in the world space
+        objectDirection = objectTransform.position - previousPosition;
+
+        // Update the previous position for the next frame
+        previousPosition = objectTransform.position;
     }
 
-    public Vector3 PlayerDirection
+    public Vector3 ObjectDirection
     {
-        get { return new Vector3(playerDirection.x, -playerDirection.z, 0).normalized; }
+        get
+        {
+            // Convert world space movement direction to local space
+            Vector3 localDirection = transform.InverseTransformDirection(objectDirection);
+            return new Vector3(localDirection.y, localDirection.x, 0).normalized;
+        }
     }
 }

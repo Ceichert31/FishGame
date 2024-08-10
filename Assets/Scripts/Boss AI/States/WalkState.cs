@@ -7,16 +7,30 @@ public class WalkState : AIState
     [SerializeField] LureProjectileSpawner projectileSpawner;
     float maxDistance;
     float fireTime;
+
+    [Header("Variables for controlling unique movement")]
+    [SerializeField] float initalMoveAmmount = 10;
+    [SerializeField] float slowDownAmmount = 2;
+    float timeUntilNextMovement = 1;
+    float currentTime;
+    float currentMoveAmmount;
     public override void EnterState(BossAI ctx)
     {
-        ctx.Agent.speed = 5f;
+        //Temp Solution
+        bossTransform = transform.parent.parent;
 
+
+        ctx.Agent.speed = 5f;
+        currentTime = timeUntilNextMovement;
+        currentMoveAmmount = initalMoveAmmount;
+        
         //Play idle animation
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-
+        //MoveCode:
+        MoveBehavior();
 
         /*
          * Walking state code:
@@ -47,6 +61,30 @@ public class WalkState : AIState
 
         //SpawnProjectilesBetweenTheSpawnPoints
         //projectileSpawner
+    }
+
+    void MoveBehavior()
+    {
+        bossTransform.LookAt(Player);
+        //Creates a unique movement pattern simmilar to what u would see on some fishing lure
+        if(currentMoveAmmount <= 0)
+        {
+            if(currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+            }
+            else
+            {
+                currentTime = timeUntilNextMovement;
+                currentMoveAmmount = initalMoveAmmount;
+            }
+
+            return;
+        }
+
+        bossTransform.position += bossTransform.forward * currentMoveAmmount * Time.deltaTime;
+
+        currentMoveAmmount -= slowDownAmmount * Time.deltaTime;
     }
 
     public override void ExitState(BossAI ctx)
