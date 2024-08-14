@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class BossAI : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private AIState currentState;
 
-    public IdleState idleState = new();
-    public WalkState walkState = new();
+    public IdleState idleState;
+    public WalkState walkState;
 
     private void Awake()
     {
@@ -19,6 +20,12 @@ public class BossAI : MonoBehaviour
         Animator = transform.parent.GetComponent<Animator>();
 
         InitializeDefaultState();
+
+        
+        /*for(int i = 0; i < states.Count; i++)
+        {
+            states[i] = new();
+        }*/
     }
 
     /// <summary>
@@ -28,7 +35,7 @@ public class BossAI : MonoBehaviour
     {
         currentState = idleState;
 
-        currentState.EnterState(this);
+        currentState.EnterStateController(this);
     }
 
     private void Update()
@@ -47,7 +54,7 @@ public class BossAI : MonoBehaviour
 
         currentState = newState;
 
-        currentState.EnterState(this);
+        currentState.EnterStateController(this);
     }
 
 

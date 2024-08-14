@@ -374,13 +374,34 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 420164756479486982, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
+      propertyPath: slowDownAmmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 420164756479486982, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
       propertyPath: initalMoveAmmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164393372454060404, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: idleState
+      value: 
+      objectReference: {fileID: 11400000, guid: 96b86f49fb0c479489d992bb074ef9d3,
+        type: 2}
+    - target: {fileID: 1164393372454060404, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: walkState
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.268024
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5778677
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
@@ -390,7 +411,7 @@ PrefabInstance:
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7801075
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
@@ -400,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
@@ -410,7 +431,7 @@ PrefabInstance:
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
@@ -427,12 +448,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6025502010461224808, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: objectDirection
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_Name
       value: LureBoss
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4801021715315176914, guid: 4a7019fbdff752948bd326df72cae00f, type: 3}
+    - {fileID: 420164756479486982, guid: 4a7019fbdff752948bd326df72cae00f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -618,5 +646,5 @@ SceneRoots:
   - {fileID: 46642054}
   - {fileID: 1825130995}
   - {fileID: 1949585047}
-  - {fileID: 1502359739}
   - {fileID: 1810280817}
+  - {fileID: 1502359739}

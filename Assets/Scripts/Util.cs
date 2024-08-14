@@ -28,6 +28,25 @@ namespace HelperMethods
         {
             return Vector3.Distance(new Vector3(first.x, differentY, first.z), new Vector3(second.x, differentY, second.z));
         }
+
+        /// <summary>
+        /// A TryGetComponent for parents of transforms
+        /// Returns the transform parameter if the parameter does not have a parent
+        /// </summary>
+        /// <param name="currentTransform"></param>
+        /// <returns></returns>
+        public static Transform TryGetParent(Transform currentTransform)
+        {
+            try
+            {
+                return currentTransform.parent;
+            }
+            catch
+            {
+                Debug.Log("No Parent Exists For This Object. Returning Same Transform");
+                return currentTransform;
+            }
+        }
     }
 
 }

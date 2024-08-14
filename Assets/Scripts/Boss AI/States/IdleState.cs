@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "IdleState",menuName ="BossStates/Idle")]
 public class IdleState : AIState
 {
     private float idleTime = 3f;
+    public override void InitalizeState(BossAI ctx)
+    {
+        ctx.Agent.speed = 0;
+    }
 
     public override void EnterState(BossAI ctx)
     {
-        ctx.Agent.speed = 0;
 
         //Play idle animation
     }
@@ -18,7 +22,9 @@ public class IdleState : AIState
         float currentTime = Time.time + idleTime;
 
         if (currentTime < Time.time)
+        {
             ctx.SwitchState(ctx.walkState);
+        }
 
         /*Idle Code:
          * probably going to switch into this for at least a little bit after each major attack so good job on the timer
@@ -35,4 +41,6 @@ public class IdleState : AIState
     {
         
     }
+
+    
 }

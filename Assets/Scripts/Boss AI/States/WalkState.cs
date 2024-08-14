@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
+
+[CreateAssetMenu(fileName ="WalkState", menuName ="BossStates/Walk")]
 public class WalkState : AIState
 {
     [SerializeField] LureProjectileSpawner projectileSpawner;
@@ -14,13 +16,27 @@ public class WalkState : AIState
     float timeUntilNextMovement = 1;
     float currentTime;
     float currentMoveAmmount;
+
+    public override void InitalizeState(BossAI ctx)
+    {
+        throw new System.NotImplementedException();
+    }
+
+
     public override void EnterState(BossAI ctx)
     {
+        if(called)
+        {
+            return;
+        }
+
+        called = true;
         //Temp Solution
-        bossTransform = transform.parent.parent;
+        bossTransform = ctx.transform.parent;
 
 
         ctx.Agent.speed = 5f;
+        projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
         currentTime = timeUntilNextMovement;
         currentMoveAmmount = initalMoveAmmount;
         
@@ -43,7 +59,7 @@ public class WalkState : AIState
          */
 
         //Exit Condition(temps)
-        if(Util.DistanceNoY(Player, transform.position) < maxDistance)
+        if(Util.DistanceNoY(Player, bossTransform.position) < maxDistance)
         {
             ctx.SwitchState(ctx.idleState);
             Debug.Log("Close Enough");
