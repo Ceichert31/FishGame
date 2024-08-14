@@ -13,7 +13,7 @@ public class SpeedUpgrade : MonoBehaviour
 
     private void Start()
     {
-        collectedSequencer = GetComponentInParent<Sequencer>();
+        collectedSequencer = transform.parent.GetComponent<Sequencer>();
     }
 
     private void OnTriggerEnter(Collider other)

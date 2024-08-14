@@ -5,16 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Sequencer Actions/Particle")]
 public class ParticleSequencerAction : SequencerAction
 {
-    private ParticleSystem particleSystem;
-
-    public override void Initialize(GameObject obj)
-    {
-        particleSystem = obj.GetComponent<ParticleSystem>();
-    }
-
     public override IEnumerator StartSequence(Sequencer ctx)
     {
-        particleSystem.Play();
+        ctx.GetComponent<ParticleSystem>().Play();
 
         yield return null;
     }
