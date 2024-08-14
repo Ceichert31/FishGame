@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageUpgrade : MonoBehaviour
+public class SpeedUpgrade : MonoBehaviour
 {
     [Header("Upgrade Settings")]
-    [SerializeField] private int damageIncreaseAmount = 5;
+    [SerializeField] private float speedIncreaseAmount = 0.2f;
 
     private Sequencer collectedSequencer;
 
@@ -21,7 +21,7 @@ public class DamageUpgrade : MonoBehaviour
         if (other.gameObject.layer == PLAYERLAYER)
         {
             //Add to damage
-            GameManager.Instance.IncreaseDamage(damageIncreaseAmount);
+            GameManager.Instance.IncreasePlayerSpeed(speedIncreaseAmount);
 
             //Play collection sequence
             collectedSequencer.InitializeSequence();

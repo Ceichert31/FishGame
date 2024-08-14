@@ -10,12 +10,20 @@ public class GameManager : MonoBehaviour
     [Header("Game Manager References")]
     [SerializeField] private GameObject player;
 
-    private int playerDamage = 5;
+    private PlayerStats playerStats;
 
     //Accessors
     public GameObject Player { get { return player; } }
 
-    public int PlayerDamage { get { return playerDamage; } }
+    public int PlayerDamage { get { return playerStats.playerDamage; } }
+    public float PlayerFireRate { get { return playerStats.harpoonFireRate; } }
+    public float PlayerReelInSpeed { get { return playerStats.playerReelInSpeed; } }
+    public float PlayerMovementMultiplier { get { return playerStats.movementSpeedMultiplier; } }
+
+    const int DAMAGE = 5;
+    const float FIRERATE = 20f;
+    const float REELINSPEED = 15f;
+    const float MOVEMENTMULTIPLIER = 1f;
 
 
     // Start is called before the first frame update
@@ -25,13 +33,46 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
+
+        //Initialize stats
+        playerStats = new PlayerStats(DAMAGE, FIRERATE, REELINSPEED, MOVEMENTMULTIPLIER);
     }
 
     /// <summary>
     /// Increases the players damage stat
     /// </summary>
-    public void IncreaseDamageStat(int amount)
+    public void IncreaseDamage(int amount)
     {
-        playerDamage += amount;
+        playerStats.playerDamage += amount;
     }
+
+    public void IncreaseFireRate(float amount)
+    {
+        playerStats.harpoonFireRate += amount;
+    }
+
+    public void IncreaseReelInSpeed(float amount)
+    {
+        playerStats.playerReelInSpeed += amount;
+    }
+
+    public void IncreasePlayerSpeed(float amount)
+    {
+        playerStats.movementSpeedMultiplier += amount;
+    }
+}
+public struct PlayerStats
+{
+    public PlayerStats(int damage, float fireRate, float reelInSpeed, float speedMultiplier)
+    {
+        playerDamage = damage;
+        harpoonFireRate = fireRate;
+        playerReelInSpeed = reelInSpeed;
+        movementSpeedMultiplier = speedMultiplier;
+    }
+
+    public int playerDamage;
+    public float harpoonFireRate;
+    public float playerReelInSpeed;
+    public float movementSpeedMultiplier;
 }

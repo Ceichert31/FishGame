@@ -62,6 +62,8 @@ public class InputController : MonoBehaviour
 
     private bool canDash = true;
 
+    private float SpeedMultiplier => GameManager.Instance.PlayerMovementMultiplier;
+
     //Input References
     private PlayerControls playerControls;
     private PlayerControls.MovementActions playerMovement;
@@ -139,7 +141,7 @@ public class InputController : MonoBehaviour
         moveDirection.Normalize();
 
         //Returns unit vector
-        return moveDirection;
+        return moveDirection * SpeedMultiplier;
     }
     private void Move()
     {

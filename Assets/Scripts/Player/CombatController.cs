@@ -11,10 +11,10 @@ public class CombatController : MonoBehaviour
     [SerializeField] private float grappleRange = 20f;
 
     [Tooltip("How fast the harpoon pulls the player")]
-    [SerializeField] private float grappleForce = 5f;
+    [SerializeField] private float GrappleForce => GameManager.Instance.PlayerReelInSpeed;
 
     [Tooltip("How fast the harpoon retracts and fires")]
-    [SerializeField] private float reelInSpeed = 10f;
+    [SerializeField] private float ReelInSpeed => GameManager.Instance.PlayerFireRate;
 
     private HarpoonController harpoonController;
 
@@ -45,11 +45,11 @@ public class CombatController : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("canGrapple"))
             {
-                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo, true);
+                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo, true);
             }
             else
             {
-                harpoonController.StartGrapple(reelInSpeed, grappleForce, hitInfo, false);
+                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo, false);
             }
         }
     }
@@ -76,7 +76,7 @@ public class CombatController : MonoBehaviour
 
     void RetractHook(InputAction.CallbackContext ctx)
     {
-        harpoonController.Retract(reelInSpeed);
+        harpoonController.Retract(ReelInSpeed);
     }
 
     /// <summary>
