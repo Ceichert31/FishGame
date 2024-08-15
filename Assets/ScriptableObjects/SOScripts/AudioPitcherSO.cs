@@ -10,7 +10,7 @@ public class AudioPitcherSO : AudioSO
     public RangedFloat volume;
     public RangedFloat pitch;
 
-    protected override void Play(AudioSource source)
+    public override void Play(AudioSource source)
     {
         if (audioClipList.Count <= 0 || source == null)
             return;

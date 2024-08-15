@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09778ff8d9cfb004bbdc2b59d2a9d8ad, type: 3}
+  m_Name: WaterFootsteps
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - {fileID: 8300000, guid: c26a0f53e93d49e4092aad647d2d25a2, type: 3}
+  - {fileID: 8300000, guid: 203bcd52f99f32647a96f0a06ba1b515, type: 3}
+  - {fileID: 8300000, guid: 497965f261a33a24b8e8b56e7946d0cb, type: 3}
+  volume:
+    minValue: 0.7
+    maxValue: 1
+  pitch:
+    minValue: 0.8
+    maxValue: 1.1
