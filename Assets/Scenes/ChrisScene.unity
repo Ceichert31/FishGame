@@ -2040,6 +2040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalFenceV3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3130276926154959609, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3671,7 +3676,7 @@ GameObject:
   - component: {fileID: 1292127102}
   m_Layer: 3
   m_Name: Arena
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6067,7 +6072,7 @@ MonoBehaviour:
     type: 2}
   audioEvent:
     audioClip: {fileID: 8300000, guid: c367a9207e6a55a47a900076671254da, type: 3}
-    volume: 0.4
+    volume: 0.2
     pitch: 1
 --- !u!1001 &2020336359
 PrefabInstance:
