@@ -17,6 +17,10 @@ public class WalkState : AIState
     float currentTime;
     float currentMoveAmmount;
 
+    private bool called = false;
+
+    protected override bool Called { get => called; set => called = value; }
+
     public override void InitalizeState(BossAI ctx)
     {
         ctx.Agent.speed = 5f;
@@ -72,7 +76,8 @@ public class WalkState : AIState
 
     void MoveBehavior()
     {
-        bossTransform.LookAt(Player);
+        //Temp LookAtSolution
+        bossTransform.LookAt(new Vector3(Player.x, bossTransform.position.y, Player.z));
         //Creates a unique movement pattern simmilar to what u would see on some fishing lure
         if(currentMoveAmmount <= 0)
         {

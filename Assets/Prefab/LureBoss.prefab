@@ -671,6 +671,7 @@ GameObject:
   - component: {fileID: 5140558921174176429}
   - component: {fileID: 5509766471598156863}
   - component: {fileID: 4791410137868637759}
+  - component: {fileID: 9083583770663827512}
   m_Layer: 0
   m_Name: LureBoss
   m_TagString: Untagged
@@ -708,9 +709,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ff1d970db9cb24f4fae0f5c60f63bfbd, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -740,6 +741,18 @@ NavMeshAgent:
   m_BaseOffset: 0.54
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &9083583770663827512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6839625621437434146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a74bcbbb2f8674d9684037da79539b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8331235713348561542
 GameObject:
   m_ObjectHideFlags: 0

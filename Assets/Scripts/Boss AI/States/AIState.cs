@@ -5,7 +5,11 @@ public abstract class AIState : ScriptableObject
 {
     protected Vector3 Player => GameManager.Instance.Player.transform.position;
     public Transform bossTransform;
-    protected bool called;
+
+    /// <summary>
+    /// Each State Needs Own private Called Boolean, accessed in this script using this to Either Initalize 
+    /// </summary>
+    protected abstract bool Called { get; set; }
 
     /// <summary>
     /// This method is called when first entering a new state
@@ -27,14 +31,15 @@ public abstract class AIState : ScriptableObject
     /// <param name="ctx"></param>
     public void EnterStateController(BossAI ctx)
     {
-        if(called)
+        if(Called)
         {
             EnterState(ctx);
         }
 
-        called = true;
-        InitalizeState(ctx);
+        Called = true;
         AssignBossTransform(ctx);
+        InitalizeState(ctx);
+        EnterState(ctx);
     }
 
     public void AssignBossTransform(BossAI ctx)

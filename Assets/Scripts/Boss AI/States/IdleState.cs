@@ -6,6 +6,9 @@ using UnityEngine;
 public class IdleState : AIState
 {
     private float idleTime = 3f;
+    private bool called = false;
+
+    protected override bool Called { get => called; set => called = value; }
     public override void InitalizeState(BossAI ctx)
     {
         ctx.Agent.speed = 0;

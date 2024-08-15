@@ -8,14 +8,18 @@ public class AttackState : AIState
 {
     [SerializeField] List<string> attacks = new List<string>();
 
-    Animator bossAnimator;
+    [SerializeField] Animator bossAnimator;
 
     string currentAttack;
 
     bool attacking;
+
+    private bool called = false;
+
+    protected override bool Called { get => called; set => called = value; }
+
     public override void InitalizeState(BossAI ctx)
     {
-        bossTransform = Util.TryGetParent(ctx.transform);
         bossAnimator = bossTransform.GetComponent<Animator>();
         
 
@@ -29,6 +33,7 @@ public class AttackState : AIState
             throw new System.Exception("I has no attacks :(");
         }
         Debug.Log("EnteredAttack");
+
     }
 
 
@@ -44,6 +49,8 @@ public class AttackState : AIState
         {
             return;
         }
+
+        Debug.Log("We finished Attacking Hurray");
         //Distance Check with player
         
         //if()
@@ -72,5 +79,11 @@ public class AttackState : AIState
         attacking = true;
         Debug.Log(currentAttack);
         bossAnimator.SetTrigger(currentAttack);
+    }
+
+    public bool Attacking
+    {
+        get { return attacking; }
+        set { attacking = value; }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+
 [RequireComponent(typeof(DirectionTracker))]
 public class HookController : MonoBehaviour
 {
