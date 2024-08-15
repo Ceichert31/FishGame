@@ -6,7 +6,7 @@ using HelperMethods;
 [CreateAssetMenu(fileName = "AttackState", menuName = "BossStates/Attack")]
 public class AttackState : AIState
 {
-    List<string> attacks = new List<string>();
+    [SerializeField] List<string> attacks = new List<string>();
 
     Animator bossAnimator;
 
@@ -17,17 +17,25 @@ public class AttackState : AIState
     {
         bossTransform = Util.TryGetParent(ctx.transform);
         bossAnimator = bossTransform.GetComponent<Animator>();
+        
+
+        for(int i = 0; i < bossAnimator.parameters.Length; i++)
+        {
+            attacks[i] = bossAnimator.parameters[i].name;
+        }
 
         if (attacks.Count == 0)
         {
             throw new System.Exception("I has no attacks :(");
         }
+        Debug.Log("EnteredAttack");
     }
 
 
     public override void EnterState(BossAI ctx)
     {
         GenerateAttack();
+        ExecuteAttack();
     }
 
     public override void ExecuteState(BossAI ctx)
@@ -38,6 +46,8 @@ public class AttackState : AIState
         }
         //Distance Check with player
         
+        //if()
+
 
         //Peach Cobler is alright
 
@@ -54,5 +64,13 @@ public class AttackState : AIState
     void GenerateAttack()
     {
         currentAttack = attacks[Random.Range(0, attacks.Count)];
+        currentAttack = "Spin";
+    }
+
+    void ExecuteAttack()
+    {
+        attacking = true;
+        Debug.Log(currentAttack);
+        bossAnimator.SetTrigger(currentAttack);
     }
 }

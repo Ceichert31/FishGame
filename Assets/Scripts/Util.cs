@@ -14,7 +14,7 @@ namespace HelperMethods
         /// <returns></returns>
         public static float DistanceNoY(Vector3 first, Vector3 second)
         {
-            return Vector3.Distance(new Vector3(first.x, 0, first.z), new Vector3(second.x, 0, second.z));
+            return new Vector3(first.x - second.x, 0, first.z - second.z).magnitude;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace HelperMethods
         /// <returns></returns>
         public static float DistanceNoY(Vector3 first, Vector3 second, float differentY)
         {
-            return Vector3.Distance(new Vector3(first.x, differentY, first.z), new Vector3(second.x, differentY, second.z));
+            return new Vector3(first.x - second.x, differentY, first.z - second.z).magnitude;
         }
 
         /// <summary>

@@ -4,7 +4,7 @@ using HelperMethods;
 public abstract class AIState : ScriptableObject
 {
     protected Vector3 Player => GameManager.Instance.Player.transform.position;
-    protected Transform bossTransform;
+    public Transform bossTransform;
     protected bool called;
 
     /// <summary>

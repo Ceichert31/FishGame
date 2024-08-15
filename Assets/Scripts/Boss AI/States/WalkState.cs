@@ -19,28 +19,17 @@ public class WalkState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        ctx.Agent.speed = 5f;
+        projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
+        currentTime = timeUntilNextMovement;
+        currentMoveAmmount = initalMoveAmmount;
+        maxDistance = 20;
     }
 
 
     public override void EnterState(BossAI ctx)
     {
-        if(called)
-        {
-            return;
-        }
 
-        called = true;
-        //Temp Solution
-        bossTransform = ctx.transform.parent;
-
-
-        ctx.Agent.speed = 5f;
-        projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
-        currentTime = timeUntilNextMovement;
-        currentMoveAmmount = initalMoveAmmount;
-        
-        //Play idle animation
     }
 
     public override void ExecuteState(BossAI ctx)
@@ -61,9 +50,11 @@ public class WalkState : AIState
         //Exit Condition(temps)
         if(Util.DistanceNoY(Player, bossTransform.position) < maxDistance)
         {
-            ctx.SwitchState(ctx.idleState);
+            ctx.SwitchState(ctx.attackState);
             Debug.Log("Close Enough");
         }
+        Debug.Log(Util.DistanceNoY(Player, bossTransform.position));
+        Debug.Log(maxDistance);
 
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)

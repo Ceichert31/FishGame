@@ -11,6 +11,7 @@ public class BossAI : MonoBehaviour
 
     public IdleState idleState;
     public WalkState walkState;
+    public AttackState attackState;
 
     private void Awake()
     {
