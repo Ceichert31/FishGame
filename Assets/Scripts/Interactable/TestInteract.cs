@@ -8,9 +8,7 @@ public class TestInteract : MonoBehaviour, IInteract
 {
     [SerializeField] private IntEventChannel testEvet;
 
-    [SerializeField] private string textPrompt = "Test!";
-
-    public string Prompt { get { return textPrompt; } }
+    [SerializeField] TextEvent IInteract.Prompt => new();
 
     private IntEvent intEvent;
 

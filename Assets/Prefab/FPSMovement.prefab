@@ -717,7 +717,7 @@ MonoBehaviour:
     type: 2}
   woodFootstep_Pitcher: {fileID: 11400000, guid: c34c8d5425f0c634fbc474778d8ffba0,
     type: 2}
-  timeBetweenSteps: 0.4
+  timeBetweenSteps: 0.6
   audioStartDelay: 0.3
   rayCastDistance: 2
 --- !u!82 &7791289790011814944
@@ -1789,7 +1789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b36e0c8358768142a6db07194536ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
+  textPrompt_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3,
+    type: 2}
+  clearText_EventChannel: {fileID: 11400000, guid: 862198b34533d3e41af7ba70d7248246,
+    type: 2}
   interactLayer: 7
 --- !u!1 &7595745325259669938
 GameObject:
@@ -1803,6 +1806,7 @@ GameObject:
   - component: {fileID: 7175128251067628760}
   - component: {fileID: 5013484447417827137}
   - component: {fileID: 1681400033651520440}
+  - component: {fileID: 5582790877613460817}
   - component: {fileID: 3262913617914932328}
   - component: {fileID: 2436244504286315624}
   m_Layer: 6
@@ -1872,6 +1876,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48e5694eda3dc742a62f206d0329398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5582790877613460817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595745325259669938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 9af2ca2776865d04b8a31a343492592b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1681400033651520440}
+        m_TargetAssemblyTypeName: ToolController, Assembly-CSharp
+        m_MethodName: EnableFishingPoleModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3262913617914932328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,6 +2125,9 @@ GameObject:
   - component: {fileID: 7802647240829371144}
   - component: {fileID: 8314304548419214937}
   - component: {fileID: 2487077017867768133}
+  - component: {fileID: 1253860809236477884}
+  - component: {fileID: 5331316054924076896}
+  - component: {fileID: 3605992156805197864}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2224,6 +2259,142 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!82 &1253860809236477884
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654829441106256098}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 187
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5331316054924076896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654829441106256098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aacf11c5f9c834089de01fba55b189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3605992156805197864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654829441106256098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ab130a74fdf1b41a073ca2a5a67df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 138ce770089969b498d0f63b4be67aca, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5331316054924076896}
+        m_TargetAssemblyTypeName: AmbienceController, Assembly-CSharp
+        m_MethodName: ChangeAmbience
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8779821608348814574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2714,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: ddf1ddbeee0261c4d91f2fb748a91463,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: ddf1ddbeee0261c4d91f2fb748a91463,
         type: 3}

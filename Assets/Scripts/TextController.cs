@@ -29,6 +29,8 @@ public class TextController : MonoBehaviour
         textQueue.Enqueue(ctx);
     }
 
+    public void CallResetText(VoidEvent ctx) => ResetText();
+
     public void Update()
     {
         if (textQueue.Count <= 0) return;
@@ -64,11 +66,15 @@ public class TextController : MonoBehaviour
         //Wait to clear
         yield return new WaitForSeconds(clearTime);
 
-        ResetText();
+        if (clearTime > 0)
+            ResetText();
     }
 
     private void ResetText()
     {
+        //Cancel current event
+        StopAllCoroutines();
+
         //Clear event
         textInstance = null;
 

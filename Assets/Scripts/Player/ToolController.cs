@@ -8,11 +8,20 @@ public class ToolController : MonoBehaviour
 
     private GameObject harpoonGun;
 
+    private MeshRenderer poleRenderer;
+
     private void Start()
     {
         fishingRod = transform.GetChild(0).gameObject;
 
         harpoonGun = transform.GetChild(2).gameObject;
+
+        poleRenderer = fishingRod.transform.GetChild(0).GetComponent<MeshRenderer>();
+    }
+
+    public void EnableFishingPoleModel(VoidEvent ctx)
+    {
+        poleRenderer.enabled = true;
     }
 
     public void SwitchTools(BoolEvent ctx)

@@ -6,7 +6,8 @@ using UnityEngine.Rendering;
 public class PlayerInteractor : MonoBehaviour
 {
     [Header("Scriptable Object References")]
-    [SerializeField] private TextEventChannel ui_EventChannel;
+    [SerializeField] private TextEventChannel textPrompt_EventChannel;
+    [SerializeField] private VoidEventChannel clearText_EventChannel;
 
     [Header("Interactor Settings")]
     [SerializeField] private int interactLayer;
@@ -17,12 +18,7 @@ public class PlayerInteractor : MonoBehaviour
 
     IInteract interactableObject;
 
-    private TextEvent emptyEvent;
-
-    private void Start()
-    {
-        emptyEvent = new TextEvent(string.Empty, 0);
-    }
+    private VoidEvent clearEvent;
 
     public void CanInteract(bool interactInput) => canInteract = interactInput;
 
@@ -31,14 +27,14 @@ public class PlayerInteractor : MonoBehaviour
         isInteractableLayer = other.gameObject.layer == interactLayer;
 
         if (other.gameObject.TryGetComponent(out interactableObject))
-            ui_EventChannel.CallEvent(new(interactableObject.Prompt, 0));
+            textPrompt_EventChannel.CallEvent(interactableObject.Prompt);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (!isInteractableLayer)
         {
-            ui_EventChannel.CallEvent(emptyEvent);
+            clearText_EventChannel.CallEvent(clearEvent);
             return;
         }
 
@@ -51,14 +47,14 @@ public class PlayerInteractor : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        ui_EventChannel.CallEvent(emptyEvent);
+        clearText_EventChannel.CallEvent(clearEvent);
         interactableObject = null;
     }
 }
 
 public interface IInteract
 {
-    string Prompt { get; }
+    TextEvent Prompt { get; }
     public void Interact();
     public void ExitInteract();
 }
