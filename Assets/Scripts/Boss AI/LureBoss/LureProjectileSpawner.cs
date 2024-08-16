@@ -8,7 +8,9 @@ public class LureProjectileSpawner : ProjectileManager
 
     [SerializeField] Transform defaultSpawnLocation;
     [SerializeField] int defaultProjectileAmmount;
-    [SerializeField] GameObject specialProjectile;
+
+    //Currently using this projectile for all casses
+    [SerializeField] GameObject tempProjectile;
 
     [SerializeField] List<Transform> projectileSpawnPoints;
     private void Start()
@@ -16,16 +18,16 @@ public class LureProjectileSpawner : ProjectileManager
         OnStart();
     }
 
-    [ContextMenu("SpawnObjects")]
+    /*[ContextMenu("SpawnObjects")]
     void DevSpawnObjects()
     {
         InitalizeProjectileSpawner(null, defaultProjectileAmmount, 1, defaultSpawnLocation);
-    }
+    }*/
 
     [ContextMenu("SpawnSpecialObjects")]
     void DevSpawnSpecialObject()
     {
-        InitalizeProjectileSpawner(specialProjectile, defaultProjectileAmmount, 1, defaultSpawnLocation);
+        InitalizeProjectileSpawner(tempProjectile, defaultProjectileAmmount, 1, defaultSpawnLocation);
     }
 
     public override IEnumerator SpawnProjectiles(GameObject projectile, int _projectileAmmount)
@@ -34,10 +36,14 @@ public class LureProjectileSpawner : ProjectileManager
         {
             for (int i = 0; i < _projectileAmmount; i++)
             {
-                Instantiate(projectile, spefSpawnLocation.position, Quaternion.identity);
+                GameObject instance = Instantiate(projectile, spefSpawnLocation.position, Quaternion.identity);
+                instance.transform.LookAt(playerPosition);
                 yield return wfs;
             }
         }
+
+        //Object Pooling
+        /*
         else
         {
             for (int i = 0; i < _projectileAmmount; i++)
@@ -47,6 +53,7 @@ public class LureProjectileSpawner : ProjectileManager
                 yield return wfs;
             }
         }
+        */
     }
 
     //PatternSpawning
@@ -59,7 +66,7 @@ public class LureProjectileSpawner : ProjectileManager
     {
         for (int i = 0; i < projectileSpawnPoints.Count; i++)
         {
-            InitalizeProjectileSpawner(null, 1, timeInbetween, projectileSpawnPoints[i]);
+            InitalizeProjectileSpawner(tempProjectile, 1, timeInbetween, projectileSpawnPoints[i]);
             yield return wfs;
         }
     }

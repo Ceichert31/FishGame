@@ -17,9 +17,18 @@ public class WalkState : AIState
     float currentTime;
     float currentMoveAmmount;
 
-    private bool called = false;
+    [SerializeField] private bool called = false;
 
-    protected override bool Called { get => called; set => called = value; }
+    private void Awake()
+    {
+        called = false;
+    }
+
+    protected override bool Called
+    {
+        get { return called; }
+        set { called = value; }
+    }
 
     public override void InitalizeState(BossAI ctx)
     {
@@ -57,8 +66,6 @@ public class WalkState : AIState
             ctx.SwitchState(ctx.attackState);
             Debug.Log("Close Enough");
         }
-        Debug.Log(Util.DistanceNoY(Player, bossTransform.position));
-        Debug.Log(maxDistance);
 
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)

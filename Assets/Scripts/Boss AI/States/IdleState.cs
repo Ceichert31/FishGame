@@ -6,11 +6,23 @@ using UnityEngine;
 public class IdleState : AIState
 {
     private float idleTime = 3f;
-    private bool called = false;
+    [SerializeField] private bool called = false;
 
-    protected override bool Called { get => called; set => called = value; }
+    private void Awake()
+    {
+        called = false;
+    }
+
+    protected override bool Called
+    {
+        get {
+            Debug.Log(called); 
+            return called; }
+        set { called = value; }
+    }
     public override void InitalizeState(BossAI ctx)
     {
+        Debug.Log(called);
         ctx.Agent.speed = 0;
     }
 

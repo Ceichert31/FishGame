@@ -8,7 +8,7 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 5;
+    float speed = 15;
 
     private void Awake()
     {

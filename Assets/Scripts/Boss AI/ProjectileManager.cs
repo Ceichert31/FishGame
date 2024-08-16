@@ -7,6 +7,7 @@ public abstract class ProjectileManager : MonoBehaviour
 {
     //Object Pool
     protected ObjectPool<GameObject> pool;
+    WaitForSeconds lifeTime = new WaitForSeconds(10);
 
     [Header("Object Pool Settings")]
     //What object will be pool along with, how many objects we allow in the pool at once, the max size of the pool
@@ -55,7 +56,9 @@ public abstract class ProjectileManager : MonoBehaviour
     
     public virtual void EnableObject(GameObject obj)
     {
+        obj.transform.position = spefSpawnLocation.position;
         obj.SetActive(true);
+        StartCoroutine(ReleaseProjectile(obj));
     }
     public virtual void DisableObject(GameObject obj)
     {
@@ -64,5 +67,14 @@ public abstract class ProjectileManager : MonoBehaviour
     public virtual void DestroyOverflow(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    IEnumerator ReleaseProjectile(GameObject obj)
+    {
+        yield return lifeTime;
+        if(obj != null)
+        {
+            pool.Release(obj);
+        }
     }
 }

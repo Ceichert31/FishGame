@@ -16,7 +16,16 @@ public class AttackState : AIState
 
     private bool called = false;
 
-    protected override bool Called { get => called; set => called = value; }
+    private void Awake()
+    {
+        called = false;
+    }
+
+    protected override bool Called 
+    {
+        get { return called; }
+        set { called = value;  } 
+    }
 
     public override void InitalizeState(BossAI ctx)
     {
@@ -33,12 +42,15 @@ public class AttackState : AIState
             throw new System.Exception("I has no attacks :(");
         }
         Debug.Log("EnteredAttack");
-
     }
 
 
     public override void EnterState(BossAI ctx)
     {
+        if(bossAnimator == null)
+        {
+            throw new System.Exception("You did not initalize");
+        }
         GenerateAttack();
         ExecuteAttack();
     }

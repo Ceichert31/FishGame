@@ -34,12 +34,13 @@ public abstract class AIState : ScriptableObject
         if(Called)
         {
             EnterState(ctx);
+            return;
         }
 
-        Called = true;
         AssignBossTransform(ctx);
         InitalizeState(ctx);
-        EnterState(ctx);
+        //EnterState(ctx);
+        Called = true;
     }
 
     public void AssignBossTransform(BossAI ctx)
