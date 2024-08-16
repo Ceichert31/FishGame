@@ -9,7 +9,7 @@ TerrainLayer:
   m_Name: CoastRocks
   m_DiffuseTexture: {fileID: 2800000, guid: 2d2eeb71a905bf049912931c49e92985, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: 7a05eadb0ef83d64eaf7e940c6359703, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: 27833168d772fd14b868d522ec41e1ec, type: 3}
+  m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 5, y: 5}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
@@ -19,4 +19,4 @@ TerrainLayer:
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_MaskMapRemapMax: {x: 0, y: 0, z: 1, w: 0}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
