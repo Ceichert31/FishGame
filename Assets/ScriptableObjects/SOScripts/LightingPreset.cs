@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Lighting/Day Night")]
 public class LightingPreset : ScriptableObject
 {
-    [SerializeField] private Gradient ambientColor;
-    [SerializeField] private Gradient directionalColor;
-    [SerializeField] private Gradient fogColor;
+    public Gradient directionalColor;
+    public Gradient fogColor;
 }

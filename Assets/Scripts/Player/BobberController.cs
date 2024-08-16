@@ -23,7 +23,7 @@ public class BobberController : MonoBehaviour
         rb = bobberObject.GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         bobberLineRenderer.SetPosition(0, transform.position);
 
