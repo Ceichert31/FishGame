@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 177534958}
   - component: {fileID: 177534957}
   - component: {fileID: 177534962}
+  - component: {fileID: 177534963}
   m_Layer: 4
   m_Name: Pond
   m_TagString: Water
@@ -346,7 +347,8 @@ MonoBehaviour:
     type: 2}
   daySpawnPool:
   - {fileID: 11400000, guid: 01c9b22e8f22ccb4a9c88cf8ddea3f71, type: 2}
-  nightSpawnPool: []
+  nightSpawnPool:
+  - {fileID: 11400000, guid: 01c9b22e8f22ccb4a9c88cf8ddea3f71, type: 2}
   fishingTickRate: 2
   fishWaitTime: 3
 --- !u!64 &177534958
@@ -455,6 +457,34 @@ MonoBehaviour:
       - m_Target: {fileID: 177534957}
         m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
         m_MethodName: HasReeledIn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &177534963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177534956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177534957}
+        m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
+        m_MethodName: SetSpawnPoolTime
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2073,6 +2103,7 @@ GameObject:
   - component: {fileID: 876249983}
   - component: {fileID: 876249982}
   - component: {fileID: 876249981}
+  - component: {fileID: 876249987}
   m_Layer: 4
   m_Name: Puddle
   m_TagString: Water
@@ -2125,9 +2156,9 @@ MonoBehaviour:
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
   animation_EventChannel: {fileID: 11400000, guid: 3103e7216622cb049906eca8a1a10a82,
     type: 2}
-  daySpawnPool:
-  - {fileID: 11400000, guid: e84cdb3690fb37b44aac495161d75afe, type: 2}
-  nightSpawnPool: []
+  daySpawnPool: []
+  nightSpawnPool:
+  - {fileID: 0}
   fishingTickRate: 2
   fishWaitTime: 3
 --- !u!64 &876249983
@@ -2217,6 +2248,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1155528417}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &876249987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876249980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177534957}
+        m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
+        m_MethodName: SetSpawnPoolTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &901314889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4296,6 +4355,7 @@ GameObject:
   - component: {fileID: 1395673338}
   - component: {fileID: 1395673337}
   - component: {fileID: 1395673341}
+  - component: {fileID: 1395673342}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -4404,13 +4464,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hooked_EventChannel: {fileID: 11400000, guid: e7f6560abdcfda94eb4ae308edcd3624,
     type: 2}
-  text_EventChannel: {fileID: 0}
+  text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
   animation_EventChannel: {fileID: 11400000, guid: 3103e7216622cb049906eca8a1a10a82,
     type: 2}
   daySpawnPool: []
   nightSpawnPool: []
   fishingTickRate: 2
   fishWaitTime: 0
+--- !u!114 &1395673342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395673336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177534957}
+        m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
+        m_MethodName: SetSpawnPoolTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1407204325 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d8211e1e18555f143b1038db0c24b058,
@@ -7182,6 +7270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebe79bbb9541cc4e9dba1b7b7f86918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_EventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
   preset: {fileID: 11400000, guid: d6c390abd991ee443a5572c9d6a4d6e8, type: 2}
   timeOfDay: 7
   timeSpeedMultiplier: 0.05
@@ -7189,6 +7278,8 @@ MonoBehaviour:
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}
   ambientLight: {fileID: 1095809638}
+  isDayTime:
+    Value: 0
 --- !u!4 &2142228255
 Transform:
   m_ObjectHideFlags: 0

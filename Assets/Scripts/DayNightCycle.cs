@@ -6,6 +6,7 @@ using UnityEngine;
 public class DayNightCycle : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
+    [SerializeField] private BoolEventChannel time_EventChannel;
     [SerializeField] private LightingPreset preset;
 
     [Header("Day Night Settings")]
@@ -23,6 +24,8 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private Light ambientLight;
 
     private Coroutine instance;
+
+    public BoolEvent isDayTime;
 
     //Consts
     private const float TOTALROTATION = 360f;
@@ -77,10 +80,16 @@ public class DayNightCycle : MonoBehaviour
         if (timeOfDay > SUNRISE && timeOfDay < SUNSET)
         {
             instance = StartCoroutine(SetAmbientLightIntensity(1f));
+
+            isDayTime.Value = true;
+            time_EventChannel.CallEvent(isDayTime);
         }
         else
         {
             instance = StartCoroutine(SetAmbientLightIntensity(3f));
+
+            isDayTime.Value = false;
+            time_EventChannel.CallEvent(isDayTime);
         }
     }
 

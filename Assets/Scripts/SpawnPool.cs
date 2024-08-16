@@ -175,4 +175,9 @@ public class SpawnPool : MonoBehaviour
         if (instance != null)
             StopCoroutine(instance);
     }
+
+    public void SetSpawnPoolTime(BoolEvent ctx)
+    {
+        isDayTime = ctx.Value;
+    }
 }
