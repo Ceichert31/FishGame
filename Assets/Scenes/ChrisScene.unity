@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01c9b22e8f22ccb4a9c88cf8ddea3f71, type: 2}
   fishingTickRate: 2
   fishWaitTime: 3
+  isDayTime: 1
 --- !u!64 &177534958
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1140,6 +1141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FPSMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922160368829147451, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -2158,9 +2164,10 @@ MonoBehaviour:
     type: 2}
   daySpawnPool: []
   nightSpawnPool:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 40dc2bcbdc8bea349adaddf61ec7377c, type: 2}
   fishingTickRate: 2
   fishWaitTime: 3
+  isDayTime: 1
 --- !u!64 &876249983
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2264,7 +2271,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177534957}
+      - m_Target: {fileID: 876249982}
         m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
         m_MethodName: SetSpawnPoolTime
         m_Mode: 0
@@ -4471,6 +4478,7 @@ MonoBehaviour:
   nightSpawnPool: []
   fishingTickRate: 2
   fishWaitTime: 0
+  isDayTime: 1
 --- !u!114 &1395673342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4487,7 +4495,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177534957}
+      - m_Target: {fileID: 1395673341}
         m_TargetAssemblyTypeName: SpawnPool, Assembly-CSharp
         m_MethodName: SetSpawnPoolTime
         m_Mode: 0

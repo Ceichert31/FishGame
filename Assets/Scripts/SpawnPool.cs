@@ -31,7 +31,7 @@ public class SpawnPool : MonoBehaviour
 
     private Coroutine instance = null;
 
-    private bool isDayTime = true;
+    [SerializeField] private bool isDayTime = true;
 
 
     private void Start()
@@ -120,9 +120,11 @@ public class SpawnPool : MonoBehaviour
         animation_EventChannel.CallEvent(new(false));
 
         //Fish spawn chance
-        int spawnChance = Random.Range(1, 101);
+        int spawnChance = Random.Range(1, 100);
         
         List<FishSO> spawnableFish = new();
+
+        //Debug.Log("Spawn Chance: " + spawnChance);
 
         //Day and night time spawn pools
         if (isDayTime)
@@ -147,9 +149,6 @@ public class SpawnPool : MonoBehaviour
         if (spawnableFish.Count > 0) 
         {
             FishSO hookedFish = spawnableFish[Random.Range(0, spawnableFish.Count)];
-
-            //Debug.Log("Spawn Chance: " + spawnChance);
-            //Debug.Log(hookedFish.name);
 
             //Call event bus to trigger transition
             hooked_EventChannel.CallEvent(new HookedEvent(hookedFish));
@@ -178,6 +177,7 @@ public class SpawnPool : MonoBehaviour
 
     public void SetSpawnPoolTime(BoolEvent ctx)
     {
+        Debug.Log(isDayTime);
         isDayTime = ctx.Value;
     }
 }
