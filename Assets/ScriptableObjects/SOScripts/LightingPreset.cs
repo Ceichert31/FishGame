@@ -6,5 +6,6 @@ using UnityEngine;
 public class LightingPreset : ScriptableObject
 {
     public Gradient directionalColor;
+    public Gradient ambientColor;
     public Gradient fogColor;
 }
