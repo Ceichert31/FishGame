@@ -17,12 +17,7 @@ public class WalkState : AIState
     float currentTime;
     float currentMoveAmmount;
 
-    [SerializeField] private bool called = false;
-
-    private void Awake()
-    {
-        called = false;
-    }
+    private bool called = false;
 
     protected override bool Called
     {

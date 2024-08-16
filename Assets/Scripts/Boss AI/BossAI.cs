@@ -34,7 +34,7 @@ public class BossAI : MonoBehaviour
     /// </summary>
     private void InitializeDefaultState()
     {
-        currentState = idleState;
+        currentState = walkState;
 
         currentState.EnterStateController(this);
     }

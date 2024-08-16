@@ -8,16 +8,9 @@ public class IdleState : AIState
     private float idleTime = 3f;
     [SerializeField] private bool called = false;
 
-    private void Awake()
-    {
-        called = false;
-    }
-
     protected override bool Called
     {
-        get {
-            Debug.Log(called); 
-            return called; }
+        get {return called; }
         set { called = value; }
     }
     public override void InitalizeState(BossAI ctx)
@@ -57,5 +50,5 @@ public class IdleState : AIState
         
     }
 
-    
+
 }

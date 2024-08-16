@@ -39,7 +39,7 @@ public abstract class AIState : ScriptableObject
 
         AssignBossTransform(ctx);
         InitalizeState(ctx);
-        //EnterState(ctx);
+        EnterState(ctx);
         Called = true;
     }
 
@@ -59,4 +59,9 @@ public abstract class AIState : ScriptableObject
     /// </summary>
     /// <param name="ctx"></param>
     public abstract void ExitState(BossAI ctx);
+
+    private void OnDisable()
+    {
+        Called = false;
+    }
 }

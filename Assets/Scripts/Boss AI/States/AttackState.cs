@@ -16,11 +16,6 @@ public class AttackState : AIState
 
     private bool called = false;
 
-    private void Awake()
-    {
-        called = false;
-    }
-
     protected override bool Called 
     {
         get { return called; }
@@ -83,7 +78,7 @@ public class AttackState : AIState
     void GenerateAttack()
     {
         currentAttack = attacks[Random.Range(0, attacks.Count)];
-        currentAttack = "Spin";
+        //currentAttack = "Spin";
     }
 
     void ExecuteAttack()
