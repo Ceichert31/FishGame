@@ -47,9 +47,8 @@ public class FootstepAudioPitcher : MonoBehaviour
         }
 
         //Fire raycast to get layer underneath player
-        Physics.Raycast(transform.position, -Vector3.up, out materialHit, rayCastDistance);
-
-        currentLayer = materialHit.transform.gameObject.tag;
+        if (Physics.Raycast(transform.position, -Vector3.up, out materialHit, rayCastDistance))
+            currentLayer = materialHit.transform.gameObject.tag;
 
         //Switch between audio pitchers based on material
         switch (currentLayer)
