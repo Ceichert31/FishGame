@@ -171,6 +171,79 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3cdd6c95422dd148ac1028279062268, type: 2}
   - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
   - {fileID: 11400000, guid: 4b1487e67dbbe1c48ab9d2ec92b42c05, type: 2}
+--- !u!1 &1844768288670267359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8166874269603364876}
+  - component: {fileID: 163390044800582585}
+  - component: {fileID: 700533270298023575}
+  m_Layer: 6
+  m_Name: PlayerHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8166874269603364876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4184258596113817863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &163390044800582585
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &700533270298023575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f002f156ec95e4cb03a4573b1a9893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerHealth_EventChannel: {fileID: 11400000, guid: 38cb3aec448123046a0491e7954c0e56,
+    type: 2}
+  currentPlayerHealth_EventChannel: {fileID: 11400000, guid: c2eeea25ad695874fa36731ef366e17f,
+    type: 2}
+  maxHealth: 100
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +467,7 @@ Transform:
   m_Children:
   - {fileID: 3306898884867616923}
   - {fileID: 8636677286565662183}
+  - {fileID: 8166874269603364876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8017644295701610566
@@ -1722,7 +1796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df235bc569cf9e42baa56df8104f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 8244151488553780583}
 --- !u!1 &7404753998953844394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,7 +2791,7 @@ PrefabInstance:
     - target: {fileID: 7202271454713460447, guid: ddf1ddbeee0261c4d91f2fb748a91463,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: ddf1ddbeee0261c4d91f2fb748a91463,
         type: 3}

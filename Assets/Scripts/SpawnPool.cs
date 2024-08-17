@@ -177,7 +177,6 @@ public class SpawnPool : MonoBehaviour
 
     public void SetSpawnPoolTime(BoolEvent ctx)
     {
-        Debug.Log(isDayTime);
         isDayTime = ctx.Value;
     }
 }

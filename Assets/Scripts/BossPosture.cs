@@ -54,6 +54,8 @@ public class BossPosture : MonoBehaviour
             {
                 UpdatePosture(playerDamage);
 
+                projectileInstance.DisableProjectile();
+
                 //Get collsion point and play special effects
             }
         }

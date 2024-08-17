@@ -7,17 +7,24 @@ using UnityEngine;
 /// </summary>
 public class ProjectileBehavior : MonoBehaviour, IProjectile
 {
-    Rigidbody rb;
+    [SerializeField] private float projectileDamage = 5f;
 
-    float speed = 20f;
+    [SerializeField] private float projectileSpeed = 20f;
+
+    [SerializeField] private float projectileLifetime = 6f;
+
+    private Rigidbody rb;
+
+    private bool isParried;
 
     private Transform PlayerPosition => GameManager.Instance.Player.transform;
 
     private Vector3 targetDirection;
 
-    public bool IsParried { get => isParried;}
+    private float currentTime;
 
-    private bool isParried;
+    public bool IsParried { get => isParried;}
+    public float ProjectileDamage { get => projectileDamage; }
 
     private void Awake()
     {
@@ -26,9 +33,17 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
         targetDirection = (PlayerPosition.position - transform.position).normalized;
     }
 
+    private void Update()
+    {
+        currentTime = Time.time + projectileLifetime;
+
+        if (Time.time > currentTime)
+            DisableProjectile();
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = targetDirection * speed;
+        rb.velocity = targetDirection * projectileSpeed;
     }
 
     public void Parried(Vector3 forward)
@@ -37,12 +52,16 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
 
         targetDirection = forward;
 
-        speed *= 2;
+        projectileSpeed *= 2;
     }
+
+    public void DisableProjectile() => gameObject.SetActive(false);
 }
 
 public interface IProjectile
 {
+    public float ProjectileDamage { get; }
     public bool IsParried { get; }
     public void Parried(Vector3 foward);
+    public void DisableProjectile();
 }
