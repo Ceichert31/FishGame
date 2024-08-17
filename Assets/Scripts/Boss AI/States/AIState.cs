@@ -4,7 +4,7 @@ using HelperMethods;
 public abstract class AIState : ScriptableObject
 {
     protected Vector3 Player => GameManager.Instance.Player.transform.position;
-    public Transform bossTransform;
+    protected Transform bossTransform;
 
     /// <summary>
     /// Each State Needs Own private Called Boolean, accessed in this script using this to Either Initalize 
@@ -60,8 +60,14 @@ public abstract class AIState : ScriptableObject
     /// <param name="ctx"></param>
     public abstract void ExitState(BossAI ctx);
 
+    private void OnEnable()
+    {
+        Called = false;
+    }
+
     private void OnDisable()
     {
         Called = false;
+        bossTransform = null;
     }
 }

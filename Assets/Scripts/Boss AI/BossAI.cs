@@ -2,6 +2,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
 
+/*public enum States
+{
+    IdleState,
+    WalkState,
+    AttackState,
+    StaggerState,
+}*/
+
 public class BossAI : MonoBehaviour
 {
     public NavMeshAgent Agent { get; private set; }
@@ -9,9 +17,13 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private AIState currentState;
 
+    //[Tooltip("State Order: Idle, Walk, Attack, Stagger, tbc")]
+    //[SerializeField] List<AIState> states = new List<AIState>();
+
     public IdleState idleState;
     public WalkState walkState;
     public AttackState attackState;
+    public StaggerState staggerState;
 
     private void Awake()
     {
@@ -35,6 +47,7 @@ public class BossAI : MonoBehaviour
     private void InitializeDefaultState()
     {
         currentState = walkState;
+        //currentState = states[(int)States.WalkState];
 
         currentState.EnterStateController(this);
     }
@@ -65,5 +78,12 @@ public class BossAI : MonoBehaviour
     public void ToWalkState()
     {
         SwitchState(walkState);
+        //SwitchState((int)States.WalkState);
+    }
+
+    //Immidiate
+    public void ToStaggerState()
+    {
+        SwitchState(staggerState);
     }
 }
