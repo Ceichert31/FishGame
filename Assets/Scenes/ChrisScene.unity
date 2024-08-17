@@ -6426,6 +6426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1635707456}
+  firstTimeLoading: 1
 --- !u!114 &1854508721
 MonoBehaviour:
   m_ObjectHideFlags: 0
