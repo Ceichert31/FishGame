@@ -12,6 +12,6 @@ public class ParryBoxBehavior : MonoBehaviour
     public void ActivateAndDeactivateParryBox()
     {
         parryBox.SetActive(!parryBox.activeSelf);
-        Debug.Log("ParryBox is: " + parryBox.activeSelf);
+        //Debug.Log("ParryBox is: " + parryBox.activeSelf);
     }
 }
