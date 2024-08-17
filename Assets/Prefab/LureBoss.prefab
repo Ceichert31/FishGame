@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 1164393372454060404}
   - component: {fileID: 8515886488007705477}
   - component: {fileID: 6810070633299860872}
+  - component: {fileID: 4366325919319603030}
   - component: {fileID: 4552175915574238521}
   - component: {fileID: 8467429847703294202}
   - component: {fileID: 6626371878774456668}
@@ -687,6 +688,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8515886488007705477}
         m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
         m_MethodName: UpdateHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4366325919319603030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: ac4793eb393b13845b56b1cdf999a96d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8515886488007705477}
+        m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
+        m_MethodName: DisableBoss
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

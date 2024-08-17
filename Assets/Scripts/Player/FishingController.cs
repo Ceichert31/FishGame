@@ -24,11 +24,18 @@ public class FishingController : MonoBehaviour
 
     private const float MINPOLECHARGE = 2f;
 
-    void Awake()
+    void Start()
     {
         poleAnimator = transform.GetChild(0).GetComponent<Animator>();
 
         bobberController = GetComponentInChildren<BobberController>();
+
+        if (GameManager.Instance.firstTimeLoading)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+
+            GameManager.Instance.firstTimeLoading = false;
+        }
     }
 
     /// <summary>

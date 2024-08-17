@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private PlayerStats playerStats;
 
+    public bool firstTimeLoading = true;
+
     //Accessors
     public GameObject Player { get { return player; } }
 

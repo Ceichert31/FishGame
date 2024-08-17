@@ -24,15 +24,15 @@ public class PlayerHealthUI : MonoBehaviour
         tempHealthBar = transform.GetChild(0).GetComponent<Image>();
 
         playerHealthBar = transform.GetChild(1).GetComponent<Image>();
+
+        playerHealthBar.fillAmount = MAXFILLAMOUNT;
+
+        tempHealthBar.fillAmount = MAXFILLAMOUNT;
     }
 
     public void SetMaxHealth(FloatEvent ctx)
     {
         maxHealth = ctx.FloatValue;
-
-        playerHealthBar.fillAmount = MAXFILLAMOUNT;
-
-        tempHealthBar.fillAmount = MAXFILLAMOUNT;
     }
 
     public void UpdateHealthBar(FloatEvent ctx)

@@ -40,4 +40,13 @@ public class BossHealth : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
     }
+
+    /// <summary>
+    /// Destroys boss if player dies
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void DisableBoss(VoidEvent ctx)
+    {
+        Destroy(gameObject.transform.parent.gameObject);
+    }
 }

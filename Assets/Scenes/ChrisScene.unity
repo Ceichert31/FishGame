@@ -1142,6 +1142,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 3922160368829147451, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2008,6 +2013,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6b952a26a5a5ea047b96ade883505db7, type: 2}
   - {fileID: 11400000, guid: 46805d70e7b9918408748326129691cd, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
   - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
 --- !u!4 &823166776 stripped
 Transform:

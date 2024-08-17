@@ -7,17 +7,18 @@ public class PlayerHealth : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FloatEventChannel maxPlayerHealth_EventChannel;
     [SerializeField] private FloatEventChannel currentPlayerHealth_EventChannel;
+    [SerializeField] private VoidEventChannel transition_EventChannel;
 
     [SerializeField] private float maxHealth = 100f;
 
     private FloatEvent currentHealth;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth.FloatValue = maxHealth;
 
         //Set max health for UI
-        maxPlayerHealth_EventChannel.CallEvent(currentHealth);
+        maxPlayerHealth_EventChannel.CallEvent(new(maxHealth));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(projectileInstance.ProjectileDamage);
 
-            projectileInstance.DisableProjectile();
+            //projectileInstance.DisableProjectile();
         }
     }
 
@@ -40,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth.FloatValue <= 0) 
         {
-            //Death
+            transition_EventChannel.CallEvent(new());
         }
     }
 }
