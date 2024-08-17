@@ -27,6 +27,7 @@ public class LureBossAnimationEvents : MonoBehaviour
 
     public void EndAttacking()
     {
-        bossAi.attackState.Attacking = false;
+        AttackState attackState =  (AttackState)bossAi.BossStates[(int)States.AttackState];
+        attackState.Attacking = false;
     }
 }

@@ -26,7 +26,7 @@ public class StaggerState : AIState
         //If no longer staggered
         if(!staggered)
         {
-            ctx.SwitchState(ctx.walkState);
+            ctx.SwitchState(States.WalkState);
             return;
         }
 

@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
 
-/*public enum States
+public enum States
 {
     IdleState,
     WalkState,
     AttackState,
     StaggerState,
-}*/
+}
 
 public class BossAI : MonoBehaviour
 {
@@ -17,13 +17,15 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private AIState currentState;
 
-    //[Tooltip("State Order: Idle, Walk, Attack, Stagger, tbc")]
-    //[SerializeField] List<AIState> states = new List<AIState>();
+    [Tooltip("State Order: Idle, Walk, Attack, Stagger, tbc")]
+    [SerializeField] List<AIState> bossStates = new List<AIState>();
 
+    /*
     public IdleState idleState;
     public WalkState walkState;
     public AttackState attackState;
     public StaggerState staggerState;
+    */
 
     private void Awake()
     {
@@ -46,8 +48,8 @@ public class BossAI : MonoBehaviour
     /// </summary>
     private void InitializeDefaultState()
     {
-        currentState = walkState;
-        //currentState = states[(int)States.WalkState];
+        //currentState = walkState;
+        currentState = bossStates[(int)States.WalkState];
 
         currentState.EnterStateController(this);
     }
@@ -62,11 +64,29 @@ public class BossAI : MonoBehaviour
     /// Switches current state
     /// </summary>
     /// <param name="newState"></param>
-    public void SwitchState(AIState newState)
+    /*public void SwitchState(AIState newState)
     {
         currentState.ExitState(this);
 
         currentState = newState;
+
+        currentState.EnterStateController(this);
+    }*/
+
+    /// <summary>
+    /// Switches current state
+    /// </summary>
+    /// <param name="newState"></param>
+    public void SwitchState(States newState)
+    {
+        if((int)newState > bossStates.Count -1)
+        {
+            throw new System.Exception("You are trying to enter a state that is out of the bounds of this AI's list");
+        }
+
+        currentState.ExitState(this);
+
+        currentState = bossStates[(int)newState];
 
         currentState.EnterStateController(this);
     }
@@ -77,13 +97,28 @@ public class BossAI : MonoBehaviour
     [ContextMenu("TransitionToWalkState")]
     public void ToWalkState()
     {
-        SwitchState(walkState);
-        //SwitchState((int)States.WalkState);
+        //SwitchState(walkState);
+        SwitchState(States.WalkState);
     }
 
     //Immidiate
     public void ToStaggerState()
     {
-        SwitchState(staggerState);
+        SwitchState(States.StaggerState);
     }
+
+
+    public List<AIState> BossStates
+    {
+        get { return bossStates; }
+    }
+
+    private void OnDisable()
+    {
+        foreach(AIState state in bossStates)
+        {
+            state.UnCall();
+        }
+    }
+
 }

@@ -31,7 +31,7 @@ public class IdleState : AIState
 
         if (currentTime < Time.time)
         {
-            ctx.SwitchState(ctx.walkState);
+            ctx.SwitchState(States.WalkState);
         }
 
         /*Idle Code:

@@ -59,15 +59,8 @@ public abstract class AIState : ScriptableObject
     /// </summary>
     /// <param name="ctx"></param>
     public abstract void ExitState(BossAI ctx);
-
-    private void OnEnable()
+    public void UnCall()
     {
         Called = false;
-    }
-
-    private void OnDisable()
-    {
-        Called = false;
-        bossTransform = null;
     }
 }

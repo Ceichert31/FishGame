@@ -646,10 +646,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
-  idleState: {fileID: 11400000, guid: 96b86f49fb0c479489d992bb074ef9d3, type: 2}
-  walkState: {fileID: 11400000, guid: 799bc495ba04e2949bf7c757acdc3e72, type: 2}
-  attackState: {fileID: 11400000, guid: b52bc7f12bc518a4ea9e20fa65a7dc85, type: 2}
-  staggerState: {fileID: 11400000, guid: 9859a4405e255054d9b5b72178378156, type: 2}
+  bossStates:
+  - {fileID: 11400000, guid: 96b86f49fb0c479489d992bb074ef9d3, type: 2}
+  - {fileID: 11400000, guid: 799bc495ba04e2949bf7c757acdc3e72, type: 2}
+  - {fileID: 11400000, guid: b52bc7f12bc518a4ea9e20fa65a7dc85, type: 2}
+  - {fileID: 11400000, guid: 9859a4405e255054d9b5b72178378156, type: 2}
 --- !u!114 &8515886488007705477
 MonoBehaviour:
   m_ObjectHideFlags: 0

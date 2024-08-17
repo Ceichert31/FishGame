@@ -58,7 +58,7 @@ public class WalkState : AIState
         //Exit Condition(temps)
         if(Util.DistanceNoY(Player, bossTransform.position) < maxDistance)
         {
-            //ctx.SwitchState(ctx.attackState);
+            ctx.SwitchState(States.AttackState);
         }
 
         //ProjectileTesting *For Testing A Consistent Firing Pattern
