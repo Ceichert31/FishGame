@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossPosture : MonoBehaviour
@@ -12,35 +13,50 @@ public class BossPosture : MonoBehaviour
 
     [SerializeField] float maxPosture = 100;
 
+    private float playerDamage => GameManager.Instance.PlayerDamage;
+
     private FloatEvent currentPosture;
     private FloatEvent staggerTime;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        //Sets the current posture float event to the maxPosture at the start for UI purposes
-        currentPosture.FloatValue = maxPosture;
+        currentPosture.FloatValue = 0f;
 
         //Calls the method on the maxPosture float event listener to update the posture bar to be equal to the max posture
-        maxPosture_EventChannel.CallEvent(currentPosture);
+        maxPosture_EventChannel.CallEvent(new(maxPosture));
     }
 
     // Update is called once per frame
-    public void UpdatePosture(FloatEvent ctx)
+    public void UpdatePosture(float damage)
     {
-        //subtracts the posture from our currentPosture FloatEvent
-        currentPosture.FloatValue -= ctx.FloatValue;
+        //Adds the posture from our currentPosture FloatEvent
+        currentPosture.FloatValue += damage;
 
         //Calls the method on the Float Event Listener for the posture to be updated for the UI
         posture_EventChannel.CallEvent(currentPosture);
 
         //If the posture is broken, call the method on the staggerTimer event channel, and start the timer
-        if(currentPosture.FloatValue < 0)
+        if (currentPosture.FloatValue >= maxPosture)
         {
             staggerTimer_EventChannel.CallEvent(new());
+
             StartCoroutine(StaggerTime());
         }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //If collision object is parried projectile, deal posture damage
+        if (other.TryGetComponent(out IProjectile projectileInstance))
+        {
+            if (projectileInstance.IsParried)
+            {
+                UpdatePosture(playerDamage);
+
+                //Get collsion point and play special effects
+            }
+        }
     }
 
     /// <summary>
@@ -51,13 +67,18 @@ public class BossPosture : MonoBehaviour
     /// <returns></returns>
     IEnumerator StaggerTime()
     {
-        float timer = 10;
+        float timer = 10f;
+
         staggerTime.FloatValue = timer;
-        while(true)
+
+        while (true)
         {
             timer -= Time.deltaTime;
+
             staggerTime.FloatValue = timer;
+
             staggerTimer_EventChannel.CallEvent(staggerTime);
+
             if (timer < 0)
             {
                 break;
@@ -70,7 +91,8 @@ public class BossPosture : MonoBehaviour
     //Resets Posture Values
     void ResetPosture()
     {
-        currentPosture.FloatValue = maxPosture;
+        currentPosture.FloatValue = 0f;
+
         posture_EventChannel.CallEvent(currentPosture);
     }
 

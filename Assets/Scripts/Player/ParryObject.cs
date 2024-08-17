@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ParryObject : MonoBehaviour
 {
-    [SerializeField] Transform playerCamera;
     private void OnTriggerEnter(Collider other)
     {
         //Checks if the other object has a tag of parryable and if it does, call it's carry function, will convert this to an interface in the future
         if (other.CompareTag("Parryable"))
         {
-            if(other.gameObject.TryGetComponent<ProjectileBehavior>(out ProjectileBehavior projectileBehavior))
+            if(other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
             {
-                projectileBehavior.Parried(playerCamera.forward);
+                projectileBehavior.Parried(Camera.main.transform.forward);
             }
         }
     }
