@@ -8,7 +8,7 @@ public class StaggerState : AIState
     Animator bossAnimator;
     private bool called = false;
 
-    private float staggerTime;
+    float timer;
     bool canExit;
     protected override bool Called
     {
@@ -19,14 +19,17 @@ public class StaggerState : AIState
     public override void EnterState(BossAI ctx)
     {
         bossAnimator.SetTrigger("Staggered");
+        canExit = false;
+
+        float staggerTime = 10;
+        timer = Time.time + staggerTime;
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-        float timer = Time.time + staggerTime;
-
         if (timer < Time.time || canExit)
         {
+            Debug.Log("Got out of stagger");
             ctx.SwitchState(States.WalkState);
             return;
         }
@@ -34,9 +37,7 @@ public class StaggerState : AIState
 
     public override void ExitState(BossAI ctx)
     {
-        canExit = false;
-        bossAnimator.SetTrigger("NoLongerStaggered");
-        throw new System.NotImplementedException();
+        bossAnimator.SetTrigger("NotStaggered");
     }
 
     public override void InitalizeState(BossAI ctx)
@@ -46,6 +47,7 @@ public class StaggerState : AIState
 
     public void NoLongerStaggered(FloatEvent ctx)
     {
+        Debug.Log("Got out of stagger");
         canExit = true;
     }
 }

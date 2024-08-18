@@ -54,6 +54,10 @@ public class BossPosture : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(currentPosture.FloatValue >= maxPosture)
+        {
+            return;
+        }
         //If collision object is parried projectile, deal posture damage
         if (other.TryGetComponent(out IProjectile projectileInstance))
         {

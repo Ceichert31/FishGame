@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f8c35144f01aa419ee9f98cdc86054, type: 3}
   m_Name: LureAttackState
   m_EditorClassIdentifier: 
-  bossTransform: {fileID: 0}
   attacks:
-  - '"Spin"'
+  - Spin
+  bossAnimator: {fileID: 0}
