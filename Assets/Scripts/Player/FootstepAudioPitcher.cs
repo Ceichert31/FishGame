@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XInput;
 
 public class FootstepAudioPitcher : MonoBehaviour
 {
@@ -73,13 +72,6 @@ public class FootstepAudioPitcher : MonoBehaviour
     {
         if (inputController.IsMoving)
         {
-            //Prevent footstep audio from playing
-           /* if (currentDelayTime < audioStartDelay)
-            {
-                currentDelayTime += Time.deltaTime;
-                return;
-            }*/
-
             if (currentTime < Time.time)
             {
                 currentTime = Time.time + timeBetweenSteps;
