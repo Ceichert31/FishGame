@@ -7,6 +7,16 @@ namespace HelperMethods
     public static class Util
     {
         /// <summary>
+        /// Returns the parameter vector as itself, but with no y value
+        /// </summary>
+        /// <param name="vector3"></param>
+        /// <returns></returns>
+        public static Vector3 VectorNoY(Vector3 vector3)
+        {
+            return vector3 - Vector3.up * vector3.y;
+        }
+
+        /// <summary>
         /// Returns the distance of two vectors with a y of 0
         /// </summary>
         /// <param name="first"></param>

@@ -16,6 +16,8 @@ public class AttackState : AIState
 
     private bool called = false;
 
+    float maxDistance;
+
     protected override bool Called 
     {
         get { return called; }
@@ -36,6 +38,8 @@ public class AttackState : AIState
             throw new System.Exception("I has no attacks :(");
         }
         Debug.Log("EnteredAttack");
+
+        maxDistance = 10;
     }
 
 
@@ -55,12 +59,14 @@ public class AttackState : AIState
         {
             return;
         }
-
-        Debug.Log("We finished Attacking Hurray");
         //Distance Check with player
         
         //if()
-
+        //If the player walks away far
+        if(Util.DistanceNoY(bossTransform.position, Player) > maxDistance)
+        {
+            ctx.SwitchState(States.WalkState);
+        }
 
         //Peach Cobler is alright
 

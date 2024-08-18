@@ -66,6 +66,7 @@ public class LureProjectileSpawner : ProjectileManager
     {
         for (int i = 0; i < projectileSpawnPoints.Count; i++)
         {
+            Debug.Log("Spawnned");
             InitalizeProjectileSpawner(tempProjectile, 1, timeInbetween, projectileSpawnPoints[i]);
             yield return wfs;
         }
@@ -74,6 +75,14 @@ public class LureProjectileSpawner : ProjectileManager
     public int SpawnLocationCount
     {
         get { return projectileSpawnPoints.Count; }
+    }
+
+    /// <summary>
+    /// Stops all coroutines in this projectile spawner
+    /// </summary>
+    public void StopProjectileSpawner()
+    {
+        StopAllCoroutines();
     }
 
 }

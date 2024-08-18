@@ -763,7 +763,7 @@ MonoBehaviour:
     type: 2}
   stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
     type: 2}
-  maxPosture: 2
+  maxPosture: 40
 --- !u!64 &6626371878774456668
 MeshCollider:
   m_ObjectHideFlags: 0

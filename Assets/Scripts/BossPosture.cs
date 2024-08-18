@@ -54,6 +54,7 @@ public class BossPosture : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If the posture already exceeds the max posture then do nothing
         if(currentPosture.FloatValue >= maxPosture)
         {
             return;

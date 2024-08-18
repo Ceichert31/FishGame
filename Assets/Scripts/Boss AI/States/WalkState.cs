@@ -11,11 +11,12 @@ public class WalkState : AIState
     float fireTime;
 
     [Header("Variables for controlling unique movement")]
-    [SerializeField] float initalMoveAmmount = 10;
-    [SerializeField] float slowDownAmmount = 2;
-    float timeUntilNextMovement = 1;
+    [SerializeField] float initalMoveAmmount;
+    [SerializeField] float slowDownAmmount;
+    float timeUntilNextMovement;
     float currentTime;
     float currentMoveAmmount;
+    float rotationSpeed;
 
     private bool called = false;
 
@@ -29,9 +30,13 @@ public class WalkState : AIState
     {
         ctx.Agent.speed = 5f;
         projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
+        initalMoveAmmount = 10;
+        slowDownAmmount = 2;
+        timeUntilNextMovement = 1;
         currentTime = timeUntilNextMovement;
         currentMoveAmmount = initalMoveAmmount;
-        maxDistance = 20;
+        maxDistance = 10;
+        rotationSpeed = 1;
     }
 
 
@@ -78,9 +83,14 @@ public class WalkState : AIState
     void MoveBehavior()
     {
         //Temp LookAtSolution
-        bossTransform.LookAt(new Vector3(Player.x, bossTransform.position.y, Player.z));
+        //bossTransform.LookAt();
+
+        //Slowly rotates the boss to look at the player
+        Quaternion targetRotation = Quaternion.LookRotation(Util.VectorNoY(Player) - Util.VectorNoY(bossTransform.position));
+        bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
         //Creates a unique movement pattern simmilar to what u would see on some fishing lure
-        if(currentMoveAmmount <= 0)
+        if (currentMoveAmmount <= 0)
         {
             if(currentTime > 0)
             {
@@ -102,7 +112,9 @@ public class WalkState : AIState
 
     public override void ExitState(BossAI ctx)
     {
-        
+        //Stops all projectile spawning whenever the state is left
+        projectileSpawner.StopProjectileSpawner();
+        fireTime = 1;
     }
 
 
