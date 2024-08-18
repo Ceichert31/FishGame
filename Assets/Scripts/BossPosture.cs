@@ -8,15 +8,12 @@ public class BossPosture : MonoBehaviour
     [SerializeField] FloatEventChannel maxPosture_EventChannel;
     [SerializeField] FloatEventChannel posture_EventChannel;
     [SerializeField] VoidEventChannel stagger_EventChannel;
-    //EXPERIMENTAL
-    [SerializeField] FloatEventChannel staggerTimer_EventChannel;
 
     [SerializeField] float maxPosture = 100;
 
     private float playerDamage => GameManager.Instance.PlayerDamage;
 
     private FloatEvent currentPosture;
-    private FloatEvent staggerTime;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +33,24 @@ public class BossPosture : MonoBehaviour
         //Calls the method on the Float Event Listener for the posture to be updated for the UI
         posture_EventChannel.CallEvent(currentPosture);
 
-        //If the posture is broken, call the method on the staggerTimer event channel, and start the timer
+        //If the posture is broken, call the method on the stagger event channel
         if (currentPosture.FloatValue >= maxPosture)
         {
-            staggerTimer_EventChannel.CallEvent(new());
-
-            StartCoroutine(StaggerTime());
+            stagger_EventChannel.CallEvent(new());
         }
     }
+
+    public void ResetPosture()
+    {
+        currentPosture.FloatValue = 0;
+        posture_EventChannel.CallEvent(currentPosture);
+    }
+
+    public void CallResetPosture(FloatEvent ctx)
+    {
+        ResetPosture();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -67,41 +74,5 @@ public class BossPosture : MonoBehaviour
     /// If the timmer is up it will break out of the this coroutine
     /// </summary>
     /// <returns></returns>
-    IEnumerator StaggerTime()
-    {
-        float timer = 10f;
-
-        staggerTime.FloatValue = timer;
-
-        while (true)
-        {
-            timer -= Time.deltaTime;
-
-            staggerTime.FloatValue = timer;
-
-            staggerTimer_EventChannel.CallEvent(staggerTime);
-
-            if (timer < 0)
-            {
-                break;
-            }
-            yield return null;
-        }
-        ResetPosture();
-    }
-
-    //Resets Posture Values
-    void ResetPosture()
-    {
-        currentPosture.FloatValue = 0f;
-
-        posture_EventChannel.CallEvent(currentPosture);
-    }
-
-    //Future method used to stop the stagger timer in case of boss getting hit before the timer ends(not implimented yet)
-    public void StopStaggerTimer()
-    {
-        StopAllCoroutines();
-        ResetPosture();
-    }
+    
 }

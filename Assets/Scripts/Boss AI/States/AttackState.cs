@@ -25,12 +25,11 @@ public class AttackState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         bossAnimator = bossTransform.GetComponent<Animator>();
-        
 
-        for(int i = 0; i < bossAnimator.parameters.Length; i++)
+        /*for(int i = 0; i < bossAnimator.parameters.Length; i++)
         {
             attacks[i] = bossAnimator.parameters[i].name;
-        }
+        }*/
 
         if (attacks.Count == 0)
         {

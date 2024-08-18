@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="LureStaggerState", menuName = "BossStates/Stagger")]
 public class StaggerState : AIState
 {
-    [SerializeField] GameObject grapplePoint;
-
-    [SerializeField] FloatEventChannel staggerTime_EventChannel;
+    Animator bossAnimator;
     private bool called = false;
-    bool staggered = false;
+
+    private float staggerTime;
+    bool canExit;
     protected override bool Called
     {
         get { return called; }
@@ -18,39 +18,34 @@ public class StaggerState : AIState
 
     public override void EnterState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        bossAnimator.SetTrigger("Staggered");
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-        //If no longer staggered
-        if(!staggered)
+        float timer = Time.time + staggerTime;
+
+        if (timer < Time.time || canExit)
         {
             ctx.SwitchState(States.WalkState);
             return;
         }
-
-
     }
 
     public override void ExitState(BossAI ctx)
     {
+        canExit = false;
+        bossAnimator.SetTrigger("NoLongerStaggered");
         throw new System.NotImplementedException();
     }
 
     public override void InitalizeState(BossAI ctx)
     {
-        //FindGrapplePoint
-        //grapplePoint = 
+        bossAnimator = bossTransform.GetComponent<Animator>();
     }
 
-    /// <summary>
-    /// Method to be called by float event channel
-    /// This method just sets the boolean to tell the code whether the boss is still staggered or not
-    /// </summary>
-    /// <param name="ctx"></param>
-    public void StaggeredState(FloatEvent ctx)
+    public void NoLongerStaggered(FloatEvent ctx)
     {
-        staggered = ctx.FloatValue > 0;
+        canExit = true;
     }
 }
