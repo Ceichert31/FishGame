@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
 
     public bool firstTimeLoading = true;
 
-    //Accessors
-    public GameObject Player { get { return player; } }
+    [SerializeField] private bool hasGateKey;
 
+    //Accessors
+    public bool HasGateKey { get { return hasGateKey; } set { hasGateKey = value; } }
+    public GameObject Player { get { return player; } }
     public int PlayerDamage { get { return playerStats.playerDamage; } }
     public float PlayerFireRate { get { return playerStats.harpoonFireRate; } }
     public float PlayerReelInSpeed { get { return playerStats.playerReelInSpeed; } }

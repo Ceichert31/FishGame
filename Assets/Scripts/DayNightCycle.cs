@@ -10,6 +10,9 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private LightingPreset preset;
 
     [Header("Day Night Settings")]
+
+    [SerializeField] private bool pauseTime;
+
     [Range(0f, 24f)]
     [SerializeField] private float timeOfDay;
 
@@ -47,6 +50,8 @@ public class DayNightCycle : MonoBehaviour
 
     private void Update()
     {
+        if (pauseTime) return;
+
         if (preset == null) return;
 
         if (Application.isPlaying)
