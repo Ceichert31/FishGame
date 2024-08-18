@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TextController : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] AudioPitcherSO typingAudio;
+
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI promptText;
 
@@ -14,6 +17,8 @@ public class TextController : MonoBehaviour
     private Queue<TextEvent> textQueue = new();
 
     private Coroutine textInstance = null;
+
+    private AudioSource source => Camera.main.transform.parent.GetComponent<AudioSource>();
 
     public void UpdateTextPrompt(TextEvent ctx)
     {
@@ -59,7 +64,10 @@ public class TextController : MonoBehaviour
         //Iterate through string
         for (int i = 0; i < prompt.Length; i++)
         {
+            typingAudio.Play(source);
+
             promptText.text += prompt[i];
+
             yield return waitTime;
         }
 

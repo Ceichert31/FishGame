@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class BobberInstance : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private AudioPitcherSO bobberSplooshAudio;
+
     [Header("Bobber Settings")]
     [SerializeField] private int waterLayer = 4;
+
     [SerializeField] bool inWater;
+    
     float frequency = 1;
+    
     float amplitude = .1f;
+    
     Vector3 startPosition;
+
+    private AudioSource source;
 
     //resets necisary variables on enable
     private void OnEnable()
@@ -18,10 +27,17 @@ public class BobberInstance : MonoBehaviour
         inWater = false;
     }
 
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == waterLayer)
         {
+            bobberSplooshAudio.Play(source);
+
             if (collision.gameObject.TryGetComponent(out SpawnPool waterInstance))
             {
                 waterInstance.StartFishing();

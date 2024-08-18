@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private AudioPitcherSO castingAudio;
+    [SerializeField] private AudioPitcherSO reelInAudio;
+
     [Header("Fishing Pole Settings")]
     [Tooltip("The maximum amount of charge the pole can gain")]
     [SerializeField] private float maxPoleCharge = 10f;
@@ -22,13 +26,21 @@ public class FishingController : MonoBehaviour
 
     private float currentPoleCharge;
 
+    private GameObject fishingRod;
+
+    private AudioSource source;
+
     private const float MINPOLECHARGE = 2f;
 
     void Start()
     {
-        poleAnimator = transform.GetChild(0).GetComponent<Animator>();
+        fishingRod = transform.GetChild(0).gameObject;
+
+        poleAnimator = fishingRod.GetComponent<Animator>();
 
         bobberController = GetComponentInChildren<BobberController>();
+
+        source = GetComponent<AudioSource>();
 
         if (GameManager.Instance.firstTimeLoading)
         {
@@ -85,6 +97,8 @@ public class FishingController : MonoBehaviour
     /// </summary>
     public void Cast()
     {
+        castingAudio.Play(source);
+
         bobberController.ApplyForcesOnBobber(currentPoleCharge, initialBobberVelocityY);
     }
 
@@ -99,6 +113,10 @@ public class FishingController : MonoBehaviour
     /// <param name="ctx"></param>
     void ReelIn(InputAction.CallbackContext ctx)
     {
+        if (fishingRod.activeSelf != true) return;
+
+        reelInAudio.Play(source);
+
         //Trigger animation
         poleAnimator.SetTrigger("ReelIn");
     }
