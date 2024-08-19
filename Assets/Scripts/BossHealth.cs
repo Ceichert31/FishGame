@@ -12,6 +12,8 @@ public class BossHealth : MonoBehaviour
     [Header("Boss Health Settings")]
     [SerializeField] private int bossMaxHealth = 100;
 
+    [SerializeField] private bool rewardsKey;
+
     private FloatEvent currentHealth;
 
     private void Start()
@@ -21,6 +23,9 @@ public class BossHealth : MonoBehaviour
 
         //Initialize max health
         maxHealth_EventChannel.CallEvent(currentHealth);
+
+        //Start whatever sequence this boss has
+        gameObject.GetComponent<Sequencer>().InitializeSequence();
     }
 
     /// <summary>
@@ -36,7 +41,11 @@ public class BossHealth : MonoBehaviour
         //Fish health hits zero
         if (currentHealth.FloatValue <= 0 )
         {
+            if (rewardsKey)
+                GameManager.Instance.HasGateKey = true;
+
             return_EventChannel.CallEvent(new());
+
             Destroy(transform.parent.gameObject);
         }
     }

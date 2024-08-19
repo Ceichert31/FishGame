@@ -29,8 +29,8 @@ public class StaggerState : AIState
     {
         if (timer < Time.time || canExit)
         {
-            Debug.Log("Got out of stagger");
-            ctx.SwitchState(States.WalkState);
+            //Transiton to flee
+            ctx.SwitchState(States.IdleState);
             return;
         }
     }

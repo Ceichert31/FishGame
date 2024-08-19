@@ -13,6 +13,16 @@ public class AmbienceController : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
+    private void CachePreviousAudio()
+    {
+        previousClip.audioClip = source.clip;
+
+        previousClip.pitch = source.pitch;
+
+        previousClip.volume = source.volume;
+
+    }
+
     /// <summary>
     /// Switches current background ambience
     /// </summary>
@@ -22,15 +32,7 @@ public class AmbienceController : MonoBehaviour
         //Bootstrap case
         if (source.clip == ctx.audioClip) return;
 
-        //Cache previous audio
-        previousClip.audioClip = source.clip;
-
-        previousClip.pitch = source.pitch;
-
-        previousClip.volume = source.volume;
-
-        //Stop current audio and change to new audio
-        source.Stop();
+        CachePreviousAudio();
 
         source.clip = ctx.audioClip;
 
@@ -47,9 +49,6 @@ public class AmbienceController : MonoBehaviour
     /// <param name="ctx"></param>
     public void LoadPreviousClip(VoidEvent ctx)
     {
-        //Stop current audio and change to previous audio
-        source.Stop();
-
         source.clip = previousClip.audioClip;
 
         source.volume = previousClip.volume;

@@ -8,6 +8,7 @@ public enum States
     WalkState,
     AttackState,
     StaggerState,
+    FleeState,
 }
 
 public class BossAI : MonoBehaviour

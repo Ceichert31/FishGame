@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Events/UI Event Channel")]
+[CreateAssetMenu(menuName = "Events/Text Event Channel")]
 public class TextEventChannel : GenericEventChannel<TextEvent> {}
 
 [System.Serializable]

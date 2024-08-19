@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class PlayerInteractor : MonoBehaviour
 {
     [Header("Scriptable Object References")]
-    [SerializeField] private TextEventChannel textPrompt_EventChannel;
+    [SerializeField] private TextEventChannel interactText_EventChannel;
     [SerializeField] private VoidEventChannel clearText_EventChannel;
 
     [Header("Interactor Settings")]
@@ -27,7 +27,7 @@ public class PlayerInteractor : MonoBehaviour
         isInteractableLayer = other.gameObject.layer == interactLayer;
 
         if (other.gameObject.TryGetComponent(out interactableObject))
-            textPrompt_EventChannel.CallEvent(interactableObject.Prompt);
+            interactText_EventChannel.CallEvent(interactableObject.Prompt);
     }
 
     private void OnTriggerStay(Collider other)

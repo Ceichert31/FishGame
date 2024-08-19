@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "FleeState", menuName = "BossStates/Flee")]
 public class FleeState : AIState
 {
     bool called = false;
@@ -14,21 +15,22 @@ public class FleeState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void EnterState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        //Find random position far away
+        //Play going underwater animation
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void ExitState(BossAI ctx)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

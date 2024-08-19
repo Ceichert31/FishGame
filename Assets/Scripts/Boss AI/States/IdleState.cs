@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IdleState",menuName ="BossStates/Idle")]
 public class IdleState : AIState
 {
-    private float idleTime = 3f;
+    [SerializeField] private float idleTime = 3f;
+
     [SerializeField] private bool called = false;
+
+    private float currentTime;
 
     protected override bool Called
     {
@@ -15,20 +18,18 @@ public class IdleState : AIState
     }
     public override void InitalizeState(BossAI ctx)
     {
-        Debug.Log(called);
         ctx.Agent.speed = 0;
     }
 
     public override void EnterState(BossAI ctx)
     {
-
+        currentTime = Time.time + idleTime;
         //Play idle animation
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-        float currentTime = Time.time + idleTime;
-
+        //Wait for idle time
         if (currentTime < Time.time)
         {
             ctx.SwitchState(States.WalkState);

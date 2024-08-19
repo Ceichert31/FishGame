@@ -29,19 +29,35 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(projectileInstance.ProjectileDamage);
 
-            //projectileInstance.DisableProjectile();
+            projectileInstance.DisableProjectile();
         }
     }
 
+    /// <summary>
+    /// Damages player and updates UI
+    /// </summary>
+    /// <param name="damage"></param>
     public void DealDamage(float damage)
     {
+        //Calculate new health
         currentHealth.FloatValue -= damage;
 
+        //Update UI
         currentPlayerHealth_EventChannel.CallEvent(currentHealth);
 
+        //Player Death
         if (currentHealth.FloatValue <= 0) 
         {
             transition_EventChannel.CallEvent(new());
         }
+    }
+
+    public void ResetPlayerHealth(VoidEvent ctx)
+    {
+        //Reset current health
+        currentHealth.FloatValue = maxHealth;
+
+        //Update UI
+        currentPlayerHealth_EventChannel.CallEvent(currentHealth);
     }
 }

@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 4366325919319603030}
   - component: {fileID: 4552175915574238521}
   - component: {fileID: 8467429847703294202}
+  - component: {fileID: 3163755583386329100}
   - component: {fileID: 6626371878774456668}
   m_Layer: 0
   m_Name: Scritps
@@ -622,6 +623,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 799bc495ba04e2949bf7c757acdc3e72, type: 2}
   - {fileID: 11400000, guid: b52bc7f12bc518a4ea9e20fa65a7dc85, type: 2}
   - {fileID: 11400000, guid: 9859a4405e255054d9b5b72178378156, type: 2}
+  - {fileID: 11400000, guid: ac860206b00085f419abd0f343e1bee8, type: 2}
 --- !u!114 &8515886488007705477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +642,8 @@ MonoBehaviour:
     type: 2}
   return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
     type: 2}
-  bossMaxHealth: 35
+  bossMaxHealth: 25
+  rewardsKey: 1
 --- !u!114 &6810070633299860872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +767,20 @@ MonoBehaviour:
   stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
     type: 2}
   maxPosture: 40
+--- !u!114 &3163755583386329100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: ee320ba27dc12354b8a4e07b89ef0b23, type: 2}
 --- !u!64 &6626371878774456668
 MeshCollider:
   m_ObjectHideFlags: 0

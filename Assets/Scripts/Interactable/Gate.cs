@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour, IInteract
 {
+    [SerializeField] private AudioPitcherSO gateCreakAudio;
+
     public TextEvent Prompt => textPrompt;
 
     [SerializeField] private TextEvent textPrompt;
 
     private Animator animator;
 
+    private AudioSource source;
+
     private bool isUnlocked;
 
     private void Start()
     {
         animator = GetComponentInParent<Animator>();
+
+        source = GetComponentInParent<AudioSource>();
     }
 
     public void ExitInteract()
@@ -29,11 +35,13 @@ public class Gate : MonoBehaviour, IInteract
         //Check if player has key
         if (!GameManager.Instance.HasGateKey) return;
 
-        Debug.Log("!");
-
         //If player has key open gate
         animator.SetTrigger("OpenGate");
 
+        gateCreakAudio.Play(source);
+
         isUnlocked = true;
+
+        textPrompt.TextPrompt = string.Empty;
     }
 }

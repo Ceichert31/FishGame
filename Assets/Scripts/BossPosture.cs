@@ -11,8 +11,6 @@ public class BossPosture : MonoBehaviour
 
     [SerializeField] float maxPosture = 100;
 
-    private float playerDamage => GameManager.Instance.PlayerDamage;
-
     private FloatEvent currentPosture;
 
     // Start is called before the first frame update
@@ -64,7 +62,7 @@ public class BossPosture : MonoBehaviour
         {
             if (projectileInstance.IsParried)
             {
-                UpdatePosture(playerDamage);
+                UpdatePosture(projectileInstance.ProjectileDamage);
 
                 projectileInstance.DisableProjectile();
 

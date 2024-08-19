@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class TextController : MonoBehaviour
 {
@@ -18,7 +19,24 @@ public class TextController : MonoBehaviour
 
     private Coroutine textInstance = null;
 
-    private AudioSource source => Camera.main.transform.parent.GetComponent<AudioSource>();
+    private AudioSource source;
+
+    private bool isInteracting;
+
+    /// <summary>
+    /// Displays interact text (Has higher priority than text event triggers)
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void InteractPrompt(TextEvent ctx)
+    {
+        StopAllCoroutines();
+
+        promptText.text = string.Empty;
+
+        isInteracting = true;
+
+        StartCoroutine(DisplayText(ctx.TextPrompt, ctx.ClearTime));
+    }
 
     public void UpdateTextPrompt(TextEvent ctx)
     {
@@ -38,6 +56,9 @@ public class TextController : MonoBehaviour
 
     public void Update()
     {
+        //Prevent queue from being used while interacting
+        if (isInteracting) return;
+
         if (textQueue.Count <= 0) return;
 
         if (textInstance == null)
@@ -64,7 +85,7 @@ public class TextController : MonoBehaviour
         //Iterate through string
         for (int i = 0; i < prompt.Length; i++)
         {
-            typingAudio.Play(source);
+            //typingAudio.Play(source);
 
             promptText.text += prompt[i];
 
@@ -74,8 +95,7 @@ public class TextController : MonoBehaviour
         //Wait to clear
         yield return new WaitForSeconds(clearTime);
 
-        if (clearTime > 0)
-            ResetText();
+        ResetText();
     }
 
     private void ResetText()
@@ -85,6 +105,8 @@ public class TextController : MonoBehaviour
 
         //Clear event
         textInstance = null;
+
+        isInteracting = false;
 
         promptText.text = string.Empty;
     }

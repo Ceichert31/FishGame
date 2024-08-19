@@ -28,7 +28,6 @@ public class WalkState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        ctx.Agent.speed = 5f;
         projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
         initalMoveAmmount = 10;
         slowDownAmmount = 2;
@@ -42,7 +41,7 @@ public class WalkState : AIState
 
     public override void EnterState(BossAI ctx)
     {
-
+        ctx.Agent.speed = 5f;
     }
 
     public override void ExecuteState(BossAI ctx)

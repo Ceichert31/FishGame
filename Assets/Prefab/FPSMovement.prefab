@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 8166874269603364876}
   - component: {fileID: 163390044800582585}
   - component: {fileID: 700533270298023575}
+  - component: {fileID: 157607375117498321}
   m_Layer: 6
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -345,6 +346,34 @@ MonoBehaviour:
   transition_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
     type: 2}
   maxHealth: 100
+--- !u!114 &157607375117498321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: a73de7558cf37c741a845224d5475d7e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700533270298023575}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: ResetPlayerHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b36e0c8358768142a6db07194536ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPrompt_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3,
+  interactText_EventChannel: {fileID: 11400000, guid: 937ed7eb18ee415468f7e75a6c4b1b8a,
     type: 2}
   clearText_EventChannel: {fileID: 11400000, guid: 862198b34533d3e41af7ba70d7248246,
     type: 2}
