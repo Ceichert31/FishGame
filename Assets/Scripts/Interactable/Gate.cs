@@ -14,7 +14,7 @@ public class Gate : MonoBehaviour, IInteract
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public void ExitInteract()
@@ -28,6 +28,8 @@ public class Gate : MonoBehaviour, IInteract
 
         //Check if player has key
         if (!GameManager.Instance.HasGateKey) return;
+
+        Debug.Log("!");
 
         //If player has key open gate
         animator.SetTrigger("OpenGate");

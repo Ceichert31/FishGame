@@ -5414,7 +5414,7 @@ PrefabInstance:
     - target: {fileID: -6492060193605626798, guid: cb43248e53c4d9f4bb886b6915ff0864,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb43248e53c4d9f4bb886b6915ff0864,
         type: 3}
@@ -5479,7 +5479,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cb43248e53c4d9f4bb886b6915ff0864,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1642327355821528388, guid: cb43248e53c4d9f4bb886b6915ff0864,
         type: 3}
@@ -5529,10 +5529,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1611306326}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb43248e53c4d9f4bb886b6915ff0864,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1611306325}
     - targetCorrespondingSourceObject: {fileID: 911845557441989169, guid: cb43248e53c4d9f4bb886b6915ff0864,
         type: 3}
       insertIndex: -1
@@ -5545,6 +5541,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1611306329}
+    - targetCorrespondingSourceObject: {fileID: -6492060193605626798, guid: cb43248e53c4d9f4bb886b6915ff0864,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611306335}
   m_SourcePrefab: {fileID: 100100000, guid: cb43248e53c4d9f4bb886b6915ff0864, type: 3}
 --- !u!1 &1611306323 stripped
 GameObject:
@@ -5558,21 +5558,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1611306322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1611306325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611306323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01519342dadc1dd46b2da9cd7a396fd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textPrompt:
-    TextPrompt: The Gate is locked
-    ClearTime: 0
 --- !u!95 &1611306326
 Animator:
   serializedVersion: 5
@@ -5670,6 +5655,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 4.733332, z: 0.40000007}
   m_Center: {x: 0.21818255, y: -0.0026456115, z: -0.18676907}
+--- !u!114 &1611306335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611306324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01519342dadc1dd46b2da9cd7a396fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrompt:
+    TextPrompt: The Gate is locked
+    ClearTime: 0
 --- !u!1 &1635707456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
@@ -6666,7 +6666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1635707456}
   firstTimeLoading: 1
-  hasGateKey: 0
+  hasGateKey: 1
 --- !u!114 &1854508721
 MonoBehaviour:
   m_ObjectHideFlags: 0
