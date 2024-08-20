@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
     public float PlayerMovementMultiplier { get { return playerStats.movementSpeedMultiplier; } }
 
     const int DAMAGE = 5;
-    const float FIRERATE = 20f;
-    const float REELINSPEED = 15f;
+    const float FIRERATE = 30f;
+    const float REELINSPEED = 20f;
     const float MOVEMENTMULTIPLIER = 1f;
 
 

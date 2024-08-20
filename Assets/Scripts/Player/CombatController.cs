@@ -25,6 +25,8 @@ public class CombatController : MonoBehaviour
     private Animator spearAnimator;
     private bool IsInProgress => harpoonController.IsInProgress;
 
+    private const int GRAPPLELAYER = 8;
+
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
@@ -43,7 +45,7 @@ public class CombatController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange))
         {
-            if (hitInfo.collider.CompareTag("canGrapple"))
+            if (hitInfo.collider.gameObject.layer == GRAPPLELAYER)
             {
                 harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo, true);
             }

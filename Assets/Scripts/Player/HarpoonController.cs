@@ -30,8 +30,6 @@ public class HarpoonController : MonoBehaviour
 
     private const float GRAPPLEDISTANCE = 1f;
 
-    private const int DAMAGELAYER = 8;
-
     private void Start()
     {
         combatController = GetComponentInParent<CombatController>();
@@ -120,6 +118,7 @@ public class HarpoonController : MonoBehaviour
     IEnumerator GrapplePlayer(float grappleForce, RaycastHit hitPoint)
     {
         FloatEvent distance;
+
         distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
 
         //Increase FOV
@@ -134,7 +133,7 @@ public class HarpoonController : MonoBehaviour
         }
 
         //If weakpoint, deal damage
-        if (hitPoint.transform.gameObject.layer == DAMAGELAYER)
+        if (hitPoint.transform.gameObject.CompareTag("Damageable"))
         {
             //Stop velocity
             playerRigidbody.velocity = Vector3.zero;

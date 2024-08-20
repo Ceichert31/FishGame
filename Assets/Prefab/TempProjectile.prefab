@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2745520789954922326}
   - component: {fileID: -2827035826616719070}
   - component: {fileID: -6618070041917624436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TempProjectile
   m_TagString: Parryable
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 1909961973503847867}
   - component: {fileID: 6254321966506617001}
   - component: {fileID: 178347001851246310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
