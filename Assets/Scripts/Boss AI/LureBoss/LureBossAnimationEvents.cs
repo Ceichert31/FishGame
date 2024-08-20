@@ -6,6 +6,7 @@ using HelperMethods;
 public class LureBossAnimationEvents : MonoBehaviour
 {
     [SerializeField] BossAI bossAi;
+    Animator bossAnimator;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +18,7 @@ public class LureBossAnimationEvents : MonoBehaviour
         {
             throw new System.Exception("There is no BossAi under this object");
         }
+        bossAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,5 +31,10 @@ public class LureBossAnimationEvents : MonoBehaviour
     {
         AttackState attackState =  (AttackState)bossAi.BossStates[(int)States.AttackState];
         attackState.Attacking = false;
+    }
+
+    public void NotStaggerTrigger()
+    {
+        bossAnimator.SetTrigger("NotStaggered");
     }
 }

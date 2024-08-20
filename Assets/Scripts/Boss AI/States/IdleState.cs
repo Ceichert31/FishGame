@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IdleState",menuName ="BossStates/Idle")]
 public class IdleState : AIState
 {
-    [SerializeField] private float idleTime = 3f;
+    [SerializeField] private float idleTime;
 
     [SerializeField] private bool called = false;
 
@@ -19,6 +19,7 @@ public class IdleState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         ctx.Agent.speed = 0;
+        idleTime = 3f;
     }
 
     public override void EnterState(BossAI ctx)

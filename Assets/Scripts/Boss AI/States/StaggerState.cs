@@ -30,7 +30,7 @@ public class StaggerState : AIState
         if (timer < Time.time || canExit)
         {
             //Transiton to flee
-            ctx.SwitchState(States.IdleState);
+            ctx.SwitchState(States.FleeState);
             return;
         }
     }

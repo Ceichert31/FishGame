@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1462927606}
   firstTimeLoading: 1
+  hasGateKey: 0
 --- !u!114 &1502359736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,15 +424,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5509766471598156863, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_Name
       value: LureBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467429847703294202, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: maxPosture
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

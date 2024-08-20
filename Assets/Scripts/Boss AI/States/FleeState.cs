@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FleeState", menuName = "BossStates/Flee")]
 public class FleeState : AIState
 {
+    Vector3 fleeLocation;
+    Animator bossAnimator;
+
     bool called = false;
     protected override bool Called
     {
@@ -15,13 +18,12 @@ public class FleeState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        
+        bossAnimator = bossTransform.GetComponent<Animator>();
     }
 
     public override void EnterState(BossAI ctx)
     {
-        //Find random position far away
-        //Play going underwater animation
+
     }
 
     public override void ExecuteState(BossAI ctx)
