@@ -11,7 +11,7 @@ public class CameraShake : MonoBehaviour
 
     IEnumerator Shake(float duration)
     {
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = transform.localPosition;
 
         float elapsedTime = 0;
 
@@ -19,11 +19,18 @@ public class CameraShake : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            transform.position = startPosition + (Random.insideUnitSphere * shakeCurve.Evaluate(elapsedTime));
+            transform.localPosition = startPosition + (Random.insideUnitSphere * shakeCurve.Evaluate(elapsedTime));
 
             yield return null;
         }
 
-        transform.position = startPosition;
+        transform.localPosition = startPosition;
     }
+
+    [ContextMenu("TEST")]
+    public void Test()
+    {
+        StartCoroutine(Shake(1f));
+    }
+
 }

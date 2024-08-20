@@ -116,4 +116,13 @@ public class DayNightCycle : MonoBehaviour
 
         instance = null;
     }
+    
+    /// <summary>
+    /// Pauses and unpauses day/night cycle progression
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void PauseTime(BoolEvent ctx)
+    {
+        pauseTime = ctx.Value;
+    }
 }

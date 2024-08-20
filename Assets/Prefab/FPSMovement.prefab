@@ -1577,8 +1577,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3306898884867616923}
-  - component: {fileID: 5724979756446761185}
-  - component: {fileID: 2329632361186461140}
   m_Layer: 6
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -1602,70 +1600,6 @@ Transform:
   - {fileID: 8244151488553780583}
   m_Father: {fileID: 4184258596113817863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5724979756446761185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358661037225534921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.0151763
-      outSlope: 1.0151763
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.06969697
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.00062125997
-      outSlope: -0.00062125997
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.17141557
-      outWeight: 0.116766214
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 4
---- !u!114 &2329632361186461140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358661037225534921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5724979756446761185}
-        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
-        m_MethodName: StartShaking
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5420024277832059075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,6 +1946,8 @@ GameObject:
   - component: {fileID: 4081493616867251035}
   - component: {fileID: 6025490770570100029}
   - component: {fileID: 7674407696521576547}
+  - component: {fileID: 2712978723706168044}
+  - component: {fileID: 7637727348339002519}
   m_Layer: 2
   m_Name: ParryBox
   m_TagString: Untagged
@@ -2067,6 +2003,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df235bc569cf9e42baa56df8104f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2712978723706168044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565486206513040709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18, type: 2}
+  - {fileID: 11400000, guid: 373e796e183afc1438604a85e5915989, type: 2}
+  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
+  - {fileID: 11400000, guid: 3fcddb4d418b8924eb8a943b2f0c4c15, type: 2}
+  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
+--- !u!82 &7637727348339002519
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565486206513040709}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7404753998953844394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2719,8 @@ GameObject:
   - component: {fileID: 5331316054924076896}
   - component: {fileID: 3605992156805197864}
   - component: {fileID: 6477070649608985972}
+  - component: {fileID: 2681916026861961178}
+  - component: {fileID: 6124719084113623600}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2955,6 +3007,79 @@ MonoBehaviour:
       - m_Target: {fileID: 5331316054924076896}
         m_TargetAssemblyTypeName: AmbienceController, Assembly-CSharp
         m_MethodName: LoadPreviousClip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2681916026861961178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654829441106256098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.0151763
+      outSlope: 1.0151763
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06969697
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 0.05226007
+      outSlope: 0.05226007
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.7781767
+      outSlope: -0.7781767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0665758
+      outWeight: 0.116766214
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+--- !u!114 &6124719084113623600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654829441106256098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2681916026861961178}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: StartShaking
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

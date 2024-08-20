@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f82a5839d8fae2428bf060414cad42d, type: 3}
-  m_Name: CameraShake
+  m_Script: {fileID: 11500000, guid: 09778ff8d9cfb004bbdc2b59d2a9d8ad, type: 3}
+  m_Name: ParryPitcher
   m_EditorClassIdentifier: 
-  shake_EventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
-  shakeDuration:
-    FloatValue: 0.3
+  audioClipList:
+  - {fileID: 8300000, guid: e030523d322bff44d9522527b2109efe, type: 3}
+  volume:
+    minValue: 0.7
+    maxValue: 1
+  pitch:
+    minValue: 1
+    maxValue: 1.3
