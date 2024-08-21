@@ -9,9 +9,13 @@ public class ParryBoxBehavior : MonoBehaviour
     /// <summary>
     /// Activates and deactives the parry box via animation events
     /// </summary>
-    public void ActivateAndDeactivateParryBox()
+    public void ActivateParryBox()
     {
-        parryBox.SetActive(!parryBox.activeSelf);
-        //Debug.Log("ParryBox is: " + parryBox.activeSelf);
+        parryBox.SetActive(true);
+    }
+
+    public void DeactivateParryBox()
+    {
+        parryBox.SetActive(false);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ParryPitcher
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: e030523d322bff44d9522527b2109efe, type: 3}
+  - {fileID: 8300000, guid: 02953777dcbb6d8448eb3040e1cc2ea5, type: 3}
   volume:
     minValue: 0.7
     maxValue: 1
