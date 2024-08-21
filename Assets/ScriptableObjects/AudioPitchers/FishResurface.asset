@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4076099d20da50428f8b5c7e6c5eb81, type: 3}
-  m_Name: LureFleeState
+  m_Script: {fileID: 11500000, guid: 09778ff8d9cfb004bbdc2b59d2a9d8ad, type: 3}
+  m_Name: FishResurface
   m_EditorClassIdentifier: 
-  bossResurfaceAudio: {fileID: 11400000, guid: 6f2c54dca0ea2454f8b1ce74a9c2b9f2, type: 2}
+  audioClipList:
+  - {fileID: 8300000, guid: fb36b7be9f46e644db79008a6fc966e2, type: 3}
+  volume:
+    minValue: 0.7
+    maxValue: 1
+  pitch:
+    minValue: 1
+    maxValue: 1.3

@@ -2116,9 +2116,6 @@ MonoBehaviour:
   sequenceActions:
   - {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18, type: 2}
   - {fileID: 11400000, guid: 373e796e183afc1438604a85e5915989, type: 2}
-  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
-  - {fileID: 11400000, guid: 3fcddb4d418b8924eb8a943b2f0c4c15, type: 2}
-  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
 --- !u!82 &7637727348339002519
 AudioSource:
   m_ObjectHideFlags: 0

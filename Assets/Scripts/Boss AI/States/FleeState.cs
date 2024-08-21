@@ -6,9 +6,12 @@ using HelperMethods;
 [CreateAssetMenu(fileName = "FleeState", menuName = "BossStates/Flee")]
 public class FleeState : AIState
 {
+    [SerializeField] AudioPitcherSO bossResurfaceAudio;
+
     Vector3 startLocation;
     Vector3 fleeLocation;
     Animator bossAnimator;
+    //AudioSource bossAudio;
     LureProjectileSpawner lureProjectileSpawner;
 
     float fleeTime;
@@ -34,6 +37,7 @@ public class FleeState : AIState
         directions = new Vector3[2] { Vector3.right, Vector3.forward };
         posNeg = new int[2] { -1, 1 };
         bossAnimator = bossTransform.GetComponent<Animator>();
+        //bossAudio = bossTransform.GetComponent<AudioSource>();
         lureProjectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
         fleeTime = 5f;
         fleeDistance = 50;
@@ -59,6 +63,7 @@ public class FleeState : AIState
     {
         fleeLocation = Vector3.zero;
         bossAnimator.applyRootMotion = true;
+        //bossResurfaceAudio.Play(bossAudio);
     }
     /// <summary>
     /// Generates a random int(-1 or 1)
