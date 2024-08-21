@@ -1142,6 +1142,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 2712978723706168044, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712978723706168044, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712978723706168044, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712978723706168044, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2955,6 +2975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthUpdateSpeed: 3
   tempHealthUpdateSpeed: 3
+  tempHealthMultiplier: 1.1
 --- !u!114 &1132858977
 MonoBehaviour:
   m_ObjectHideFlags: 0
