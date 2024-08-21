@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HelperMethods;
 
 [CreateAssetMenu(fileName = "FleeState", menuName = "BossStates/Flee")]
 public class FleeState : AIState
@@ -17,6 +18,7 @@ public class FleeState : AIState
     bool called = false;
 
     private Vector3[] directions;
+    private int[] posNeg;
     private List<Vector3> projectileSpawnLocations;
 
     int projectilesToSpawn;
@@ -30,10 +32,11 @@ public class FleeState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         directions = new Vector3[2] { Vector3.right, Vector3.forward };
+        posNeg = new int[2] { -1, 1 };
         bossAnimator = bossTransform.GetComponent<Animator>();
-        lureProjectileSpawner = bossTransform.GetComponent<LureProjectileSpawner>();
+        lureProjectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
         fleeTime = 5f;
-        fleeDistance = 20;
+        fleeDistance = 50;
         projectilesToSpawn = 5;
     }
 
@@ -54,14 +57,15 @@ public class FleeState : AIState
 
     public override void ExitState(BossAI ctx)
     {
-        
+        fleeLocation = Vector3.zero;
+        bossAnimator.applyRootMotion = true;
     }
     /// <summary>
-    /// Generates a random int(-1,0, or 1)
+    /// Generates a random int(-1 or 1)
     /// </summary>
     int PosNegPicker()
     {
-        return Random.Range(-1, 2);
+        return Random.value > 0.5f ? 1 : -1;
     }
 
     /// <summary>
@@ -70,7 +74,7 @@ public class FleeState : AIState
     /// <returns></returns>
     Vector3 RandomDirection()
     {
-        return directions[Random.Range(0, 2)];
+        return Random.value > 0.5f ? Vector3.forward : Vector3.right;
     }
 
     /// <summary>
@@ -78,23 +82,51 @@ public class FleeState : AIState
     /// </summary>
     public void TeleportFish()
     {
-        fleeLocation = (RandomDirection() * PosNegPicker() * fleeDistance) + bossTransform.position;
+        bossAnimator.applyRootMotion = false;
+        Vector3 randomDirection = RandomDirection();
+        float posNeg = PosNegPicker();
+
+        // Calculate the flee location based on the random direction and the distance.
+        fleeLocation = (randomDirection * posNeg * fleeDistance) + bossTransform.position;
+
+        Debug.Log(fleeLocation);
+
+        // Teleport the boss to the new location.
         bossTransform.position = fleeLocation;
+
+        SpawnProjectiles();
     }
 
-    /*public void SpawnProjectiles()
+    void SpawnProjectiles()
     {
-
+        // Clear the list to ensure no old positions are retained.
         projectileSpawnLocations.Clear();
-        for(int i = 0; i < projectilesToSpawn; i++)
+
+        // Calculate the direction from the starting location to the flee location.
+        Vector3 projectileSpawnDistance = ProjectileSpawnLocation();
+
+        // Loop through and generate positions for each projectile to be spawned.
+        for (int i = 1; i <= projectilesToSpawn; i++)
         {
+            // Calculate the spawn position by dividing the direction by 'i' to space out the projectiles.
+            Vector3 spawnPosition = fleeLocation + (projectileSpawnDistance / i);
 
+            // Log the spawn position for debugging purposes.
+            Debug.Log(spawnPosition);
+
+            // Adjust the Y position to match the height of the bossTransform.
+            // Util.VectorNoY removes any Y-component, while Vector3.up * bossTransform.position.y adds the Y height back.
+            projectileSpawnLocations.Add(Util.VectorNoY(spawnPosition) + Vector3.up * bossTransform.position.y);
         }
-    }*/
 
-    /*Vector3 ProjectileSpawnLocation()
+        // Spawn the projectiles at the calculated positions using a custom pattern.
+        lureProjectileSpawner.SpawnCustomPattern(1f, projectileSpawnLocations);
+    }
+
+    Vector3 ProjectileSpawnLocation()
     {
+        // Calculate and return the direction from the start location to the flee location.
         Vector3 directionBetween = fleeLocation - startLocation;
-        return 
-    }*/
+        return directionBetween;
+    }
 }

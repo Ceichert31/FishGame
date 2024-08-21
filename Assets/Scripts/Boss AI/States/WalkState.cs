@@ -85,6 +85,7 @@ public class WalkState : AIState
         //bossTransform.LookAt();
 
         //Slowly rotates the boss to look at the player
+        Debug.Log("In Walk state");
         Quaternion targetRotation = Quaternion.LookRotation(Util.VectorNoY(Player) - Util.VectorNoY(bossTransform.position));
         bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 

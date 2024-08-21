@@ -55,4 +55,10 @@ public class LureBossAnimationEvents : MonoBehaviour
     {
         bossAnimator.SetTrigger("NotStaggered");
     }
+
+    public void TeleportLureBoss()
+    {
+        FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];
+        fleeState.TeleportFish();
+    }
 }
