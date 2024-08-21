@@ -10,6 +10,8 @@ public class PlayerHealthUI : MonoBehaviour
 
     [SerializeField] private float tempHealthUpdateSpeed = 3f;
 
+    [SerializeField] private float tempHealthMultiplier = 1.1f;
+
     private Image tempHealthBar;
 
     private Image playerHealthBar;
@@ -39,7 +41,21 @@ public class PlayerHealthUI : MonoBehaviour
     {
         float normalizedTarget = ctx.FloatValue / maxHealth;
 
+        StartCoroutine(AnimateTempHealthBar(normalizedTarget * tempHealthMultiplier));
+
         StartCoroutine(AnimateHealthBar(normalizedTarget));
+    }
+
+    IEnumerator AnimateTempHealthBar(float targetAmount)
+    {
+        while (tempHealthBar.fillAmount != targetAmount)
+        {
+            tempHealthBar.fillAmount = Mathf.MoveTowards(tempHealthBar.fillAmount, targetAmount, tempHealthUpdateSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        tempHealthBar.fillAmount = targetAmount;
     }
 
     IEnumerator AnimateHealthBar(float targetAmount)

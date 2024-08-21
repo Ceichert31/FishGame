@@ -3806,7 +3806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthUpdateSpeed: 3
-  tempHealthUpdateSpeed: 3
+  tempHealthUpdateSpeed: 2
+  tempHealthMultiplier: 1.3
 --- !u!114 &1132858977
 MonoBehaviour:
   m_ObjectHideFlags: 0
