@@ -16,6 +16,11 @@ namespace HelperMethods
             return vector3 - Vector3.up * vector3.y;
         }
 
+        public static Vector3 VectorSameY(Vector3 vector3, float y)
+        {
+            return vector3 - Vector3.up * vector3.y + Vector3.up * y;
+        }
+
         /// <summary>
         /// Returns the distance of two vectors with a y of 0
         /// </summary>

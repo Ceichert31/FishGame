@@ -62,6 +62,7 @@ public class FleeState : AIState
     public override void ExitState(BossAI ctx)
     {
         fleeLocation = Vector3.zero;
+        bossTransform.LookAt(Util.VectorSameY(Player, bossTransform.position.y));
         bossAnimator.applyRootMotion = true;
         //bossResurfaceAudio.Play(bossAudio);
     }
@@ -126,6 +127,7 @@ public class FleeState : AIState
 
         // Spawn the projectiles at the calculated positions using a custom pattern.
         lureProjectileSpawner.SpawnCustomPattern(1f, projectileSpawnLocations);
+
     }
 
     Vector3 ProjectileSpawnLocation()
