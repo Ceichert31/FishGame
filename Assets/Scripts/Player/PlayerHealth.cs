@@ -8,10 +8,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private FloatEventChannel maxPlayerHealth_EventChannel;
     [SerializeField] private FloatEventChannel currentPlayerHealth_EventChannel;
     [SerializeField] private VoidEventChannel transition_EventChannel;
+    [SerializeField] private AudioPitcherSO hurtAudio;
 
     [SerializeField] private float maxHealth = 100f;
 
     private FloatEvent currentHealth;
+
+    private AudioSource source;
 
     private void Start()
     {
@@ -19,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
         //Set max health for UI
         maxPlayerHealth_EventChannel.CallEvent(new(maxHealth));
+
+        source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damage"></param>
     public void DealDamage(float damage)
     {
+        hurtAudio.Play(source);
+
         //Calculate new health
         currentHealth.FloatValue -= damage;
 
