@@ -1550,16 +1550,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
-    - target: {fileID: 4081493616867251035, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081493616867251035, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9799999
-      objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1608,26 +1598,6 @@ PrefabInstance:
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013484447417827137, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: parryDelay
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6025490770570100029, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6025490770570100029, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6565486206513040709, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
