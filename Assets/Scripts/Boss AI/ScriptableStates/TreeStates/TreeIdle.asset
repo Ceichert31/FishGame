@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ada740aae89784988f2e0bc10d3933, type: 3}
   m_Name: TreeIdle
   m_EditorClassIdentifier: 
-  idleTime: 1
+  idleTime: 1.5
   called: 0

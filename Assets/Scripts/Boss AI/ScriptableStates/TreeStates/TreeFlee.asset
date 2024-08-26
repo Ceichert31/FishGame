@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a0c0f0c5dcfe04ba67214c85b184ae, type: 3}
-  m_Name: Dead Tree
+  m_Script: {fileID: 11500000, guid: a4076099d20da50428f8b5c7e6c5eb81, type: 3}
+  m_Name: TreeFlee
   m_EditorClassIdentifier: 
-  spawnChance:
-    minValue: 0
-    maxValue: 100
-  fishPrefab: {fileID: 2270643756450798951, guid: ddc51e42a0ce2d544b720d3894e34c7d,
-    type: 3}
+  bossResurfaceAudio: {fileID: 0}

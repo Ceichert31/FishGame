@@ -9649,7 +9649,7 @@ MonoBehaviour:
   pauseTime: 0
   timeOfDay: 7
   timeSpeedMultiplier: 0.05
-  defaultTimeOfDay: 7
+  defaultTimeOfDay: 0
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}
   ambientLight: {fileID: 1095809638}
