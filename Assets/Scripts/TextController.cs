@@ -23,6 +23,11 @@ public class TextController : MonoBehaviour
 
     private bool isInteracting;
 
+    public void InitializeAudioSource(GameObjectEvent ctx)
+    {
+        source = ctx.Object.GetComponent<AudioSource>();
+    }
+
     /// <summary>
     /// Displays interact text (Has higher priority than text event triggers)
     /// </summary>
@@ -85,17 +90,21 @@ public class TextController : MonoBehaviour
         //Iterate through string
         for (int i = 0; i < prompt.Length; i++)
         {
-            //typingAudio.Play(source);
+            typingAudio.Play(source);
 
             promptText.text += prompt[i];
 
             yield return waitTime;
         }
 
-        //Wait to clear
-        yield return new WaitForSeconds(clearTime);
+        //If interact prompt, don't clear
+        if (clearTime != 0)
+        {
+            //Wait to clear
+            yield return new WaitForSeconds(clearTime);
 
-        ResetText();
+            ResetText();
+        }
     }
 
     private void ResetText()

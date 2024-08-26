@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Wood
   - Damageable
+  - Ground
   layers:
   - Default
   - TransparentFX

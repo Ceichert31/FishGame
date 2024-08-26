@@ -1107,6 +1107,80 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79ac3da4d11079b4fb77e2082908411d, type: 3}
+--- !u!1001 &428028222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 674825205}
+    m_Modifications:
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 114.37209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3725958
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.437935
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130276926154959609, guid: 79ac3da4d11079b4fb77e2082908411d,
+        type: 3}
+      propertyPath: m_Name
+      value: MetalFenceV3 (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79ac3da4d11079b4fb77e2082908411d, type: 3}
+--- !u!4 &428028223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2322497221957857347, guid: 79ac3da4d11079b4fb77e2082908411d,
+    type: 3}
+  m_PrefabInstance: {fileID: 428028222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &434042017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2429,7 @@ Transform:
   - {fileID: 1937646146}
   - {fileID: 1546688913}
   - {fileID: 1015726159}
+  - {fileID: 428028223}
   - {fileID: 1156411799}
   - {fileID: 582507596}
   - {fileID: 1536842382}
@@ -4460,6 +4535,7 @@ GameObject:
   - component: {fileID: 1245451967}
   - component: {fileID: 1245451966}
   - component: {fileID: 1245451971}
+  - component: {fileID: 1245451977}
   - component: {fileID: 1245451972}
   - component: {fileID: 1245451976}
   - component: {fileID: 1245451975}
@@ -4713,6 +4789,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1245451971}
         m_TargetAssemblyTypeName: TextController, Assembly-CSharp
         m_MethodName: InteractPrompt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1245451977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38803c6258f4c34f8b75f1a3903525c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 7e4164af94138104ebbfd0cc9f0653d9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1245451971}
+        m_TargetAssemblyTypeName: TextController, Assembly-CSharp
+        m_MethodName: InitializeAudioSource
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7166,7 +7270,7 @@ GameObject:
   - component: {fileID: 1647507875}
   m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

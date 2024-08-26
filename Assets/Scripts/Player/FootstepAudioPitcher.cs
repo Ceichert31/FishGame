@@ -53,6 +53,10 @@ public class FootstepAudioPitcher : MonoBehaviour
         switch (currentLayer)
         {
             default:
+                currentAudioPitcher = null;
+                break;
+
+            case "Ground":
                 currentAudioPitcher = groundFootstep_Pitcher;
                 break;
 
@@ -70,6 +74,8 @@ public class FootstepAudioPitcher : MonoBehaviour
 
     private void PlayFootsteps()
     {
+        if (currentAudioPitcher == null) return;
+
         if (inputController.IsMoving)
         {
             if (currentTime < Time.time)
