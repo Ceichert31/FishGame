@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAi: {fileID: 8868407505626780629}
+  staggerParticle: {fileID: 4785967987738207391}
 --- !u!82 &1274551634492879489
 AudioSource:
   m_ObjectHideFlags: 0
