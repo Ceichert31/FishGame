@@ -6,7 +6,7 @@ using HelperMethods;
 [CreateAssetMenu(fileName ="WalkState", menuName ="BossStates/Walk")]
 public class WalkState : AIState
 {
-    [SerializeField] LureProjectileSpawner projectileSpawner;
+    [SerializeField] BossProjectileSpawner projectileSpawner;
     float maxDistance;
     float fireTime;
 
@@ -28,7 +28,7 @@ public class WalkState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        projectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
+        projectileSpawner = ctx.GetComponent<BossProjectileSpawner>();
         initalMoveAmmount = 10;
         slowDownAmmount = 2;
         timeUntilNextMovement = 1;

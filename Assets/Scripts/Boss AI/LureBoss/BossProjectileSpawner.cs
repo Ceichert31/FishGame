@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LureProjectileSpawner : ProjectileManager
+public class BossProjectileSpawner : ProjectileManager
 {
     Vector3 playerPosition => GameManager.Instance.Player.transform.position;
 

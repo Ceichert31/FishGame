@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DirectionTracker : MonoBehaviour
 {
-    Transform objectTransform;
+    [SerializeField] Transform objectTransform;
     Vector3 previousPosition;
     Vector3 objectDirection;
 
     private void Awake()
     {
-        objectTransform = transform.parent;
+        //objectTransform = transform.parent;
         previousPosition = objectTransform.position;
     }
 

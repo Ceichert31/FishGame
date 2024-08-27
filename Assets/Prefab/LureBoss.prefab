@@ -5267,7 +5267,8 @@ GameObject:
   - component: {fileID: 6948230186257230800}
   - component: {fileID: 5616556127282856940}
   - component: {fileID: 3696539760169635393}
-  - component: {fileID: 8830253745380688417}
+  - component: {fileID: 8954473745869071107}
+  - component: {fileID: 3870200580705982817}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -5341,7 +5342,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8830253745380688417
+--- !u!64 &8954473745869071107
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5360,9 +5361,28 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2959467708922500008, guid: 181144557f3c91a4d8fefb6ff386c8b1, type: 3}
+--- !u!114 &3870200580705982817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999761645822697471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4ca046ff11cf7418bd1c83358e21c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPosture_EventChannel: {fileID: 11400000, guid: f9c501efa1daf8a49a622e326662a4b1,
+    type: 2}
+  posture_EventChannel: {fileID: 11400000, guid: e5b252be0517d6845b21d1886aafdc09,
+    type: 2}
+  stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
+    type: 2}
+  maxPosture: 40
 --- !u!1 &6579709354089589859
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,9 +5505,7 @@ GameObject:
   - component: {fileID: 6810070633299860872}
   - component: {fileID: 4366325919319603030}
   - component: {fileID: 4552175915574238521}
-  - component: {fileID: 8467429847703294202}
   - component: {fileID: 3163755583386329100}
-  - component: {fileID: 6626371878774456668}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -5607,7 +5625,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8467429847703294202}
+      - m_Target: {fileID: 3870200580705982817}
         m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
         m_MethodName: CallResetPosture
         m_Mode: 0
@@ -5683,25 +5701,6 @@ MonoBehaviour:
   - {fileID: 7616526417718905363}
   - {fileID: 6696424113359007964}
   - {fileID: 7604729461851011482}
---- !u!114 &8467429847703294202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645988948429123648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4ca046ff11cf7418bd1c83358e21c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPosture_EventChannel: {fileID: 11400000, guid: f9c501efa1daf8a49a622e326662a4b1,
-    type: 2}
-  posture_EventChannel: {fileID: 11400000, guid: e5b252be0517d6845b21d1886aafdc09,
-    type: 2}
-  stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
-    type: 2}
-  maxPosture: 40
 --- !u!114 &3163755583386329100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5716,28 +5715,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: ee320ba27dc12354b8a4e07b89ef0b23, type: 2}
---- !u!64 &6626371878774456668
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645988948429123648}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2959467708922500008, guid: 181144557f3c91a4d8fefb6ff386c8b1, type: 3}
 --- !u!1 &6827196325690850589
 GameObject:
   m_ObjectHideFlags: 0

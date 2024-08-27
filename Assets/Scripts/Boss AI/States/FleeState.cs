@@ -12,7 +12,7 @@ public class FleeState : AIState
     Vector3 fleeLocation;
     Animator bossAnimator;
     //AudioSource bossAudio;
-    LureProjectileSpawner lureProjectileSpawner;
+    BossProjectileSpawner lureProjectileSpawner;
 
     float fleeTime;
     float fleeDistance;
@@ -38,7 +38,7 @@ public class FleeState : AIState
         posNeg = new int[2] { -1, 1 };
         bossAnimator = bossTransform.GetComponent<Animator>();
         //bossAudio = bossTransform.GetComponent<AudioSource>();
-        lureProjectileSpawner = ctx.GetComponent<LureProjectileSpawner>();
+        lureProjectileSpawner = ctx.GetComponent<BossProjectileSpawner>();
         fleeTime = 5f;
         fleeDistance = 50;
         projectilesToSpawn = 5;

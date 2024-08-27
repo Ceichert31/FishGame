@@ -124,3 +124,11 @@ public class BossAI : MonoBehaviour
     }
 
 }
+
+/* How to create a new Boss:
+ * 1. Make a new animation controller
+ * 2. Make a new animation event controller
+ * 3. Create new states to suit the needs of the boss and assign the states to the list on this object
+ * 4. Create custom animations and assign anim events
+*/
+
