@@ -87,6 +87,6 @@ public class BossHealth : MonoBehaviour
     /// <param name="ctx"></param>
     public void DisableBoss(VoidEvent ctx)
     {
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.parent.gameObject);
     }
 }
