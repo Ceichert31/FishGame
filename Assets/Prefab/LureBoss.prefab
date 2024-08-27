@@ -279,12 +279,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2283238013524327254}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7211445995609853433}
+  m_Father: {fileID: 6948230186257230800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5325656075261354514
 MonoBehaviour:
@@ -5315,6 +5315,8 @@ GameObject:
   - component: {fileID: 3696539760169635393}
   - component: {fileID: 8954473745869071107}
   - component: {fileID: 3870200580705982817}
+  - component: {fileID: 2953475160522283587}
+  - component: {fileID: 2600898432934704444}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -5334,7 +5336,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1785183524729165618}
   m_Father: {fileID: 646937776564243361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5616556127282856940
@@ -5429,6 +5432,40 @@ MonoBehaviour:
   stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
     type: 2}
   maxPosture: 40
+--- !u!114 &2953475160522283587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999761645822697471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002dae3747eb2a34bb6d1abb3d383fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthUI_EventChannel: {fileID: 11400000, guid: 7f6db5de154aa6246b25f1fd05ed3920,
+    type: 2}
+  maxHealthUI_EventChannel: {fileID: 11400000, guid: e1edea4b9d36fba428b4da495b6b6aa8,
+    type: 2}
+  return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
+    type: 2}
+  bossMaxHealth: 15
+  parryDamageMultiplier: 0.01
+--- !u!114 &2600898432934704444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999761645822697471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: ee320ba27dc12354b8a4e07b89ef0b23, type: 2}
 --- !u!1 &6579709354089589859
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,11 +5584,9 @@ GameObject:
   - component: {fileID: 6007197485423933522}
   - component: {fileID: 6025502010461224808}
   - component: {fileID: 1164393372454060404}
-  - component: {fileID: 8515886488007705477}
   - component: {fileID: 6810070633299860872}
   - component: {fileID: 4366325919319603030}
   - component: {fileID: 4552175915574238521}
-  - component: {fileID: 3163755583386329100}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -5571,8 +5606,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1785183524729165618}
+  m_Children: []
   m_Father: {fileID: 5140558921174176429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6007197485423933522
@@ -5625,26 +5659,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b52bc7f12bc518a4ea9e20fa65a7dc85, type: 2}
   - {fileID: 11400000, guid: 9859a4405e255054d9b5b72178378156, type: 2}
   - {fileID: 11400000, guid: ac860206b00085f419abd0f343e1bee8, type: 2}
---- !u!114 &8515886488007705477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645988948429123648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002dae3747eb2a34bb6d1abb3d383fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health_EventChannel: {fileID: 11400000, guid: 7f6db5de154aa6246b25f1fd05ed3920,
-    type: 2}
-  maxHealth_EventChannel: {fileID: 11400000, guid: e1edea4b9d36fba428b4da495b6b6aa8,
-    type: 2}
-  return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
-    type: 2}
-  bossMaxHealth: 15
-  rewardsKey: 1
 --- !u!114 &6810070633299860872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5661,7 +5675,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8515886488007705477}
+      - m_Target: {fileID: 2953475160522283587}
         m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
         m_MethodName: UpdateHealth
         m_Mode: 0
@@ -5713,7 +5727,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8515886488007705477}
+      - m_Target: {fileID: 2953475160522283587}
         m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
         m_MethodName: DisableBoss
         m_Mode: 0
@@ -5749,20 +5763,6 @@ MonoBehaviour:
   - {fileID: 7616526417718905363}
   - {fileID: 6696424113359007964}
   - {fileID: 7604729461851011482}
---- !u!114 &3163755583386329100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645988948429123648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sequenceActions:
-  - {fileID: 11400000, guid: ee320ba27dc12354b8a4e07b89ef0b23, type: 2}
 --- !u!1 &6827196325690850589
 GameObject:
   m_ObjectHideFlags: 0

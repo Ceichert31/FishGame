@@ -59,7 +59,7 @@ public class BossProjectileSpawner : ProjectileManager
     //PatternSpawning
     public void SpawnPattern(float timeInbetween)
     {
-        Debug.Log("Sent");
+        //Debug.Log("Sent");
         StartCoroutine(DefaultPatternSpawner(timeInbetween));
     }
 
@@ -72,7 +72,7 @@ public class BossProjectileSpawner : ProjectileManager
     {
         for (int i = 0; i < projectileSpawnPoints.Count; i++)
         {
-            Debug.Log("Spawnned");
+            //Debug.Log("Spawnned");
             InitalizeProjectileSpawner(tempProjectile, 1, timeInbetween, projectileSpawnPoints[i].position);
             yield return wfs;
         }
@@ -82,7 +82,7 @@ public class BossProjectileSpawner : ProjectileManager
     {
         for (int i = 0; i < vector3s.Count; i++)
         {
-            Debug.Log("Spawnned");
+            //Debug.Log("Spawnned");
             InitalizeProjectileSpawner(tempProjectile, 1, timeInbetween, vector3s[i]);
             yield return wfs;
         }

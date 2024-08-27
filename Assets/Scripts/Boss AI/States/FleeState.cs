@@ -95,7 +95,7 @@ public class FleeState : AIState
         // Calculate the flee location based on the random direction and the distance.
         fleeLocation = (randomDirection * posNeg * fleeDistance) + bossTransform.position;
 
-        Debug.Log(fleeLocation);
+        //Debug.Log(fleeLocation);
 
         // Teleport the boss to the new location.
         bossTransform.position = fleeLocation;
@@ -118,7 +118,7 @@ public class FleeState : AIState
             Vector3 spawnPosition = fleeLocation + (projectileSpawnDistance / i);
 
             // Log the spawn position for debugging purposes.
-            Debug.Log(spawnPosition);
+            //Debug.Log(spawnPosition);
 
             // Adjust the Y position to match the height of the bossTransform.
             // Util.VectorNoY removes any Y-component, while Vector3.up * bossTransform.position.y adds the Y height back.

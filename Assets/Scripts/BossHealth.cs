@@ -5,16 +5,18 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
-    [SerializeField] private FloatEventChannel health_EventChannel;
-    [SerializeField] private FloatEventChannel maxHealth_EventChannel;
+    [SerializeField] private FloatEventChannel healthUI_EventChannel;
+    [SerializeField] private FloatEventChannel maxHealthUI_EventChannel;
     [SerializeField] private VoidEventChannel return_EventChannel;
 
     [Header("Boss Health Settings")]
     [SerializeField] private int bossMaxHealth = 100;
 
-    [SerializeField] private bool rewardsKey;
+    [SerializeField] private float parryDamageMultiplier = 0.2f;
 
     private FloatEvent currentHealth;
+
+    private FloatEvent damage;
 
     private Sequencer deathSequencer;
 
@@ -24,7 +26,7 @@ public class BossHealth : MonoBehaviour
         currentHealth.FloatValue = bossMaxHealth;
 
         //Initialize max health
-        maxHealth_EventChannel.CallEvent(currentHealth);
+        maxHealthUI_EventChannel.CallEvent(currentHealth);
 
         //Start whatever sequence this boss has
         gameObject.GetComponent<Sequencer>().InitializeSequence();
@@ -40,7 +42,8 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth.FloatValue -= ctx.FloatValue;
 
-        health_EventChannel.CallEvent(currentHealth);
+        //Updates health UI
+        healthUI_EventChannel.CallEvent(currentHealth);
 
         //Fish health hits zero
         if (currentHealth.FloatValue <= 0 )
@@ -51,6 +54,30 @@ public class BossHealth : MonoBehaviour
             return_EventChannel.CallEvent(new());
 
             Destroy(transform.parent.gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (currentHealth.FloatValue <= 0)
+        {
+            return;
+        }
+
+        //If collision object is parried projectile, deal damage
+        if (other.TryGetComponent(out IProjectile projectileInstance))
+        {
+            if (projectileInstance.IsParried)
+            {
+                //Calculate parry damage
+                damage.FloatValue = projectileInstance.ProjectileDamage * parryDamageMultiplier;
+
+                //Deal parry damage
+                UpdateHealth(damage);
+
+                projectileInstance.DeleteProjectile();
+
+                //Get collsion point and play special effects
+            }
         }
     }
 

@@ -34,6 +34,8 @@ public class BossHealthUI : MonoBehaviour
     /// <param name="ctx"></param>
     public void UpdateHealthBar(FloatEvent ctx)
     {
+        StopAllCoroutines();
+
         float normalizedTarget = ctx.FloatValue / maxHealth;
 
         StartCoroutine(AnimateHealthBar(normalizedTarget));
