@@ -8,16 +8,22 @@ public class ToolController : MonoBehaviour
 
     private GameObject harpoonGun;
 
+    private Animator fishRodAnimator;
+
     private void Start()
     {
         fishingRod = transform.GetChild(0).gameObject;
 
         harpoonGun = transform.GetChild(2).gameObject;
+
+        fishRodAnimator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     public void EnableFishingPoleModel(VoidEvent ctx)
     {
         fishingRod.SetActive(true);
+
+        fishRodAnimator.SetTrigger("Pickup");
     }
 
     public void SwitchTools(BoolEvent ctx)
