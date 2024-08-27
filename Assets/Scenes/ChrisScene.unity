@@ -7251,6 +7251,9 @@ MonoBehaviour:
   textPrompt:
     TextPrompt: The Gate is locked
     ClearTime: 0
+  gateKey:
+    keyID: 0
+    isCollected: 0
 --- !u!1 &1635707456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
@@ -8355,6 +8358,7 @@ GameObject:
   - component: {fileID: 1854508716}
   - component: {fileID: 1854508719}
   - component: {fileID: 1854508720}
+  - component: {fileID: 1854508729}
   - component: {fileID: 1854508722}
   - component: {fileID: 1854508723}
   - component: {fileID: 1854508727}
@@ -8469,7 +8473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1635707456}
   firstTimeLoading: 1
-  hasGateKey: 0
 --- !u!114 &1854508721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8648,6 +8651,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1854508723}
         m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
         m_MethodName: StartReturnTransition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1854508729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854508715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61bdd7465f8cec544acc0fc68714dfb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: e125a52127f914041ae2540fbef57734, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1854508720}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AddKey
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

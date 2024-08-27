@@ -10,6 +10,8 @@ public class Gate : MonoBehaviour, IInteract
 
     [SerializeField] private TextEvent textPrompt;
 
+    [SerializeField] private KeyEvent gateKey;
+
     private Animator animator;
 
     private AudioSource source;
@@ -32,8 +34,7 @@ public class Gate : MonoBehaviour, IInteract
     {
         if (isUnlocked) return;
 
-        //Check if player has key
-        if (!GameManager.Instance.HasGateKey) return;
+        if (!GameManager.Instance.KeyCheck(gateKey)) return;
 
         //If player has key open gate
         animator.SetTrigger("OpenGate");

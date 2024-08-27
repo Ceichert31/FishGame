@@ -14,10 +14,9 @@ public class GameManager : MonoBehaviour
 
     public bool firstTimeLoading = true;
 
-    [SerializeField] private bool hasGateKey;
+    private Dictionary<int, KeyEvent> collectedKeys = new();
 
     //Accessors
-    public bool HasGateKey { get { return hasGateKey; } set { hasGateKey = value; } }
     public GameObject Player { get { return player; } }
     public int PlayerDamage { get { return playerStats.playerDamage; } }
     public float PlayerFireRate { get { return playerStats.harpoonFireRate; } }
@@ -40,6 +39,37 @@ public class GameManager : MonoBehaviour
 
         //Initialize stats
         playerStats = new PlayerStats(DAMAGE, FIRERATE, REELINSPEED, MOVEMENTMULTIPLIER);
+    }
+
+    public void AddKey(KeyEvent ctx)
+    {
+        //Prevent duplicate keys
+        foreach (KeyEvent key in collectedKeys.Values)
+        {
+            if (key.keyID == ctx.keyID)
+                return;
+        }
+
+        collectedKeys.Add(ctx.keyID, ctx);
+    }
+
+    /// <summary>
+    /// Called by gates to check if the player has obtained the key
+    /// </summary>
+    /// <param name="ctx"></param>
+    /// <returns></returns>
+    public bool KeyCheck(KeyEvent ctx)
+    {
+        //Check if key is collected
+        foreach (KeyEvent key in collectedKeys.Values)
+        {
+            if (key.keyID == ctx.keyID)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>

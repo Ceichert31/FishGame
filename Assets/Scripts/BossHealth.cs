@@ -41,9 +41,6 @@ public class BossHealth : MonoBehaviour
         //Fish health hits zero
         if (currentHealth.FloatValue <= 0 )
         {
-            if (rewardsKey)
-                GameManager.Instance.HasGateKey = true;
-
             return_EventChannel.CallEvent(new());
 
             Destroy(transform.parent.gameObject);
