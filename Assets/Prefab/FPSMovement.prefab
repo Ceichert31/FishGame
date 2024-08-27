@@ -2045,7 +2045,7 @@ GameObject:
   - component: {fileID: 877574478102928764}
   - component: {fileID: 3734082744151853998}
   - component: {fileID: 6665791642031556949}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2992,7 +2992,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 415
+    m_Bits: 1951
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

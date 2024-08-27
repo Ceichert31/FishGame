@@ -10,6 +10,9 @@ public class CombatController : MonoBehaviour
     [Header("Harpoon Settings")]
     [SerializeField] private float grappleRange = 20f;
 
+    [Tooltip("Layers that can be fired at")]
+    [SerializeField] private LayerMask fireableLayers;
+
     [Tooltip("How fast the harpoon pulls the player")]
     [SerializeField] private float GrappleForce => GameManager.Instance.PlayerReelInSpeed;
 
@@ -43,7 +46,7 @@ public class CombatController : MonoBehaviour
     {
         if (IsInProgress) return;
 
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, fireableLayers))
         {
             if (hitInfo.collider.gameObject.layer == GRAPPLELAYER)
             {

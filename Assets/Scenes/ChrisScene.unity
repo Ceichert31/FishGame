@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.019607842, g: 0.17254902, b: 0.29411766, a: 1}
+  m_FogColor: {r: 0.020692414, g: 0.17095996, b: 0.2924528, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.07
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.000014551308, g: 0.00000002549488, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000013825764, g: 0.000000021838684, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1136,7 +1136,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.123000324, g: 0.40266198, b: 0.6557947, a: 1}
+  m_Color: {r: 0.050729793, g: 0.41871727, b: 0.7169812, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -1195,7 +1195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434042017}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.8301229, y: 0.1323324, z: 0.22243077, w: -0.49387118}
+  m_LocalRotation: {x: -0.6830127, y: -0.18301271, z: -0.18301271, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1599,6 +1599,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5013484447417827137, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: fireableLayers.m_Bits
+      value: 511
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4059,7 +4064,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.31372547, g: 0.5803922, b: 0.79607844, a: 1}
+  m_Color: {r: 0.31025273, g: 0.5768811, b: 0.7924528, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -10036,9 +10041,9 @@ MonoBehaviour:
   time_EventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
   preset: {fileID: 11400000, guid: d6c390abd991ee443a5572c9d6a4d6e8, type: 2}
   pauseTime: 0
-  timeOfDay: 7
+  timeOfDay: 0
   timeSpeedMultiplier: 0.05
-  defaultTimeOfDay: 7
+  defaultTimeOfDay: 0
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}
   ambientLight: {fileID: 1095809638}

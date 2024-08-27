@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2005565200056675981}
   - component: {fileID: 4725293376688110893}
   - component: {fileID: 7741730310147480150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1618044473919196680}
   - component: {fileID: 2954762550383993697}
   - component: {fileID: 5050079564247410399}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6090371919156944615}
   - component: {fileID: 7803523782951277547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StaggerStateScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 3811860926796732648}
   - component: {fileID: 8464508071039266020}
   - component: {fileID: 7152674817873743105}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 396202842815020534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 1282517874281993780}
   - component: {fileID: 5984401571991474018}
   - component: {fileID: 1274551634492879489}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TreeBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 18857075469936423}
   - component: {fileID: 7794305234117981625}
   - component: {fileID: 7617836248391116282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ Transform:
   m_Children:
   - {fileID: 1635156970852145948}
   m_Father: {fileID: 531490835648964565}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 3.184, y: -73.25, z: 91.501}
 --- !u!33 &1908908053176137147
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4224200971809260849}
   - component: {fileID: 6380412532863586169}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeathSequencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 1527167023188623831}
   - component: {fileID: 5343323154491071507}
   - component: {fileID: 6203075874090247240}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3223277965959131265}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 931912943695223555}
   - component: {fileID: 1806657888653327540}
   - component: {fileID: 7587754951481987588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 935633027250555670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProjectileShootPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 2692407836449941003}
   - component: {fileID: 8396585833536325742}
   - component: {fileID: 5856105675686532808}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1254,7 @@ GameObject:
   - component: {fileID: 639121510177805739}
   - component: {fileID: 4532619717252732392}
   - component: {fileID: 5190536344285901098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 5837185460048315934}
   - component: {fileID: 6044169383938391268}
   - component: {fileID: 6694483765753170352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1444,7 @@ GameObject:
   - component: {fileID: 8254534239658114609}
   - component: {fileID: 7987597929103167325}
   - component: {fileID: 8823745636860624349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1562,7 +1562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7018002555602486001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 1635156970852145948}
   - component: {fileID: 4785967987738207391}
   - component: {fileID: 638478709383533244}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6425,7 +6425,7 @@ GameObject:
   - component: {fileID: 1451126654176883161}
   - component: {fileID: 5208744404964449742}
   - component: {fileID: 6960668677896026171}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6582,7 +6582,7 @@ GameObject:
   - component: {fileID: 2119210770728109529}
   - component: {fileID: 6449521299742669994}
   - component: {fileID: 2368759644138262295}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6688,7 +6688,7 @@ GameObject:
   - component: {fileID: 5737917093730427302}
   - component: {fileID: 1853696003218398987}
   - component: {fileID: 6335078859426320226}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
