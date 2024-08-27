@@ -9,7 +9,7 @@ public class LureBossAnimationEvents : MonoBehaviour
     [SerializeField] BossAI bossAi;
     Animator bossAnimator;
 
-    ParticleSystem staggerParticle;
+    [SerializeField] ParticleSystem staggerParticle;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,8 +23,6 @@ public class LureBossAnimationEvents : MonoBehaviour
         }
 
         bossAnimator = GetComponent<Animator>();
-
-        staggerParticle = transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
     }
 
     /// <summary>

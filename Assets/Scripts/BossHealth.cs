@@ -96,6 +96,8 @@ public class BossHealth : MonoBehaviour
     /// <param name="ctx"></param>
     void DisableBoss()
     {
-        Destroy(gameObject.transform.parent.parent.gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
+
+
