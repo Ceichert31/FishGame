@@ -53,7 +53,7 @@ public class BossHealth : MonoBehaviour
             //Returns player
             return_EventChannel.CallEvent(new());
 
-            Destroy(transform.parent.gameObject);
+            DisableBoss();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -82,10 +82,19 @@ public class BossHealth : MonoBehaviour
     }
 
     /// <summary>
-    /// Destroys boss if player dies
+    /// Calls disableBoss from void event channel
     /// </summary>
     /// <param name="ctx"></param>
     public void DisableBoss(VoidEvent ctx)
+    {
+        DisableBoss();
+    }
+
+    /// <summary>
+    /// Destroys boss if player dies
+    /// </summary>
+    /// <param name="ctx"></param>
+    void DisableBoss()
     {
         Destroy(gameObject.transform.parent.parent.gameObject);
     }
