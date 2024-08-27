@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c8b65d6c56f0e1449c77cbac57745bb, type: 3}
-  m_Name: GraveyardKey
+  m_Name: TutorialKey
   m_EditorClassIdentifier: 
   key_EventChannel: {fileID: 11400000, guid: e125a52127f914041ae2540fbef57734, type: 2}
   keyEvent:
-    keyID: 0
+    keyID: 1
     isCollected: 1

@@ -16,6 +16,8 @@ public class BossHealth : MonoBehaviour
 
     private FloatEvent currentHealth;
 
+    private Sequencer deathSequencer;
+
     private void Start()
     {
         //Set health to max
@@ -26,6 +28,8 @@ public class BossHealth : MonoBehaviour
 
         //Start whatever sequence this boss has
         gameObject.GetComponent<Sequencer>().InitializeSequence();
+
+        deathSequencer = transform.GetChild(0).GetComponent<Sequencer>();
     }
 
     /// <summary>
@@ -41,6 +45,9 @@ public class BossHealth : MonoBehaviour
         //Fish health hits zero
         if (currentHealth.FloatValue <= 0 )
         {
+            deathSequencer.InitializeSequence();
+
+            //Returns player
             return_EventChannel.CallEvent(new());
 
             Destroy(transform.parent.gameObject);
