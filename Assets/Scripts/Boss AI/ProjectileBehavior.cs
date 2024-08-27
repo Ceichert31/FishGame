@@ -31,14 +31,14 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
         rb = GetComponent<Rigidbody>();
 
         targetDirection = (PlayerPosition.position - transform.position).normalized;
+
+        currentTime = Time.time + projectileLifetime;
     }
 
     private void Update()
     {
-        currentTime = Time.time + projectileLifetime;
-
         if (Time.time > currentTime)
-            DisableProjectile();
+            DeleteProjectile();
     }
 
     private void FixedUpdate()
@@ -53,9 +53,11 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
         targetDirection = forward;
 
         projectileSpeed *= 2;
+
+        currentTime = Time.time + projectileLifetime;
     }
 
-    public void DisableProjectile() => gameObject.SetActive(false);
+    public void DeleteProjectile() => Destroy(gameObject);
 }
 
 public interface IProjectile
@@ -63,5 +65,5 @@ public interface IProjectile
     public float ProjectileDamage { get; }
     public bool IsParried { get; }
     public void Parried(Vector3 foward);
-    public void DisableProjectile();
+    public void DeleteProjectile();
 }

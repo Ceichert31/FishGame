@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(projectileInstance.ProjectileDamage);
 
-            projectileInstance.DisableProjectile();
+            projectileInstance.DeleteProjectile();
         }
     }
 
