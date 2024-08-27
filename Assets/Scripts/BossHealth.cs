@@ -56,7 +56,8 @@ public class BossHealth : MonoBehaviour
             DisableBoss();
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision other)
     {
         if (currentHealth.FloatValue <= 0)
         {
@@ -64,7 +65,7 @@ public class BossHealth : MonoBehaviour
         }
 
         //If collision object is parried projectile, deal damage
-        if (other.TryGetComponent(out IProjectile projectileInstance))
+        if (other.gameObject.TryGetComponent(out IProjectile projectileInstance))
         {
             if (projectileInstance.IsParried)
             {

@@ -428,6 +428,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: LureBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 7030272139493327547, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b76797c7d155c0244891573bc45a0937,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
