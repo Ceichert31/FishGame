@@ -260,7 +260,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8868407505626780629}
+      - m_Target: {fileID: 6894925928645384773}
         m_TargetAssemblyTypeName: BossAI, Assembly-CSharp
         m_MethodName: ToStaggerState
         m_Mode: 0
@@ -442,7 +442,7 @@ Transform:
   m_LocalScale: {x: 6, y: 7.05, z: 6.268024}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1169097555220124660}
+  - {fileID: 4888587114918118979}
   - {fileID: 6090371919156944615}
   - {fileID: 531490835648964565}
   - {fileID: 935633027250555670}
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a74bcbbb2f8674d9684037da79539b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAi: {fileID: 8868407505626780629}
+  bossAi: {fileID: 0}
   staggerParticle: {fileID: 4785967987738207391}
 --- !u!82 &1274551634492879489
 AudioSource:
@@ -1431,193 +1431,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6341748095679173238
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1169097555220124660}
-  - component: {fileID: 8868407505626780629}
-  - component: {fileID: 5665450610051583789}
-  - component: {fileID: 3485615096500846353}
-  - component: {fileID: 4305226530695602728}
-  - component: {fileID: 4741618800516476510}
-  m_Layer: 0
-  m_Name: Scritps
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1169097555220124660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  serializedVersion: 2
-  m_LocalRotation: {x: -4.3297806e-17, y: 0.7071068, z: 0.7071068, w: -4.3297806e-17}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2562559169165998665}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8868407505626780629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e5a64c724543e47b69ebfa2d9ec580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
-  bossStates:
-  - {fileID: 11400000, guid: 015c969b07314bc4f93bd6c985c5e705, type: 2}
-  - {fileID: 11400000, guid: 17cd1a11a7c78bf409f09957fad04e9e, type: 2}
-  - {fileID: 11400000, guid: b13d42e174f772a478bea7eb6b5dcd67, type: 2}
-  - {fileID: 11400000, guid: e8b1bd634f61d1c40802a875e12025e0, type: 2}
-  - {fileID: 11400000, guid: c97688dffa75811489e89cb430305044, type: 2}
---- !u!114 &5665450610051583789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: c8dcbb55224e26f48821279352323e06, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1755555907503274956}
-        m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8254534239658114609}
-        m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
-        m_MethodName: CallResetPosture
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 9859a4405e255054d9b5b72178378156, type: 2}
-        m_TargetAssemblyTypeName: StaggerState, Assembly-CSharp
-        m_MethodName: NoLongerStaggered
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3485615096500846353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: ac4793eb393b13845b56b1cdf999a96d, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1755555907503274956}
-        m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
-        m_MethodName: DisableBoss
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4305226530695602728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8868407505626780629}
-        m_TargetAssemblyTypeName: BossAI, Assembly-CSharp
-        m_MethodName: ToStaggerState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4741618800516476510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341748095679173238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d008781e71439ae4ebf5deb765b5b8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObject: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
-    type: 3}
-  poolSize: 10
-  maxPoolSize: 20
-  defaultSpawnLocation: {fileID: 0}
-  defaultProjectileAmmount: 0
-  tempProjectile: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
-    type: 3}
-  projectileSpawnPoints:
-  - {fileID: 3223277965959131265}
-  - {fileID: 7018002555602486001}
-  - {fileID: 396202842815020534}
 --- !u!1 &6423115339301059259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6599,6 +6412,164 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &7648921898042926042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4888587114918118979}
+  - component: {fileID: 6894925928645384773}
+  - component: {fileID: 1451126654176883161}
+  - component: {fileID: 5208744404964449742}
+  - component: {fileID: 6960668677896026171}
+  m_Layer: 0
+  m_Name: Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4888587114918118979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 1.3300002, y: 0.2964539, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2562559169165998665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6894925928645384773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e5a64c724543e47b69ebfa2d9ec580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 0}
+  bossStates:
+  - {fileID: 11400000, guid: 015c969b07314bc4f93bd6c985c5e705, type: 2}
+  - {fileID: 11400000, guid: 17cd1a11a7c78bf409f09957fad04e9e, type: 2}
+  - {fileID: 11400000, guid: b13d42e174f772a478bea7eb6b5dcd67, type: 2}
+  - {fileID: 11400000, guid: e8b1bd634f61d1c40802a875e12025e0, type: 2}
+  - {fileID: 11400000, guid: c97688dffa75811489e89cb430305044, type: 2}
+--- !u!114 &1451126654176883161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c8dcbb55224e26f48821279352323e06, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755555907503274956}
+        m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
+        m_MethodName: UpdateHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8254534239658114609}
+        m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
+        m_MethodName: CallResetPosture
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e8b1bd634f61d1c40802a875e12025e0, type: 2}
+        m_TargetAssemblyTypeName: StaggerState, Assembly-CSharp
+        m_MethodName: NoLongerStaggered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5208744404964449742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: ac4793eb393b13845b56b1cdf999a96d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755555907503274956}
+        m_TargetAssemblyTypeName: BossHealth, Assembly-CSharp
+        m_MethodName: DisableBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6960668677896026171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008781e71439ae4ebf5deb765b5b8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
+    type: 3}
+  poolSize: 10
+  maxPoolSize: 20
+  defaultSpawnLocation: {fileID: 0}
+  defaultProjectileAmmount: 0
+  tempProjectile: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
+    type: 3}
+  projectileSpawnPoints:
+  - {fileID: 3223277965959131265}
+  - {fileID: 7018002555602486001}
+  - {fileID: 396202842815020534}
 --- !u!1 &8414884648548912869
 GameObject:
   m_ObjectHideFlags: 0

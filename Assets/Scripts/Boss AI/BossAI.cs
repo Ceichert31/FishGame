@@ -105,7 +105,6 @@ public class BossAI : MonoBehaviour
     //Immidiate
     public void ToStaggerState(VoidEvent voidEvent)
     {
-        Debug.Log("Enter stagger State");
         SwitchState(States.StaggerState);
     }
 

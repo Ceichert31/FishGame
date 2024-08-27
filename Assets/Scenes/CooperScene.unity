@@ -247,6 +247,79 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1949585047}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1493539710
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_Name
+      value: LureBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a7019fbdff752948bd326df72cae00f, type: 3}
 --- !u!1 &1502359734
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,79 +438,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1815194019
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_Name
-      value: LureBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4a7019fbdff752948bd326df72cae00f, type: 3}
 --- !u!1 &1825130991
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,5 +693,5 @@ SceneRoots:
   - {fileID: 1825130995}
   - {fileID: 1949585047}
   - {fileID: 1502359739}
-  - {fileID: 1815194019}
   - {fileID: 2124420004}
+  - {fileID: 1493539710}

@@ -42,12 +42,14 @@ public class FleeState : AIState
         fleeTime = 5f;
         fleeDistance = 50;
         projectilesToSpawn = 5;
+        Debug.Log("here");
     }
 
     public override void EnterState(BossAI ctx)
     {
         startLocation = bossTransform.position;
         timer = Time.time + fleeTime;
+        Debug.Log("here");
     }
 
     public override void ExecuteState(BossAI ctx)

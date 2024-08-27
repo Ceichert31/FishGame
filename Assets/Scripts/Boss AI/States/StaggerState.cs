@@ -38,6 +38,7 @@ public class StaggerState : AIState
     public override void ExitState(BossAI ctx)
     {
         bossAnimator.SetTrigger("NotStaggered");
+        Debug.Log("Exiting stagger state");
     }
 
     public override void InitalizeState(BossAI ctx)

@@ -49,13 +49,9 @@ public class LureBossAnimationEvents : MonoBehaviour
         attackState.Attacking = false;
     }
 
-    public void NotStaggerTrigger()
-    {
-        bossAnimator.SetTrigger("NotStaggered");
-    }
-
     public void TeleportLureBoss()
     {
+        Debug.Log("called");
         FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];
         fleeState.TeleportFish();
     }
