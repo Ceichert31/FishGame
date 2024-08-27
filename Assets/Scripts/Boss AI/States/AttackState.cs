@@ -60,13 +60,14 @@ public class AttackState : AIState
             return;
         }
         //Distance Check with player
-        
+
         //if()
         //If the player walks away far
-        if(Util.DistanceNoY(bossTransform.position, Player) > maxDistance)
+        /*if(Util.DistanceNoY(bossTransform.position, Player) > maxDistance)
         {
             ctx.SwitchState(States.WalkState);
-        }
+        }*/
+        ctx.SwitchState(States.IdleState);
 
         //Peach Cobler is alright
 

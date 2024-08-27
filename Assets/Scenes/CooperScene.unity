@@ -258,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -17.21
       objectReference: {fileID: 0}
     - target: {fileID: 5140558921174176429, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
@@ -629,6 +629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270643756450798951, guid: ddc51e42a0ce2d544b720d3894e34c7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2562559169165998665, guid: ddc51e42a0ce2d544b720d3894e34c7d,
         type: 3}
