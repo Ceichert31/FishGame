@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
     [SerializeField] private InputEventChannel input_EventChannel;
+    [SerializeField] private AudioPitcherSO dashAudio;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -84,6 +85,8 @@ public class InputController : MonoBehaviour
 
     private PlayerInteractor playerInteractor;
 
+    private AudioSource source;
+
     //Getters
     private bool isGrounded;
     private bool isMoving;
@@ -112,6 +115,8 @@ public class InputController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
 
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
+
+        source = GetComponent<AudioSource>();
 
         input_EventChannel.CallEvent(inputEvent);
     }
@@ -224,6 +229,8 @@ public class InputController : MonoBehaviour
         canDash = false;
 
         rb.AddForce(MoveDirection() * dashForce, ForceMode.Impulse);
+
+        dashAudio.Play(source);
 
         fov_EventChannel.CallEvent(new());
 
