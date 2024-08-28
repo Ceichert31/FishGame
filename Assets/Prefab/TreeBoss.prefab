@@ -921,6 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: 7fd48a44bde19a64181b64de8ea0e628, type: 2}
+  - {fileID: 11400000, guid: 4992039434aba7647bd7e0971e4288f2, type: 2}
 --- !u!1 &3466215676867199328
 GameObject:
   m_ObjectHideFlags: 0

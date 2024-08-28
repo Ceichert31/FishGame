@@ -55,6 +55,8 @@ public class AmbienceController : MonoBehaviour
 
         source.pitch = previousClip.pitch;
 
+        CachePreviousAudio();
+
         source.Play();
     }
 }
