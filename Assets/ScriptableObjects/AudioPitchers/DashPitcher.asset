@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DashPitcher
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 705ac4999495acc47a37ec9334218778, type: 3}
+  - {fileID: 8300000, guid: 651de56c1f0d78a4c9daeb4307ae3c7a, type: 3}
   volume:
     minValue: 0.4
-    maxValue: 0.7
+    maxValue: 0.4
   pitch:
     minValue: 0.9
-    maxValue: 1.5
+    maxValue: 1.3

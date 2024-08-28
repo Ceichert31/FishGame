@@ -15,4 +15,4 @@ MonoBehaviour:
   fade_EventChannel: {fileID: 11400000, guid: e87f0161d6d01e744b8dd42076afbb53, type: 2}
   fadeEvent:
     fadeIn: 0
-    fadeColor: {r: 0, g: 0.5890684, b: 1, a: 1}
+    fadeColor: {r: 0.01713244, g: 0.2171563, b: 0.5188679, a: 1}
