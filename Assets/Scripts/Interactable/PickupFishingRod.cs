@@ -35,4 +35,9 @@ public class PickupFishingRod : MonoBehaviour, IInteract
         foreach(TextEvent textPrompt in tutorialText)
             text_EventChannel.CallEvent(textPrompt);
     }
+
+    public void OnStay()
+    {
+        
+    }
 }

@@ -20,6 +20,8 @@ public class DayNightCycle : MonoBehaviour
 
     [SerializeField] private float defaultTimeOfDay = 4f;
 
+    [SerializeField] private float advanceTimeBy = 12f;
+
     [SerializeField] private Vector3 lightRotation;
 
     [SerializeField] private Light mainLight;
@@ -28,7 +30,9 @@ public class DayNightCycle : MonoBehaviour
 
     private Coroutine instance;
 
-    public BoolEvent isDayTime;
+    private BoolEvent isDayTime;
+
+    private float advanceTimeTimer;
 
     //Consts
     private const float TOTALROTATION = 360f;
@@ -38,6 +42,8 @@ public class DayNightCycle : MonoBehaviour
     private const float SUNRISE = 7f;
 
     private const float SUNSET = 18f;
+
+    private const float ADVANCETIMEDELAY = 0.5f;
 
     private void Awake()
     {
@@ -72,7 +78,7 @@ public class DayNightCycle : MonoBehaviour
 
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
 
-        if (mainLight != null ) 
+        if (mainLight != null)
         {
             mainLight.color = preset.directionalColor.Evaluate(timePercent);
 
@@ -116,7 +122,7 @@ public class DayNightCycle : MonoBehaviour
 
         instance = null;
     }
-    
+
     /// <summary>
     /// Pauses and unpauses day/night cycle progression
     /// </summary>
@@ -124,5 +130,18 @@ public class DayNightCycle : MonoBehaviour
     public void PauseTime(BoolEvent ctx)
     {
         pauseTime = ctx.Value;
+    }
+
+    /// <summary>
+    /// Advances time by a certain amount
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void AdvanceTime(VoidEvent ctx)
+    {
+        if (advanceTimeTimer > Time.time) return;
+
+        advanceTimeTimer = Time.time + ADVANCETIMEDELAY;
+
+        timeOfDay += advanceTimeBy;
     }
 }

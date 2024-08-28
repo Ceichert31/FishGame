@@ -32,4 +32,9 @@ public class TestInteract : MonoBehaviour, IInteract
     {
         Debug.Log("EXIT!");
     }
+
+    public void OnStay()
+    {
+        
+    }
 }

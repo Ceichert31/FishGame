@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gate : MonoBehaviour, IInteract
 {
     [SerializeField] private AudioPitcherSO gateCreakAudio;
-
     public TextEvent Prompt => textPrompt;
 
     [SerializeField] private TextEvent textPrompt;
@@ -18,6 +17,8 @@ public class Gate : MonoBehaviour, IInteract
 
     private bool isUnlocked;
 
+    private bool hasTextChanged;
+
     private void Start()
     {
         animator = GetComponentInParent<Animator>();
@@ -27,7 +28,7 @@ public class Gate : MonoBehaviour, IInteract
 
     public void ExitInteract()
     {
-        
+       
     }
 
     public void Interact()
@@ -44,5 +45,21 @@ public class Gate : MonoBehaviour, IInteract
         isUnlocked = true;
 
         textPrompt.TextPrompt = string.Empty;
+    }
+
+    public void OnStay()
+    {
+        
+    }
+
+    void Update()
+    {
+        if (hasTextChanged) return;
+
+        if (!GameManager.Instance.KeyCheck(gateKey)) return;
+
+        textPrompt.TextPrompt = "Press [E] to unlock gate";
+
+        hasTextChanged = true;
     }
 }

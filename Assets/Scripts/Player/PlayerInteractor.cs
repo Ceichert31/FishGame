@@ -28,6 +28,8 @@ public class PlayerInteractor : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out interactableObject))
             interactText_EventChannel.CallEvent(interactableObject.Prompt);
+
+        Debug.Log("1");
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,6 +41,9 @@ public class PlayerInteractor : MonoBehaviour
         }
 
         if (interactableObject == null) return;
+
+        //Interact update loop
+        interactableObject.OnStay();
 
         if (canInteract)
             interactableObject.Interact();
@@ -57,4 +62,5 @@ public interface IInteract
     TextEvent Prompt { get; }
     public void Interact();
     public void ExitInteract();
+    public void OnStay();
 }
