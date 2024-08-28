@@ -49,6 +49,11 @@ public class BossPosture : MonoBehaviour
         ResetPosture();
     }
 
+    public void CallUpdatePosture(FloatEvent ctx)
+    {
+        UpdatePosture(ctx.FloatValue);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

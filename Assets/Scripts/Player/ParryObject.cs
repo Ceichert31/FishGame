@@ -5,10 +5,16 @@ using UnityEngine;
 public class ParryObject : MonoBehaviour
 {
     private Sequencer parrySequencer;
+    [SerializeField] FloatEventChannel physicalParryEventChannel;
+
+    [SerializeField] float physicalParryAmmount;
+
+    FloatEvent parryAmmount;
 
     private void Start()
     {
         parrySequencer = GetComponent<Sequencer>();
+        parryAmmount.FloatValue = physicalParryAmmount;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +27,11 @@ public class ParryObject : MonoBehaviour
                 parrySequencer.InitializeSequence();
 
                 projectileBehavior.Parried(Camera.main.transform.forward);
+            }
+            else
+            {
+                other.gameObject.SetActive(false);
+                physicalParryEventChannel.CallEvent(parryAmmount);
             }
         }
     }
