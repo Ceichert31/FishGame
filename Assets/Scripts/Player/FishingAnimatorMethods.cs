@@ -6,13 +6,17 @@ using UnityEngine.Assertions.Must;
 public class FishingAnimatorMethods : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
-    [SerializeField] private VoidEventChannel reeledIn_EventChannel;
+    [SerializeField] private BoolEventChannel reeledIn_EventChannel;
 
     private FishingController fishingController;
 
     private CombatController combatController;
 
     private Animator animator;
+
+    private BoolEvent trueEvent;
+
+    private BoolEvent falseEvent;
 
     private void Start()
     {
@@ -21,6 +25,10 @@ public class FishingAnimatorMethods : MonoBehaviour
         combatController = GetComponentInParent<CombatController>();
 
         animator = GetComponent<Animator>();
+
+        trueEvent.Value = true;
+
+        falseEvent.Value = false;
     }
 
     /// <summary>
@@ -39,9 +47,14 @@ public class FishingAnimatorMethods : MonoBehaviour
     public void CastGrapple() => fishingController.Cast();
 
 
-    public void ReeledInEventCall()
+    public void ReeledInTrue()
     {
-        reeledIn_EventChannel.CallEvent(new());
+        reeledIn_EventChannel.CallEvent(trueEvent);
+    }
+
+    public void ReeledInFalse()
+    {
+        reeledIn_EventChannel.CallEvent(falseEvent);
     }
 
     /// <summary>

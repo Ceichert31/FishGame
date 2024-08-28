@@ -167,9 +167,9 @@ public class SpawnPool : MonoBehaviour
     /// Listens for the signal the player has reeled in
     /// </summary>
     /// <param name="ctx"></param>
-    public void HasReeledIn(VoidEvent ctx)
+    public void HasReeledIn(BoolEvent ctx)
     {
-        hasReeledIn = !hasReeledIn;
+        hasReeledIn = ctx.Value;
 
         if (instance != null)
             StopCoroutine(instance);
