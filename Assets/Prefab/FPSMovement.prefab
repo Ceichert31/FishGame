@@ -2468,6 +2468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parryDelay: 1
   grappleRange: 20
+  fireableLayers:
+    serializedVersion: 2
+    m_Bits: 511
 --- !u!114 &1681400033651520440
 MonoBehaviour:
   m_ObjectHideFlags: 0
