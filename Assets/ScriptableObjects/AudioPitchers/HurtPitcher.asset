@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HurtPitcher
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 39c323e9aac3e804ca109dcf1665c9ce, type: 3}
+  - {fileID: 8300000, guid: 18eff64b122a01840ae9d73483e9a21f, type: 3}
   volume:
     minValue: 0.8
     maxValue: 1

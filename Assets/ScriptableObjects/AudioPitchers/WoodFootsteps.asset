@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WoodFootsteps
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 7bca71aae6d8af747b8123b6874b7863, type: 3}
-  - {fileID: 8300000, guid: e7e0335db029ad84fa9459b0df2b60c2, type: 3}
+  - {fileID: 8300000, guid: 9819e3504adf54b44ba79e6d361b9074, type: 3}
+  - {fileID: 8300000, guid: 5f403e09397dda4419e6cb5c937aab43, type: 3}
   volume:
     minValue: 0.7
     maxValue: 1

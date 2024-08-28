@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FishResurface
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: fb36b7be9f46e644db79008a6fc966e2, type: 3}
+  - {fileID: 8300000, guid: b6b2e40a57eef5043806de8161c0b683, type: 3}
   volume:
     minValue: 0.7
     maxValue: 1

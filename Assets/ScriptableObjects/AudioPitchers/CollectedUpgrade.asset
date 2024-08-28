@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CollectedUpgrade
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 5b886841f7c375347be9c3c99d72efc9, type: 3}
+  - {fileID: 8300000, guid: 7ed5c36a59e8c264a99d77eae095ba68, type: 3}
   volume:
     minValue: 1
     maxValue: 1

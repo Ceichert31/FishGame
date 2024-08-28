@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GroundFootsteps
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: d03d6bd3c4dc62d4589df7f22a0b13a3, type: 3}
-  - {fileID: 8300000, guid: 951a04ab1e21ae548b7a8b6b703d2437, type: 3}
-  - {fileID: 8300000, guid: 1b252f0ea118e3542a717e3138ecac4b, type: 3}
+  - {fileID: 8300000, guid: fc4a456b3ea3b5d44b0b9253d9da9d71, type: 3}
+  - {fileID: 8300000, guid: 588127882a728544cbfe756c8df18ae9, type: 3}
+  - {fileID: 8300000, guid: 3d0a1460149e39a438908d2238efd431, type: 3}
   volume:
     minValue: 1
     maxValue: 1.2

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WaterFootsteps
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: c26a0f53e93d49e4092aad647d2d25a2, type: 3}
-  - {fileID: 8300000, guid: 203bcd52f99f32647a96f0a06ba1b515, type: 3}
-  - {fileID: 8300000, guid: 497965f261a33a24b8e8b56e7946d0cb, type: 3}
+  - {fileID: 8300000, guid: d6a1c0fe6c97a564199a9fc80ec70563, type: 3}
+  - {fileID: 8300000, guid: 6bdc375601a9b3640a788f757aa3e40d, type: 3}
+  - {fileID: 8300000, guid: bffd86751bb849d448ed011e4a156323, type: 3}
   volume:
     minValue: 0.7
     maxValue: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Typewriter
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 115a560b4ed29114eb71f5c327505b9c, type: 3}
+  - {fileID: 8300000, guid: 473582061ab41594b9415a8a0a0fbd23, type: 3}
   volume:
     minValue: 0.8
     maxValue: 1

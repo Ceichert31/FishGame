@@ -28,7 +28,7 @@ public class HarpoonController : MonoBehaviour
     //Constants
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
 
-    private const float GRAPPLEDISTANCE = 1f;
+    private const float GRAPPLEDISTANCE = 1.5f;
 
     private void Start()
     {

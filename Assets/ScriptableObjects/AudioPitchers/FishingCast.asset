@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FishingCast
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: d2e4adea112866547b8920a040cabcb8, type: 3}
-  - {fileID: 8300000, guid: d42e0784b844f1642938caf582ebd8da, type: 3}
+  - {fileID: 8300000, guid: c0f23bc102bc75d41ab9eb0a8c090bc6, type: 3}
+  - {fileID: 8300000, guid: 2871782b97ba34b4483deb3f6789414a, type: 3}
   volume:
     minValue: 1
     maxValue: 1

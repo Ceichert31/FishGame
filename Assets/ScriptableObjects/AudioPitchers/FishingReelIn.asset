@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FishingReelIn
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 46080b37e20c86d40a8f6833662f7033, type: 3}
-  - {fileID: 8300000, guid: b4bd621bbdbe07b4ca47802bf386bfd5, type: 3}
+  - {fileID: 8300000, guid: eab94bbfbce1cb6468ffa52d5eb4bc14, type: 3}
+  - {fileID: 8300000, guid: 44e424c9b77e52642b564d04fb363ead, type: 3}
   volume:
     minValue: 1
     maxValue: 1

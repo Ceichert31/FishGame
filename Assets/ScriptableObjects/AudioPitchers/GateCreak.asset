@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GateCreak
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: 14daed6b9a2558743a119fd39fbd3dc1, type: 3}
+  - {fileID: 8300000, guid: fbbbee7a109b50646862c5b07e1c0212, type: 3}
   volume:
     minValue: 1
     maxValue: 1
