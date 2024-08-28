@@ -67,7 +67,7 @@ public class AttackState : AIState
         {
             ctx.SwitchState(States.WalkState);
         }*/
-        ctx.SwitchState(States.IdleState);
+        ctx.SwitchState(States.WalkState);
 
         //Peach Cobler is alright
 
