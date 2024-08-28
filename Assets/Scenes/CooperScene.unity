@@ -305,6 +305,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6810070633299860872, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810070633299860872, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2034780865}
+    - target: {fileID: 6810070633299860872, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: OnHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810070633299860872, guid: 4a7019fbdff752948bd326df72cae00f,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: PustuleController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
         type: 3}
       propertyPath: m_Name
@@ -696,6 +716,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b9ea62f378d04da1442badcd2d715, type: 3}
+--- !u!114 &2034780865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9053415698981932793, guid: 4a7019fbdff752948bd326df72cae00f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493539710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e226eb55ec03f1408bdc7d781136ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
