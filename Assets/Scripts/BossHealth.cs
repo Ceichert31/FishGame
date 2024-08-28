@@ -57,7 +57,7 @@ public class BossHealth : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (currentHealth.FloatValue <= 0)
         {

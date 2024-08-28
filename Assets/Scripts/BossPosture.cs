@@ -25,17 +25,20 @@ public class BossPosture : MonoBehaviour
     // Update is called once per frame
     public void UpdatePosture(float damage)
     {
+        
         //Adds the posture from our currentPosture FloatEvent
         currentPosture.FloatValue += damage;
-
-        //Calls the method on the Float Event Listener for the posture to be updated for the UI
-        posture_EventChannel.CallEvent(currentPosture);
 
         //If the posture is broken, call the method on the stagger event channel
         if (currentPosture.FloatValue >= maxPosture)
         {
+            currentPosture.FloatValue = maxPosture;
             stagger_EventChannel.CallEvent(new());
         }
+
+        //Calls the method on the Float Event Listener for the posture to be updated for the UI
+        posture_EventChannel.CallEvent(currentPosture);
+        Debug.Log(currentPosture.FloatValue);
     }
 
     public void ResetPosture()

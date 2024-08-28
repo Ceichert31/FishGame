@@ -6749,6 +6749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6789565808102059087}
   - component: {fileID: 359456601912905687}
+  - component: {fileID: 2144078188936449383}
   m_Layer: 10
   m_Name: SlamHitBox
   m_TagString: Parryable
@@ -6792,6 +6793,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.12, y: 8.41, z: 1.78}
   m_Center: {x: 0.0248131, y: 3.5271108, z: 0.0071991584}
+--- !u!114 &2144078188936449383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658411918826370067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryAmmount: 30
 --- !u!1 &8884383882560385104
 GameObject:
   m_ObjectHideFlags: 0

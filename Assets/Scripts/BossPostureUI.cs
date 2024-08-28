@@ -31,8 +31,9 @@ public class BossPostureUI : MonoBehaviour
     /// <param name="ctx"></param>
     public void UpdatePostureBar(FloatEvent ctx)
     {
+        StopAllCoroutines();
         float normalizedTarget = ctx.FloatValue / maxPosture;
-
+        Debug.Log("Updated Posture Bar");
         StartCoroutine(AnimatePostureBar(normalizedTarget));
     }
 

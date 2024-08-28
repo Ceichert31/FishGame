@@ -279,10 +279,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 3.4672902
+  m_Radius: 0.24614708
+  m_Height: 3.46729
   m_Direction: 2
-  m_Center: {x: -1.8015883e-16, y: 0, z: -1.7179393}
+  m_Center: {x: -0.007794618, y: 0.0074489745, z: -1.7179394}
 --- !u!114 &3504548218941423837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3112253977679393111}
   - component: {fileID: 7712869462209610836}
+  - component: {fileID: 663435793109873863}
   m_Layer: 10
   m_Name: SpinHitBox
   m_TagString: Parryable
@@ -389,6 +390,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000004, y: 1, z: 3.4581144}
   m_Center: {x: -8.5707876e-17, y: 0, z: -1.7094563}
+--- !u!114 &663435793109873863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919754574181151250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryAmmount: 50
 --- !u!1 &2283238013524327254
 GameObject:
   m_ObjectHideFlags: 0

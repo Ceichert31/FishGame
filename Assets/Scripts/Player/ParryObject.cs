@@ -7,32 +7,35 @@ public class ParryObject : MonoBehaviour
     private Sequencer parrySequencer;
     [SerializeField] FloatEventChannel physicalParryEventChannel;
 
-    [SerializeField] float physicalParryAmmount;
-
     FloatEvent parryAmmount;
 
     private void Start()
     {
         parrySequencer = GetComponent<Sequencer>();
-        parryAmmount.FloatValue = physicalParryAmmount;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         //Checks if the other object has a tag of parryable and if it does, call it's carry function, will convert this to an interface in the future
-        if (other.CompareTag("Parryable"))
-        {
-            if(other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
-            {
-                parrySequencer.InitializeSequence();
 
-                projectileBehavior.Parried(Camera.main.transform.forward);
-            }
-            else
-            {
-                other.gameObject.SetActive(false);
-                physicalParryEventChannel.CallEvent(parryAmmount);
-            }
+        if(!other.CompareTag("Parryable"))
+        {
+            return;
+        }
+
+        if (other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
+        {
+            parrySequencer.InitializeSequence();
+
+            projectileBehavior.Parried(Camera.main.transform.forward);
+            return;
+        }
+
+        if (other.gameObject.TryGetComponent(out IMeele attackBox))
+        {
+            attackBox.OnParry();
+            parryAmmount.FloatValue = attackBox.ParryAmmount;
+            physicalParryEventChannel.CallEvent(parryAmmount);
         }
     }
 }
