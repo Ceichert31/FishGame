@@ -7,6 +7,7 @@ using static UnityEngine.ParticleSystem;
 public class LureBossAnimationEvents : MonoBehaviour
 {
     [SerializeField] BossAI bossAi;
+    [SerializeField] BossPosture bossPosture;
     Animator bossAnimator;
 
     [SerializeField] ParticleSystem staggerParticle;
@@ -54,5 +55,10 @@ public class LureBossAnimationEvents : MonoBehaviour
         Debug.Log("called");
         FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];
         fleeState.TeleportFish();
+    }
+
+    public void ResetPosture()
+    {
+        bossPosture.ResetPosture();
     }
 }

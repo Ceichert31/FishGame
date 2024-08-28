@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioEventChannel: {fileID: 11400000, guid: 138ce770089969b498d0f63b4be67aca, type: 2}
   newAudioEvent:
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 3464a7279669a1e4dbe5a0f6716e13d8, type: 3}
     volume: 1
     pitch: 1

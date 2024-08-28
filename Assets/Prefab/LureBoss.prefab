@@ -266,7 +266,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990904464802748294}
-  m_Material: {fileID: 13400000, guid: b76797c7d155c0244891573bc45a0937, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5893,6 +5893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAi: {fileID: 0}
+  bossPosture: {fileID: 7859916091848677769}
   staggerParticle: {fileID: 5166513355896865256}
 --- !u!82 &5902530300642637316
 AudioSource:

@@ -310,11 +310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LureBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 6839625621437434146, guid: 4a7019fbdff752948bd326df72cae00f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -629,11 +624,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 2270643756450798951, guid: ddc51e42a0ce2d544b720d3894e34c7d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2562559169165998665, guid: ddc51e42a0ce2d544b720d3894e34c7d,
         type: 3}
