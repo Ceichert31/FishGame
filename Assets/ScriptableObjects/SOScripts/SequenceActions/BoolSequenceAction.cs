@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Sequencer Actions/Bool Event")]
-public class BoolSequenceAction : SequencerAction
+public class BoolSequencerAction : SequencerAction
 {
     [SerializeField] private BoolEventChannel bool_EventChannel;
 

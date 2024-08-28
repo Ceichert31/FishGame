@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad99e1dc4ef930428d94975254d79fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceTime_EventChannel: {fileID: 11400000, guid: 59910107fdec7a44babb6854e6144964,
+  advanceTime_EventChannel: {fileID: 11400000, guid: 3d0207b8d800f614b8c3aa58ebf91706,
     type: 2}
   textPrompt:
     TextPrompt: Press [E] to Advance Time
@@ -2959,13 +2959,13 @@ MonoBehaviour:
   sequenceActions:
   - {fileID: 11400000, guid: 092fcf17c0928e94aa557fa128ae457a, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
-  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
+  - {fileID: 11400000, guid: 7e0aa1a004f4edc42a720fe5f2cfb1ef, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: 6b952a26a5a5ea047b96ade883505db7, type: 2}
   - {fileID: 11400000, guid: 46805d70e7b9918408748326129691cd, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
-  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
+  - {fileID: 11400000, guid: a8ba3a728123c7e4d879545078020ea9, type: 2}
   - {fileID: 11400000, guid: 4992039434aba7647bd7e0971e4288f2, type: 2}
   - {fileID: 11400000, guid: 372e3acc4e31f5844927c7b206976e79, type: 2}
   - {fileID: 11400000, guid: 7ab2da79deb83c247ab72210f8024502, type: 2}
@@ -4964,7 +4964,7 @@ GameObject:
   - component: {fileID: 1245451976}
   - component: {fileID: 1245451975}
   - component: {fileID: 1245451973}
-  - component: {fileID: 1245451974}
+  - component: {fileID: 1245451978}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -5071,7 +5071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingAudio: {fileID: 11400000, guid: d7147ce691fd2804697f8f93c9c28767, type: 2}
   promptText: {fileID: 1216244029}
-  timePerLetter: 0.1
+  timePerLetter: 0.07
 --- !u!114 &1245451972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5138,34 +5138,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fadeDuration: 1
---- !u!114 &1245451974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245451965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c93bb0dba753c4eadaca2cacf3492e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 96676819900f8b441b696451aad96fad, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1245451973}
-        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
-        m_MethodName: SetFade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1245451975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5241,6 +5213,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1245451971}
         m_TargetAssemblyTypeName: TextController, Assembly-CSharp
         m_MethodName: InitializeAudioSource
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1245451978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245451965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9dc29a0bc1fa1f48a3598ad656a899b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: e87f0161d6d01e744b8dd42076afbb53, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1245451973}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: SetFade
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9732,12 +9732,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
-  - {fileID: 11400000, guid: 8417269ec1253fc4d8803fb37dff6db5, type: 2}
+  - {fileID: 11400000, guid: 7e0aa1a004f4edc42a720fe5f2cfb1ef, type: 2}
   - {fileID: 11400000, guid: 6abf517120a235e4c9fd45f8f1037ca3, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
   - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
-  - {fileID: 11400000, guid: 193296fe729131748bec7db623de02a2, type: 2}
+  - {fileID: 11400000, guid: a8ba3a728123c7e4d879545078020ea9, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: a503177bbab477c458ddb4629c5fd008, type: 2}
   - {fileID: 11400000, guid: 8610cde9f6d29ec4ab953d2fe989b721, type: 2}
@@ -10081,6 +10081,8 @@ GameObject:
   - component: {fileID: 2142228254}
   - component: {fileID: 2142228256}
   - component: {fileID: 2142228257}
+  - component: {fileID: 2142228259}
+  - component: {fileID: 2142228258}
   m_Layer: 0
   m_Name: DayNight
   m_TagString: Untagged
@@ -10110,8 +10112,6 @@ MonoBehaviour:
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}
   ambientLight: {fileID: 1095809638}
-  isDayTime:
-    Value: 0
 --- !u!4 &2142228255
 Transform:
   m_ObjectHideFlags: 0
@@ -10158,6 +10158,51 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2142228257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142228253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 3d0207b8d800f614b8c3aa58ebf91706, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2142228254}
+        m_TargetAssemblyTypeName: DayNightCycle, Assembly-CSharp
+        m_MethodName: StartTimeTransition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2142228258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142228253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 29f7ee69cb8d38b46bb70c8753b22d78, type: 2}
+  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 40129159b1c08744b91188d7fff90d22, type: 2}
+  - {fileID: 11400000, guid: 9aca3da1ae136414fa113d906871a35f, type: 2}
+--- !u!114 &2142228259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -20,9 +20,11 @@ public class FadeController : MonoBehaviour
         fadeAlpha = fadeImage.color;
     }
 
-    public void SetFade(BoolEvent ctx)
+    public void SetFade(FadeEvent ctx)
     {
-        if (ctx.Value)
+        fadeAlpha = new Color(ctx.fadeColor.r, ctx.fadeColor.g, ctx.fadeColor.b, fadeAlpha.a);
+
+        if (!ctx.fadeIn)
         {
             StartCoroutine(FadeOut());
         }

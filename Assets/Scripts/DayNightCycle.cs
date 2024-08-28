@@ -34,6 +34,8 @@ public class DayNightCycle : MonoBehaviour
 
     private float advanceTimeTimer;
 
+    private Sequencer advanceTimeSequencer;
+
     //Consts
     private const float TOTALROTATION = 360f;
 
@@ -52,6 +54,8 @@ public class DayNightCycle : MonoBehaviour
         ambientLight = transform.GetChild(1).GetComponent<Light>();
 
         timeOfDay = defaultTimeOfDay;
+
+        advanceTimeSequencer = GetComponent<Sequencer>();
     }
 
     private void Update()
@@ -132,16 +136,21 @@ public class DayNightCycle : MonoBehaviour
         pauseTime = ctx.Value;
     }
 
+    public void StartTimeTransition(VoidEvent ctx)
+    {
+        if (advanceTimeTimer > Time.time) return;
+
+        advanceTimeTimer = Time.time + ADVANCETIMEDELAY;
+
+        advanceTimeSequencer.InitializeSequence();
+    }
+
     /// <summary>
     /// Advances time by a certain amount
     /// </summary>
     /// <param name="ctx"></param>
     public void AdvanceTime(VoidEvent ctx)
     {
-        if (advanceTimeTimer > Time.time) return;
-
-        advanceTimeTimer = Time.time + ADVANCETIMEDELAY;
-
         timeOfDay += advanceTimeBy;
     }
 }
