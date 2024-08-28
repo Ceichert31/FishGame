@@ -462,8 +462,8 @@ MonoBehaviour:
   ambience_EventChannel: {fileID: 11400000, guid: 138ce770089969b498d0f63b4be67aca,
     type: 2}
   audioEvent:
-    audioClip: {fileID: 8300000, guid: 8a806fbb9b8bb5e45b5e0a5aae5e439b, type: 3}
-    volume: 0.4
+    audioClip: {fileID: 8300000, guid: 35e28a7e35b246846b7b10537eda6220, type: 3}
+    volume: 0.6
     pitch: 1
 --- !u!65 &159690020
 BoxCollider:
@@ -3997,7 +3997,7 @@ MonoBehaviour:
   ambience_EventChannel: {fileID: 11400000, guid: 138ce770089969b498d0f63b4be67aca,
     type: 2}
   audioEvent:
-    audioClip: {fileID: 8300000, guid: c367a9207e6a55a47a900076671254da, type: 3}
+    audioClip: {fileID: 8300000, guid: ffd8edea3c2d00f46bbab4aa36d297af, type: 3}
     volume: 0.2
     pitch: 1
 --- !u!65 &1078885527
@@ -9486,7 +9486,7 @@ MonoBehaviour:
   ambience_EventChannel: {fileID: 11400000, guid: 138ce770089969b498d0f63b4be67aca,
     type: 2}
   audioEvent:
-    audioClip: {fileID: 8300000, guid: c367a9207e6a55a47a900076671254da, type: 3}
+    audioClip: {fileID: 8300000, guid: ffd8edea3c2d00f46bbab4aa36d297af, type: 3}
     volume: 0.2
     pitch: 1
 --- !u!1001 &2020336359
@@ -10172,7 +10172,7 @@ MonoBehaviour:
   pauseTime: 0
   timeOfDay: 7
   timeSpeedMultiplier: 0.05
-  defaultTimeOfDay: 7
+  defaultTimeOfDay: 0
   advanceTimeBy: 12
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}

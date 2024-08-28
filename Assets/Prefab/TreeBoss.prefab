@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
-  - {fileID: 11400000, guid: ee320ba27dc12354b8a4e07b89ef0b23, type: 2}
+  - {fileID: 11400000, guid: 6de21eed80cfac74c8b4ff44920d5824, type: 2}
 --- !u!65 &8823745636860624349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6527,7 +6527,7 @@ MonoBehaviour:
   bossStates:
   - {fileID: 11400000, guid: 015c969b07314bc4f93bd6c985c5e705, type: 2}
   - {fileID: 11400000, guid: 17cd1a11a7c78bf409f09957fad04e9e, type: 2}
-  - {fileID: 11400000, guid: b13d42e174f772a478bea7eb6b5dcd67, type: 2}
+  - {fileID: 11400000, guid: 747d610be31d9c6438912749ad7470b2, type: 2}
   - {fileID: 11400000, guid: e8b1bd634f61d1c40802a875e12025e0, type: 2}
   - {fileID: 11400000, guid: c97688dffa75811489e89cb430305044, type: 2}
 --- !u!114 &1451126654176883161
