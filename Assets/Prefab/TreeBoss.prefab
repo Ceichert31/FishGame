@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6386651807774310859}
   - component: {fileID: 1758157215782951728}
+  - component: {fileID: 1258488664095992693}
   - component: {fileID: 8528549637190761273}
   m_Layer: 10
   m_Name: AttackHitBoxes
@@ -62,6 +63,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1258488664095992693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515950505653565738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 215ca5f5b6eb98b4a835a89e5ab9bf8b, type: 2}
+  - {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18, type: 2}
 --- !u!82 &8528549637190761273
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1475,7 +1491,7 @@ MonoBehaviour:
   return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
     type: 2}
   bossMaxHealth: 100
-  parryDamageMultiplier: 0.2
+  parryDamageMultiplier: 0.05
 --- !u!114 &8254534239658114609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6723,7 +6739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryAmmount: 10
-  physicalParryAudio: {fileID: 11400000, guid: 953d8f0d14b9c9a4d9256aa02010040a, type: 2}
 --- !u!1 &8884383882560385104
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ParryObject : MonoBehaviour
 
     private void Start()
     {
-        parrySequencer = GetComponent<Sequencer>();
+        parrySequencer = transform.parent.GetComponent<Sequencer>();
     }
 
     private void OnTriggerEnter(Collider other)

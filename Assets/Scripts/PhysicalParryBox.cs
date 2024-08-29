@@ -24,16 +24,14 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
     [SerializeField] int parryAmmount;
     bool parried;
 
-    [SerializeField] private AudioPitcherSO physicalParryAudio;
-
-    AudioSource source;
+    Sequencer parrySequencer;
 
     public bool Parried { get => parried; set => parried = value; }
     public int ParryAmmount { get => parryAmmount; set => parryAmmount = value; }
 
     private void Start()
     {
-        source = transform.parent.GetComponent<AudioSource>();
+        parrySequencer = transform.parent.GetComponent<Sequencer>();
     }
 
     public void OnParry()
@@ -43,7 +41,7 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
             return;
         }
 
-        physicalParryAudio.Play(source);
+        parrySequencer.InitializeSequence();
 
         parried = true;
         gameObject.SetActive(false);
