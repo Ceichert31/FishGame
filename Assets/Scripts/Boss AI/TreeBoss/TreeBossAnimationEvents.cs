@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HelperMethods;
-using static UnityEngine.ParticleSystem;
 
-public class LureBossAnimationEvents : MonoBehaviour
+public class TreeBossAnimationEvents : MonoBehaviour
 {
     [SerializeField] BossAI bossAi;
     [SerializeField] BossPosture bossPosture;
@@ -46,12 +44,12 @@ public class LureBossAnimationEvents : MonoBehaviour
 
     public void EndAttacking()
     {
-        AttackState attackState =  (AttackState)bossAi.BossStates[(int)States.AttackState];
+        TreeAttackState attackState = (TreeAttackState)bossAi.BossStates[(int)States.AttackState];
         attackState.Attacking = false;
         Debug.Log("attack ended");
     }
 
-    public void TeleportLureBoss()
+    public void TeleportTreeBoss()
     {
         Debug.Log("called");
         FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];

@@ -481,8 +481,8 @@ GameObject:
   - component: {fileID: 2562559169165998665}
   - component: {fileID: 5338587677684947829}
   - component: {fileID: 1282517874281993780}
-  - component: {fileID: 5984401571991474018}
   - component: {fileID: 1274551634492879489}
+  - component: {fileID: 8628595212690122963}
   m_Layer: 10
   m_Name: TreeBoss
   m_TagString: Untagged
@@ -552,21 +552,6 @@ NavMeshAgent:
   m_BaseOffset: 0.54
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5984401571991474018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2270643756450798951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a74bcbbb2f8674d9684037da79539b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossAi: {fileID: 0}
-  bossPosture: {fileID: 8254534239658114609}
-  staggerParticle: {fileID: 4785967987738207391}
 --- !u!82 &1274551634492879489
 AudioSource:
   m_ObjectHideFlags: 0
@@ -663,6 +648,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8628595212690122963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270643756450798951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd307b1912dc904fa2c1e4d45f07b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAi: {fileID: 0}
+  bossPosture: {fileID: 8254534239658114609}
+  staggerParticle: {fileID: 4785967987738207391}
 --- !u!1 &2659907724594314474
 GameObject:
   m_ObjectHideFlags: 0
