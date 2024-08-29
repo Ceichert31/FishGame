@@ -35,6 +35,16 @@ public class PlayerHealth : MonoBehaviour
             DealDamage(projectileInstance.ProjectileDamage);
 
             projectileInstance.DeleteProjectile();
+            return;
+        }
+
+        if (other.gameObject.TryGetComponent(out IMeele meeleInstance))
+        {
+            if (meeleInstance.Parried)
+            {
+                return;
+            }
+            DealDamage(meeleInstance.AttackDamage);
         }
     }
 

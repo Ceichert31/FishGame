@@ -38,7 +38,6 @@ public class ParryObject : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out IMeele attackBox))
         {
-            attackBox.OnParry();
             parryAmmount.FloatValue = attackBox.ParryAmmount;
             physicalParryEventChannel.CallEvent(parryAmmount);
 

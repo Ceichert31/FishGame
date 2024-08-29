@@ -16,18 +16,40 @@ interface IMeele
         set;
     }
 
+    int AttackDamage
+    {
+        get;
+        set;
+    }
+
     public void OnParry();
 }
 
 public class PhysicalParryBox : MonoBehaviour, IMeele
 {
     [SerializeField] int parryAmmount;
-    bool parried;
+    [SerializeField] int attackDamage;
+    bool used;
 
     Sequencer parrySequencer;
 
-    public bool Parried { get => parried; set => parried = value; }
-    public int ParryAmmount { get => parryAmmount; set => parryAmmount = value; }
+    public bool Parried { get => used; set => used = value; }
+    public int ParryAmmount
+    {
+        get {
+            OnParry();
+            return parryAmmount; 
+            }
+      set => parryAmmount = value; 
+    }
+    public int AttackDamage 
+    { 
+        get {
+            OnDealtDamage();
+            return attackDamage; 
+            } 
+        set => attackDamage = value; 
+    }
 
     private void Start()
     {
@@ -36,21 +58,34 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
 
     public void OnParry()
     {
-        if (parried)
+        if (used)
+        {
+            return;
+        }
+        parrySequencer.InitializeSequence();
+        OnAction();
+    }
+
+    public void OnDealtDamage()
+    {
+        if (used)
         {
             return;
         }
 
-        parrySequencer.InitializeSequence();
+        OnAction();
+    }
 
-        parried = true;
+    void OnAction()
+    {
+        used = true;
         gameObject.SetActive(false);
         Invoke(nameof(ReEnable), .5f);
     }
 
     void ReEnable()
     {
-        parried = false;
+        used = false;
     }
         
 }
