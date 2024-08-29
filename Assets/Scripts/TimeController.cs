@@ -11,6 +11,8 @@ public class TimeController : MonoBehaviour
 
     public void SetTime(BoolEvent ctx)
     {
+        StopAllCoroutines();
+
         if (ctx.Value)
         {
             StartCoroutine(SlowTime());

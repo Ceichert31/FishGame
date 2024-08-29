@@ -13,6 +13,7 @@ public class WalkState : AIState
     [Header("Variables for controlling unique movement")]
     [SerializeField] float initalMoveAmmount;
     [SerializeField] float slowDownAmmount;
+    [SerializeField] float projectileFireWaitTime;
     float timeUntilNextMovement;
     float currentTime;
     float currentMoveAmmount;
@@ -68,7 +69,7 @@ public class WalkState : AIState
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)
         {
-            float waitTime = 2;
+            float waitTime = projectileFireWaitTime;
             projectileSpawner.SpawnPattern(waitTime);
             fireTime = waitTime * projectileSpawner.SpawnLocationCount;
         }

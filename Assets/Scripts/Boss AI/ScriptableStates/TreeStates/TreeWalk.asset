@@ -15,3 +15,4 @@ MonoBehaviour:
   projectileSpawner: {fileID: 0}
   initalMoveAmmount: 10
   slowDownAmmount: 2
+  projectileFireWaitTime: 1
