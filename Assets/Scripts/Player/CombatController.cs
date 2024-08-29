@@ -21,7 +21,7 @@ public class CombatController : MonoBehaviour
 
     private HarpoonController harpoonController;
 
-    private float parryCooldown;
+    private bool canParry = true;
 
     private Animator hookAnimator;
 
@@ -71,13 +71,24 @@ public class CombatController : MonoBehaviour
     void Parry(InputAction.CallbackContext ctx) 
     {
         //Time gate to prevent queued parries
-        if (parryCooldown <= Time.time)
+        if (canParry)
         {
-            parryCooldown = Time.time + parryDelay;
-
+            canParry = false;
+            
             hookAnimator.SetTrigger("Parry");
+
+            //Delay
+            Invoke(nameof(ParryDelay), parryDelay);
         }
     }   
+
+    void ParryDelay() => canParry = true;
+
+    /// <summary>
+    /// Used for reseting parry cooldown externally
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void ResetParry(VoidEvent ctx) => canParry = true;
 
     void RetractHook(InputAction.CallbackContext ctx)
     {

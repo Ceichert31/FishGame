@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ParryObject : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private VoidEventChannel resetParry_EventChannel;
+
     private Sequencer parrySequencer;
     [SerializeField] FloatEventChannel physicalParryEventChannel;
 
     FloatEvent parryAmmount;
+
+    VoidEvent voidEvent;
 
     private void Start()
     {
@@ -36,6 +41,8 @@ public class ParryObject : MonoBehaviour
             attackBox.OnParry();
             parryAmmount.FloatValue = attackBox.ParryAmmount;
             physicalParryEventChannel.CallEvent(parryAmmount);
+
+            resetParry_EventChannel.CallEvent(voidEvent);
         }
     }
 }

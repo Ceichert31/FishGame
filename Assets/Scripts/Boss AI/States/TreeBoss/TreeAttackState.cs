@@ -62,7 +62,7 @@ public class TreeAttackState : AIState
         {
             throw new System.Exception("You did not initalize");
         }
-        GenerateAttack();
+        GenerateAttack(0);
         ExecuteAttack();
     }
 
@@ -82,6 +82,14 @@ public class TreeAttackState : AIState
         {
             ctx.SwitchState(States.WalkState);
         }*/
+
+        if (Util.DistanceNoY(Player, bossTransform.position) < maxDistance)
+        {
+            GenerateAttack(1);
+            ExecuteAttack();
+
+        }
+
         ctx.SwitchState(States.WalkState);
 
         //Peach Cobler is alright
@@ -126,9 +134,9 @@ public class TreeAttackState : AIState
 
 
 
-    void GenerateAttack()
+    void GenerateAttack(int attackNum)
     {
-        currentAttack = attacks[Random.Range(0, attacks.Count)];
+        currentAttack = attacks[attackNum];
         //currentAttack = "Spin";
     }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6386651807774310859}
   - component: {fileID: 1758157215782951728}
+  - component: {fileID: 8528549637190761273}
   m_Layer: 10
   m_Name: AttackHitBoxes
   m_TagString: Untagged
@@ -61,6 +62,102 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!82 &8528549637190761273
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515950505653565738}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 97
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 70
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &568597425475795250
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +395,6 @@ GameObject:
   - component: {fileID: 102971018631663025}
   - component: {fileID: 3811860926796732648}
   - component: {fileID: 8464508071039266020}
-  - component: {fileID: 7152674817873743105}
   m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
@@ -371,28 +467,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7152674817873743105
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838838448833041657}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 96eb837519e6fa9429ff4fd4ffadca92, type: 3}
 --- !u!1 &1886989194673033725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1494,7 @@ MonoBehaviour:
     type: 2}
   stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
     type: 2}
-  maxPosture: 50
+  maxPosture: 80
 --- !u!114 &7987597929103167325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6648,7 +6722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryAmmount: 30
+  parryAmmount: 10
+  physicalParryAudio: {fileID: 11400000, guid: 953d8f0d14b9c9a4d9256aa02010040a, type: 2}
 --- !u!1 &8884383882560385104
 GameObject:
   m_ObjectHideFlags: 0

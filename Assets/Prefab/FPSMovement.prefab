@@ -2102,9 +2102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df235bc569cf9e42baa56df8104f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetParry_EventChannel: {fileID: 11400000, guid: 6170c25305a5a384f9b106307f1cf22a,
+    type: 2}
   physicalParryEventChannel: {fileID: 11400000, guid: 7665dfbc54c829341b56e1a8ef5257db,
     type: 2}
-  physicalParryAmmount: 10
 --- !u!114 &2712978723706168044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,6 +2410,7 @@ GameObject:
   - component: {fileID: 5719716679102456388}
   - component: {fileID: 7175128251067628760}
   - component: {fileID: 5013484447417827137}
+  - component: {fileID: 4975736183753545843}
   - component: {fileID: 1681400033651520440}
   - component: {fileID: 5582790877613460817}
   - component: {fileID: 3262913617914932328}
@@ -2475,6 +2477,34 @@ MonoBehaviour:
   fireableLayers:
     serializedVersion: 2
     m_Bits: 511
+--- !u!114 &4975736183753545843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595745325259669938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 6170c25305a5a384f9b106307f1cf22a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5013484447417827137}
+        m_TargetAssemblyTypeName: CombatController, Assembly-CSharp
+        m_MethodName: ResetParry
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1681400033651520440
 MonoBehaviour:
   m_ObjectHideFlags: 0
