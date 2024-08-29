@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac23e97dd83e0be4284eb5ae04d1a4c5, type: 3}
   m_Name: FaceBoss
   m_EditorClassIdentifier: 
-  targetRotation: {x: 0, y: 135, z: 0}
+  targetRotation: {x: 0, y: 163, z: 0}
