@@ -4,13 +4,22 @@ using UnityEngine;
 using HelperMethods;
 using static UnityEngine.ParticleSystem;
 
+public enum ParticleTypes
+{
+    StaggerParticles,
+    ParryParticles,
+}
+
 public class LureBossAnimationEvents : MonoBehaviour
 {
     [SerializeField] BossAI bossAi;
     [SerializeField] BossPosture bossPosture;
     Animator bossAnimator;
 
-    [SerializeField] ParticleSystem staggerParticle;
+    //[SerializeField] ParticleSystem staggerParticle;
+
+    [Tooltip("Order: StaggerParticles, ParryParticles")]
+    [SerializeField] List<ParticleSystem> particles = new List<ParticleSystem>(); 
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,19 +38,20 @@ public class LureBossAnimationEvents : MonoBehaviour
     /// <summary>
     /// Called by animator
     /// </summary>
-    public void PlayParticles()
+    public void PlayParticles(ParticleTypes particleTypes)
     {
-        staggerParticle.Play();
+        //staggerParticle.Play();
+        //particle.Play();
+        particles[(int)particleTypes].Play();
     }
 
     /// <summary>
     /// Called by animator
     /// </summary>
-    public void StopParticles()
+    public void StopParticles(ParticleTypes particleTypes)
     {
-        staggerParticle.Stop();
+        particles[(int)particleTypes].Stop();
 
-        staggerParticle.Clear();
     }
 
     public void EndAttacking()

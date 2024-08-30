@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossAi: {fileID: 0}
   bossPosture: {fileID: 8254534239658114609}
-  staggerParticle: {fileID: 4785967987738207391}
+  particles: []
 --- !u!1 &2659907724594314474
 GameObject:
   m_ObjectHideFlags: 0
