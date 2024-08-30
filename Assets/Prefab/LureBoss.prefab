@@ -5989,6 +5989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossAi: {fileID: 0}
   bossPosture: {fileID: 7859916091848677769}
+  attackAudio: {fileID: 11400000, guid: 8d8a69406716c184dad428feac0f26ba, type: 2}
   particles:
   - {fileID: 5166513355896865256}
 --- !u!82 &5902530300642637316
@@ -6002,7 +6003,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6014,7 +6015,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 70
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

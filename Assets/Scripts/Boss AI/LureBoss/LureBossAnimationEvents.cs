@@ -16,7 +16,11 @@ public class LureBossAnimationEvents : MonoBehaviour
     [SerializeField] BossPosture bossPosture;
     Animator bossAnimator;
 
+    [SerializeField] private AudioPitcherSO attackAudio;
+
     //[SerializeField] ParticleSystem staggerParticle;
+
+    private AudioSource source;
 
     [Tooltip("Order: StaggerParticles, ParryParticles")]
     [SerializeField] List<ParticleSystem> particles = new List<ParticleSystem>(); 
@@ -84,6 +88,11 @@ public class LureBossAnimationEvents : MonoBehaviour
         bossAnimator.transform.position = bossPosture.transform.position;
         bossPosture.transform.localPosition = Vector3.zero;
         Invoke(nameof(ReEnableApplyRootMotion), 0.5f);
+    }
+
+    public void PlayAttackIndicatorAudio()
+    {
+        attackAudio.Play(source);
     }
 
     void ReEnableApplyRootMotion()

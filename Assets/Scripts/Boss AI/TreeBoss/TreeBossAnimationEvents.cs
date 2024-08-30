@@ -32,6 +32,8 @@ public class TreeBossAnimationEvents : MonoBehaviour
     {
         //staggerParticle.Play();
         //particle.Play();
+        if (particles.Count <= 0) return;
+
         particles[(int)particleTypes].Play();
     }
 
@@ -40,8 +42,9 @@ public class TreeBossAnimationEvents : MonoBehaviour
     /// </summary>
     public void StopParticles(ParticleTypes particleTypes)
     {
-        particles[(int)particleTypes].Stop();
+        if (particles.Count <= 0) return;
 
+        particles[(int)particleTypes].Stop();
     }
 
     public void EndAttacking()
