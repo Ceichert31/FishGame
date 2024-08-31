@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.4451763, g: 0.4234966, b: 0.38387713, a: 1}
+  m_FogColor: {r: 0.15399882, g: 0.2792288, b: 0.3804785, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.07
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.16375388, g: 0.36771715, b: 0.48993817, a: 1}
+  m_IndirectSpecularColor: {r: 0.00001541878, g: 0.00000002864141, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1180,7 +1180,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9607514, g: 0.93356633, b: 0.8816001, a: 1}
+  m_Color: {r: 0.49089447, g: 0.31615165, b: 0.3395389, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434042017}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12607858, y: -0.25660482, z: 0.033782654, w: 0.9576622}
+  m_LocalRotation: {x: -0.36964384, y: -0.23911762, z: -0.09904577, w: 0.89239913}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1643,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5013484447417827137, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: parryDelay
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2943,6 +2948,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46805d70e7b9918408748326129691cd, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
+  - {fileID: 11400000, guid: 67b92458f54a14e41ac302560ca611b6, type: 2}
   - {fileID: 11400000, guid: a8ba3a728123c7e4d879545078020ea9, type: 2}
   - {fileID: 11400000, guid: 4992039434aba7647bd7e0971e4288f2, type: 2}
   - {fileID: 11400000, guid: 372e3acc4e31f5844927c7b206976e79, type: 2}
@@ -4103,8 +4109,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6694495, g: 0.79722697, b: 0.9005363, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 0.8632076, g: 0.93883264, b: 1, a: 1}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6370,6 +6376,7 @@ GameObject:
   - component: {fileID: 1472551824}
   - component: {fileID: 1472551826}
   - component: {fileID: 1472551825}
+  - component: {fileID: 1472551827}
   m_Layer: 0
   m_Name: GlobalVolume
   m_TagString: Untagged
@@ -6428,7 +6435,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 2151201a3e335a648a08a7b6b9b4d79f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 8675f61f51e338b48aae5407ab9cb911, type: 2}
 --- !u!4 &1472551823
 Transform:
   m_ObjectHideFlags: 0
@@ -6508,6 +6515,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd09808d66e85d408c7036c030579dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1472551827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472551819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 6703344ec67b3384b8f0b70bbf9713e6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1472551826}
+        m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
+        m_MethodName: ResetProfile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1478343234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9803,6 +9838,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
   - {fileID: 11400000, guid: c2633b35d84b6de49be9661e8999e7e9, type: 2}
   - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
+  - {fileID: 11400000, guid: 8d7cfd3f3de347d4e92a2b81ea358470, type: 2}
   - {fileID: 11400000, guid: a8ba3a728123c7e4d879545078020ea9, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: a503177bbab477c458ddb4629c5fd008, type: 2}
@@ -10145,6 +10181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142228255}
   - component: {fileID: 2142228254}
+  - component: {fileID: 2142228260}
   - component: {fileID: 2142228256}
   - component: {fileID: 2142228257}
   - component: {fileID: 2142228259}
@@ -10169,15 +10206,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time_EventChannel: {fileID: 11400000, guid: fdb2de0ede005c54aa73788f882f7120, type: 2}
+  postEffect_EventChannel: {fileID: 11400000, guid: 5b33ebd6997308e4481bcb9a5d33a69a,
+    type: 2}
   preset: {fileID: 11400000, guid: d6c390abd991ee443a5572c9d6a4d6e8, type: 2}
   pauseTime: 0
-  timeOfDay: 7
+  timeOfDay: 3
   timeSpeedMultiplier: 0.05
-  defaultTimeOfDay: 7
+  defaultTimeOfDay: 3
   advanceTimeBy: 12
   lightRotation: {x: 90, y: -30, z: 0}
   mainLight: {fileID: 434042018}
   ambientLight: {fileID: 1095809638}
+  dayProfile:
+    Profile: {fileID: 11400000, guid: 2151201a3e335a648a08a7b6b9b4d79f, type: 2}
+  nightProfile:
+    Profile: {fileID: 11400000, guid: 8675f61f51e338b48aae5407ab9cb911, type: 2}
 --- !u!4 &2142228255
 Transform:
   m_ObjectHideFlags: 0
@@ -10287,6 +10330,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2142228254}
         m_TargetAssemblyTypeName: DayNightCycle, Assembly-CSharp
         m_MethodName: AdvanceTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2142228260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142228253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 7b8cae1e78dc67e4e828b4d51213a29a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2142228254}
+        m_TargetAssemblyTypeName: DayNightCycle, Assembly-CSharp
+        m_MethodName: SetFogDensity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

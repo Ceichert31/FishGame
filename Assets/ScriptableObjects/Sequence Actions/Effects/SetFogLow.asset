@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ef91694d620ae4d862d96dbf3a01db, type: 3}
+  m_Name: SetFogLow
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 7b8cae1e78dc67e4e828b4d51213a29a, type: 2}
+  floatEvent:
+    FloatValue: 0.07

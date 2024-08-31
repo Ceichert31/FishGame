@@ -9,6 +9,8 @@ public class VolumeController : MonoBehaviour
 
     private bool isNull = true;
 
+    private PostEvent cachedProfile;
+
     void Awake()
     {
         isNull = !TryGetComponent(out currentProfile);     
@@ -22,7 +24,17 @@ public class VolumeController : MonoBehaviour
     {
         if (isNull) return;
 
+        cachedProfile.Profile = currentProfile.profile;
+
         currentProfile.profile = ctx.Profile;
     }
-
+    
+    /// <summary>
+    /// Resets profile to cached profile
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void ResetProfile(VoidEvent ctx)
+    {
+        currentProfile.profile = cachedProfile.Profile;
+    }
 }

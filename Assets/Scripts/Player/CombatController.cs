@@ -14,10 +14,10 @@ public class CombatController : MonoBehaviour
     [SerializeField] private LayerMask fireableLayers;
 
     [Tooltip("How fast the harpoon pulls the player")]
-    [SerializeField] private float GrappleForce => GameManager.Instance.PlayerReelInSpeed;
+    [SerializeField] private float GrappleForce = 20f;
 
     [Tooltip("How fast the harpoon retracts and fires")]
-    [SerializeField] private float ReelInSpeed => GameManager.Instance.PlayerFireRate;
+    [SerializeField] private float ReelInSpeed = 20f;
 
     private HarpoonController harpoonController;
 

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [ExecuteInEditMode]
 public class DayNightCycle : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private BoolEventChannel time_EventChannel;
+    [SerializeField] private PostEffectEventChannel postEffect_EventChannel;
     [SerializeField] private LightingPreset preset;
 
     [Header("Day Night Settings")]
@@ -28,6 +30,12 @@ public class DayNightCycle : MonoBehaviour
 
     [SerializeField] private Light ambientLight;
 
+
+    [Header("Day/Night Profiles")]
+    [SerializeField] private PostEvent dayProfile;
+
+    [SerializeField] private PostEvent nightProfile;
+
     private Coroutine instance;
 
     private BoolEvent isDayTime;
@@ -41,7 +49,7 @@ public class DayNightCycle : MonoBehaviour
 
     private const float TOTALDAYTIME = 24f;
 
-    private const float SUNRISE = 7f;
+    private const float SUNRISE = 5f;
 
     private const float SUNSET = 18f;
 
@@ -94,23 +102,43 @@ public class DayNightCycle : MonoBehaviour
         //Intensity based on time of day
         if (timeOfDay > SUNRISE && timeOfDay < SUNSET)
         {
-            instance = StartCoroutine(SetAmbientLightIntensity(1f));
-
-            isDayTime.Value = true;
-            time_EventChannel.CallEvent(isDayTime);
+            SetDayTimeVisuals();
         }
         else
         {
-            instance = StartCoroutine(SetAmbientLightIntensity(3f));
-
-            isDayTime.Value = false;
-            time_EventChannel.CallEvent(isDayTime);
+            SetNightTimeVisuals();
         }
     }
 
     private void OnValidate()
     {
         UpdateLighting(timeOfDay / TOTALDAYTIME);
+    }
+
+    /// <summary>
+    /// Runs everything related to daytime functionallity
+    /// </summary>
+    private void SetDayTimeVisuals()
+    {
+        instance = StartCoroutine(SetAmbientLightIntensity(1f));
+
+        isDayTime.Value = true;
+        time_EventChannel.CallEvent(isDayTime);
+
+        postEffect_EventChannel.CallEvent(dayProfile);
+    }
+
+    /// <summary>
+    /// Runs everything related to nighttime functionallity
+    /// </summary>
+    private void SetNightTimeVisuals()
+    {
+        instance = StartCoroutine(SetAmbientLightIntensity(1.5f));
+
+        isDayTime.Value = false;
+        time_EventChannel.CallEvent(isDayTime);
+
+        postEffect_EventChannel.CallEvent(nightProfile);
     }
 
     IEnumerator SetAmbientLightIntensity(float targetIntensity)
@@ -152,5 +180,14 @@ public class DayNightCycle : MonoBehaviour
     public void AdvanceTime(VoidEvent ctx)
     {
         timeOfDay += advanceTimeBy;
+    }
+
+    /// <summary>
+    /// Sets the density of unity fog
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void SetFogDensity(FloatEvent ctx)
+    {
+        RenderSettings.fogDensity = ctx.FloatValue;
     }
 }
