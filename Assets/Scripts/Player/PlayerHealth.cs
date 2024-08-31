@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out IMeele meeleInstance))
         {
-            if (meeleInstance.Parried)
+            if (meeleInstance.Used)
             {
                 return;
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 interface IMeele
 {
-    bool Parried
+    bool Used
     {
         get;
         set;
@@ -33,7 +33,7 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
 
     Sequencer parrySequencer;
 
-    public bool Parried { get => used; set => used = value; }
+    public bool Used { get => used; set => used = value; }
     public int ParryAmmount
     {
         get {
