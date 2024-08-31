@@ -704,9 +704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd307b1912dc904fa2c1e4d45f07b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAi: {fileID: 0}
-  bossPosture: {fileID: 8254534239658114609}
-  particles: []
+  modelsTransform: {fileID: 531490835648964565}
+  attackAudio: {fileID: 11400000, guid: 8d8a69406716c184dad428feac0f26ba, type: 2}
+  particles:
+  - {fileID: 4785967987738207391}
 --- !u!1 &2659907724594314474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1493,7 @@ MonoBehaviour:
     type: 2}
   bossMaxHealth: 100
   parryDamageMultiplier: 0.05
+  bossAnimator: {fileID: 5338587677684947829}
 --- !u!114 &8254534239658114609
 MonoBehaviour:
   m_ObjectHideFlags: 0

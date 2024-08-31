@@ -18,6 +18,10 @@ public class BossHealth : MonoBehaviour
 
     private FloatEvent damage;
 
+    [Header("Death Variables")]
+
+    [SerializeField] Animator bossAnimator;
+
     private Sequencer deathSequencer;
 
     private void Start()
@@ -46,14 +50,10 @@ public class BossHealth : MonoBehaviour
         healthUI_EventChannel.CallEvent(currentHealth);
 
         //Fish health hits zero
-        if (currentHealth.FloatValue <= 0 )
+        if (currentHealth.FloatValue <= 0)
         {
-            deathSequencer.InitializeSequence();
-
-            //Returns player
-            return_EventChannel.CallEvent(new());
-
-            DisableBoss();
+            //Triggers A death animation
+            bossAnimator.SetTrigger("Death");
         }
     }
 
@@ -99,6 +99,25 @@ public class BossHealth : MonoBehaviour
     void DisableBoss()
     {
         Destroy(gameObject.transform.parent.gameObject);
+    }
+
+
+    /// <summary>
+    /// Death Event Order:
+    /// 1. Death animation is triggered whenever the enemy looses all of its health
+    /// 2. Death animation calls an animation event that then calls this function
+    /// 3. Death Sequencer goes throught its processes
+    /// 4. Player is transitioned back to overworld
+    /// 5. Boss is disabled
+    /// </summary>
+    public void ProcedeWithDeath()
+    {
+        deathSequencer.InitializeSequence();
+
+        //Returns player
+        return_EventChannel.CallEvent(new());
+
+        DisableBoss();
     }
 }
 

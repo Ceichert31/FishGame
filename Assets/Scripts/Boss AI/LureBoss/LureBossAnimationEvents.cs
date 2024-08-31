@@ -2,101 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
-using static UnityEngine.ParticleSystem;
 
-public enum ParticleTypes
+public class LureBossAnimationEvents : AnimationEvents
 {
-    StaggerParticles,
-    ParryParticles,
-}
-
-public class LureBossAnimationEvents : MonoBehaviour
-{
-    [SerializeField] BossAI bossAi;
-    [SerializeField] BossPosture bossPosture;
-    Animator bossAnimator;
-
-    [SerializeField] private AudioPitcherSO attackAudio;
-
-    //[SerializeField] ParticleSystem staggerParticle;
-
-    private AudioSource source;
-
-    [Tooltip("Order: StaggerParticles, ParryParticles")]
-    [SerializeField] List<ParticleSystem> particles = new List<ParticleSystem>(); 
-    // Start is called before the first frame update
-    void Awake()
+    public override void EndAttacking()
     {
-        try
-        {
-            bossAi = GetComponentInChildren<BossAI>();
-        }
-        catch
-        {
-            throw new System.Exception("There is no BossAi under this object");
-        }
-
-        bossAnimator = GetComponent<Animator>();
-    }
-
-    /// <summary>
-    /// Called by animator
-    /// </summary>
-    public void PlayParticles(ParticleTypes particleTypes)
-    {
-        //staggerParticle.Play();
-        //particle.Play();
-        particles[(int)particleTypes].Play();
-    }
-
-    /// <summary>
-    /// Called by animator
-    /// </summary>
-    public void StopParticles(ParticleTypes particleTypes)
-    {
-        particles[(int)particleTypes].Stop();
-
-    }
-
-    public void EndAttacking()
-    {
-        AttackState attackState =  (AttackState)bossAi.BossStates[(int)States.AttackState];
+        AttackState attackState = (AttackState)bossAi.BossStates[(int)States.AttackState];
         attackState.Attacking = false;
         Debug.Log("attack ended");
     }
 
-    public void TeleportLureBoss()
+    public override void TeleportBoss()
     {
         Debug.Log("called");
         FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];
         fleeState.TeleportFish();
-    }
-
-    public void ResetPosture()
-    {
-        bossPosture.ResetPosture();
-    }
-
-
-    /// <summary>
-    /// IMPORTANT FOR ANIMATION
-    /// Allows the fish object to move in animation and have the movements carry over into the game properly
-    /// </summary>
-    public void SetParentToChild()
-    {
-        bossAnimator.applyRootMotion = false;
-        bossAnimator.transform.position = bossPosture.transform.position;
-        bossPosture.transform.localPosition = Vector3.zero;
-        Invoke(nameof(ReEnableApplyRootMotion), 0.5f);
-    }
-
-    public void PlayAttackIndicatorAudio()
-    {
-        attackAudio.Play(source);
-    }
-
-    void ReEnableApplyRootMotion()
-    {
-        bossAnimator.applyRootMotion = true;
     }
 }
