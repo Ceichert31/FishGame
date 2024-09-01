@@ -6740,7 +6740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryAmmount: 10
+  parryAmmount: 20
   attackDamage: 30
 --- !u!1 &8884383882560385104
 GameObject:
