@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryAmmount: 50
-  attackDamage: 50
+  attackDamage: 10
 --- !u!1 &2283238013524327254
 GameObject:
   m_ObjectHideFlags: 0

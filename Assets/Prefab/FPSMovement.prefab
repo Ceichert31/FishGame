@@ -168,9 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18, type: 2}
-  - {fileID: 11400000, guid: a3cdd6c95422dd148ac1028279062268, type: 2}
-  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
-  - {fileID: 11400000, guid: 74bc76af4c6aea44b87ce9f5c6fd1017, type: 2}
+  - {fileID: 11400000, guid: e1168d9a192a1b34883fa2bac7a83583, type: 2}
 --- !u!1 &760866051005294279
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +972,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  dashCooldown: 1.5
+  dashCooldown: 1
   dashForce: 100
 --- !u!114 &4893733725445465475
 MonoBehaviour:
@@ -1086,7 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFOV: 10
-  decayTime: 1.5
+  decayTime: 0.3
   fieldOfViewScale: 15
   baseFOV: 75
   maxFOV: 110
@@ -2504,11 +2502,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0c57ed3ca0bd54b87baecef474f77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryDelay: 1
+  parryDelay: 0.5
   grappleRange: 20
   fireableLayers:
     serializedVersion: 2
     m_Bits: 511
+  GrappleForce: 20
+  ReelInSpeed: 20
 --- !u!114 &4975736183753545843
 MonoBehaviour:
   m_ObjectHideFlags: 0
