@@ -1,7 +1,4 @@
-using UnityEditor.ShaderGraph.Drawing;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerInteractor : MonoBehaviour
 {

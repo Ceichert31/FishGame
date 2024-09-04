@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
+using System;
 
 [CreateAssetMenu(fileName = "FleeState", menuName = "BossStates/Flee")]
 public class FleeState : AIState
@@ -20,9 +21,9 @@ public class FleeState : AIState
 
     bool called = false;
 
-    private Vector3[] directions;
-    private int[] posNeg;
-    private List<Vector3> projectileSpawnLocations;
+    private Vector3[] directions = new Vector3[2] { Vector3.right, Vector3.forward}; 
+    private int[] posNeg = new int[2] { -1, 1 };
+    private List<Vector3> projectileSpawnLocations = new List<Vector3>();
 
     int projectilesToSpawn;
     protected override bool Called
@@ -34,10 +35,7 @@ public class FleeState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        directions = new Vector3[2] { Vector3.right, Vector3.forward };
-        posNeg = new int[2] { -1, 1 };
         bossAnimator = bossTransform.GetComponent<Animator>();
-        //bossAudio = bossTransform.GetComponent<AudioSource>();
         lureProjectileSpawner = ctx.GetComponent<BossProjectileSpawner>();
         fleeTime = 5f;
         fleeDistance = 50;
@@ -63,6 +61,8 @@ public class FleeState : AIState
 
     public override void ExitState(BossAI ctx)
     {
+
+        Debug.Log(fleeLocation);
         fleeLocation = Vector3.zero;
         bossTransform.LookAt(Util.VectorSameY(Player, bossTransform.position.y));
         bossAnimator.applyRootMotion = true;
@@ -73,7 +73,7 @@ public class FleeState : AIState
     /// </summary>
     int PosNegPicker()
     {
-        return Random.value > 0.5f ? 1 : -1;
+        return UnityEngine.Random.value > 0.5f ? 1 : -1;
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public class FleeState : AIState
     /// <returns></returns>
     Vector3 RandomDirection()
     {
-        return Random.value > 0.5f ? Vector3.forward : Vector3.right;
+        return UnityEngine.Random.value > 0.5f ? Vector3.forward : Vector3.right;
     }
 
     /// <summary>
@@ -90,7 +90,15 @@ public class FleeState : AIState
     /// </summary>
     public void TeleportFish()
     {
-        bossAnimator.applyRootMotion = false;
+        Debug.Log("Got to teleportFish");
+        try
+        {
+            bossAnimator.applyRootMotion = false;
+        }
+        catch
+        {
+            Debug.Log("Got the bug");
+        }
         Vector3 randomDirection = RandomDirection();
         float posNeg = PosNegPicker();
 
@@ -101,6 +109,8 @@ public class FleeState : AIState
 
         // Teleport the boss to the new location.
         bossTransform.position = fleeLocation;
+
+        Debug.Log(startLocation);
 
         SpawnProjectiles();
     }
