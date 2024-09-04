@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StabAttackPitcher
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: b89e28e59c3799c4cb3301942e411aa8, type: 3}
+  - {fileID: 8300000, guid: f39b33e924aa8c24fa33e57f8bbb81f0, type: 3}
   volume:
     minValue: 1
     maxValue: 1

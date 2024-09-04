@@ -57,8 +57,9 @@ public class BossAI : MonoBehaviour
 
     private void Update()
     {
-        if (currentState != null) 
-            currentState.ExecuteState(this);
+        /*if (currentState != null) 
+            currentState.ExecuteState(this);*/
+        currentState?.ExecuteState(this);
     }
 
     /// <summary>
