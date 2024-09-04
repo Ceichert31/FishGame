@@ -49,7 +49,7 @@ public class DayNightCycle : MonoBehaviour
 
     private const float TOTALDAYTIME = 24f;
 
-    private const float SUNRISE = 5f;
+    private const float SUNRISE = 7f;
 
     private const float SUNSET = 18f;
 
