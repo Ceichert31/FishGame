@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.6117647, g: 0.7137255, b: 0.7176471, a: 1}
+  m_FogColor: {r: 0.020692414, g: 0.17095996, b: 0.2924528, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.07
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.14767781, g: 0.38237906, b: 0.5891765, a: 1}
+  m_IndirectSpecularColor: {r: 0.00001541878, g: 0.00000002864141, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1180,7 +1180,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7643641, b: 0.014659363, a: 1}
+  m_Color: {r: 0.050729793, g: 0.41871727, b: 0.7169812, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434042017}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56775707, y: -0.209389, z: 0.15213005, w: 0.7814504}
+  m_LocalRotation: {x: -0.6830127, y: -0.18301271, z: -0.18301271, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4108,8 +4108,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8460551, g: 0.93116283, b: 1, a: 0.37650222}
-  m_Intensity: 1
+  m_Color: {r: 0.8632076, g: 0.93883264, b: 1, a: 1}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10195,7 +10195,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 1.04
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -10232,7 +10232,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10311,7 +10311,7 @@ MonoBehaviour:
     type: 2}
   preset: {fileID: 11400000, guid: d6c390abd991ee443a5572c9d6a4d6e8, type: 2}
   pauseTime: 0
-  timeOfDay: 10.8
+  timeOfDay: 0
   timeSpeedMultiplier: 0.05
   defaultTimeOfDay: 0
   advanceTimeBy: 12
