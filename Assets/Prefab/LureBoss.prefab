@@ -5875,7 +5875,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parrySheen: {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d,
     type: 3}
-  bossTexture: {fileID: 2800000, guid: cdb2db06cc804e3438b4193eb52a2ac9, type: 3}
   multiplier: 0.7
 --- !u!1 &6827196325690850589
 GameObject:
