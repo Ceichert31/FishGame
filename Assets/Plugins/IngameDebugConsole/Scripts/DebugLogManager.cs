@@ -959,6 +959,8 @@ namespace IngameDebugConsole
 
 		public void ShowLogWindow()
 		{
+			Time.timeScale = 0;
+
 			// Show the log window
 			logWindowCanvasGroup.blocksRaycasts = true;
 			logWindowCanvasGroup.alpha = logWindowOpacity;
@@ -983,8 +985,10 @@ namespace IngameDebugConsole
 
 		public void HideLogWindow()
 		{
-			// Hide the log window
-			logWindowCanvasGroup.blocksRaycasts = false;
+            Time.timeScale = 1;
+
+            // Hide the log window
+            logWindowCanvasGroup.blocksRaycasts = false;
 			logWindowCanvasGroup.alpha = 0f;
 
 			if( commandInputField.isFocused )
