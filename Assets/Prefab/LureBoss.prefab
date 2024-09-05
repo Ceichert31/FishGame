@@ -5514,7 +5514,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 181144557f3c91a4d8fefb6ff386c8b1, type: 3}
+  - {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d, type: 3}
   - {fileID: -3846018093981099296, guid: 181144557f3c91a4d8fefb6ff386c8b1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5659,6 +5659,7 @@ GameObject:
   - component: {fileID: 4366325919319603030}
   - component: {fileID: 4552175915574238521}
   - component: {fileID: 9053415698981932793}
+  - component: {fileID: 1774316683726878716}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -5860,6 +5861,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pustule: {fileID: 6579709354089589859}
+--- !u!114 &1774316683726878716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45eb069d878fcb49a7365922d4b01eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parrySheen: {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d,
+    type: 3}
+  bossTexture: {fileID: 2800000, guid: cdb2db06cc804e3438b4193eb52a2ac9, type: 3}
+  multiplier: 0.7
 --- !u!1 &6827196325690850589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6142,6 +6159,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7859916091848677769}
         m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
         m_MethodName: CallUpdatePosture
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1774316683726878716}
+        m_TargetAssemblyTypeName: SheenController, Assembly-CSharp
+        m_MethodName: StartSheen
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
