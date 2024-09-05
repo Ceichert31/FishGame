@@ -12,15 +12,9 @@ enum Bools
 public class SheenController : MonoBehaviour
 {
     [SerializeField] Material parrySheen;
-    [SerializeField] Texture bossTexture;
     const float DEFAULTVALUE = -0.31f;        // Starting value for the sheen
     const float ENDVALUE = 0.15f;             // Final value for the sheen
     [SerializeField] float multiplier = 1; 
-
-    private void Awake()
-    {
-        parrySheen.SetTexture("_BossTexture", bossTexture); // Assign boss texture
-    }
 
     void Start()
     {
