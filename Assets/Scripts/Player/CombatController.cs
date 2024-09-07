@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class CombatController : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private AudioPitcherSO spearGunFireAudio;
+
     [Header("Hook Settings")]
     [SerializeField] private float parryDelay = 0.8f;
 
@@ -29,6 +32,8 @@ public class CombatController : MonoBehaviour
     private Animator hookAnimator;
 
     private Animator spearAnimator;
+
+    private AudioSource source;
     private bool IsInProgress => harpoonController.IsInProgress;
 
     private const int GRAPPLELAYER = 8;
@@ -42,6 +47,8 @@ public class CombatController : MonoBehaviour
         spearAnimator = transform.GetChild(3).GetComponent<Animator>();
 
         harpoonController = GetComponentInChildren<HarpoonController>();
+
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -59,6 +66,9 @@ public class CombatController : MonoBehaviour
     void FireGrapple(InputAction.CallbackContext ctx)
     {
         if (IsInProgress) return;
+
+        //Play SFX
+        spearGunFireAudio.Play(source);
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, fireableLayers))
         {

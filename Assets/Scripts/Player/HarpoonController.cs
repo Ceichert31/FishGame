@@ -22,6 +22,8 @@ public class HarpoonController : MonoBehaviour
 
     private bool isInProgress;
 
+    private AudioSource source;
+
     //Accessors
     public bool IsInProgress { get { return isInProgress; } }
 
@@ -41,6 +43,8 @@ public class HarpoonController : MonoBehaviour
         boltObject = transform.GetChild(0);
 
         boltRigidbody = boltObject.GetComponent<Rigidbody>();
+
+        source = transform.parent.GetComponent<AudioSource>();
 
         //Disabled after game starts
         transform.parent.gameObject.SetActive(false);
@@ -123,6 +127,8 @@ public class HarpoonController : MonoBehaviour
 
         //Increase FOV
         fov_EventChannel.CallEvent(new());
+
+        source.Play();
 
         //Move player to hitpoint
         while (Vector3.Distance(hitPoint, Player.position) > GRAPPLEDISTANCE)
@@ -211,6 +217,8 @@ public class HarpoonController : MonoBehaviour
 
         //Re-enable firing harpoon
         isInProgress = false;
+
+        source.Stop();
     }
 }
 
