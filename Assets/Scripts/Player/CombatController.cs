@@ -13,6 +13,9 @@ public class CombatController : MonoBehaviour
     [Tooltip("Layers that can be fired at")]
     [SerializeField] private LayerMask fireableLayers;
 
+    [Tooltip("Layers that can break the grapple line")]
+    [SerializeField] private LayerMask interuptableLayers;
+
     [Tooltip("How fast the harpoon pulls the player")]
     [SerializeField] private float GrappleForce = 20f;
 
@@ -39,6 +42,15 @@ public class CombatController : MonoBehaviour
         spearAnimator = transform.GetChild(3).GetComponent<Animator>();
 
         harpoonController = GetComponentInChildren<HarpoonController>();
+    }
+
+    private void Update()
+    {
+        //Line of Sight, retracts when interupted
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, interuptableLayers))
+        {
+            harpoonController.Retract(ReelInSpeed);
+        }
     }
 
     /// <summary>
