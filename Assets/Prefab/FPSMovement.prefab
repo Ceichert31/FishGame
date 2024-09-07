@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 700533270298023575}
   - component: {fileID: 157607375117498321}
   - component: {fileID: 8920064879564925118}
+  - component: {fileID: 8312098709026419250}
   m_Layer: 6
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -712,6 +713,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8312098709026419250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: a3cdd6c95422dd148ac1028279062268, type: 2}
+  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
+  - {fileID: 11400000, guid: 74bc76af4c6aea44b87ce9f5c6fd1017, type: 2}
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0

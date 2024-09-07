@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f145237619617b246a7b51ca01948778, type: 3}
-  m_Name: PostEffectAttack
+  m_Name: PostEffectDamaged
   m_EditorClassIdentifier: 
   post_EventChannel: {fileID: 11400000, guid: 5b33ebd6997308e4481bcb9a5d33a69a, type: 2}
   postProfile:

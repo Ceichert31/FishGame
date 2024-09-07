@@ -16,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
 
     private AudioSource source;
 
+    private Sequencer damageSequencer;
+
     private void Start()
     {
         currentHealth.FloatValue = maxHealth;
@@ -24,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
         maxPlayerHealth_EventChannel.CallEvent(new(maxHealth));
 
         source = GetComponent<AudioSource>();
+
+        damageSequencer = GetComponent<Sequencer>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 return;
             }
+
             DealDamage(meeleInstance.AttackDamage);
         }
     }
@@ -54,6 +59,9 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damage"></param>
     public void DealDamage(float damage)
     {
+        //Play damage effects
+        damageSequencer.InitializeSequence();
+
         hurtAudio.Play(source);
 
         //Calculate new health

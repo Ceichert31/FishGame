@@ -39,6 +39,8 @@ public class PlayerHealthUI : MonoBehaviour
 
     public void UpdateHealthBar(FloatEvent ctx)
     {
+        StopAllCoroutines();
+
         float normalizedTarget = ctx.FloatValue / maxHealth;
 
         StartCoroutine(AnimateTempHealthBar(normalizedTarget * tempHealthMultiplier));
