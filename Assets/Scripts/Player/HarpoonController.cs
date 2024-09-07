@@ -61,12 +61,12 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
-    public void StartGrapple(float reelInSpeed, float grappleForce, RaycastHit hitPoint, bool isWeakPoint)
+    public void StartGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
     {
         //Disable firing harpoon
         isInProgress = true;
 
-        StartCoroutine(ShootGrapple(reelInSpeed, grappleForce, hitPoint, isWeakPoint));
+        StartCoroutine(ShootGrapple(reelInSpeed, grappleForce, hitPoint, isWeakPoint, isDamageable));
     }
     /// <summary>
     /// Lerps bobber to target position
@@ -75,7 +75,7 @@ public class HarpoonController : MonoBehaviour
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
     /// <returns></returns>
-    IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, RaycastHit hitPoint, bool isWeakPoint)
+    IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
     {
         boltRigidbody.isKinematic = false;
 
@@ -83,11 +83,11 @@ public class HarpoonController : MonoBehaviour
         boltObject.parent = null;
 
         //Move bolt to hitpoint
-        while (Vector3.Distance(hitPoint.point, boltObject.position) > GRAPPLEDISTANCE)
+        while (Vector3.Distance(hitPoint, boltObject.position) > GRAPPLEDISTANCE)
         {
             //boltObject.transform.position = Vector3.MoveTowards(boltObject.transform.position, hitPoint.point, reelInSpeed * Time.deltaTime);
 
-            boltRigidbody.velocity = reelInSpeed * (hitPoint.point - boltObject.position).normalized;
+            boltRigidbody.velocity = reelInSpeed * (hitPoint - boltObject.position).normalized;
 
             yield return null;
         }
@@ -96,12 +96,12 @@ public class HarpoonController : MonoBehaviour
         boltRigidbody.velocity = Vector3.zero;
 
         //Set final position
-        boltObject.position = hitPoint.point;
+        boltObject.position = hitPoint;
 
         //Determine if player can grapple to surface or not
         if (isWeakPoint)
         {
-            StartCoroutine(GrapplePlayer(grappleForce, hitPoint));
+            StartCoroutine(GrapplePlayer(grappleForce, hitPoint, isDamageable));
         }
         else
         {
@@ -115,25 +115,25 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <returns></returns>
-    IEnumerator GrapplePlayer(float grappleForce, RaycastHit hitPoint)
+    IEnumerator GrapplePlayer(float grappleForce, Vector3 hitPoint, bool isDamageable)
     {
         FloatEvent distance;
 
-        distance.FloatValue = Vector3.Distance(Player.position, hitPoint.point);
+        distance.FloatValue = Vector3.Distance(Player.position, hitPoint);
 
         //Increase FOV
         fov_EventChannel.CallEvent(new());
 
         //Move player to hitpoint
-        while (Vector3.Distance(hitPoint.point, Player.position) > GRAPPLEDISTANCE)
+        while (Vector3.Distance(hitPoint, Player.position) > GRAPPLEDISTANCE)
         {
-            playerRigidbody.velocity = grappleForce * (hitPoint.point - Player.position).normalized;
+            playerRigidbody.velocity = grappleForce * (hitPoint - Player.position).normalized;
 
             yield return null;
         }
 
         //If weakpoint, deal damage
-        if (hitPoint.transform.gameObject.CompareTag("Damageable"))
+        if (isDamageable)
         {
             //Stop velocity
             playerRigidbody.velocity = Vector3.zero;

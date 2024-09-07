@@ -30,6 +30,8 @@ public class CombatController : MonoBehaviour
 
     private const int GRAPPLELAYER = 8;
 
+    private const float NULLGRAPPLEDISTANCE = 20f;
+
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
@@ -48,14 +50,27 @@ public class CombatController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, fireableLayers))
         {
+            //If grappable surface is detected, pull player in
             if (hitInfo.collider.gameObject.layer == GRAPPLELAYER)
             {
-                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo, true);
+                //Determine if the grapple point is damageable
+                if (hitInfo.collider.CompareTag("Damageable"))
+                    harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, true, true);
+                else
+                    harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, true, false);
             }
             else
             {
-                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo, false);
+                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, false, false);
             }
+        }
+        else
+        {
+            //Unfinished
+            //If player fires into space, fire and retract
+            Debug.Log(Camera.main.transform.position);
+
+            harpoonController.StartGrapple(ReelInSpeed, GrappleForce, Camera.main.transform.position, false, false);
         }
     }
 
