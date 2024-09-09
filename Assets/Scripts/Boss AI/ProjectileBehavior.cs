@@ -26,6 +26,13 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
     public bool IsParried { get => isParried;}
     public float ProjectileDamage { get => projectileDamage; }
 
+    public ProjectileBehavior(float damage, float speed, float lifetime)
+    {
+        projectileDamage = damage;
+        projectileSpeed = speed;
+        projectileLifetime = lifetime;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

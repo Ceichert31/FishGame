@@ -6,7 +6,7 @@ using HelperMethods;
 [CreateAssetMenu(fileName ="WalkState", menuName ="BossStates/Walk")]
 public class WalkState : AIState
 {
-    [SerializeField] BossProjectileSpawner projectileSpawner;
+    [SerializeField] IProjectileSpawner projectileSpawner;
     float maxDistance;
     float fireTime;
 
@@ -29,7 +29,7 @@ public class WalkState : AIState
 
     public override void InitalizeState(BossAI ctx)
     {
-        projectileSpawner = ctx.GetComponent<BossProjectileSpawner>();
+        projectileSpawner = ctx.GetComponent<IProjectileSpawner>();
         initalMoveAmmount = 10;
         slowDownAmmount = 2;
         timeUntilNextMovement = 1;
@@ -70,8 +70,9 @@ public class WalkState : AIState
         if (fireTime <= 0)
         {
             float waitTime = projectileFireWaitTime;
-            projectileSpawner.SpawnPattern(waitTime);
-            fireTime = waitTime * projectileSpawner.SpawnLocationCount;
+            projectileSpawner.Spawn(5);
+            /*fireTime = waitTime * projectileSpawner.SpawnLocationCount;*/
+            fireTime = waitTime;
         }
         //In the future might want to make this unscalled to not get messed with by time discrepincies
         fireTime -= Time.deltaTime;
@@ -113,7 +114,7 @@ public class WalkState : AIState
     public override void ExitState(BossAI ctx)
     {
         //Stops all projectile spawning whenever the state is left
-        projectileSpawner.StopProjectileSpawner();
+        projectileSpawner.StopSpawning();
         fireTime = 1;
     }
 

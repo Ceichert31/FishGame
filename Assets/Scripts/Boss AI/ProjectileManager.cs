@@ -20,6 +20,13 @@ public abstract class ProjectileManager : MonoBehaviour
     protected Transform spefSpawnLocation;
     protected WaitForSeconds wfs;
 
+    private IProjectileSpawner spawner;
+
+    private void Start()
+    {
+        spawner = GetComponent<IProjectileSpawner>();
+    }
+
     /// <summary>
     /// Initializes the pool
     /// </summary>
@@ -37,7 +44,8 @@ public abstract class ProjectileManager : MonoBehaviour
     public virtual void InitalizeProjectileSpawner(GameObject projectile, int _projectileAmmount, float timeBetweenProjectile, Vector3 specificSpawnLocation)
     {
         wfs = new WaitForSeconds(timeBetweenProjectile);
-        StartCoroutine(SpawnProjectiles(projectile, _projectileAmmount, specificSpawnLocation));
+        //StartCoroutine(SpawnProjectiles(projectile, _projectileAmmount, specificSpawnLocation));
+        spawner.Spawn(_projectileAmmount);
     }
 
     /// <summary>

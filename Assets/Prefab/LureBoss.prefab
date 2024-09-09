@@ -5657,7 +5657,7 @@ GameObject:
   - component: {fileID: 1164393372454060404}
   - component: {fileID: 6810070633299860872}
   - component: {fileID: 4366325919319603030}
-  - component: {fileID: 4552175915574238521}
+  - component: {fileID: 2227031593269736330}
   - component: {fileID: 9053415698981932793}
   - component: {fileID: 1774316683726878716}
   m_Layer: 0
@@ -5824,7 +5824,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4552175915574238521
+--- !u!114 &2227031593269736330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5833,16 +5833,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6645988948429123648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d008781e71439ae4ebf5deb765b5b8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 52bf8d7d615d2ab45b4618716666b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
-    type: 3}
-  poolSize: 10
-  maxPoolSize: 20
-  defaultSpawnLocation: {fileID: 0}
-  defaultProjectileAmmount: 0
-  tempProjectile: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
+  projectileDamage: 5
+  projectileSpeed: 30
+  spawnDelay: 0.5
+  projectilePrefab: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
     type: 3}
   projectileSpawnPoints:
   - {fileID: 7616526417718905363}

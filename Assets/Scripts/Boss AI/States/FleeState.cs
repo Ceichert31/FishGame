@@ -13,7 +13,7 @@ public class FleeState : AIState
     Vector3 fleeLocation;
     Animator bossAnimator;
     //AudioSource bossAudio;
-    BossProjectileSpawner lureProjectileSpawner;
+    IProjectileSpawner lureProjectileSpawner;
 
     float fleeTime;
     float fleeDistance;
@@ -36,7 +36,7 @@ public class FleeState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         bossAnimator = bossTransform.GetComponent<Animator>();
-        lureProjectileSpawner = ctx.GetComponent<BossProjectileSpawner>();
+        lureProjectileSpawner = ctx.GetComponent<IProjectileSpawner>();
         fleeTime = 5f;
         fleeDistance = 50;
         projectilesToSpawn = 5;
@@ -138,8 +138,8 @@ public class FleeState : AIState
         }
 
         // Spawn the projectiles at the calculated positions using a custom pattern.
-        lureProjectileSpawner.SpawnCustomPattern(1f, projectileSpawnLocations);
-
+        //lureProjectileSpawner.SpawnCustomPattern(1f, projectileSpawnLocations);
+        lureProjectileSpawner.Spawn(3);
     }
 
     Vector3 ProjectileSpawnLocation()
