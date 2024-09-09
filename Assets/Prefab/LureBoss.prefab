@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
+  - {fileID: 11400000, guid: f8a0453dfb55e0048b099d3bc207bc9a, type: 2}
   - {fileID: 11400000, guid: 137d563e1216c30478427ebbccfe169e, type: 2}
 --- !u!1 &2770780475122198284
 GameObject:
