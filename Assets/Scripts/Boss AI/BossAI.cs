@@ -21,13 +21,6 @@ public class BossAI : MonoBehaviour
     [Tooltip("State Order: Idle, Walk, Attack, Stagger, tbc")]
     [SerializeField] List<AIState> bossStates = new List<AIState>();
 
-    /*
-    public IdleState idleState;
-    public WalkState walkState;
-    public AttackState attackState;
-    public StaggerState staggerState;
-    */
-
     private void Awake()
     {
 
@@ -36,12 +29,6 @@ public class BossAI : MonoBehaviour
         Animator = transform.parent.GetComponent<Animator>();
 
         InitializeDefaultState();
-
-        
-        /*for(int i = 0; i < states.Count; i++)
-        {
-            states[i] = new();
-        }*/
     }
 
     /// <summary>
@@ -49,7 +36,6 @@ public class BossAI : MonoBehaviour
     /// </summary>
     private void InitializeDefaultState()
     {
-        //currentState = walkState;
         currentState = bossStates[(int)States.WalkState];
 
         currentState.EnterStateController(this);
@@ -57,23 +43,8 @@ public class BossAI : MonoBehaviour
 
     private void Update()
     {
-        /*if (currentState != null) 
-            currentState.ExecuteState(this);*/
         currentState?.ExecuteState(this);
     }
-
-    /// <summary>
-    /// Switches current state
-    /// </summary>
-    /// <param name="newState"></param>
-    /*public void SwitchState(AIState newState)
-    {
-        currentState.ExitState(this);
-
-        currentState = newState;
-
-        currentState.EnterStateController(this);
-    }*/
 
     /// <summary>
     /// Switches current state
@@ -99,7 +70,6 @@ public class BossAI : MonoBehaviour
     [ContextMenu("TransitionToWalkState")]
     public void ToWalkState()
     {
-        //SwitchState(walkState);
         SwitchState(States.WalkState);
     }
 

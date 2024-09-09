@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AttackState", menuName = "BossStates/Tree Attack")]
-public class TreeAttackState : AIState
+public class TreeAttackState : AIState, IAttackState
 {
     [SerializeField] List<string> attacks = new List<string>();
 

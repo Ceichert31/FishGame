@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
 
+
 [CreateAssetMenu(fileName = "AttackState", menuName = "BossStates/Attack")]
-public class AttackState : AIState
+public class AttackState : AIState, IAttackState
 {
     [SerializeField] List<string> attacks = new List<string>();
 
@@ -27,11 +28,6 @@ public class AttackState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         bossAnimator = bossTransform.GetComponent<Animator>();
-
-        /*for(int i = 0; i < bossAnimator.parameters.Length; i++)
-        {
-            attacks[i] = bossAnimator.parameters[i].name;
-        }*/
 
         if (attacks.Count == 0)
         {
@@ -59,19 +55,8 @@ public class AttackState : AIState
         {
             return;
         }
-        //Distance Check with player
 
-        //if()
-        //If the player walks away far
-        /*if(Util.DistanceNoY(bossTransform.position, Player) > maxDistance)
-        {
-            ctx.SwitchState(States.WalkState);
-        }*/
         ctx.SwitchState(States.WalkState);
-
-        //Peach Cobler is alright
-
-        //Had better at a school cafeteria
     }
 
     public override void ExitState(BossAI ctx)
@@ -84,7 +69,6 @@ public class AttackState : AIState
     void GenerateAttack()
     {
         currentAttack = attacks[Random.Range(0, attacks.Count)];
-        //currentAttack = "Spin";
     }
 
     void ExecuteAttack()

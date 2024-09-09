@@ -31,7 +31,7 @@ public abstract class AIState : ScriptableObject
     /// <param name="ctx"></param>
     public void EnterStateController(BossAI ctx)
     {
-        if(Called)
+        if (Called)
         {
             EnterState(ctx);
             return;
@@ -63,4 +63,11 @@ public abstract class AIState : ScriptableObject
     {
         Called = false;
     }
+}
+
+
+//State Based Interfaces:
+public interface IAttackState
+{
+    public bool Attacking { get; set; }
 }

@@ -65,7 +65,12 @@ public abstract class AnimationEvents : MonoBehaviour
 
     }
 
-    public abstract void EndAttacking();
+    public void EndAttacking()
+    {
+        IAttackState attackState = (IAttackState)bossAi.BossStates[(int)States.AttackState];
+        attackState.Attacking = false;
+        Debug.Log("attack ended");
+    }
 
     public abstract void TeleportBoss();
 
