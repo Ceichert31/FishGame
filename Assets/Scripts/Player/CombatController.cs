@@ -16,15 +16,6 @@ public class CombatController : MonoBehaviour
     [Tooltip("Layers that can be fired at")]
     [SerializeField] private LayerMask fireableLayers;
 
-    [Tooltip("Layers that can break the grapple line")]
-    [SerializeField] private LayerMask interuptableLayers;
-
-    [Tooltip("How fast the harpoon pulls the player")]
-    [SerializeField] private float GrappleForce = 20f;
-
-    [Tooltip("How fast the harpoon retracts and fires")]
-    [SerializeField] private float ReelInSpeed = 20f;
-
     private HarpoonController harpoonController;
 
     private bool canParry = true;
@@ -51,15 +42,6 @@ public class CombatController : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        //Line of Sight, retracts when interupted
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, interuptableLayers))
-        {
-            harpoonController.Retract(ReelInSpeed);
-        }
-    }
-
     /// <summary>
     /// Fires raycast to detect if there is a weakpoint
     /// </summary>
@@ -77,13 +59,13 @@ public class CombatController : MonoBehaviour
             {
                 //Determine if the grapple point is damageable
                 if (hitInfo.collider.CompareTag("Damageable"))
-                    harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, true, true);
+                    harpoonController.StartGrapple(hitInfo.point, true, true);
                 else
-                    harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, true, false);
+                    harpoonController.StartGrapple(hitInfo.point, true, false);
             }
             else
             {
-                harpoonController.StartGrapple(ReelInSpeed, GrappleForce, hitInfo.point, false, false);
+                harpoonController.StartGrapple(hitInfo.point, false, false);
             }
         }
         else
@@ -92,7 +74,7 @@ public class CombatController : MonoBehaviour
             //If player fires into space, fire and retract
             Debug.Log(Camera.main.transform.position);
 
-            harpoonController.StartGrapple(ReelInSpeed, GrappleForce, Camera.main.transform.position, false, false);
+            harpoonController.StartGrapple(Camera.main.transform.position, false, false);
         }
     }
 
@@ -129,7 +111,7 @@ public class CombatController : MonoBehaviour
 
     void RetractHook(InputAction.CallbackContext ctx)
     {
-        harpoonController.Retract(ReelInSpeed);
+        harpoonController.Retract();
     }
 
     /// <summary>

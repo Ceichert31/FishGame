@@ -8,6 +8,12 @@ public class HarpoonController : MonoBehaviour
     [SerializeField] private VoidEventChannel fov_EventChannel;
     [SerializeField] private FloatEventChannel damage_EventChannel;
 
+    [Tooltip("How fast the harpoon pulls the player")]
+    [SerializeField] private float grappleForce = 20f;
+
+    [Tooltip("How fast the harpoon retracts and fires")]
+    [SerializeField] private float reelInSpeed = 20f;
+
     private CombatController combatController;
 
     private Sequencer attackSequencer;
@@ -65,12 +71,12 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
-    public void StartGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
+    public void StartGrapple(Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
     {
         //Disable firing harpoon
         isInProgress = true;
 
-        StartCoroutine(ShootGrapple(reelInSpeed, grappleForce, hitPoint, isWeakPoint, isDamageable));
+        StartCoroutine(ShootGrapple(hitPoint, isWeakPoint, isDamageable));
     }
     /// <summary>
     /// Lerps bobber to target position
@@ -79,7 +85,7 @@ public class HarpoonController : MonoBehaviour
     /// <param name="hitPoint"></param>
     /// <param name="isWeakPoint"></param>
     /// <returns></returns>
-    IEnumerator ShootGrapple(float reelInSpeed, float grappleForce, Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
+    IEnumerator ShootGrapple(Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
     {
         boltRigidbody.isKinematic = false;
 
@@ -105,11 +111,11 @@ public class HarpoonController : MonoBehaviour
         //Determine if player can grapple to surface or not
         if (isWeakPoint)
         {
-            StartCoroutine(GrapplePlayer(grappleForce, hitPoint, isDamageable));
+            StartCoroutine(GrapplePlayer(hitPoint, isDamageable));
         }
         else
         {
-            StartCoroutine(RetractGrapple(reelInSpeed));
+            StartCoroutine(RetractGrapple());
         }
     }
 
@@ -119,7 +125,7 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <returns></returns>
-    IEnumerator GrapplePlayer(float grappleForce, Vector3 hitPoint, bool isDamageable)
+    IEnumerator GrapplePlayer(Vector3 hitPoint, bool isDamageable)
     {
         FloatEvent distance;
 
@@ -162,7 +168,7 @@ public class HarpoonController : MonoBehaviour
     /// </summary>
     /// <param name="totalTime"></param>
     /// <returns></returns>
-    IEnumerator RetractGrapple(float reelInSpeed)
+    IEnumerator RetractGrapple()
     {
         while (Vector3.Distance(transform.position, boltObject.position) > GRAPPLEDISTANCE)
         {
@@ -189,11 +195,11 @@ public class HarpoonController : MonoBehaviour
     /// Starts retracting the harpoon bolt
     /// </summary>
     /// <param name="reelInSpeed"></param>
-    public void Retract(float reelInSpeed)
+    public void Retract()
     {
         StopAllCoroutines();
 
-        StartCoroutine(RetractGrapple(reelInSpeed));
+        StartCoroutine(RetractGrapple());
     }
 
     void ResetBolt()
@@ -219,6 +225,15 @@ public class HarpoonController : MonoBehaviour
         isInProgress = false;
 
         source.Stop();
+    }
+
+    /// <summary>
+    /// Called when dashing
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void CallRetract(VoidEvent ctx)
+    {
+        Retract();
     }
 }
 

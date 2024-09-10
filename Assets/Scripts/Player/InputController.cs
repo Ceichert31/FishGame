@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private VoidEventChannel fov_EventChannel;
     [SerializeField] private InputEventChannel input_EventChannel;
     [SerializeField] private AudioPitcherSO dashAudio;
+    [SerializeField] private VoidEventChannel disableGrapple_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -226,6 +227,8 @@ public class InputController : MonoBehaviour
         if (!canDash) return;
 
         canDash = false;
+
+        disableGrapple_EventChannel.CallEvent(new());
 
         rb.AddForce(MoveDirection() * dashForce, ForceMode.Impulse);
 

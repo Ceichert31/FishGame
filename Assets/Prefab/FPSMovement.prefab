@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7248338572729242097}
   - component: {fileID: 3100639532301947567}
   - component: {fileID: 8762715187500031107}
+  - component: {fileID: 3725161148434585419}
   m_Layer: 6
   m_Name: BoltHolder
   m_TagString: Untagged
@@ -155,6 +156,8 @@ MonoBehaviour:
   fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
   damage_EventChannel: {fileID: 11400000, guid: c8dcbb55224e26f48821279352323e06,
     type: 2}
+  grappleForce: 30
+  reelInSpeed: 30
 --- !u!114 &3100639532301947567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +269,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3725161148434585419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568248221347745680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 093944a217439cf4b83159a03037dddc, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7248338572729242097}
+        m_TargetAssemblyTypeName: HarpoonController, Assembly-CSharp
+        m_MethodName: CallRetract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &760866051005294279
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: a3cdd6c95422dd148ac1028279062268, type: 2}
-  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
+  - {fileID: 11400000, guid: a9a4da70694d0bb4a8fe94c440eb5945, type: 2}
+  - {fileID: 11400000, guid: 3fcddb4d418b8924eb8a943b2f0c4c15, type: 2}
+  - {fileID: 11400000, guid: 3fcddb4d418b8924eb8a943b2f0c4c15, type: 2}
+  - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
   - {fileID: 11400000, guid: 74bc76af4c6aea44b87ce9f5c6fd1017, type: 2}
 --- !u!1 &1999262351226947678
 GameObject:
@@ -1070,6 +1104,8 @@ MonoBehaviour:
   fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
   input_EventChannel: {fileID: 11400000, guid: 75403c9808c35f14d88fb5651edefd3a, type: 2}
   dashAudio: {fileID: 11400000, guid: eb9b8067d6a115244a64f6c78b5853fb, type: 2}
+  disableGrapple_EventChannel: {fileID: 11400000, guid: 093944a217439cf4b83159a03037dddc,
+    type: 2}
   sensitivity: 10
   minSensitivity: 1
   maxSensitivity: 30
@@ -2718,11 +2754,6 @@ MonoBehaviour:
   fireableLayers:
     serializedVersion: 2
     m_Bits: 511
-  interuptableLayers:
-    serializedVersion: 2
-    m_Bits: 1024
-  GrappleForce: 20
-  ReelInSpeed: 20
 --- !u!114 &4975736183753545843
 MonoBehaviour:
   m_ObjectHideFlags: 0
