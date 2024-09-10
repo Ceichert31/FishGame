@@ -61,7 +61,7 @@ public class AttackState : AIState, IAttackState
 
     public override void ExitState(BossAI ctx)
     {
-
+        attacking = false;
     }
 
     

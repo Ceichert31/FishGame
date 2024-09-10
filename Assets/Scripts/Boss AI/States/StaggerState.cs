@@ -21,7 +21,7 @@ public class StaggerState : AIState
         bossAnimator.SetTrigger("Staggered");
         canExit = false;
 
-        float staggerTime = 10;
+        float staggerTime = 4;
         timer = Time.time + staggerTime;
     }
 
@@ -30,14 +30,14 @@ public class StaggerState : AIState
         if (timer < Time.time || canExit)
         {
             //Transiton to flee
-            ctx.SwitchState(States.FleeState);
+            bossAnimator.SetTrigger("NotStaggered");
+            ctx.SwitchState(States.IdleState);
             return;
         }
     }
 
     public override void ExitState(BossAI ctx)
     {
-        bossAnimator.SetTrigger("NotStaggered");
         Debug.Log("Exiting stagger state");
     }
 

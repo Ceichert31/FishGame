@@ -72,7 +72,7 @@ public abstract class AnimationEvents : MonoBehaviour
         Debug.Log("attack ended");
     }
 
-    public abstract void TeleportBoss();
+    //public abstract void TeleportBoss();
 
     public void ResetPosture()
     {

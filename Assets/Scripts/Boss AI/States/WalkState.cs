@@ -65,17 +65,17 @@ public class WalkState : AIState
         {
             ctx.SwitchState(States.AttackState);
         }
-
+        /*
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)
         {
             float waitTime = projectileFireWaitTime;
             projectileSpawner.Spawn(5);
-            /*fireTime = waitTime * projectileSpawner.SpawnLocationCount;*/
+            *//*fireTime = waitTime * projectileSpawner.SpawnLocationCount;*//*
             fireTime = waitTime;
         }
         //In the future might want to make this unscalled to not get messed with by time discrepincies
-        fireTime -= Time.deltaTime;
+        fireTime -= Time.deltaTime;*/
 
         //SpawnProjectilesBetweenTheSpawnPoints
         //projectileSpawner
@@ -114,7 +114,7 @@ public class WalkState : AIState
     public override void ExitState(BossAI ctx)
     {
         //Stops all projectile spawning whenever the state is left
-        projectileSpawner.StopSpawning();
+        //projectileSpawner.StopSpawning();
         fireTime = 1;
     }
 
