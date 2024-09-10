@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
 
+//TODO:
+//Move Walk and look Behavior to Composition Class
+[RequireComponent(typeof(BossLookBehavior))]
 [CreateAssetMenu(fileName ="WalkState", menuName ="BossStates/Walk")]
 public class WalkState : AIState
 {
     [SerializeField] IProjectileSpawner projectileSpawner;
-    float maxDistance;
+    [SerializeField] IBossWalkBehavior walkBehavior;
+    [SerializeField] IBossLookAtPlayer lookBehavior;
+    float maxDistance = 10;
     float fireTime;
-
-    [Header("Variables for controlling unique movement")]
-    [SerializeField] float initalMoveAmmount;
-    [SerializeField] float slowDownAmmount;
-    [SerializeField] float projectileFireWaitTime;
-    float timeUntilNextMovement;
-    float currentTime;
-    float currentMoveAmmount;
-    float rotationSpeed;
+    float walkStateTimer;
+    [SerializeField] float waitAmmount = 10;
 
     private bool called = false;
 
@@ -30,26 +28,39 @@ public class WalkState : AIState
     public override void InitalizeState(BossAI ctx)
     {
         projectileSpawner = ctx.GetComponent<IProjectileSpawner>();
-        initalMoveAmmount = 10;
-        slowDownAmmount = 2;
-        timeUntilNextMovement = 1;
-        currentTime = timeUntilNextMovement;
-        currentMoveAmmount = initalMoveAmmount;
-        maxDistance = 10;
-        rotationSpeed = 1;
+        lookBehavior = ctx.GetComponent<IBossLookAtPlayer>();
+
+        try
+        {
+            walkBehavior = ctx.GetComponent<IBossWalkBehavior>();
+        }
+        catch
+        {
+            Debug.LogError("This boss requires a move behavior script");
+        }
     }
 
 
     public override void EnterState(BossAI ctx)
     {
-        ctx.Agent.speed = 5f;
+        walkStateTimer = waitAmmount + Time.time;
     }
 
     public override void ExecuteState(BossAI ctx)
     {
-        //MoveCode:
-        MoveBehavior();
+        walkBehavior.MoveBehavior();
+        lookBehavior.LookAtPlayer();
 
+        if (Util.CheckTimer(walkStateTimer))
+        {
+            ctx.SwitchState(States.AttackState);
+        }
+
+        //Temp exit condition to make combat not feel bad
+        if (Util.DistanceNoY(Player,bossTransform.position) < maxDistance)
+        {
+            ctx.SwitchState(States.AttackState);
+        }
         /*
          * Walking state code:
          * Ok so this should be simmilar to idle in terms of a more of an in between attacks gap closer type behvior
@@ -61,10 +72,7 @@ public class WalkState : AIState
          */
 
         //Exit Condition(temps)
-        if(Util.DistanceNoY(Player, bossTransform.position) < maxDistance)
-        {
-            ctx.SwitchState(States.AttackState);
-        }
+
         /*
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)
@@ -81,42 +89,21 @@ public class WalkState : AIState
         //projectileSpawner
     }
 
-    void MoveBehavior()
-    {
-        //Temp LookAtSolution
-        //bossTransform.LookAt();
-
-        //Slowly rotates the boss to look at the player
-        Quaternion targetRotation = Quaternion.LookRotation(Util.VectorNoY(Player) - Util.VectorNoY(bossTransform.position));
-        bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        //Creates a unique movement pattern simmilar to what u would see on some fishing lure
-        if (currentMoveAmmount <= 0)
-        {
-            if(currentTime > 0)
-            {
-                currentTime -= Time.deltaTime;
-            }
-            else
-            {
-                currentTime = timeUntilNextMovement;
-                currentMoveAmmount = initalMoveAmmount;
-            }
-
-            return;
-        }
-
-        bossTransform.position += bossTransform.forward * currentMoveAmmount * Time.deltaTime;
-
-        currentMoveAmmount -= slowDownAmmount * Time.deltaTime;
-    }
-
     public override void ExitState(BossAI ctx)
     {
         //Stops all projectile spawning whenever the state is left
         //projectileSpawner.StopSpawning();
         fireTime = 1;
     }
+}
 
+//CompositionInterfaces
+interface IBossWalkBehavior
+{
+    void MoveBehavior();
+}
 
+interface IBossLookAtPlayer
+{
+    void LookAtPlayer();
 }

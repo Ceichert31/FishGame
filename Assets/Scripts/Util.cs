@@ -62,6 +62,16 @@ namespace HelperMethods
                 return currentTransform;
             }
         }
+
+        /// <summary>
+        /// Checks the timer against the current time and returns true if the timer is up
+        /// </summary>
+        /// <param name="timer"></param>
+        /// <returns></returns>
+        public static bool CheckTimer(float timer)
+        {
+            return timer < Time.time;
+        }
     }
 
 }

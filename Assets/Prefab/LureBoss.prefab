@@ -5661,6 +5661,8 @@ GameObject:
   - component: {fileID: 2227031593269736330}
   - component: {fileID: 9053415698981932793}
   - component: {fileID: 1774316683726878716}
+  - component: {fileID: 1393690083295301983}
+  - component: {fileID: 1558154629488413646}
   m_Layer: 0
   m_Name: Scritps
   m_TagString: Untagged
@@ -5874,6 +5876,33 @@ MonoBehaviour:
   parrySheen: {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d,
     type: 3}
   multiplier: 0.7
+--- !u!114 &1393690083295301983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa76384331b3e91498d4a22a286c63ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initalMoveAmmount: 10
+  slowDownAmmount: 2
+--- !u!114 &1558154629488413646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3461bd15f753034ba9d8b4bc2cc6f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1
 --- !u!1 &6827196325690850589
 GameObject:
   m_ObjectHideFlags: 0
