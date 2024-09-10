@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b4bf278e418f3448b62966648e43cc, type: 3}
   m_Name: TreeWalk
   m_EditorClassIdentifier: 
-  projectileSpawner: {fileID: 0}
-  initalMoveAmmount: 12
-  slowDownAmmount: 2
-  projectileFireWaitTime: 0.8
+  waitAmmount: 10

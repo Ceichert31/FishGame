@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b4bf278e418f3448b62966648e43cc, type: 3}
   m_Name: LureWalkState
   m_EditorClassIdentifier: 
-  projectileSpawner: {fileID: 0}
-  initalMoveAmmount: 10
-  slowDownAmmount: 2
-  projectileFireWaitTime: 2
+  waitAmmount: 10
