@@ -48,19 +48,5 @@ public class ParryObject : MonoBehaviour
 
             resetParry_EventChannel.CallEvent(voidEvent);
         }
-
-        /*
-        if (other.gameObject.TryGetComponent(out IParryable parriedObject))
-        {
-            parriedObject.OnParry();
-        }
-        */
     }
-}
-
-//Interface used for parrying parryable objects
-public interface IParryable
-{
-    public void OnParry();
-    public bool parried;
 }
