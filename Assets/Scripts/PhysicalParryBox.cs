@@ -4,44 +4,20 @@ using UnityEngine;
 
 interface IMeele
 {
-    bool Used
-    {
-        get;
-        set;
-    }
-
-    int ParryAmmount
-    {
-        get;
-        set;
-    }
-
     int AttackDamage
     {
         get;
         set;
     }
-
-    public void OnParry();
 }
 
-public class PhysicalParryBox : MonoBehaviour, IMeele
+public class PhysicalParryBox : MonoBehaviour, IMeele, IParryable
 {
     [SerializeField] int parryAmmount;
     [SerializeField] int attackDamage;
     bool used;
 
     Sequencer parrySequencer;
-
-    public bool Used { get => used; set => used = value; }
-    public int ParryAmmount
-    {
-        get {
-            OnParry();
-            return parryAmmount; 
-            }
-      set => parryAmmount = value; 
-    }
     public int AttackDamage 
     { 
         get {
@@ -50,6 +26,12 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
             } 
         set => attackDamage = value; 
     }
+
+    public bool Parried => used;
+
+    public int ParryType => (int)ParryTypes.MeleeParry;
+
+    public float ParryAmount => parryAmmount;
 
     private void Start()
     {
@@ -62,6 +44,7 @@ public class PhysicalParryBox : MonoBehaviour, IMeele
         {
             return;
         }
+
         parrySequencer.InitializeSequence();
         OnAction();
     }

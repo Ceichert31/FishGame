@@ -28,15 +28,15 @@ public class ParryObject : MonoBehaviour
             return;
         }
 
-        if (other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
+        /*if (other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
         {
             parrySequencer.InitializeSequence();
 
             projectileBehavior.Parried(Camera.main.transform.forward);
             return;
-        }
+        }*/
 
-        if (other.gameObject.TryGetComponent(out IMeele attackBox))
+        /*if (other.gameObject.TryGetComponent(out IMeele attackBox))
         {
             if (attackBox.Used)
             {
@@ -47,17 +47,44 @@ public class ParryObject : MonoBehaviour
             physicalParryEventChannel.CallEvent(parryAmmount);
 
             resetParry_EventChannel.CallEvent(voidEvent);
-        }
+        }*/
 
-        /*if (other.gameObject.TryGetComponent(out IParryable parriedObject))
+        if (other.gameObject.TryGetComponent(out IParryable parriedObject))
         {
             parriedObject.OnParry();
-        }*/
+            switch(parriedObject.ParryType)
+            {
+                case (int)ParryTypes.ProjectileParry:
+                    parrySequencer.InitializeSequence();
+                    break;
+                case (int)ParryTypes.MeleeParry:
+                    IMeele attackBox = (IMeele)parriedObject;
+
+                    parryAmmount.FloatValue = parriedObject.ParryAmount;
+
+                    physicalParryEventChannel.CallEvent(parryAmmount);
+
+                    resetParry_EventChannel.CallEvent(voidEvent);
+                    break;
+            }
+        }
     }
 }
 
+/// <summary>
+/// Location: ParryObject
+/// 
+/// </summary>
 public interface IParryable
 {
+    public int ParryType { get; }
     public void OnParry();
+    public float ParryAmount {  get; }
     public bool Parried { get; }
+}
+
+public enum ParryTypes
+{
+    ProjectileParry,
+    MeleeParry
 }

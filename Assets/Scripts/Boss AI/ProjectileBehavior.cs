@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Sets the rigidboddies velocity to it's forward times some speed
 /// </summary>
-public class ProjectileBehavior : MonoBehaviour, IProjectile
+public class ProjectileBehavior : MonoBehaviour, IProjectile, IParryable
 {
     [SerializeField] private float projectileDamage = 5f;
 
@@ -23,8 +23,18 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
 
     private float currentTime;
 
-    public bool IsParried { get => isParried;}
-    public float ProjectileDamage { get => projectileDamage; }
+    //Interface Variables
+
+    bool IParryable.Parried => isParried;
+
+    public bool IsParried => IsParried;
+
+    public float ParryAmount => projectileDamage;
+
+    float IProjectile.ProjectileDamage => projectileDamage;
+
+    public int ParryType => (int)ParryTypes.ProjectileParry;
+
 
     public ProjectileBehavior(float damage, float speed, float lifetime)
     {
@@ -53,24 +63,32 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile
         rb.velocity = targetDirection * projectileSpeed;
     }
 
-    public void Parried(Vector3 forward)
+    public void DeleteProjectile() => Destroy(gameObject);
+
+    public void OnParry()
     {
+        if(isParried)
+        {
+            return;
+        }    
+
         isParried = true;
 
-        targetDirection = forward;
+        targetDirection = Camera.main.transform.forward;
 
         projectileSpeed *= 2;
 
         currentTime = Time.time + projectileLifetime;
     }
-
-    public void DeleteProjectile() => Destroy(gameObject);
 }
 
+/// <summary>
+/// Location: Projectile Behavior
+/// 
+/// </summary>
 public interface IProjectile
 {
-    public float ProjectileDamage { get; }
     public bool IsParried { get; }
-    public void Parried(Vector3 foward);
+    public float ProjectileDamage { get; }
     public void DeleteProjectile();
 }
