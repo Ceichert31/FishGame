@@ -21,34 +21,14 @@ public class ParryObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Checks if the other object has a tag of parryable and if it does, call it's carry function, will convert this to an interface in the future
+        //Checks if the other object has a tag of parryable and if it does, call it's parry function
 
         if(!other.CompareTag("Parryable"))
         {
             return;
         }
 
-        /*if (other.gameObject.TryGetComponent(out IProjectile projectileBehavior))
-        {
-            parrySequencer.InitializeSequence();
-
-            projectileBehavior.Parried(Camera.main.transform.forward);
-            return;
-        }*/
-
-        /*if (other.gameObject.TryGetComponent(out IMeele attackBox))
-        {
-            if (attackBox.Used)
-            {
-                return;
-            }
-            parryAmmount.FloatValue = attackBox.ParryAmmount;
-            
-            physicalParryEventChannel.CallEvent(parryAmmount);
-
-            resetParry_EventChannel.CallEvent(voidEvent);
-        }*/
-
+        //Checks if the other object impliments the parry interface, and execture the parry behavior for said object if it does
         if (other.gameObject.TryGetComponent(out IParryable parriedObject))
         {
             parriedObject.OnParry();
@@ -58,7 +38,7 @@ public class ParryObject : MonoBehaviour
                     parrySequencer.InitializeSequence();
                     break;
                 case (int)ParryTypes.MeleeParry:
-                    IMeele attackBox = (IMeele)parriedObject;
+                    //IMeele attackBox = (IMeele)parriedObject;
 
                     parryAmmount.FloatValue = parriedObject.ParryAmount;
 
@@ -73,7 +53,7 @@ public class ParryObject : MonoBehaviour
 
 /// <summary>
 /// Location: ParryObject
-/// 
+/// Container for anything the a parryable object requries
 /// </summary>
 public interface IParryable
 {
