@@ -31,8 +31,12 @@ public class ParryObject : MonoBehaviour
         //Checks if the other object impliments the parry interface, and execture the parry behavior for said object if it does
         if (other.gameObject.TryGetComponent(out IParryable parriedObject))
         {
+            if (parriedObject.Parried)
+            {
+                return;
+            }
             parriedObject.OnParry();
-            switch(parriedObject.ParryType)
+            switch (parriedObject.ParryType)
             {
                 case (int)ParryTypes.ProjectileParry:
                     parrySequencer.InitializeSequence();
