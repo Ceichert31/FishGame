@@ -15,7 +15,9 @@ public class WalkState : AIState
     float maxDistance = 10;
     float fireTime;
     float walkStateTimer;
-    [SerializeField] float waitAmmount = 10;
+    [SerializeField] float 
+        waitAmmount = 10,
+        projectileFireWaitTime = 3;
 
     private bool called = false;
 
@@ -73,17 +75,16 @@ public class WalkState : AIState
 
         //Exit Condition(temps)
 
-        /*
+
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)
         {
             float waitTime = projectileFireWaitTime;
             projectileSpawner.Spawn(5);
-            *//*fireTime = waitTime * projectileSpawner.SpawnLocationCount;*//*
             fireTime = waitTime;
         }
         //In the future might want to make this unscalled to not get messed with by time discrepincies
-        fireTime -= Time.deltaTime;*/
+        fireTime -= Time.deltaTime;
 
         //SpawnProjectilesBetweenTheSpawnPoints
         //projectileSpawner
@@ -92,7 +93,7 @@ public class WalkState : AIState
     public override void ExitState(BossAI ctx)
     {
         //Stops all projectile spawning whenever the state is left
-        //projectileSpawner.StopSpawning();
+        projectileSpawner.StopSpawning();
         fireTime = 1;
     }
 }

@@ -31,7 +31,7 @@ public class StaggerState : AIState
         {
             //Transiton to flee
             bossAnimator.SetTrigger("NotStaggered");
-            ctx.SwitchState(States.WalkState);
+            ctx.SwitchState(States.IdleState);
             return;
         }
     }

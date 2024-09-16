@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private FloatEventChannel maxPlayerHealth_EventChannel;
     [SerializeField] private FloatEventChannel currentPlayerHealth_EventChannel;
     [SerializeField] private VoidEventChannel transition_EventChannel;
+    [SerializeField] private VoidEventChannel signalToBoss_EventChannel;
     [SerializeField] private AudioPitcherSO hurtAudio;
 
     [SerializeField] private float maxHealth = 100f;
@@ -17,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     private AudioSource source;
 
     private Sequencer damageSequencer;
+
+    private bool isVulnerable = true; 
 
     private void Start()
     {
@@ -33,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Parryable")) return;
+
+        if (!isVulnerable) return;
 
         if (other.gameObject.TryGetComponent(out IProjectile projectileInstance))
         {
@@ -69,8 +74,31 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth.FloatValue <= 0) 
         {
             transition_EventChannel.CallEvent(new());
+            signalToBoss_EventChannel.CallEvent(new());
         }
     }
+
+    /// <summary>
+    /// Makes the player invulnerable for a set duration
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void SetIFrames(FloatEvent ctx)
+    {
+        isVulnerable = false;
+
+        Invoke(nameof(ResetIFrames), ctx.FloatValue);
+    }
+
+    /// <summary>
+    /// Makes the player vulnerable 
+    /// </summary>
+    /// <param name="ctx"></param>
+    private void ResetIFrames()
+    {
+        isVulnerable = true;
+    }
+
+    public void CallResetIFrames(VoidEvent ctx) => ResetIFrames();
 
     public void ResetPlayerHealth(VoidEvent ctx)
     {

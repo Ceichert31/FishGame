@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: LureWalkState
   m_EditorClassIdentifier: 
   waitAmmount: 10
+  projectileFireWaitTime: 4

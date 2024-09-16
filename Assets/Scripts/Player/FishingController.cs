@@ -24,6 +24,8 @@ public class FishingController : MonoBehaviour
 
     private bool isCharging;
 
+    private bool alreadyCast;
+
     private float currentPoleCharge;
 
     private GameObject fishingRod;
@@ -56,6 +58,8 @@ public class FishingController : MonoBehaviour
     /// <param name="isCast"></param>
     void ChargeCast(bool isCast)
     {
+        if (alreadyCast) return;
+
         if (!isCast)
             StartCoroutine(ChargeFishingPole());
         else
@@ -80,7 +84,6 @@ public class FishingController : MonoBehaviour
 
             Mathf.Clamp(currentPoleCharge, MINPOLECHARGE, maxPoleCharge);
 
-
             if (currentPoleCharge >= maxPoleCharge)
             {
                 Debug.Log("Fully Charged!");
@@ -97,6 +100,8 @@ public class FishingController : MonoBehaviour
     /// </summary>
     public void Cast()
     {
+        alreadyCast = true;
+
         castingAudio.Play(source);
 
         bobberController.ApplyForcesOnBobber(currentPoleCharge, initialBobberVelocityY);
@@ -114,6 +119,8 @@ public class FishingController : MonoBehaviour
     void ReelIn(InputAction.CallbackContext ctx)
     {
         if (fishingRod.activeSelf != true) return;
+
+        alreadyCast = false;
 
         reelInAudio.Play(source);
 

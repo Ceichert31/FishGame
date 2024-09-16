@@ -27,7 +27,7 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile, IParryable
 
     bool IParryable.Parried => isParried;
 
-    public bool IsParried => IsParried;
+    public bool IsParried => isParried;
 
     public float ParryAmount => projectileDamage;
 

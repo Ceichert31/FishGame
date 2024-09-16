@@ -9,6 +9,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private InputEventChannel input_EventChannel;
     [SerializeField] private AudioPitcherSO dashAudio;
     [SerializeField] private VoidEventChannel disableGrapple_EventChannel;
+    [SerializeField] private FloatEventChannel iFrame_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -60,6 +61,8 @@ public class InputController : MonoBehaviour
     [SerializeField] private float dashCooldown = 1f;
 
     [SerializeField] private float dashForce = 50f;
+
+    [SerializeField] private FloatEvent iFrameDuration;
 
     private bool canDash = true;
 
@@ -226,8 +229,15 @@ public class InputController : MonoBehaviour
     {
         if (!canDash) return;
 
+        //If player isn't moving
+        if (MoveDirection() == Vector3.zero) return;
+
         canDash = false;
 
+        //Enable IFrames
+        iFrame_EventChannel.CallEvent(iFrameDuration);
+
+        //Ungrapple
         disableGrapple_EventChannel.CallEvent(new());
 
         rb.AddForce(MoveDirection() * dashForce, ForceMode.Impulse);

@@ -555,6 +555,8 @@ GameObject:
   - component: {fileID: 157607375117498321}
   - component: {fileID: 8920064879564925118}
   - component: {fileID: 8312098709026419250}
+  - component: {fileID: 7457780714472795635}
+  - component: {fileID: 5036811732829696207}
   m_Layer: 6
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -617,6 +619,8 @@ MonoBehaviour:
   currentPlayerHealth_EventChannel: {fileID: 11400000, guid: c2eeea25ad695874fa36731ef366e17f,
     type: 2}
   transition_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
+    type: 2}
+  signalToBoss_EventChannel: {fileID: 11400000, guid: 27e678250074c1743a0410440affe296,
     type: 2}
   hurtAudio: {fileID: 11400000, guid: bdc31a926049dc041880ff0ac08ee715, type: 2}
   maxHealth: 100
@@ -763,6 +767,62 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fcddb4d418b8924eb8a943b2f0c4c15, type: 2}
   - {fileID: 11400000, guid: a4359f68b4b93fd4fa3584e64d6b6bd1, type: 2}
   - {fileID: 11400000, guid: 74bc76af4c6aea44b87ce9f5c6fd1017, type: 2}
+--- !u!114 &7457780714472795635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: b8678e0b81b6a3c43831edc0f76cf507, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700533270298023575}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: SetIFrames
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5036811732829696207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844768288670267359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 68db7dab6d41aec42a56c3af505c4ab9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700533270298023575}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: CallResetIFrames
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1999262351226947678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1166,8 @@ MonoBehaviour:
   dashAudio: {fileID: 11400000, guid: eb9b8067d6a115244a64f6c78b5853fb, type: 2}
   disableGrapple_EventChannel: {fileID: 11400000, guid: 093944a217439cf4b83159a03037dddc,
     type: 2}
+  iFrame_EventChannel: {fileID: 11400000, guid: b8678e0b81b6a3c43831edc0f76cf507,
+    type: 2}
   sensitivity: 10
   minSensitivity: 1
   maxSensitivity: 30
@@ -1124,6 +1186,8 @@ MonoBehaviour:
     m_Bits: 8
   dashCooldown: 1
   dashForce: 135
+  iFrameDuration:
+    FloatValue: 0.7
 --- !u!114 &4893733725445465475
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -116,8 +116,6 @@ public class BossHealth : MonoBehaviour
 
         //Returns player
         return_EventChannel.CallEvent(new());
-
-        DisableBoss();
     }
 }
 

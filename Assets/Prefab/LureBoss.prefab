@@ -253,6 +253,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1785183524729165618}
+  - {fileID: 6622821692829692608}
   - {fileID: 6782841639115625703}
   - {fileID: 6948230186257230800}
   - {fileID: 5765736066181199577}
@@ -405,6 +406,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parryAmmount: 50
   attackDamage: 10
+--- !u!1 &2234053292527268997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6622821692829692608}
+  - component: {fileID: 1393897046743373320}
+  - component: {fileID: 1688601570705373932}
+  m_Layer: 0
+  m_Name: PlayerDeathSequencer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6622821692829692608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234053292527268997}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646937776564243361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393897046743373320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234053292527268997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
+--- !u!114 &1688601570705373932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234053292527268997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 27e678250074c1743a0410440affe296, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1393897046743373320}
+        m_TargetAssemblyTypeName: Sequencer, Assembly-CSharp
+        m_MethodName: InitializeSequence
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2283238013524327254
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,8 +526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceActions:
-  - {fileID: 11400000, guid: 137d563e1216c30478427ebbccfe169e, type: 2}
   - {fileID: 11400000, guid: f8a0453dfb55e0048b099d3bc207bc9a, type: 2}
+  - {fileID: 11400000, guid: 137d563e1216c30478427ebbccfe169e, type: 2}
   - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
 --- !u!1 &2770780475122198284
 GameObject:

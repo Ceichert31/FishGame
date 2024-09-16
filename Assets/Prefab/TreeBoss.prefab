@@ -526,6 +526,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 935633027250555670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1904129481740544396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2843936597089498309}
+  - component: {fileID: 1535160067812872926}
+  - component: {fileID: 8010298443801726422}
+  m_Layer: 10
+  m_Name: PlayerDeathSequencer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2843936597089498309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904129481740544396}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.4409976, y: 0.5568327, z: 0.57731473, w: 0.4026987}
+  m_LocalPosition: {x: -0.11264738, y: 2.0882568, z: -0.016240356}
+  m_LocalScale: {x: 6.040889, y: 6.2316337, z: 7.0434537}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 531490835648964565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535160067812872926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904129481740544396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1fdf9df0ecbe449ee10919d7e1a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceActions:
+  - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
+--- !u!114 &8010298443801726422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904129481740544396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 27e678250074c1743a0410440affe296, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1535160067812872926}
+        m_TargetAssemblyTypeName: Sequencer, Assembly-CSharp
+        m_MethodName: InitializeSequence
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2270643756450798951
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: 7fd48a44bde19a64181b64de8ea0e628, type: 2}
-  - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
+  - {fileID: 11400000, guid: ab29cb21e9f53f44eadcf1d4d63219f6, type: 2}
   - {fileID: 11400000, guid: 2663dceb81284914daf3a29487749faa, type: 2}
 --- !u!1 &3466215676867199328
 GameObject:
@@ -1471,6 +1546,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4224200971809260849}
+  - {fileID: 2843936597089498309}
   - {fileID: 102971018631663025}
   - {fileID: 2692841946651709027}
   - {fileID: 2356078735186997042}
@@ -6432,7 +6508,7 @@ GameObject:
   - component: {fileID: 6894925928645384773}
   - component: {fileID: 1451126654176883161}
   - component: {fileID: 5208744404964449742}
-  - component: {fileID: 6960668677896026171}
+  - component: {fileID: 6491783774208611469}
   - component: {fileID: 7751390036266879880}
   - component: {fileID: 2875842033262713188}
   - component: {fileID: 8070935516593424070}
@@ -6570,7 +6646,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6960668677896026171
+--- !u!114 &6491783774208611469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6579,16 +6655,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7648921898042926042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d008781e71439ae4ebf5deb765b5b8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 52bf8d7d615d2ab45b4618716666b86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
-    type: 3}
-  poolSize: 10
-  maxPoolSize: 20
-  defaultSpawnLocation: {fileID: 0}
-  defaultProjectileAmmount: 0
-  tempProjectile: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
+  projectileDamage: 15
+  projectileSpeed: 45
+  spawnDelay: 0.5
+  projectilePrefab: {fileID: 348599913463420400, guid: 51b33688727e5c34c9cfe05b94ccfd37,
     type: 3}
   projectileSpawnPoints:
   - {fileID: 3223277965959131265}
