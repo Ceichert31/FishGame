@@ -55,12 +55,13 @@ public class PhysicalParryBox : MonoBehaviour, IMeele, IParryable
         {
             return;
         }
-
+        Debug.Log("Damage Dealt");
         OnAction();
     }
 
     void OnAction()
     {
+        Debug.Log("Action Executed");
         used = true;
         gameObject.SetActive(false);
         Invoke(nameof(ReEnable), .5f);

@@ -49,6 +49,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out IMeele meeleInstance))
         {
+            IParryable parryState = (IParryable)meeleInstance;
+
+            if (parryState.Parried) return;
             DealDamage(meeleInstance.AttackDamage);
         }
     }

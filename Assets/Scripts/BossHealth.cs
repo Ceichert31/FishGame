@@ -63,7 +63,6 @@ public class BossHealth : MonoBehaviour
         {
             return;
         }
-        Debug.Log(other.gameObject.name);
 
         //If collision object is parried projectile, deal damage
         if (other.gameObject.TryGetComponent(out IProjectile projectileInstance))

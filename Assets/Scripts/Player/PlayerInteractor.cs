@@ -25,8 +25,6 @@ public class PlayerInteractor : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out interactableObject))
             interactText_EventChannel.CallEvent(interactableObject.Prompt);
-
-        Debug.Log("1");
     }
 
     private void OnTriggerStay(Collider other)
