@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2180670208739171005}
   m_Layer: 0
   m_Name: LureBossModels
-  m_TagString: Untagged
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -63,17 +63,6 @@ public class WalkState : AIState
         {
             ctx.SwitchState(States.AttackState);
         }
-        /*
-         * Walking state code:
-         * Ok so this should be simmilar to idle in terms of a more of an in between attacks gap closer type behvior
-         * Maybe have the boss causally fire projectile patters as he walks toward the player for physical attacks
-         * 
-         * Exit Condition:
-         * We become in range of the player to do whatever out next attack is
-         * We get successflly grappled and mounted
-         */
-
-        //Exit Condition(temps)
 
 
         //ProjectileTesting *For Testing A Consistent Firing Pattern

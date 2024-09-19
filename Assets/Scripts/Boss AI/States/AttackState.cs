@@ -7,7 +7,11 @@ using HelperMethods;
 [CreateAssetMenu(fileName = "AttackState", menuName = "BossStates/Attack")]
 public class AttackState : AIState, IAttackState
 {
-    [SerializeField] List<string> attacks = new List<string>();
+    [Header("Close Range Attack Skills")]
+    [SerializeField] List<string> physicalAttacks = new List<string>();
+
+    [Header("Long Range Attack Skills")]
+    [SerializeField] List<string> rangedAttacks = new List<string>();
 
     [SerializeField] Animator bossAnimator;
 
@@ -17,7 +21,7 @@ public class AttackState : AIState, IAttackState
 
     private bool called = false;
 
-    float maxDistance;
+    float maxDistance = 10;
 
     protected override bool Called 
     {
@@ -29,13 +33,11 @@ public class AttackState : AIState, IAttackState
     {
         bossAnimator = bossTransform.GetComponent<Animator>();
 
-        if (attacks.Count == 0)
+        if (physicalAttacks.Count == 0)
         {
             throw new System.Exception("I has no attacks :(");
         }
         Debug.Log("EnteredAttack");
-
-        maxDistance = 10;
     }
 
 
@@ -45,7 +47,20 @@ public class AttackState : AIState, IAttackState
         {
             throw new System.Exception("You did not initalize");
         }
-        GenerateAttack();
+
+        /*if(Util.DistanceNoY(bossTransform.position, Player) < maxDistance)
+        {
+            GenerateAttack(physicalAttacks);
+        }
+        else
+        {
+            GenerateAttack(rangedAttacks);
+        }*/
+
+        //How we rockin?
+        //GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) < maxDistance ? physicalAttacks : rangedAttacks);
+
+        GenerateAttack(physicalAttacks);
         ExecuteAttack();
     }
 
@@ -64,9 +79,7 @@ public class AttackState : AIState, IAttackState
         attacking = false;
     }
 
-    
-
-    void GenerateAttack()
+    void GenerateAttack(List<string> attacks)
     {
         currentAttack = attacks[Random.Range(0, attacks.Count)];
     }
