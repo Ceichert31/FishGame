@@ -5542,9 +5542,9 @@ GameObject:
   - component: {fileID: 6948230186257230800}
   - component: {fileID: 5616556127282856940}
   - component: {fileID: 3696539760169635393}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5629,7 +5629,7 @@ GameObject:
   - component: {fileID: 4286608377087760923}
   m_Layer: 8
   m_Name: PustuleV1
-  m_TagString: Damageable
+  m_TagString: Weakpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,6 +14,8 @@ public class HarpoonController : MonoBehaviour
     [Tooltip("How fast the harpoon retracts and fires")]
     [SerializeField] private float reelInSpeed = 20f;
 
+    [SerializeField] private float normalAttackMultiplier = 0.3f;
+
     private CombatController combatController;
 
     private Sequencer attackSequencer;
@@ -70,22 +72,22 @@ public class HarpoonController : MonoBehaviour
     /// </summary>
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
-    /// <param name="isWeakPoint"></param>
-    public void StartGrapple(Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
+    /// <param name="isGrappleable"></param>
+    public void StartGrapple(Vector3 hitPoint, bool isGrappleable, GrappleSurface surface)
     {
         //Disable firing harpoon
         isInProgress = true;
 
-        StartCoroutine(ShootGrapple(hitPoint, isWeakPoint, isDamageable));
+        StartCoroutine(ShootGrapple(hitPoint, isGrappleable, surface));
     }
     /// <summary>
     /// Lerps bobber to target position
     /// </summary>
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
-    /// <param name="isWeakPoint"></param>
+    /// <param name="isGrappleable"></param>
     /// <returns></returns>
-    IEnumerator ShootGrapple(Vector3 hitPoint, bool isWeakPoint, bool isDamageable)
+    IEnumerator ShootGrapple(Vector3 hitPoint, bool isGrappleable, GrappleSurface surface)
     {
         boltRigidbody.isKinematic = false;
 
@@ -109,9 +111,9 @@ public class HarpoonController : MonoBehaviour
         boltObject.position = hitPoint;
 
         //Determine if player can grapple to surface or not
-        if (isWeakPoint)
+        if (isGrappleable)
         {
-            StartCoroutine(GrapplePlayer(hitPoint, isDamageable));
+            StartCoroutine(GrapplePlayer(hitPoint, surface));
         }
         else
         {
@@ -125,7 +127,7 @@ public class HarpoonController : MonoBehaviour
     /// <param name="totalTime"></param>
     /// <param name="hitPoint"></param>
     /// <returns></returns>
-    IEnumerator GrapplePlayer(Vector3 hitPoint, bool isDamageable)
+    IEnumerator GrapplePlayer(Vector3 hitPoint, GrappleSurface surface)
     {
         FloatEvent distance;
 
@@ -144,8 +146,23 @@ public class HarpoonController : MonoBehaviour
             yield return null;
         }
 
+        
+        if (surface == GrappleSurface.damageable)
+        {
+            //Stop velocity
+            playerRigidbody.velocity = Vector3.zero;
+
+            //Play attack effects
+            attackSequencer.InitializeSequence();
+
+            //Play attack animation
+            combatController.Attack();
+
+            //Deal damage
+            damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage * normalAttackMultiplier));
+        }
         //If weakpoint, deal damage
-        if (isDamageable)
+        else if (surface == GrappleSurface.weakPoint)
         {
             //Stop velocity
             playerRigidbody.velocity = Vector3.zero;

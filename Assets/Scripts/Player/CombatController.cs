@@ -2,6 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum GrappleSurface
+{
+    normal,
+    damageable,
+    weakPoint,
+}
 public class CombatController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
@@ -59,13 +65,13 @@ public class CombatController : MonoBehaviour
             {
                 //Determine if the grapple point is damageable
                 if (hitInfo.collider.CompareTag("Damageable"))
-                    harpoonController.StartGrapple(hitInfo.point, true, true);
-                else
-                    harpoonController.StartGrapple(hitInfo.point, true, false);
+                    harpoonController.StartGrapple(hitInfo.point, true, GrappleSurface.damageable);
+                else if (hitInfo.collider.CompareTag("Weakpoint"))
+                    harpoonController.StartGrapple(hitInfo.point, true, GrappleSurface.weakPoint);
             }
             else
             {
-                harpoonController.StartGrapple(hitInfo.point, false, false);
+                harpoonController.StartGrapple(hitInfo.point, false, GrappleSurface.normal);
             }
         }
         else
@@ -74,7 +80,7 @@ public class CombatController : MonoBehaviour
             //If player fires into space, fire and retract
             Debug.Log(Camera.main.transform.position);
 
-            harpoonController.StartGrapple(Camera.main.transform.position, false, false);
+            harpoonController.StartGrapple(Camera.main.transform.position, false, GrappleSurface.normal);
         }
     }
 

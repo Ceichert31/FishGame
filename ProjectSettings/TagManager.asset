@@ -9,6 +9,7 @@ TagManager:
   - Wood
   - Damageable
   - Ground
+  - Weakpoint
   layers:
   - Default
   - TransparentFX
