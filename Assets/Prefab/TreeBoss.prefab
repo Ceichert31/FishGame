@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 3788642866112217689}
   m_Layer: 8
   m_Name: PustuleV1
-  m_TagString: Damageable
+  m_TagString: Weakpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1525,9 +1525,9 @@ GameObject:
   - component: {fileID: 8254534239658114609}
   - component: {fileID: 7987597929103167325}
   - component: {fileID: 8823745636860624349}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6507,6 +6507,7 @@ GameObject:
   - component: {fileID: 4888587114918118979}
   - component: {fileID: 6894925928645384773}
   - component: {fileID: 1451126654176883161}
+  - component: {fileID: 1233217832121441660}
   - component: {fileID: 5208744404964449742}
   - component: {fileID: 6491783774208611469}
   - component: {fileID: 7751390036266879880}
@@ -6582,6 +6583,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1233217832121441660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648921898042926042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: eb90a48f59faee04aad0a09a4dff417b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 8254534239658114609}
         m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
         m_MethodName: CallResetPosture

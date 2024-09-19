@@ -7,6 +7,7 @@ public class HarpoonController : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
     [SerializeField] private FloatEventChannel damage_EventChannel;
+    [SerializeField] private VoidEventChannel weakPoint_EventChannel;
 
     [Tooltip("How fast the harpoon pulls the player")]
     [SerializeField] private float grappleForce = 20f;
@@ -175,6 +176,8 @@ public class HarpoonController : MonoBehaviour
 
             //Deal damage
             damage_EventChannel.CallEvent(new(GameManager.Instance.PlayerDamage));
+            VoidEvent ctx;
+            weakPoint_EventChannel.CallEvent(ctx);
         }
 
         ResetBolt();

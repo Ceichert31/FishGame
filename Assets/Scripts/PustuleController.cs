@@ -8,7 +8,7 @@ public class PustuleController : MonoBehaviour
     [SerializeField] GameObject pustule;
     float disableTime = 2f;
 
-    public void OnHit(FloatEvent ctx)
+    public void OnHit(VoidEvent ctx)
     {
         Invoke(nameof(ReEnable), disableTime);
         pustule.SetActive(false);

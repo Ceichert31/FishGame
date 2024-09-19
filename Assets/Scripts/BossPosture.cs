@@ -47,7 +47,7 @@ public class BossPosture : MonoBehaviour
         posture_EventChannel.CallEvent(currentPosture);
     }
 
-    public void CallResetPosture(FloatEvent ctx)
+    public void CallResetPosture(VoidEvent ctx)
     {
         ResetPosture();
     }

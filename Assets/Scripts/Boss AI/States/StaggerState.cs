@@ -21,7 +21,7 @@ public class StaggerState : AIState
         bossAnimator.SetTrigger("Staggered");
         canExit = false;
 
-        float staggerTime = 4;
+        float staggerTime = 5;
         timer = Time.time + staggerTime;
     }
 
@@ -46,7 +46,7 @@ public class StaggerState : AIState
         bossAnimator = bossTransform.GetComponent<Animator>();
     }
 
-    public void NoLongerStaggered(FloatEvent ctx)
+    public void NoLongerStaggered(VoidEvent ctx)
     {
         Debug.Log("Got out of stagger");
         canExit = true;

@@ -5734,6 +5734,7 @@ GameObject:
   - component: {fileID: 6025502010461224808}
   - component: {fileID: 1164393372454060404}
   - component: {fileID: 6810070633299860872}
+  - component: {fileID: 6287124306169523492}
   - component: {fileID: 4366325919319603030}
   - component: {fileID: 2227031593269736330}
   - component: {fileID: 9053415698981932793}
@@ -5840,6 +5841,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6287124306169523492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645988948429123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: eb90a48f59faee04aad0a09a4dff417b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 7859916091848677769}
         m_TargetAssemblyTypeName: BossPosture, Assembly-CSharp
         m_MethodName: CallResetPosture
