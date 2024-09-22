@@ -100,6 +100,11 @@ public class CombatController : MonoBehaviour
     /// <param name="ctx"></param>
     void Parry(InputAction.CallbackContext ctx) 
     {
+        if(inProgress)
+        {
+            return;
+        }
+
         //Time gate to prevent queued parries
         if (canParry)
         {

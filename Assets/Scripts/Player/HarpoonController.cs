@@ -20,6 +20,8 @@ public class HarpoonController : MonoBehaviour
     [Tooltip("How long until the player can fire the grappling g")]
     [SerializeField] private float timerAmount = 1;
 
+    [Header("Normal Attack Values")]
+    [SerializeField] private float normalAttackPostureDamage = 2;
     [SerializeField] private float normalAttackMultiplier = 0.3f;
 
     private CombatController combatController;
