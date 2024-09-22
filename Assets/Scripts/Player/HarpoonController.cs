@@ -18,7 +18,7 @@ public class HarpoonController : MonoBehaviour
     [SerializeField] private float reelInSpeed = 20f;
 
     [Tooltip("How long until the player can fire the grappling g")]
-    [SerializeField] private float timerAmount = 3;
+    [SerializeField] private float timerAmount = 1;
 
     [SerializeField] private float normalAttackMultiplier = 0.3f;
 

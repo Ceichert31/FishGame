@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5774819, g: 0.68224454, b: 0.69298536, a: 1}
+  m_FogColor: {r: 0.51323473, g: 0.6232481, b: 0.64676845, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.03
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.16521779, g: 0.3867407, b: 0.54798186, a: 1}
+  m_IndirectSpecularColor: {r: 0.16375388, g: 0.36771715, b: 0.48993817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1180,7 +1180,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7642137, b: 0.014207388, a: 1}
+  m_Color: {r: 0.9607514, g: 0.73709506, b: 0.060197055, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434042017}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20082727, y: -0.25316325, z: 0.0538115, w: 0.9448181}
+  m_LocalRotation: {x: 0.12607858, y: -0.25660482, z: 0.033782654, w: 0.9576622}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1727,6 +1727,16 @@ PrefabInstance:
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: canFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: timerAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7248338572729242097, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -4498,8 +4508,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8574903, g: 0.93627614, b: 1, a: 0.40436512}
-  m_Intensity: 1
+  m_Color: {r: 0.8596344, g: 0.9372349, b: 1, a: 0.4513889}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
