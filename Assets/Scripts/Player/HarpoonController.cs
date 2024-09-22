@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HelperMethods;
+using Unity.VisualScripting;
 
 public class HarpoonController : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class HarpoonController : MonoBehaviour
 
     [Tooltip("How fast the harpoon retracts and fires")]
     [SerializeField] private float reelInSpeed = 20f;
+
+    [Tooltip("How long until the player can fire the grappling g")]
+    [SerializeField] private float timerAmount = 3;
 
     [SerializeField] private float normalAttackMultiplier = 0.3f;
 
@@ -29,12 +34,17 @@ public class HarpoonController : MonoBehaviour
     private Transform Player => GameManager.Instance.Player.transform;
     private Rigidbody playerRigidbody => GameManager.Instance.Player.GetComponent<Rigidbody>();
 
-    private bool isInProgress;
+    bool inProgress;
+
+    private float timer;
 
     private AudioSource source;
 
     //Accessors
-    public bool IsInProgress { get { return isInProgress; } }
+
+    public bool InProgress { get { return inProgress; } }
+
+    public bool TimerIsUp { get { return Util.CheckTimer(timer); } }
 
     //Constants
     private Vector3 HOOKRESETPOSITION = new(40f, 0, 0);
@@ -77,7 +87,7 @@ public class HarpoonController : MonoBehaviour
     public void StartGrapple(Vector3 hitPoint, bool isGrappleable, GrappleSurface surface)
     {
         //Disable firing harpoon
-        isInProgress = true;
+        inProgress = true;
 
         StartCoroutine(ShootGrapple(hitPoint, isGrappleable, surface));
     }
@@ -150,6 +160,9 @@ public class HarpoonController : MonoBehaviour
         
         if (surface == GrappleSurface.damageable)
         {
+            //Starts timer
+            timer = Time.time + timerAmount;
+
             //Stop velocity
             playerRigidbody.velocity = Vector3.zero;
 
@@ -241,8 +254,7 @@ public class HarpoonController : MonoBehaviour
         //Reset rotation
         boltObject.localEulerAngles = HOOKRESETPOSITION;
 
-        //Re-enable firing harpoon
-        isInProgress = false;
+        inProgress = false;
 
         source.Stop();
     }

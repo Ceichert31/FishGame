@@ -31,7 +31,10 @@ public class CombatController : MonoBehaviour
     private Animator spearAnimator;
 
     private AudioSource source;
-    private bool IsInProgress => harpoonController.IsInProgress;
+    private bool inProgress => harpoonController.InProgress;
+    private bool TimerIsUp => harpoonController.TimerIsUp;
+
+    private bool canFire;
 
     private const int GRAPPLELAYER = 8;
 
@@ -53,7 +56,9 @@ public class CombatController : MonoBehaviour
     /// </summary>
     void FireGrapple(InputAction.CallbackContext ctx)
     {
-        if (IsInProgress) return;
+        canFire = inProgress ? false : TimerIsUp;
+
+        if (!canFire) return;
 
         //Play SFX
         spearGunFireAudio.Play(source);
