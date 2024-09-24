@@ -156,8 +156,13 @@ MonoBehaviour:
   fov_EventChannel: {fileID: 11400000, guid: 7e95b56522f764f4492131f0120a8e17, type: 2}
   damage_EventChannel: {fileID: 11400000, guid: c8dcbb55224e26f48821279352323e06,
     type: 2}
+  weakPoint_EventChannel: {fileID: 11400000, guid: eb90a48f59faee04aad0a09a4dff417b,
+    type: 2}
   grappleForce: 30
   reelInSpeed: 30
+  timerAmount: 1
+  normalAttackPostureDamage: 2
+  normalAttackMultiplier: 0.3
 --- !u!114 &3100639532301947567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,6 +2135,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3306898884867616923}
+  - component: {fileID: 8514221479914109373}
+  - component: {fileID: 4507606704029618741}
   m_Layer: 6
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -2153,6 +2160,79 @@ Transform:
   - {fileID: 8244151488553780583}
   m_Father: {fileID: 4184258596113817863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8514221479914109373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358661037225534921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.0151763
+      outSlope: 1.0151763
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06969697
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 0.05226007
+      outSlope: 0.05226007
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.7781767
+      outSlope: -0.7781767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0665758
+      outWeight: 0.116766214
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+--- !u!114 &4507606704029618741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358661037225534921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8514221479914109373}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: StartShaking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5420024277832059075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,8 +3287,6 @@ GameObject:
   - component: {fileID: 5331316054924076896}
   - component: {fileID: 3605992156805197864}
   - component: {fileID: 6477070649608985972}
-  - component: {fileID: 2681916026861961178}
-  - component: {fileID: 6124719084113623600}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3495,79 +3573,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5331316054924076896}
         m_TargetAssemblyTypeName: AmbienceController, Assembly-CSharp
         m_MethodName: LoadPreviousClip
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2681916026861961178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8654829441106256098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.0151763
-      outSlope: 1.0151763
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.06969697
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: 0.05226007
-      outSlope: 0.05226007
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.7781767
-      outSlope: -0.7781767
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.0665758
-      outWeight: 0.116766214
-    m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 4
---- !u!114 &6124719084113623600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8654829441106256098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2681916026861961178}
-        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
-        m_MethodName: StartShaking
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
