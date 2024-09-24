@@ -41,13 +41,19 @@ public class PlayerInteractor : MonoBehaviour
         interactableObject.OnStay();
 
         if (canInteract)
+        {
             interactableObject.Interact();
-        else 
-            interactableObject.ExitInteract();
+            canInteract = false;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
+        if (!isInteractableLayer)
+        {
+            return;
+        }
         clearText_EventChannel.CallEvent(clearEvent);
+        interactableObject.ExitInteract();
         interactableObject = null;
     }
 }
