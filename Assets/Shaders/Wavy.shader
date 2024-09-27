@@ -47,7 +47,7 @@ Shader "Unlit/Wavy"
             {
                 v2f o;
 
-                v.vertex.x += sin((_Time.y * _Speed)) * _Strength; 
+                v.vertex.z += sin((_Time.y * _Speed)) * _Strength; 
 
                 o.pos = UnityObjectToClipPos(v.vertex);
 
