@@ -10,9 +10,12 @@ public struct TextEvent
 
     public float ClearTime;
 
-    public TextEvent(string textPrompt, float clearTime)
+    public TextStyle TextStyle;
+
+    public TextEvent(string textPrompt, float clearTime, TextStyle textStyle)
     {
         TextPrompt = textPrompt;
         ClearTime = clearTime;
+        TextStyle = textStyle;
     }
 }

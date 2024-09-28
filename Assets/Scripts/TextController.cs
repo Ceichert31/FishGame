@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
-
+public enum TextStyle
+{
+    Interact,
+    Dialogue,
+    Announcement,
+}
 public class TextController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] AudioPitcherSO typingAudio;
 
     [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI promptText;
+    [SerializeField] private TextMeshProUGUI interactPrompt;
 
     [Header("Typing Effect Settings")]
     [SerializeField] private float timePerLetter = 0.1f;
@@ -36,20 +40,20 @@ public class TextController : MonoBehaviour
     {
         StopAllCoroutines();
 
-        promptText.text = string.Empty;
+        interactPrompt.text = string.Empty;
 
         isInteracting = true;
 
-        StartCoroutine(DisplayText(ctx.TextPrompt, ctx.ClearTime));
+        StartCoroutine(DisplayText(ctx.TextPrompt, ctx.ClearTime, ctx.TextStyle));
     }
 
-    public void UpdateTextPrompt(TextEvent ctx)
+    public void QueueTextPrompt(TextEvent ctx)
     {
         //Empty prompt bootstrap case
         if (ctx.TextPrompt == string.Empty)
         {
             StopAllCoroutines();
-            promptText.text = string.Empty;
+            interactPrompt.text = string.Empty;
             return;
         }
 
@@ -72,7 +76,7 @@ public class TextController : MonoBehaviour
             TextEvent textEvent = textQueue.Dequeue();
 
             //Start new text event
-            textInstance = StartCoroutine(DisplayText(textEvent.TextPrompt, textEvent.ClearTime));
+            textInstance = StartCoroutine(DisplayText(textEvent.TextPrompt, textEvent.ClearTime, textEvent.TextStyle));
         }
     }
 
@@ -82,7 +86,7 @@ public class TextController : MonoBehaviour
     /// <param name="prompt"></param>
     /// <param name="clearTime"></param>
     /// <returns></returns>
-    IEnumerator DisplayText(string prompt, float clearTime)
+    IEnumerator DisplayText(string prompt, float clearTime, TextStyle textStyle)
     {
         //Delay between new character
         WaitForSeconds waitTime = new(timePerLetter);
@@ -92,7 +96,7 @@ public class TextController : MonoBehaviour
         {
             typingAudio.Play(source);
 
-            promptText.text += prompt[i];
+            interactPrompt.text += prompt[i];
 
             yield return waitTime;
         }
@@ -117,6 +121,6 @@ public class TextController : MonoBehaviour
 
         isInteracting = false;
 
-        promptText.text = string.Empty;
+        interactPrompt.text = string.Empty;
     }
 }

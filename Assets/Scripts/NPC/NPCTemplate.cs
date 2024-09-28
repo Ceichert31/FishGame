@@ -22,9 +22,9 @@ public class NPCTemplate : MonoBehaviour, IInteract
     void Awake()
     {
         promptText.TextPrompt = $"Press [E] to interact with {npcName}";
-        TextEvent empty = new TextEvent("", 0);
+        TextEvent empty = new TextEvent("", 0, TextStyle.Dialogue);
         dialog.Add(empty);
-        noTalk = new TextEvent("Rude", 2);
+        noTalk = new TextEvent("Rude", 2, TextStyle.Dialogue);
     }
 
 
