@@ -5382,8 +5382,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1245451971}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: UpdateTextPrompt
+        m_TargetAssemblyTypeName: TextController, Assembly-CSharp
+        m_MethodName: QueueTextPrompt
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
