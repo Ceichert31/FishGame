@@ -21,6 +21,7 @@ Shader "Unlit/Wavy"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma target 3.0
 
             #include "UnityCG.cginc"
 
@@ -47,11 +48,7 @@ Shader "Unlit/Wavy"
             {
                 v2f o;
 
-                v.vertex.y += floor(sin((v.vertex.x + _Time.y * _Speed)) * _Strength); 
-
-                v.uv.x += abs(sin(_Time * _Speed));
-
-                v.uv.y += abs(sin(_Time * _Speed));
+                v.vertex.x += (sin((v.vertex.y + _Time.y * _Speed)) * _Strength); 
 
                 o.pos = UnityObjectToClipPos(v.vertex);
 
@@ -60,8 +57,12 @@ Shader "Unlit/Wavy"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (v2f i, UNITY_VPOS_TYPE screenPos : SV_POSITION) : SV_Target
             {
+                screenPos.xy = floor(screenPos.xy * 0.25) * 0.5;
+                float checker = -frac(screenPos.r + screenPos.g);
+                clip(checker); 
+
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
                 return col;
