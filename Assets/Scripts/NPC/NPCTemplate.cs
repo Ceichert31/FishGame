@@ -13,6 +13,7 @@ public class NPCTemplate : MonoBehaviour, IInteract
     [SerializeField] List<TextEvent> dialog = new List<TextEvent>();
     [SerializeField] TextEvent exitText;
     TextEvent noTalk;
+    bool knowsName;
 
 
     
@@ -21,10 +22,10 @@ public class NPCTemplate : MonoBehaviour, IInteract
 
     void Awake()
     {
-        promptText.TextPrompt = $"Press [E] to interact with {npcName}";
-        TextEvent empty = new TextEvent("", 0, TextStyle.Dialogue);
+        promptText.TextPrompt = $"Press [E] to interact with ?????";
+        TextEvent empty = new TextEvent("", 0, TextStyle.Interact);
         dialog.Add(empty);
-        noTalk = new TextEvent("Rude", 2, TextStyle.Dialogue);
+        noTalk = new TextEvent("Rude", 2, TextStyle.Interact);
     }
 
 
@@ -47,6 +48,7 @@ public class NPCTemplate : MonoBehaviour, IInteract
         {
             dialogIndex = 0;
         }
+        TextBehavior(dialogIndex);
         clearText_EventChannel.CallEvent(new());
         text_EventChannel.CallEvent(dialog[dialogIndex]);
         dialogIndex++;
@@ -55,5 +57,18 @@ public class NPCTemplate : MonoBehaviour, IInteract
     public void OnStay()
     {
 
+    }
+
+    void TextBehavior(int dialogeCount)
+    {
+        switch (dialogeCount)
+        {
+            case 0:
+                promptText.TextPrompt = $"Press [E] to interact with Mr. LureBottom WIgglesWorth The Third";
+                break;
+            case 1:
+                promptText.TextPrompt = $"Press [E] to interact with Lure";
+                break;
+        }
     }
 }
