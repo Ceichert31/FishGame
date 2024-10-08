@@ -59,7 +59,7 @@ public class DayNightCycle : MonoBehaviour
     {
         mainLight = transform.GetChild(0).GetComponent<Light>();
 
-        ambientLight = transform.GetChild(1).GetComponent<Light>();
+        ambientLight = transform.GetChild(0).GetChild(0).GetComponent<Light>();
 
         timeOfDay = defaultTimeOfDay;
 
