@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-public enum TextStyle
-{
-    Interact,
-    Dialogue,
-    Announcement,
-}
 public class TextController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
@@ -44,7 +38,7 @@ public class TextController : MonoBehaviour
 
         isInteracting = true;
 
-        StartCoroutine(DisplayText(ctx.TextPrompt, ctx.ClearTime, ctx.TextStyle));
+        StartCoroutine(DisplayText(ctx.TextPrompt, ctx.ClearTime));
     }
 
     public void QueueTextPrompt(TextEvent ctx)
@@ -76,7 +70,7 @@ public class TextController : MonoBehaviour
             TextEvent textEvent = textQueue.Dequeue();
 
             //Start new text event
-            textInstance = StartCoroutine(DisplayText(textEvent.TextPrompt, textEvent.ClearTime, textEvent.TextStyle));
+            textInstance = StartCoroutine(DisplayText(textEvent.TextPrompt, textEvent.ClearTime));
         }
     }
 
@@ -86,7 +80,7 @@ public class TextController : MonoBehaviour
     /// <param name="prompt"></param>
     /// <param name="clearTime"></param>
     /// <returns></returns>
-    IEnumerator DisplayText(string prompt, float clearTime, TextStyle textStyle)
+    IEnumerator DisplayText(string prompt, float clearTime)
     {
         //Delay between new character
         WaitForSeconds waitTime = new(timePerLetter);
