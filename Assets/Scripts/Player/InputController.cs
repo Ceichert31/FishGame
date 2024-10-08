@@ -100,7 +100,7 @@ public class InputController : MonoBehaviour
     public Vector2 MoveInput { get { return moveInput; } }
 
     //Constants
-    private const float EFFECTTHRESHOLD = 80f;
+    private const float EFFECTTHRESHOLD = 60f;
     private const float LOOKCLAMP = 90f;
     private const float SENSITIVITYSCALEFACTOR = 100f;
 

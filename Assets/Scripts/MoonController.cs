@@ -9,6 +9,15 @@ public class MoonController : MonoBehaviour
 
     private void Start()
     {
+        UpdateSettings();
+    }
+    private void OnValidate()
+    {
+        UpdateSettings();
+    }
+
+    private void UpdateSettings()
+    {
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, distance);
         transform.localScale = scale;
     }
