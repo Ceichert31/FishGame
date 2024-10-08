@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPCTemplate : MonoBehaviour, IInteract
@@ -8,24 +9,22 @@ public class NPCTemplate : MonoBehaviour, IInteract
     [SerializeField] private TextEventChannel text_EventChannel;
     [SerializeField] private VoidEventChannel clearText_EventChannel;
 
-    TextEvent promptText;
-    [SerializeField] string npcName;
-    [SerializeField] List<TextEvent> dialog = new List<TextEvent>();
-    [SerializeField] TextEvent exitText;
-    TextEvent noTalk;
-    bool knowsName;
 
-
-    
-    int dialogIndex = 0;
-    public TextEvent Prompt => promptText;
+    NPCBehaviorBase npcBehavior;
+    TextEvent exitText => npcBehavior.ExitText;
+    public TextEvent Prompt => npcBehavior.Hover_PromptText;
 
     void Awake()
     {
-        promptText.TextPrompt = $"Press [E] to interact with ?????";
-        TextEvent empty = new TextEvent("", 0);
-        dialog.Add(empty);
-        noTalk = new TextEvent("Rude", 2);
+        try
+        {
+            npcBehavior = GetComponent<NPCBehaviorBase>();
+
+        }
+        catch
+        {
+            throw new System.Exception("This NPC does not have any special interaction behavior");
+        }
     }
 
 
@@ -36,39 +35,19 @@ public class NPCTemplate : MonoBehaviour, IInteract
 
     public void ExitInteract()
     {
-        text_EventChannel.CallEvent(dialogIndex == 0 ? noTalk : exitText);
-        dialogIndex = 0;
-
+        npcBehavior.ExitInteractBehavior();
+        text_EventChannel.CallEvent(exitText);
     }
 
     public void Interact()
     {
-        Debug.Log("interacted");
-        if(dialogIndex == dialog.Count)
-        {
-            dialogIndex = 0;
-        }
-        TextBehavior(dialogIndex);
+        npcBehavior.InteractBehavior();
         clearText_EventChannel.CallEvent(new());
-        text_EventChannel.CallEvent(dialog[dialogIndex]);
-        dialogIndex++;
+        text_EventChannel.CallEvent(npcBehavior.CurrentLine);
     }
 
     public void OnStay()
     {
 
-    }
-
-    void TextBehavior(int dialogeCount)
-    {
-        switch (dialogeCount)
-        {
-            case 0:
-                promptText.TextPrompt = $"Press [E] to interact with Mr. LureBottom WIgglesWorth The Third";
-                break;
-            case 1:
-                promptText.TextPrompt = $"Press [E] to interact with Lure";
-                break;
-        }
     }
 }

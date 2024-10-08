@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9081320406886561004}
   - component: {fileID: 4288870637491117647}
   - component: {fileID: 6280113414645801532}
+  - component: {fileID: 9024609885984075206}
   - component: {fileID: 2287731160480653888}
   m_Layer: 7
   m_Name: CubeMan
@@ -100,15 +101,33 @@ MonoBehaviour:
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
   clearText_EventChannel: {fileID: 11400000, guid: 862198b34533d3e41af7ba70d7248246,
     type: 2}
-  npcName: Cube Man
+--- !u!114 &9024609885984075206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359086665208484756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dabcc6e200d5574abb03689db088dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Cubeman
   dialog:
-  - TextPrompt: Hello person, I am the great cube man
+  - TextPrompt: Hello I am Cubeman
     ClearTime: 0
-  - TextPrompt: My Wife Does not Love Me Any More
+  - TextPrompt: Your friendly neighborhood 8 verticied friend
     ClearTime: 0
-  exitText:
-    TextPrompt: Cubeman bids you farewell
-    ClearTime: 3
+  - TextPrompt: She hurt me.
+    ClearTime: 0
+  yesTalk_exitText:
+    TextPrompt: Thank you for speaking to me, it has been lonely since she has left
+    ClearTime: 2
+  noTalk_ExitText:
+    TextPrompt: You're Just Like her
+    ClearTime: 2
+  introductionIndex: 0
 --- !u!65 &2287731160480653888
 BoxCollider:
   m_ObjectHideFlags: 0
