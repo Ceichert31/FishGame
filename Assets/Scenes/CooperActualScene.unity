@@ -11689,7 +11689,7 @@ Transform:
   m_GameObject: {fileID: 8831278773400266806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.88, y: 1.6, z: 20.228485}
+  m_LocalPosition: {x: 28.88, y: 1.92, z: 20.228485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11756,6 +11756,7 @@ GameObject:
   - component: {fileID: 6188700102807429697}
   - component: {fileID: 9124156137753424145}
   - component: {fileID: 9124156137753424144}
+  - component: {fileID: 9124156137753424146}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -11778,18 +11779,6 @@ MonoBehaviour:
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
   clearText_EventChannel: {fileID: 11400000, guid: 862198b34533d3e41af7ba70d7248246,
     type: 2}
-  npcName: Lure
-  dialog:
-  - TextPrompt: My Name is Mr. LureBottom WIgglesWorth The Third
-    ClearTime: 0
-  - TextPrompt: But You Can Call Me Lure
-    ClearTime: 0
-  - TextPrompt: Test Balls
-    ClearTime: 0
-  exitText:
-    TextPrompt: Bye Bye
-    ClearTime: 3
-  dialogIndex: 0
 --- !u!136 &9124156137753424145
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11813,6 +11802,35 @@ CapsuleCollider:
   m_Height: 3.438841
   m_Direction: 1
   m_Center: {x: 0.00000008940701, y: -1.7194202, z: -0.052356917}
+--- !u!114 &9124156137753424146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124156137753424143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd883be474b0bb14591c814656f52ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Lure
+  dialog:
+  - TextPrompt: My Name is Mr. LureBottom WIgglesWorth The Third
+    ClearTime: 0
+  - TextPrompt: But You Can Call Me Lure
+    ClearTime: 0
+  - TextPrompt: I can say for a fact that I have never seen you around these parts
+    ClearTime: 0
+  - TextPrompt: A youngin like yourself should not wandering around along
+    ClearTime: 0
+  yesTalk_exitText:
+    TextPrompt: Have A Good Day
+    ClearTime: 0
+  noTalk_ExitText:
+    TextPrompt: Rude
+    ClearTime: 2
+  introductionIndex: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
