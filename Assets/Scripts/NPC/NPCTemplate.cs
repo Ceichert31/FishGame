@@ -23,9 +23,9 @@ public class NPCTemplate : MonoBehaviour, IInteract
     void Awake()
     {
         promptText.TextPrompt = $"Press [E] to interact with ?????";
-        TextEvent empty = new TextEvent("", 0, TextStyle.Interact);
+        TextEvent empty = new TextEvent("", 0);
         dialog.Add(empty);
-        noTalk = new TextEvent("Rude", 2, TextStyle.Interact);
+        noTalk = new TextEvent("Rude", 2);
     }
 
 

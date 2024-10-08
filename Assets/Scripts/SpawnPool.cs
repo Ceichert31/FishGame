@@ -36,9 +36,9 @@ public class SpawnPool : MonoBehaviour
 
     private void Start()
     {
-        noFishEvent = new TextEvent("No Fish hooked", 2.5f, TextStyle.Interact);
+        noFishEvent = new TextEvent("No Fish hooked", 2.5f);
 
-        fishLostEvent = new TextEvent("Fish Got Away...", 2.5f, TextStyle.Interact);
+        fishLostEvent = new TextEvent("Fish Got Away...", 2.5f);
     }
 
     public void StartFishing()
