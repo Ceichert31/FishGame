@@ -6,6 +6,8 @@ using UnityEngine.InputSystem.HID;
 
 public class LureTutorialNPCBehavior : NPCBehaviorBase
 {
+    [SerializeField] Animator animator;
+    
 
     public override void InteractBehavior()
     {
@@ -19,8 +21,12 @@ public class LureTutorialNPCBehavior : NPCBehaviorBase
         switch(dialogIndex)
         {
             case 0:
-                name = "Mr.LureBottom WIgglesWorth The Third";
+                animator.SetTrigger("Introduction");
+                npcName = "Mr.LureBottom WIgglesWorth The Third";
                 UpdateName();
+                break;
+            case 1:
+                npcName = "Lure";
                 break;
         }
     }

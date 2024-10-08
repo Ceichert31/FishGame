@@ -97,7 +97,7 @@ public abstract class NPCBehaviorBase : MonoBehaviour
     /// </summary>
     public void UpdateName()
     {
-        hover_PromptText.TextPrompt = $"Press [E] to Interact with {name}";
+        hover_PromptText.TextPrompt = $"Press [E] to Interact with {npcName}";
     }
 }
 
