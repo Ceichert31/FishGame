@@ -222,7 +222,7 @@ public class InputController : MonoBehaviour
         lookRotation = Mathf.Clamp(lookRotation, -LOOKCLAMP, LOOKCLAMP);
 
         //Set cameras rotation
-        cam.transform.eulerAngles = new(lookRotation, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+        cam.transform.eulerAngles = new(lookRotation, cam.transform.eulerAngles.y, 0);
     }
 
     private void Dash(InputAction.CallbackContext ctx)

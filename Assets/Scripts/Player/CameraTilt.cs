@@ -4,7 +4,7 @@ public class CameraTilt : MonoBehaviour
 {
     [Header("Camera Tilt ")]
     [Tooltip("The player Camera")]
-    [SerializeField] private Transform mainCamera;
+    [SerializeField] private Transform cameraHolder;
 
     [Header("Camera Tilt Settings")]
     [Tooltip("Controls how fast the camera returns to the origin position")]
@@ -31,9 +31,6 @@ public class CameraTilt : MonoBehaviour
         inputController = GetComponent<InputController>();
 
         rb = GetComponent<Rigidbody>();  
-
-        if (mainCamera == null)
-            mainCamera = transform.GetChild(0).GetChild(0);
     }
 
     private void Update()
@@ -67,6 +64,6 @@ public class CameraTilt : MonoBehaviour
 
         //Rotate camera to tilted position
         targetRotation = Vector3.Lerp(targetRotation, currentRotation, tiltInSpeed * Time.deltaTime);
-        mainCamera.transform.localRotation = Quaternion.Euler(targetRotation);
+        cameraHolder.transform.localRotation = Quaternion.Euler(targetRotation);
     }
 }

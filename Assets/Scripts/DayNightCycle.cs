@@ -120,12 +120,12 @@ public class DayNightCycle : MonoBehaviour
     /// </summary>
     private void SetDayTimeVisuals()
     {
-        instance = StartCoroutine(SetAmbientLightIntensity(1f));
+        instance = StartCoroutine(SetMoonlightIntensity(1f));
 
         isDayTime.Value = true;
         time_EventChannel.CallEvent(isDayTime);
 
-        postEffect_EventChannel.CallEvent(dayProfile);
+        //postEffect_EventChannel.CallEvent(dayProfile);
     }
 
     /// <summary>
@@ -133,15 +133,15 @@ public class DayNightCycle : MonoBehaviour
     /// </summary>
     private void SetNightTimeVisuals()
     {
-        instance = StartCoroutine(SetAmbientLightIntensity(1.5f));
+        instance = StartCoroutine(SetMoonlightIntensity(2f));
 
         isDayTime.Value = false;
         time_EventChannel.CallEvent(isDayTime);
 
-        postEffect_EventChannel.CallEvent(nightProfile);
+        //postEffect_EventChannel.CallEvent(nightProfile);
     }
 
-    IEnumerator SetAmbientLightIntensity(float targetIntensity)
+    IEnumerator SetMoonlightIntensity(float targetIntensity)
     {
         while (ambientLight.intensity != targetIntensity)
         {
