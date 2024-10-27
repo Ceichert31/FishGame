@@ -30,12 +30,6 @@ public class DayNightCycle : MonoBehaviour
 
     [SerializeField] private Light ambientLight;
 
-
-    [Header("Day/Night Profiles")]
-    [SerializeField] private PostEvent dayProfile;
-
-    [SerializeField] private PostEvent nightProfile;
-
     private Coroutine instance;
 
     private BoolEvent isDayTime;
@@ -49,9 +43,9 @@ public class DayNightCycle : MonoBehaviour
 
     private const float TOTALDAYTIME = 24f;
 
-    private const float SUNRISE = 7f;
+    private const float SUNRISE = 6f;
 
-    private const float SUNSET = 18f;
+    private const float SUNSET = 16f;
 
     private const float ADVANCETIMEDELAY = 0.5f;
 
@@ -137,8 +131,6 @@ public class DayNightCycle : MonoBehaviour
 
         isDayTime.Value = false;
         time_EventChannel.CallEvent(isDayTime);
-
-        //postEffect_EventChannel.CallEvent(nightProfile);
     }
 
     IEnumerator SetMoonlightIntensity(float targetIntensity)
