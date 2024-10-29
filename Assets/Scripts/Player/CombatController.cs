@@ -19,6 +19,8 @@ public class CombatController : MonoBehaviour
     [Header("Harpoon Settings")]
     [SerializeField] private float grappleRange = 20f;
 
+    [SerializeField] private float reloadTime = 1.5f;
+
     [Tooltip("Layers that can be fired at")]
     [SerializeField] private LayerMask fireableLayers;
 
@@ -34,7 +36,7 @@ public class CombatController : MonoBehaviour
     private bool inProgress => harpoonController.InProgress;
     private bool TimerIsUp => harpoonController.TimerIsUp;
 
-    private bool canFire;
+    private bool hasFired = false;
 
     private const int GRAPPLELAYER = 8;
 
@@ -56,9 +58,10 @@ public class CombatController : MonoBehaviour
     /// </summary>
     void FireGrapple(InputAction.CallbackContext ctx)
     {
-        canFire = inProgress ? false : TimerIsUp;
+        if (hasFired) return;
 
-        if (!canFire) return;
+        //Player has fired
+        hasFired = true;
 
         //Play SFX
         spearGunFireAudio.Play(source);
@@ -83,7 +86,6 @@ public class CombatController : MonoBehaviour
         {
             //Unfinished
             //If player fires into space, fire and retract
-            Debug.Log(Camera.main.transform.position);
 
             harpoonController.StartGrapple(Camera.main.transform.position, false, GrappleSurface.normal);
         }
@@ -130,6 +132,19 @@ public class CombatController : MonoBehaviour
         harpoonController.Retract();
     }
 
+    void StartReload(InputAction.CallbackContext ctx)
+    {
+        Invoke(nameof(Reload), reloadTime);
+
+        //Play reload animation
+    }
+
+    void Reload()
+    {
+        //This will probably be called by animation event
+        hasFired = false;
+    }
+
     /// <summary>
     /// Subscribes functions to the correct controls
     /// </summary>
@@ -143,5 +158,7 @@ public class CombatController : MonoBehaviour
         ctx.Action.Combat.ReelIn.performed += RetractHook;
 
         ctx.Action.Combat.Fire.performed += FireGrapple;
+
+        ctx.Action.Combat.Reload.performed += StartReload;
     }
 }
