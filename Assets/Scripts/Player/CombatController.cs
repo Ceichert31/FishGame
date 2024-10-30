@@ -137,6 +137,8 @@ public class CombatController : MonoBehaviour
         Invoke(nameof(Reload), reloadTime);
 
         //Play reload animation
+        //Prevent player dashing or slow down movement
+        //Dashing could take player out of reload
     }
 
     void Reload()
