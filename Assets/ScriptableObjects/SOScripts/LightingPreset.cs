@@ -6,6 +6,8 @@ using UnityEngine;
 public class LightingPreset : ScriptableObject
 {
     public Gradient directionalColor;
-    public Gradient ambientColor;
+    public Gradient moonLightColor;
     public Gradient fogColor;
+    [GradientUsage(true)]
+    public Gradient ambientLight;
 }

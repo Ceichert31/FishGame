@@ -26,9 +26,9 @@ public class DayNightCycle : MonoBehaviour
 
     [SerializeField] private Vector3 lightRotation;
 
-    [SerializeField] private Light mainLight;
+    [SerializeField] private Light sunLight;
 
-    [SerializeField] private Light ambientLight;
+    [SerializeField] private Light moonLight;
 
     private Coroutine instance;
 
@@ -51,9 +51,9 @@ public class DayNightCycle : MonoBehaviour
 
     private void Awake()
     {
-        mainLight = transform.GetChild(0).GetComponent<Light>();
+        sunLight = transform.GetChild(0).GetComponent<Light>();
 
-        ambientLight = transform.GetChild(0).GetChild(0).GetComponent<Light>();
+        moonLight = transform.GetChild(0).GetChild(0).GetComponent<Light>();
 
         timeOfDay = defaultTimeOfDay;
 
@@ -80,15 +80,20 @@ public class DayNightCycle : MonoBehaviour
 
     private void UpdateLighting(float timePercent)
     {
-        ambientLight.color = preset.ambientColor.Evaluate(timePercent);
+        moonLight.color = preset.moonLightColor.Evaluate(timePercent);
 
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
 
-        if (mainLight != null)
-        {
-            mainLight.color = preset.directionalColor.Evaluate(timePercent);
+        RenderSettings.ambientLight = preset.ambientLight.Evaluate(timePercent);
 
-            mainLight.transform.localRotation = Quaternion.Euler(new((timePercent * TOTALROTATION) - lightRotation.x, lightRotation.y, lightRotation.z));
+        
+
+
+        if (sunLight != null)
+        {
+            sunLight.color = preset.directionalColor.Evaluate(timePercent);
+
+            sunLight.transform.localRotation = Quaternion.Euler(new((timePercent * TOTALROTATION) - lightRotation.x, lightRotation.y, lightRotation.z));
         }
 
         if (instance != null) return;
@@ -96,12 +101,13 @@ public class DayNightCycle : MonoBehaviour
         //Intensity based on time of day
         if (timeOfDay > SUNRISE && timeOfDay < SUNSET)
         {
-            SetDayTimeVisuals();
+            SetDayTimeValues();
         }
         else
         {
-            SetNightTimeVisuals();
+            SetNightTimeValues();
         }
+
     }
 
     private void OnValidate()
@@ -112,37 +118,31 @@ public class DayNightCycle : MonoBehaviour
     /// <summary>
     /// Runs everything related to daytime functionallity
     /// </summary>
-    private void SetDayTimeVisuals()
+    private void SetDayTimeValues()
     {
-        instance = StartCoroutine(SetMoonlightIntensity(1f));
-
         isDayTime.Value = true;
         time_EventChannel.CallEvent(isDayTime);
-
-        //postEffect_EventChannel.CallEvent(dayProfile);
     }
 
     /// <summary>
     /// Runs everything related to nighttime functionallity
     /// </summary>
-    private void SetNightTimeVisuals()
+    private void SetNightTimeValues()
     {
-        instance = StartCoroutine(SetMoonlightIntensity(2f));
-
         isDayTime.Value = false;
         time_EventChannel.CallEvent(isDayTime);
     }
 
-    IEnumerator SetMoonlightIntensity(float targetIntensity)
+    IEnumerator SetAmbientLightIntensity(float targetIntensity)
     {
-        while (ambientLight.intensity != targetIntensity)
+        while (RenderSettings.ambientIntensity != targetIntensity)
         {
-            ambientLight.intensity = Mathf.MoveTowards(ambientLight.intensity, targetIntensity, Time.deltaTime);
+            RenderSettings.ambientIntensity = Mathf.MoveTowards(moonLight.intensity, targetIntensity, Time.deltaTime);
 
             yield return null;
         }
 
-        ambientLight.intensity = targetIntensity;
+        RenderSettings.ambientIntensity = targetIntensity;
 
         instance = null;
     }

@@ -42,36 +42,36 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  ambientColor:
+  moonLightColor:
     serializedVersion: 2
-    key0: {r: 0.8632076, g: 0.93883264, b: 1, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 1}
-    key3: {r: 0.8160377, g: 0.91774046, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 16384
-    ctime1: 20046
-    ctime2: 42983
-    ctime3: 52428
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 21588
-    atime2: 45489
-    atime3: 65535
+    atime1: 65535
+    atime2: 0
+    atime3: 0
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 4
-    m_NumAlphaKeys: 4
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   fogColor:
     serializedVersion: 2
     key0: {r: 0.14653791, g: 0.5354631, b: 0.8396226, a: 1}
@@ -102,3 +102,33 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
+  ambientLight:
+    serializedVersion: 2
+    key0: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 1}
+    key1: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
+    key2: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
+    key3: {r: 0.9221513, g: 0.9221513, b: 0.9221513, a: 1}
+    key4: {r: 0.9221514, g: 0.9221514, b: 0.9221514, a: 0}
+    key5: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
+    key6: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
+    key7: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 0}
+    ctime0: 9830
+    ctime1: 11141
+    ctime2: 19661
+    ctime3: 22937
+    ctime4: 42598
+    ctime5: 45875
+    ctime6: 54394
+    ctime7: 55705
+    atime0: 11141
+    atime1: 19661
+    atime2: 45875
+    atime3: 54394
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 4
