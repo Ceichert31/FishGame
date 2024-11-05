@@ -86,9 +86,6 @@ public class DayNightCycle : MonoBehaviour
 
         RenderSettings.ambientLight = preset.ambientLight.Evaluate(timePercent);
 
-        
-
-
         if (sunLight != null)
         {
             sunLight.color = preset.directionalColor.Evaluate(timePercent);
