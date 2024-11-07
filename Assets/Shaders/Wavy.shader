@@ -60,8 +60,8 @@ Shader "Unlit/Wavy"
             fixed4 frag (v2f i, UNITY_VPOS_TYPE screenPos : SV_POSITION) : SV_Target
             {
                 screenPos.xy = floor(screenPos.xy * 0.25) * 0.5;
-                float checker = -frac(screenPos.r + screenPos.g);
-                clip(checker); 
+                //float checker = -frac(screenPos.r + screenPos.g);
+                //clip(checker); 
 
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);

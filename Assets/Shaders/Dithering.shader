@@ -58,12 +58,6 @@ static const float4x4 ditherPatterns[5] =
                         1, 1, 1, 1,
                         1, 1, 1, 1)
 };
-        
-        float4x4 GetDitherPattern(uint index)
-        {
-            return ditherPatterns[index];
-        }
-        
         float PixelBrightness(float3 col)
         {
             return col.r + col.g + col.b / 3.0; //can use averaging or the dot product to evaluate brightness
@@ -108,7 +102,7 @@ static const float4x4 ditherPatterns[5] =
             ditherCoordinate /= _DitherScale;
             
             float brightness = PixelBrightness(Color.rgb);
-            float4x4 ditherPattern = GetDitherPattern(_PatternIndex);
+            float4x4 ditherPattern = ditherPatterns[_PatternIndex];
             float ditherPixel = Get4x4TexValue(ditherCoordinate.xy, brightness, ditherPattern);
             
             return Color * ditherPixel;        
