@@ -10,6 +10,8 @@ public class ToolController : MonoBehaviour
 
     private Animator fishRodAnimator;
 
+    private GameObject stencilRenderer;
+
     private void Start()
     {
         fishingRod = transform.GetChild(0).gameObject;
@@ -17,6 +19,8 @@ public class ToolController : MonoBehaviour
         harpoonGun = transform.GetChild(2).gameObject;
 
         fishRodAnimator = transform.GetChild(0).GetComponent<Animator>();
+
+        stencilRenderer = transform.GetChild(4).gameObject;
     }
 
     public void EnableFishingPoleModel(VoidEvent ctx)
@@ -33,12 +37,14 @@ public class ToolController : MonoBehaviour
         {
             fishingRod.SetActive(false);
             harpoonGun.SetActive(true);
+            stencilRenderer.SetActive(true);
         }
         //Fishing mode
         else 
         {
             fishingRod.SetActive(true);
             harpoonGun.SetActive(false);
+            stencilRenderer.SetActive(false);
         } 
             
     }
