@@ -1237,7 +1237,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 6153
   dashCooldown: 1
-  dashForce: 135
+  dashForce: 80
   iFrameDuration:
     FloatValue: 0.7
 --- !u!114 &4893733725445465475

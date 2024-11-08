@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 
 [RequireComponent(typeof(CheckPlayerDirection))]
 public class VanishableObject : MonoBehaviour
@@ -12,6 +13,7 @@ public class VanishableObject : MonoBehaviour
 
     private bool canVanish;
 
+    private const float DOT_PRODUCT_RANGE = 0.15f;
     private void Start()
     {
         directionChecker = GetComponent<CheckPlayerDirection>();
@@ -31,7 +33,7 @@ public class VanishableObject : MonoBehaviour
         if (!canVanish) return;
 
         //If player isn't looking at object
-        if (directionChecker.PlayerDirection() > 0.3f) return;
+        if (directionChecker.PlayerDirection() > DOT_PRODUCT_RANGE) return;
 
         //If player is a certain distance away
         if (Vector3.Distance(transform.position, player) > vanishDistance)

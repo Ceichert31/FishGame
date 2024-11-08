@@ -45,7 +45,7 @@ public class DayNightCycle : MonoBehaviour
 
     private const float SUNRISE = 6f;
 
-    private const float SUNSET = 16f;
+    private const float SUNSET = 17.5f;
 
     private const float ADVANCETIMEDELAY = 0.5f;
 
@@ -168,7 +168,10 @@ public class DayNightCycle : MonoBehaviour
     /// <param name="ctx"></param>
     public void AdvanceTime(VoidEvent ctx)
     {
-        timeOfDay += advanceTimeBy;
+        if (isDayTime.Value)
+            timeOfDay = SUNSET;
+        else 
+            timeOfDay = SUNRISE;
     }
 
     /// <summary>
