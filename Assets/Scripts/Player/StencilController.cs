@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class StencilController : MonoBehaviour
 {
+    [SerializeField] private StencilEventChannel objectEventChannel;
     [SerializeField] private List<GameObject> stencilRenderers = new();
+
+    private StencilEvent stencilEvent;
 
     private void Start()
     {
@@ -27,5 +32,26 @@ public class StencilController : MonoBehaviour
 
         //Set stencil renderer status
         stencilRenderers[id - 1].SetActive(isEnabled);
+
+        //Call event channel
+        stencilEvent.IsEnabled = isEnabled;
+        stencilEvent.StencilID = id;
+        objectEventChannel.CallEvent(stencilEvent);
+    }
+
+    bool enableStencil;
+    private void CallStencil(InputAction.CallbackContext ctx)
+    {
+        enableStencil = !enableStencil;
+
+        if (enableStencil)
+            UpdateStencil(2, true);
+        else
+            UpdateStencil(2, false);
+    }
+
+    public void InitializeInputs(InputEvent ctx)
+    {
+        ctx.Action.Movement.SwitchStencils.performed += CallStencil;
     }
 }

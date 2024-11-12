@@ -556,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4549243795503337487}
   - component: {fileID: 438877230589466363}
+  - component: {fileID: 5839540279210044632}
   m_Layer: 6
   m_Name: StencilController
   m_TagString: Untagged
@@ -592,7 +593,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e587cc8bec404f34291f5cc5cd6f2d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectEventChannel: {fileID: 11400000, guid: 798fabdeb02a882429e95eb894979c4b, type: 2}
   stencilRenderers: []
+--- !u!114 &5839540279210044632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388198440343577617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a23a93487938a04b9b11a9fb3fb45b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 75403c9808c35f14d88fb5651edefd3a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 438877230589466363}
+        m_TargetAssemblyTypeName: StencilController, Assembly-CSharp
+        m_MethodName: InitializeInputs
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1844768288670267359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,7 +2712,7 @@ GameObject:
   - component: {fileID: 877574478102928764}
   - component: {fileID: 3734082744151853998}
   - component: {fileID: 6665791642031556949}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

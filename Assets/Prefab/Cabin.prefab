@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 898261826696817954}
   - component: {fileID: 7853766887289183592}
   - component: {fileID: 7230716879300534328}
-  m_Layer: 3
+  - component: {fileID: 3043169846514571141}
+  - component: {fileID: 8644311541917023265}
+  m_Layer: 12
   m_Name: DirectionChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +61,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vanishDistance: 10
+--- !u!114 &3043169846514571141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438460898115763380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04aa7fd92cd480640b8e846e57449049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stencilID: 2
+--- !u!114 &8644311541917023265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438460898115763380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafd13ed90f684e4bbced5aed5816337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 798fabdeb02a882429e95eb894979c4b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3043169846514571141}
+        m_TargetAssemblyTypeName: StencilActive, Assembly-CSharp
+        m_MethodName: UpdateObjectStatus
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3005703928188876622
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778592558208844383}
   - component: {fileID: 4225372137912681039}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: AudioReverbZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +219,7 @@ PrefabInstance:
     - target: {fileID: -8391222552659086748, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
@@ -196,7 +239,7 @@ PrefabInstance:
     - target: {fileID: -516098083770646512, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
@@ -221,7 +264,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
@@ -231,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 4214726985332892257, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4214726985332892257, guid: be91ef3d4f14e8b488c9733d3f222a15,
         type: 3}
@@ -363,17 +406,17 @@ PrefabInstance:
     - target: {fileID: 1053409970764298532, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1313675331103527281, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1623474700293343008, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2388998269397221452, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
@@ -430,6 +473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageUpgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 2615093562697216354, guid: 9669ed38ee8783b49979e019bc148c12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3578033739284851853, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: sequenceActions.Array.size
@@ -472,17 +520,22 @@ PrefabInstance:
     - target: {fileID: 4989261305376322229, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6153953861362724144, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208652106553938785, guid: 9669ed38ee8783b49979e019bc148c12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9212670715276695358, guid: 9669ed38ee8783b49979e019bc148c12,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
