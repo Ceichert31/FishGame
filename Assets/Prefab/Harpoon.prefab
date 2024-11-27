@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2955712593758259366}
   - component: {fileID: 42911210340948338}
   - component: {fileID: 5193814131415429038}
+  - component: {fileID: 96439934607647733}
   m_Layer: 0
   m_Name: Harpoon
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830554877413275605}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6830128, y: 0.68301284, z: -0.18301244, w: -0.18301238}
-  m_LocalPosition: {x: 10.2570505, y: 1.6453816, z: 9.599215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25579998, y: 0.62016, z: 0.25579998}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 210, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1733497110520682427
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -125,5 +126,26 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!65 &96439934607647733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830554877413275605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22000131, y: 2.7168753, z: 0.28}
+  m_Center: {x: -0.0000005346612, y: 1.2484376, z: 0.0012033286}

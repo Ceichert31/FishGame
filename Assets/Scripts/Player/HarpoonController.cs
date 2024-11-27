@@ -32,7 +32,8 @@ public class HarpoonController : MonoBehaviour
     {
         Quaternion projectileRotation = Quaternion.LookRotation(Camera.main.transform.forward);
 
-        HarpoonProjectile projectile = Instantiate(harpoonProjectile, firingPoint.position, projectileRotation).GetComponent<HarpoonProjectile>();
+        GameObject instance = Instantiate(harpoonProjectile, transform.position, Quaternion.identity);
+        HarpoonProjectile projectile = instance.GetComponent<HarpoonProjectile>();
         projectile.Init(projectileDamage, 10f, 6f, Camera.main.transform.forward);
     }
    

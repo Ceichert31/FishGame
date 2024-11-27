@@ -21,7 +21,7 @@ public class ToolController : MonoBehaviour
 
         fishRodAnimator = transform.GetChild(0).GetComponent<Animator>();
 
-        stencilController = transform.GetChild(4).GetComponent<StencilController>();
+        stencilController = GetComponentInChildren<StencilController>();
     }
 
     public void EnableFishingPoleModel(VoidEvent ctx)
