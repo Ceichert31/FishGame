@@ -18,7 +18,7 @@ public class FishingController : MonoBehaviour
     [Tooltip("How fast the pole will charge")]
     [SerializeField] private float chargeTimeMultiplier = 1.5f;
 
-    private BobberController bobberController;
+    [SerializeField] private BobberController bobberController;
 
     private Animator poleAnimator;
 
@@ -40,7 +40,7 @@ public class FishingController : MonoBehaviour
 
         poleAnimator = fishingRod.GetComponent<Animator>();
 
-        bobberController = GetComponentInChildren<BobberController>();
+        //bobberController = GetComponentInChildren<BobberController>();
 
         source = GetComponent<AudioSource>();
 
