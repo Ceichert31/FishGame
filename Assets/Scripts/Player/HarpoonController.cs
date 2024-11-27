@@ -12,6 +12,8 @@ public class HarpoonController : MonoBehaviour
     [Header("Projectile Settings")]
     [SerializeField] private GameObject harpoonProjectile;
     [SerializeField] private float projectileDamage = 5f;
+    [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private float projectileLifetime = 6f;
 
     [SerializeField] private Transform firingPoint;
 
@@ -33,8 +35,11 @@ public class HarpoonController : MonoBehaviour
         Quaternion projectileRotation = Quaternion.LookRotation(Camera.main.transform.forward);
 
         GameObject instance = Instantiate(harpoonProjectile, transform.position, Quaternion.identity);
+
+        instance.transform.up = firingPoint.forward;
+
         HarpoonProjectile projectile = instance.GetComponent<HarpoonProjectile>();
-        projectile.Init(projectileDamage, 10f, 6f, Camera.main.transform.forward);
+        projectile.Init(projectileDamage, projectileSpeed, projectileLifetime, Camera.main.transform.forward);
     }
    
 }
