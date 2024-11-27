@@ -303,7 +303,7 @@ MonoBehaviour:
   return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
     type: 2}
   bossMaxHealth: 15
-  parryDamageMultiplier: 0.01
+  weakPointMultiplier: 3
   bossAnimator: {fileID: 5509766471598156863}
 --- !u!114 &7859916091848677769
 MonoBehaviour:

@@ -28,8 +28,6 @@ public class CombatController : MonoBehaviour
 
     private AudioSource source;
 
-    private bool hasFired = false;
-
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
@@ -44,10 +42,7 @@ public class CombatController : MonoBehaviour
     /// </summary>
     void FireHarpoon(InputAction.CallbackContext ctx)
     {
-        if (hasFired) return;
-
-        //Player has fired
-        hasFired = true;
+        if (!harpoonController._CanFire) return;
 
         //Play SFX
         spearGunFireAudio.Play(source);
@@ -76,20 +71,7 @@ public class CombatController : MonoBehaviour
 
     void ParryDelay() => canParry = true;
 
-    void StartReload(InputAction.CallbackContext ctx)
-    {
-        Invoke(nameof(Reload), reloadTime);
-
-        //Play reload animation
-        //Prevent player dashing or slow down movement
-        //Dashing could take player out of reload
-    }
-
-    void Reload()
-    {
-        //This will probably be called by animation event
-        hasFired = false;
-    }
+    void StartReload(InputAction.CallbackContext ctx) => harpoonController.Reload();
 
     /// <summary>
     /// Subscribes functions to the correct controls

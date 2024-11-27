@@ -101,6 +101,7 @@ MonoBehaviour:
   projectileDamage: 5
   projectileSpeed: 20
   projectileLifetime: 6
+  damageLayer: 8
 --- !u!54 &5193814131415429038
 Rigidbody:
   m_ObjectHideFlags: 0

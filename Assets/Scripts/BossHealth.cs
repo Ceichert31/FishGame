@@ -12,7 +12,7 @@ public class BossHealth : MonoBehaviour
     [Header("Boss Health Settings")]
     [SerializeField] private int bossMaxHealth = 100;
 
-    [SerializeField] private float parryDamageMultiplier = 0.2f;
+    [SerializeField] private float weakPointMultiplier = 2f;
 
     private FloatEvent currentHealth;
 
@@ -67,7 +67,7 @@ public class BossHealth : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         if (currentHealth.FloatValue <= 0)
         {
@@ -75,20 +75,23 @@ public class BossHealth : MonoBehaviour
         }
 
         //If collision object is parried projectile, deal damage
-        if (other.gameObject.TryGetComponent(out IProjectile projectileInstance))
+        if (collision.gameObject.TryGetComponent(out IProjectile projectileInstance))
         {
+            //Calculate parry damage
             if (projectileInstance.IsParried)
-            {
-                //Calculate parry damage
-                damage.FloatValue = projectileInstance.ProjectileDamage * parryDamageMultiplier;
+                damage.FloatValue = projectileInstance.ProjectileDamage * weakPointMultiplier;
+            else
+                damage.FloatValue = projectileInstance.ProjectileDamage;
 
-                //Deal parry damage
-                UpdateHealth(damage);
+            //Deal parry damage
+            UpdateHealth(damage);
 
-                projectileInstance.DeleteProjectile();
+            //Parent projectile to this
+            collision.gameObject.transform.parent = transform;
 
-                //Get collsion point and play special effects
-            }
+            projectileInstance.DeleteProjectile();
+
+            //Get collsion point and play special effects
         }
     }
 

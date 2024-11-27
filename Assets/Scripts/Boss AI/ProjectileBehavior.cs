@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Sets the rigidboddies velocity to it's forward times some speed
 /// </summary>
-public class ProjectileBehavior : MonoBehaviour, IProjectile, IParryable
+public class ProjectileBehavior : MonoBehaviour, IProjectile
 {
     [SerializeField] private float projectileDamage = 5f;
 
@@ -24,8 +24,6 @@ public class ProjectileBehavior : MonoBehaviour, IProjectile, IParryable
     private float currentTime;
 
     //Interface Variables
-
-    bool IParryable.Parried => isParried;
 
     public bool IsParried => isParried;
 
