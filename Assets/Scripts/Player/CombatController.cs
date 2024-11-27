@@ -17,12 +17,8 @@ public class CombatController : MonoBehaviour
     [SerializeField] private float parryDelay = 0.8f;
 
     [Header("Harpoon Settings")]
-    [SerializeField] private float grappleRange = 20f;
-
     [SerializeField] private float reloadTime = 1.5f;
-
-    [Tooltip("Layers that can be fired at")]
-    [SerializeField] private LayerMask fireableLayers;
+    [SerializeField] private float fireRange = 50f;
 
     private HarpoonController harpoonController;
 
@@ -30,23 +26,13 @@ public class CombatController : MonoBehaviour
 
     private Animator hookAnimator;
 
-    private Animator spearAnimator;
-
     private AudioSource source;
-    private bool inProgress => harpoonController.InProgress;
-    private bool TimerIsUp => harpoonController.TimerIsUp;
 
     private bool hasFired = false;
-
-    private const int GRAPPLELAYER = 8;
-
-    private const float NULLGRAPPLEDISTANCE = 20f;
 
     private void Awake()
     {
         hookAnimator = transform.GetChild(1).GetComponent<Animator>();
-
-        spearAnimator = transform.GetChild(3).GetComponent<Animator>();
 
         harpoonController = GetComponentInChildren<HarpoonController>();
 
@@ -56,7 +42,7 @@ public class CombatController : MonoBehaviour
     /// <summary>
     /// Fires raycast to detect if there is a weakpoint
     /// </summary>
-    void FireGrapple(InputAction.CallbackContext ctx)
+    void FireHarpoon(InputAction.CallbackContext ctx)
     {
         if (hasFired) return;
 
@@ -66,34 +52,8 @@ public class CombatController : MonoBehaviour
         //Play SFX
         spearGunFireAudio.Play(source);
 
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, grappleRange, fireableLayers))
-        {
-            //If grappable surface is detected, pull player in
-            if (hitInfo.collider.gameObject.layer == GRAPPLELAYER)
-            {
-                //Determine if the grapple point is damageable
-                if (hitInfo.collider.CompareTag("Damageable"))
-                    harpoonController.StartGrapple(hitInfo.point, true, GrappleSurface.damageable);
-                else if (hitInfo.collider.CompareTag("Weakpoint"))
-                    harpoonController.StartGrapple(hitInfo.point, true, GrappleSurface.weakPoint);
-            }
-            else
-            {
-                harpoonController.StartGrapple(hitInfo.point, false, GrappleSurface.normal);
-            }
-        }
-        else
-        {
-            //Unfinished
-            //If player fires into space, fire and retract
-
-            harpoonController.StartGrapple(Camera.main.transform.position, false, GrappleSurface.normal);
-        }
-    }
-
-    public void Attack()
-    {
-        spearAnimator.SetTrigger("Attack");
+        //Fire physics based harpoon projectile
+        harpoonController.FireHarpoon();
     }
 
     /// <summary>
@@ -102,11 +62,6 @@ public class CombatController : MonoBehaviour
     /// <param name="ctx"></param>
     void Parry(InputAction.CallbackContext ctx) 
     {
-        if(inProgress)
-        {
-            return;
-        }
-
         //Time gate to prevent queued parries
         if (canParry)
         {
@@ -120,17 +75,6 @@ public class CombatController : MonoBehaviour
     }   
 
     void ParryDelay() => canParry = true;
-
-    /// <summary>
-    /// Used for reseting parry cooldown externally
-    /// </summary>
-    /// <param name="ctx"></param>
-    public void ResetParry(VoidEvent ctx) => canParry = true;
-
-    void RetractHook(InputAction.CallbackContext ctx)
-    {
-        harpoonController.Retract();
-    }
 
     void StartReload(InputAction.CallbackContext ctx)
     {
@@ -157,9 +101,7 @@ public class CombatController : MonoBehaviour
 
         ctx.Action.Combat.ReelIn.performed += Parry;
 
-        ctx.Action.Combat.ReelIn.performed += RetractHook;
-
-        ctx.Action.Combat.Fire.performed += FireGrapple;
+        ctx.Action.Combat.Fire.performed += FireHarpoon;
 
         ctx.Action.Combat.Reload.performed += StartReload;
     }

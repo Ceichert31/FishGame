@@ -38,20 +38,4 @@ public class StencilController : MonoBehaviour
         stencilEvent.StencilID = id;
         objectEventChannel.CallEvent(stencilEvent);
     }
-
-    bool enableStencil;
-    private void CallStencil(InputAction.CallbackContext ctx)
-    {
-        enableStencil = !enableStencil;
-
-        if (enableStencil)
-            UpdateStencil(2, true);
-        else
-            UpdateStencil(2, false);
-    }
-
-    public void InitializeInputs(InputEvent ctx)
-    {
-        ctx.Action.Movement.SwitchStencils.performed += CallStencil;
-    }
 }

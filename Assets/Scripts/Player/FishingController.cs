@@ -40,7 +40,7 @@ public class FishingController : MonoBehaviour
 
         poleAnimator = fishingRod.GetComponent<Animator>();
 
-        //bobberController = GetComponentInChildren<BobberController>();
+        bobberController = GetComponentInChildren<BobberController>();
 
         source = GetComponent<AudioSource>();
 

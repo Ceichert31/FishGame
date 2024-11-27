@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ToolController : MonoBehaviour
 {
@@ -28,6 +29,22 @@ public class ToolController : MonoBehaviour
         fishingRod.SetActive(true);
 
         fishRodAnimator.SetTrigger("Pickup");
+    }
+
+    public void InitControls(InputEvent ctx)
+    {
+        ctx.Action.Movement.SwitchStencils.performed += DebugSwitchTools;
+
+        ctx.Action.Fishing.Enable();
+        ctx.Action.Combat.Enable();
+    }
+
+    //Debug
+    bool temp;
+    void DebugSwitchTools(InputAction.CallbackContext ctx)
+    {
+        temp = !temp;
+        SwitchTools(new(temp));
     }
 
     public void SwitchTools(BoolEvent ctx)
