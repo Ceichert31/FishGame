@@ -57,6 +57,8 @@ public class CombatController : MonoBehaviour
     /// <param name="ctx"></param>
     void Parry(InputAction.CallbackContext ctx) 
     {
+        if (harpoonController._Reloading) return;
+
         //Time gate to prevent queued parries
         if (canParry)
         {

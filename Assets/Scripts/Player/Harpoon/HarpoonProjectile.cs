@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class HarpoonProjectile : MonoBehaviour, IProjectile
 {
-    [SerializeField] private float projectileDamage = 5f;
+    [SerializeField] private float projectileDamage => GameManager.Instance.PlayerDamage;
 
     [SerializeField] private float projectileSpeed = 20f;
 
@@ -23,11 +23,8 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
 
     private bool cannotDestroy;
 
-    private bool isWeakpoint;
-
-    public void Init(float damage, float speed, float lifetime, Vector3 direction)
+    public void Init(float speed, float lifetime, Vector3 direction)
     {
-        projectileDamage = damage;
         projectileSpeed = speed;
         projectileLifetime = lifetime;
         targetDirection = direction;
@@ -53,12 +50,12 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
 
     public void OnCollisionEnter(Collision collision)
     {
+        if (cannotDestroy) return;
         if (collision.gameObject.layer != damageLayer) Destroy(gameObject);
-        else if (collision.gameObject.CompareTag("Weakpoint")) isWeakpoint = true;
     }
 
     //Interface implementation
-    public bool IsParried => isWeakpoint;
+    public bool IsParried => cannotDestroy;
 
     public float ProjectileDamage => projectileDamage;
 

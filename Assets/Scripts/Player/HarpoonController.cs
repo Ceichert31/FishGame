@@ -11,7 +11,6 @@ public class HarpoonController : MonoBehaviour
 
     [Header("Projectile Settings")]
     [SerializeField] private GameObject harpoonProjectile;
-    [SerializeField] private float projectileDamage = 5f;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifetime = 6f;
 
@@ -23,12 +22,16 @@ public class HarpoonController : MonoBehaviour
 
     private AudioSource source;
 
+    private GameObject harpoon;
+
     private bool canFire = true;
 
-    private GameObject harpoon;
+    private bool isReloading;
     
     //Getter
     public bool _CanFire => canFire;
+
+    public bool _Reloading => isReloading;
 
     private void Start()
     {
@@ -43,37 +46,58 @@ public class HarpoonController : MonoBehaviour
         //Disabled after game starts
         gameObject.SetActive(false);
     }
+    /// <summary>
+    /// Plays harpoon fire animation and fires projectile
+    /// </summary>
     public void FireHarpoon()
     {
         if (!canFire) return;
 
-        harpoonAnimator.SetTrigger("Fire");
-
         canFire = false;
+
+        harpoonAnimator.SetTrigger("Fire");
 
         GameObject instance = Instantiate(harpoonProjectile, transform.position, Quaternion.identity);
         instance.transform.up = firingPoint.forward;
 
         HarpoonProjectile projectile = instance.GetComponent<HarpoonProjectile>();
-        projectile.Init(projectileDamage, projectileSpeed, projectileLifetime, Camera.main.transform.forward);
-
-        harpoonAnimator.SetBool("canFire", canFire);
+        projectile.Init(projectileSpeed, projectileLifetime, Camera.main.transform.forward);
     }
-
-    private void Update()
-    {
-        Debug.Log(canFire);
-    }
+    /// <summary>
+    /// Plays harpoon reload animation
+    /// </summary>
     public void Reload()
     {
+        if (canFire) return;
         harpoonAnimator.SetTrigger("Reload");
+        isReloading = true;
     }
+    /// <summary>
+    /// Called by animator
+    /// </summary>
     public void CanFire()
     {
         canFire = true;
+        isReloading = false;
+    }
+    /// <summary>
+    /// Called by animator
+    /// </summary>
+    public void SetHarpoon()
+    {
         harpoonAnimator.SetBool("canFire", canFire);
     }
-    public void SetHarpoon()
+    /// <summary>
+    /// Called by animator
+    /// </summary>
+    public void HarpoonEnable()
+    {
+        harpoon.SetActive(true);
+    }
+    /// <summary>
+    /// Called by animator
+    /// </summary>
+    public void HarpoonDisable()
     {
         harpoon.SetActive(false);
     }

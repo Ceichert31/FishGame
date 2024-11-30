@@ -35,8 +35,8 @@ public class ToolController : MonoBehaviour
     {
         ctx.Action.Movement.SwitchStencils.performed += DebugSwitchTools;
 
-        ctx.Action.Fishing.Enable();
-        ctx.Action.Combat.Enable();
+        //ctx.Action.Fishing.Enable();
+        //ctx.Action.Combat.Enable();
     }
 
     //Debug

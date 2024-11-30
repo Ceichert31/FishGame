@@ -77,11 +77,11 @@ public class BossHealth : MonoBehaviour
         //If collision object is parried projectile, deal damage
         if (collision.gameObject.TryGetComponent(out IProjectile projectileInstance))
         {
-            //Calculate parry damage
-            if (projectileInstance.IsParried)
-                damage.FloatValue = projectileInstance.ProjectileDamage * weakPointMultiplier;
-            else
-                damage.FloatValue = projectileInstance.ProjectileDamage;
+            //If it has already delt damage, don't deal damage again
+            if (projectileInstance.IsParried) return;
+
+            //Cache projectile damage
+            damage.FloatValue = projectileInstance.ProjectileDamage;
 
             //Deal parry damage
             UpdateHealth(damage);

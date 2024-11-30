@@ -280,7 +280,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.24614708
+  m_Radius: 0.2
   m_Height: 3.46729
   m_Direction: 2
   m_Center: {x: -0.007794618, y: 0.0074489745, z: -1.7179394}
@@ -5627,6 +5627,7 @@ GameObject:
   - component: {fileID: 7470304041057941884}
   - component: {fileID: 4633973925527457206}
   - component: {fileID: 4286608377087760923}
+  - component: {fileID: 3409379983458352814}
   m_Layer: 8
   m_Name: PustuleV1
   m_TagString: Weakpoint
@@ -5721,6 +5722,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.047954023
   m_Center: {x: 0.0010826124, y: 0.0031619254, z: -0.0011874011}
+--- !u!114 &3409379983458352814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579709354089589859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45e15bfe259e3341aa191b54ea1f794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakpointDamageMultiplier: 1.5
 --- !u!1 &6645988948429123648
 GameObject:
   m_ObjectHideFlags: 0
