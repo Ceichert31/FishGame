@@ -19,7 +19,11 @@ public class CameraShake : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            transform.localPosition = startPosition + (Random.insideUnitSphere * shakeCurve.Evaluate(elapsedTime));
+            Vector3 shakeAmount = Random.insideUnitSphere * shakeCurve.Evaluate(elapsedTime);
+
+            shakeAmount = new (shakeAmount.x, shakeAmount.y, 0);
+
+            transform.localPosition = startPosition + shakeAmount;
 
             yield return null;
         }

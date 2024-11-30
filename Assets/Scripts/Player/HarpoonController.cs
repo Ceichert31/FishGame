@@ -51,15 +51,22 @@ public class HarpoonController : MonoBehaviour
     /// </summary>
     public void FireHarpoon()
     {
+        //Prevents firing before reload
         if (!canFire) return;
 
         canFire = false;
 
+        //Trigger animation event
         harpoonAnimator.SetTrigger("Fire");
 
+        //Play attack sequencer
+        attackSequencer.InitializeSequence();
+
+        //Instantiate projectile 
         GameObject instance = Instantiate(harpoonProjectile, transform.position, Quaternion.identity);
         instance.transform.up = firingPoint.forward;
 
+        //Get projectile class and initialize it
         HarpoonProjectile projectile = instance.GetComponent<HarpoonProjectile>();
         projectile.Init(projectileSpeed, projectileLifetime, Camera.main.transform.forward);
     }

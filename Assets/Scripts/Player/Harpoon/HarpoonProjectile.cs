@@ -15,11 +15,15 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
     [SerializeField] private int damageLayer = 8;
     [SerializeField] private int weakPointLayer = 9;
 
+    [SerializeField] private AudioPitcherSO hitAudio;
+
     private Vector3 targetDirection;
 
     private float currentTime;
 
     private Rigidbody rb;
+
+    private AudioSource source;
 
     private bool cannotDestroy;
 
@@ -33,6 +37,8 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        source = GetComponent<AudioSource>();
 
         currentTime = Time.time + projectileLifetime;
     }
@@ -51,7 +57,13 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
     public void OnCollisionEnter(Collision collision)
     {
         if (cannotDestroy) return;
-        if (collision.gameObject.layer != damageLayer) Destroy(gameObject);
+
+        //If harpoon doesnt hit collideable layer destroy
+        //Otherwise play hit sound
+        if (collision.gameObject.layer != damageLayer)
+            Destroy(gameObject);
+        else
+            hitAudio.Play(source);
     }
 
     //Interface implementation

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SpearGunFire
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: d2ab547d25bd68a46b92e896c41dce0a, type: 3}
+  - {fileID: 8300000, guid: 5c16a72afa1d0da43a5f9facb683d5cf, type: 3}
   volume:
-    minValue: 0.5
-    maxValue: 0.7
+    minValue: 0.6
+    maxValue: 0.8
   pitch:
-    minValue: 1
-    maxValue: 1.3
+    minValue: 0.7
+    maxValue: 1.5
