@@ -1,3 +1,4 @@
+using HelperMethods;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
@@ -14,6 +15,9 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
     float currentTime;
     float currentMoveAmmount;
     bool teleporting;
+
+    //Charging Variables
+    float chargeSpeed = 30;
 
     public bool Teleporting
     {
@@ -61,5 +65,19 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
         bossTransform.position = GameManager.Instance.Player.transform.position;
         teleporting = false;*/
 
+    }
+
+    /// <summary>
+    /// Method designed to charge the player if they are too far away
+    /// </summary>
+    public void ChargePlayer()
+    {
+        bossTransform.position += bossTransform.forward * chargeSpeed * Time.deltaTime;
+
+        if(!Util.IsLookingAtTarget(bossTransform, GameManager.Instance.Player.transform, 0))
+        {
+            Debug.Log("Fish passed up player");
+            //Will Add Exit Condition
+        }
     }
 }

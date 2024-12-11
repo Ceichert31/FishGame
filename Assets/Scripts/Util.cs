@@ -72,6 +72,33 @@ namespace HelperMethods
         {
             return timer < Time.time;
         }
+
+
+        /// <summary>
+        /// Helper method that returns whether one object is looking at another
+        /// 1 = The two transforms are looking directly at each other
+        /// 0 = The two trasforms are perpendicular to each other
+        /// -1 = The Two transforms are looking away from each other
+        /// </summary>
+        /// <param name="currentTransform"></param>
+        /// <param name="target"></param>
+        /// <param name="threshold"></param>
+        /// <returns></returns>
+        public static bool IsLookingAtTarget(Transform currentTransform, Transform target, float threshold)
+        {
+            if (target == null) return false;
+
+            Vector3 forward = currentTransform.forward.normalized;
+
+            // Direction vector to the target
+            Vector3 toTarget = (target.position - currentTransform.position).normalized;
+
+            // Compute the dot product
+            float dot = Vector3.Dot(forward, toTarget);
+
+            // Check if the dot product is above the threshold
+            return dot > threshold;
+        }
     }
 
 }

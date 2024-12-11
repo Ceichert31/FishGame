@@ -5,11 +5,28 @@ using HelperMethods;
 
 public class LureBossAnimationEvents : AnimationEvents
 {
+    private LureBossMoveBehavior lureBossMoveBehavior;
 
-    /*public override void TeleportBoss()
+    private void Start()
     {
-        Debug.Log("called");
-        FleeState fleeState = (FleeState)bossAi.BossStates[(int)States.FleeState];
-        fleeState.TeleportFish();
-    }*/
+        lureBossMoveBehavior = (LureBossMoveBehavior)bossWalkBehavior;
+    }
+
+    /// <summary>
+    /// 4: Charge Player
+    /// 5: Deassign Charge Method
+    /// </summary>
+    /// <param name="behavior"></param>
+    public void AditionalBossActiveBehavior(int behavior)
+    {
+        switch (behavior)
+        {
+            case 4:
+                activeBehavior += lureBossMoveBehavior.ChargePlayer;
+                break;
+            case 5:
+                activeBehavior -= lureBossMoveBehavior.ChargePlayer;
+                break;
+        }
+    }
 }

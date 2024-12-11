@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicalAttacks:
   - Spin
-  rangedAttacks: []
+  rangedAttacks:
+  - Charge
   bossAnimator: {fileID: 0}

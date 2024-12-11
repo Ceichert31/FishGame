@@ -17,8 +17,8 @@ public abstract class AnimationEvents : MonoBehaviour
     [SerializeField] Transform modelsTransform;
     [SerializeField] AudioPitcherSO attackAudio;
 
-    IBossWalkBehavior bossWalkBehavior;
-    IBossLookAtPlayer bossLookAtPlayer;
+    protected IBossWalkBehavior bossWalkBehavior;
+    protected IBossLookAtPlayer bossLookAtPlayer;
 
 
     [Tooltip("Order: StaggerParticles, ParryParticles")]
@@ -118,6 +118,17 @@ public abstract class AnimationEvents : MonoBehaviour
     public void TriggerDeath()
     {
         bossHealth.ProcedeWithDeath();
+    }
+
+    /// <summary>
+    /// Allows specific attacks to give or take away root motion
+    /// 0 = false
+    /// 1 = true
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetRootMotion(int value)
+    {
+        bossAnimator.applyRootMotion = value == 1 ? true : false;
     }
 
     /// <summary>
