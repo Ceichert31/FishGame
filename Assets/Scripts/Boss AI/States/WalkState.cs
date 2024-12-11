@@ -65,6 +65,13 @@ public class WalkState : AIState
         }
 
 
+        //Teleport Behavior that will be iterated on
+        /*else if(Util.DistanceNoY(Player, bossTransform.position) > maxDistance)
+        {
+            walkBehavior.TeleportBehavior();
+        }*/
+
+
         //ProjectileTesting *For Testing A Consistent Firing Pattern
         if (fireTime <= 0)
         {
@@ -91,6 +98,8 @@ public class WalkState : AIState
 interface IBossWalkBehavior
 {
     void MoveBehavior();
+
+    void TeleportBehavior();
 }
 
 interface IBossLookAtPlayer
