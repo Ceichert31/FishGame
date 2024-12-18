@@ -8,6 +8,7 @@ public class HarpoonController : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private VoidEventChannel fov_EventChannel;
+    [SerializeField] private AudioPitcherSO reloadAudio;
 
     [Header("Projectile Settings")]
     [SerializeField] private GameObject harpoonProjectile;
@@ -20,7 +21,7 @@ public class HarpoonController : MonoBehaviour
 
     private Sequencer attackSequencer;
 
-    private AudioSource source;
+    private AudioSource reloadAudioSource;
 
     private GameObject harpoon;
 
@@ -39,7 +40,7 @@ public class HarpoonController : MonoBehaviour
 
         attackSequencer = GetComponent<Sequencer>();
 
-        source = transform.parent.GetComponent<AudioSource>();
+        reloadAudioSource = transform.GetChild(1).GetComponent<AudioSource>();
         
         harpoon = transform.GetChild(0).gameObject;
 
@@ -70,6 +71,8 @@ public class HarpoonController : MonoBehaviour
         HarpoonProjectile projectile = instance.GetComponent<HarpoonProjectile>();
         projectile.Init(projectileSpeed, projectileLifetime, Camera.main.transform.forward);
     }
+
+    #region Animation Helper Functions
     /// <summary>
     /// Plays harpoon reload animation
     /// </summary>
@@ -79,6 +82,11 @@ public class HarpoonController : MonoBehaviour
         harpoonAnimator.SetBool("Reload", true);
         isReloading = true;
     }
+    public void ReloadSFX()
+    {
+        reloadAudio.Play(reloadAudioSource);
+    }
+
     /// <summary>
     /// Called by animator
     /// </summary>
@@ -110,5 +118,6 @@ public class HarpoonController : MonoBehaviour
     {
         harpoon.SetActive(false);
     }
+    #endregion
 }
 
