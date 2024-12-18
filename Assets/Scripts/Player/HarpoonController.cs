@@ -57,7 +57,7 @@ public class HarpoonController : MonoBehaviour
         canFire = false;
 
         //Trigger animation event
-        harpoonAnimator.SetTrigger("Fire");
+        harpoonAnimator.SetBool("Fire", true);
 
         //Play attack sequencer
         attackSequencer.InitializeSequence();
@@ -76,7 +76,7 @@ public class HarpoonController : MonoBehaviour
     public void Reload()
     {
         if (canFire) return;
-        harpoonAnimator.SetTrigger("Reload");
+        harpoonAnimator.SetBool("Reload", true);
         isReloading = true;
     }
     /// <summary>
@@ -93,6 +93,8 @@ public class HarpoonController : MonoBehaviour
     public void SetHarpoon()
     {
         harpoonAnimator.SetBool("canFire", canFire);
+        harpoonAnimator.SetBool("Reload", false);
+        harpoonAnimator.SetBool("Fire", false);
     }
     /// <summary>
     /// Called by animator
