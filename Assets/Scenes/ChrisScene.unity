@@ -1917,6 +1917,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 3963237049249974958, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1836770215}
+    - target: {fileID: 3963237049249974958, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: firingPoint
+      value: 
+      objectReference: {fileID: 1836770215}
+    - target: {fileID: 3963237049249974958, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1968,8 +1983,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8180898584932673737, guid: b59b9ea62f378d04da1442badcd2d715, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8244151488553780583, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1836770215}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 886952707179393070, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -6125,6 +6145,12 @@ Light:
 --- !u!20 &1103796275 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7802647240829371144, guid: b59b9ea62f378d04da1442badcd2d715,
+    type: 3}
+  m_PrefabInstance: {fileID: 525744994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1103796282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8244151488553780583, guid: b59b9ea62f378d04da1442badcd2d715,
     type: 3}
   m_PrefabInstance: {fileID: 525744994}
   m_PrefabAsset: {fileID: 0}
@@ -12575,6 +12601,37 @@ CapsuleCollider:
   m_Height: 4.9429
   m_Direction: 1
   m_Center: {x: -0.50665, y: 1.5526502, z: 0.45030004}
+--- !u!1 &1836770214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836770215}
+  m_Layer: 6
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836770215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836770214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00000086426735, y: 0, z: 1.0000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1103796282}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1854508715
 GameObject:
   m_ObjectHideFlags: 0

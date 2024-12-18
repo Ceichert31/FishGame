@@ -63,7 +63,7 @@ public class HarpoonController : MonoBehaviour
         attackSequencer.InitializeSequence();
 
         //Instantiate projectile 
-        GameObject instance = Instantiate(harpoonProjectile, transform.position, Quaternion.identity);
+        GameObject instance = Instantiate(harpoonProjectile, firingPoint.position, Quaternion.identity);
         instance.transform.up = firingPoint.forward;
 
         //Get projectile class and initialize it
