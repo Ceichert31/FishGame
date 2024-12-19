@@ -5484,7 +5484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a74bcbbb2f8674d9684037da79539b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelsTransform: {fileID: 0}
+  modelsTransform: {fileID: 4194563524759686800}
   attackAudio: {fileID: 11400000, guid: 8d8a69406716c184dad428feac0f26ba, type: 2}
   particles:
   - {fileID: 2058513628451799904}
@@ -6554,7 +6554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa76384331b3e91498d4a22a286c63ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationEvents: {fileID: 0}
+  animationEvents: {fileID: 7183796872156002506}
   initalMoveAmmount: 10
   slowDownAmmount: 2
 --- !u!114 &8128607844498795573
