@@ -12,8 +12,6 @@ public class WalkState : AIState
     [SerializeField] IProjectileSpawner projectileSpawner;
     [SerializeField] IBossWalkBehavior walkBehavior;
     [SerializeField] IBossLookAtPlayer lookBehavior;
-    float attackDistance = 10;
-    float maxDistance = 80;
     float fireTime;
     float walkStateTimer;
     [SerializeField]
@@ -98,13 +96,13 @@ public class WalkState : AIState
         }
 
         //Temp exit condition to make combat not feel bad
-        if (Util.DistanceNoY(Player, bossTransform.position) < attackDistance)
+        if (Util.DistanceNoY(Player, bossTransform.position) < ctx.BossInformation.meleeDistance)
         {
             ctx.SwitchState(States.AttackState);
         }
 
         //Check and allow boss to perform ranged attacks
-        else if (Util.DistanceNoY(Player, bossTransform.position) > maxDistance)
+        else if (Util.DistanceNoY(Player, bossTransform.position) > ctx.BossInformation.maxDistance)
         {
             Debug.Log("howw");
             ctx.SwitchState(States.AttackState);

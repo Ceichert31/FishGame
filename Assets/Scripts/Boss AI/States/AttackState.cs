@@ -21,9 +21,6 @@ public class AttackState : AIState, IAttackState
 
     private bool called = false;
 
-    //Temp Distance Variables
-    float rangedDistance = 80;
-
     protected override bool Called 
     {
         get { return called; }
@@ -61,7 +58,7 @@ public class AttackState : AIState, IAttackState
         float temp = Util.DistanceNoY(bossTransform.position, Player);
         Debug.Log(temp);
         //How we rockin?
-        GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) < rangedDistance ? physicalAttacks : rangedAttacks);
+        GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) <= ctx.BossInformation.meleeDistance ? physicalAttacks : rangedAttacks);
         ExecuteAttack();
 
         //GenerateAttack(physicalAttacks);

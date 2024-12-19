@@ -6580,6 +6580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e5a64c724543e47b69ebfa2d9ec580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossInformation:
+    meleeDistance: 10
+    maxDistance: 60
   currentState: {fileID: 0}
   bossStates:
   - {fileID: 11400000, guid: 015c969b07314bc4f93bd6c985c5e705, type: 2}
@@ -6769,6 +6772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa76384331b3e91498d4a22a286c63ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationEvents: {fileID: 0}
   initalMoveAmmount: 10
   slowDownAmmount: 2
 --- !u!1 &8414884648548912869

@@ -11,8 +11,19 @@ public enum States
     FleeState,
 }
 
+/// <summary>
+/// Struct containing information related to boss distances for attacks
+/// </summary>
+[System.Serializable]
+public struct Struct_BossAttackInformation
+{
+    public float meleeDistance;
+    public float maxDistance;
+}
+
 public class BossAI : MonoBehaviour
 {
+    [SerializeField] Struct_BossAttackInformation bossInformation;
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
 
@@ -23,7 +34,6 @@ public class BossAI : MonoBehaviour
 
     private void Awake()
     {
-
         Agent = transform.parent.GetComponent<NavMeshAgent>();
 
         Animator = transform.parent.GetComponent<Animator>();
@@ -93,6 +103,10 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    public Struct_BossAttackInformation BossInformation
+    {
+        get { return bossInformation; }
+    }
 }
 
 /* How to create a new Boss:
@@ -101,4 +115,3 @@ public class BossAI : MonoBehaviour
  * 3. Create new states to suit the needs of the boss and assign the states to the list on this object
  * 4. Create custom animations and assign anim events
 */
-
