@@ -14736,56 +14736,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 62907319}
     m_Modifications:
-    - target: {fileID: 438460898115763380, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 590782238255107878, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1432527867664436089, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922172879464962160, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2955994181941866226, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005703928188876622, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4134194350481584503, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220245949576703269, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343085151596345857, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108599394840618339, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7345411636394213259, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14836,30 +14786,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7635569521309477380, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7979239839431943473, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
         type: 3}
       propertyPath: m_Name
       value: Tutorial Cabin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7979239839431943473, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844816877094640487, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080307389035711798, guid: 0c7e7e9e9e998514ebaf0643ca20bf44,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
