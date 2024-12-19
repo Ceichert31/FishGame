@@ -9,24 +9,17 @@ public class DamageUpgrade : MonoBehaviour
 
     private Sequencer collectedSequencer;
 
-    private VanishableObject vanishingCabin;
-
     private const int PLAYERLAYER = 6;
 
     private void Start()
     {
         collectedSequencer = transform.parent.GetComponent<Sequencer>();
-
-        vanishingCabin = transform.parent.parent.GetComponent<VanishableObject>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == PLAYERLAYER)
         {
-            //Set flag for cabin to disapear
-            vanishingCabin.VanishFlag();
-
             //Add to damage
             GameManager.Instance.IncreaseDamage(damageIncreaseAmount);
 
