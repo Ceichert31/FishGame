@@ -12,19 +12,22 @@ public class LureBossAnimationEvents : AnimationEvents
         lureBossMoveBehavior = (LureBossMoveBehavior)bossWalkBehavior;
     }
 
+
     /// <summary>
     /// 4: Charge Player
-    /// 5: Deassign Charge Method
+    /// 5: Deassign Charge Method and trigger stop charging
     /// </summary>
-    /// <param name="behavior"></param>
-    public void AditionalBossActiveBehavior(int behavior)
+    public override void UpdateBossActiveBehavior(int behavior)
     {
+        base.UpdateBossActiveBehavior(behavior);
+
         switch (behavior)
         {
             case 4:
                 activeBehavior += lureBossMoveBehavior.ChargePlayer;
                 break;
             case 5:
+                bossAnimator.SetTrigger("StopCharging");
                 activeBehavior -= lureBossMoveBehavior.ChargePlayer;
                 break;
         }

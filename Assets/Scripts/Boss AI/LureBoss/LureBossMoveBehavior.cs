@@ -7,6 +7,7 @@ using UnityEngine;
 public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
 {
     Transform bossTransform => transform.parent;
+    [SerializeField] AnimationEvents animationEvents;
 
     [Header("Variables for controlling unique movement")]
     [SerializeField] float initalMoveAmmount = 10;
@@ -77,7 +78,7 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
         if(!Util.IsLookingAtTarget(bossTransform, GameManager.Instance.Player.transform, 0))
         {
             Debug.Log("Fish passed up player");
-            //Will Add Exit Condition
+            animationEvents.UpdateBossActiveBehavior(5);
         }
     }
 }

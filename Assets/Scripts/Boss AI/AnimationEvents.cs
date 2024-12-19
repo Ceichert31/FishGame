@@ -132,6 +132,15 @@ public abstract class AnimationEvents : MonoBehaviour
     }
 
     /// <summary>
+    /// Removes all events from active behavior(This has the possibility to cause a null reference error, requiers testing)
+    /// </summary>
+    public void RemoveAllListeners()
+    {
+        activeBehavior = null;
+        activeBehavior += () => { };
+    }
+
+    /// <summary>
     /// 0: Boss Starts Looking At Player
     /// 1: Boss Stops Looking At The Player
     /// 2: Boss Starts Moving Toward The Player
