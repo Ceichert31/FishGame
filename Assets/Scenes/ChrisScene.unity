@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.60447234, g: 0.8049555, b: 0.9384152, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.03
+  m_FogDensity: 0.015
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.1454889, g: 0.26896694, b: 0.2508822, a: 1}
+  m_IndirectSpecularColor: {r: 0.14548914, g: 0.2689672, b: 0.25088263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4551,7 +4551,8 @@ MonoBehaviour:
   text_EventChannel: {fileID: 11400000, guid: 1c4dc33952d9360439034ef9e75b46d3, type: 2}
   animation_EventChannel: {fileID: 11400000, guid: 3103e7216622cb049906eca8a1a10a82,
     type: 2}
-  daySpawnPool: []
+  daySpawnPool:
+  - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
   nightSpawnPool:
   - {fileID: 11400000, guid: 40dc2bcbdc8bea349adaddf61ec7377c, type: 2}
   fishingTickRate: 2

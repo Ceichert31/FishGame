@@ -7,6 +7,8 @@ public class BossWeakpoint : MonoBehaviour
     [Header("Weakpoint Settings")]
     [SerializeField] private float weakpointDamageMultiplier = 1.5f;
 
+    [SerializeField] private Transform harpoonHolder;
+
     private ParticleSystem bloodSprayParticle;
 
     private BossHealth health;
@@ -35,7 +37,7 @@ public class BossWeakpoint : MonoBehaviour
             bloodSprayParticle.Play();
 
             //Parent projectile to this
-            collision.gameObject.transform.parent = transform.parent;
+            collision.gameObject.transform.parent = harpoonHolder;
 
             projectileInstance.DeleteProjectile();
 

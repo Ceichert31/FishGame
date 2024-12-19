@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 2955712593758259366}
   - component: {fileID: 42911210340948338}
   - component: {fileID: 5193814131415429038}
-  - component: {fileID: 96439934607647733}
+  - component: {fileID: 7364083047761235449}
   - component: {fileID: 2622000803047519064}
   m_Layer: 0
   m_Name: Harpoon
@@ -5018,7 +5018,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &96439934607647733
+--- !u!65 &7364083047761235449
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5037,8 +5037,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 2.5, z: 0.08}
-  m_Center: {x: -0.0000005315602, y: 1.221025, z: 0.0012033358}
+  m_Size: {x: 0.01, y: 0.1, z: 0.01}
+  m_Center: {x: 0, y: 1.63, z: 0.0012033284}
 --- !u!82 &2622000803047519064
 AudioSource:
   m_ObjectHideFlags: 0

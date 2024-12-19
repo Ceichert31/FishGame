@@ -1512,6 +1512,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5991581528736333497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7609349251335970890}
+  m_Layer: 8
+  m_Name: HarpoonHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7609349251335970890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5991581528736333497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.57731473, y: -0.4026987, z: 0.44099766, w: 0.5568326}
+  m_LocalPosition: {x: 6.6553392, y: 0.7001109, z: -1.8495115}
+  m_LocalScale: {x: 2.6178389, y: 6.9216104, z: 2.5977056}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 531490835648964565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6423115339301059259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1576,7 @@ Transform:
   m_LocalScale: {x: 0.16002887, y: 0.14190702, z: 0.16605006}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7609349251335970890}
   - {fileID: 4224200971809260849}
   - {fileID: 2843936597089498309}
   - {fileID: 102971018631663025}
@@ -1581,7 +1613,7 @@ MonoBehaviour:
   return_EventChannel: {fileID: 11400000, guid: 031bf15b227ac964090accf92761417a,
     type: 2}
   bossMaxHealth: 100
-  parryDamageMultiplier: 0.05
+  weakPointMultiplier: 2
   bossAnimator: {fileID: 5338587677684947829}
 --- !u!114 &8254534239658114609
 MonoBehaviour:

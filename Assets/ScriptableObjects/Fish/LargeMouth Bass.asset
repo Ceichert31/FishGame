@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LargeMouth Bass
   m_EditorClassIdentifier: 
   spawnChance:
-    minValue: 25
-    maxValue: 60
-  fishPrefab: {fileID: 8245168068529363966, guid: eb8d9d57b21419c48ba6bd7db3568c5c,
+    minValue: 0
+    maxValue: 100
+  fishPrefab: {fileID: 4158638700265221165, guid: c2eff28f7b7f474438928579c4d4ab2d,
     type: 3}
