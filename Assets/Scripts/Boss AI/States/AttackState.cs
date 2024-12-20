@@ -51,8 +51,18 @@ public class AttackState : AIState, IAttackState
 
         float temp = Util.DistanceNoY(bossTransform.position, Player);
         Debug.Log(temp);
-        //How we rockin?
-        GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) <= ctx.BossInformation.meleeDistance ? ctx.BossInformation.meleeAttacks : ctx.BossInformation.rangedAttacks);
+
+        //If we have no ranged attacks, then just generate a melee attack
+        if(ctx.BossInformation.rangedAttacks.Count == 0)
+        {
+            Debug.Log("You have no ranged attacks");
+            GenerateAttack(ctx.BossInformation.meleeAttacks);
+        }
+        else
+        {
+            GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) <= ctx.BossInformation.meleeDistance ? ctx.BossInformation.meleeAttacks : ctx.BossInformation.rangedAttacks);
+        }
+
         ExecuteAttack();
 
         //GenerateAttack(physicalAttacks);
@@ -76,7 +86,7 @@ public class AttackState : AIState, IAttackState
 
     void GenerateAttack(List<string> attacks)
     {
-        currentAttack = attacks[Random.Range(0, attacks.Count - 1)];
+        currentAttack = attacks[Random.Range(0, attacks.Count)];
     }
 
     void ExecuteAttack()
