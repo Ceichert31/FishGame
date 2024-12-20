@@ -76,7 +76,7 @@ public class AttackState : AIState, IAttackState
 
     void GenerateAttack(List<string> attacks)
     {
-        currentAttack = attacks[Random.Range(0, attacks.Count)];
+        currentAttack = attacks[Random.Range(0, attacks.Count - 1)];
     }
 
     void ExecuteAttack()
