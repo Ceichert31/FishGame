@@ -7,12 +7,6 @@ using HelperMethods;
 [CreateAssetMenu(fileName = "AttackState", menuName = "BossStates/Attack")]
 public class AttackState : AIState, IAttackState
 {
-    [Header("Close Range Attack Skills")]
-    [SerializeField] List<string> physicalAttacks = new List<string>();
-
-    [Header("Long Range Attack Skills")]
-    [SerializeField] List<string> rangedAttacks = new List<string>();
-
     [SerializeField] Animator bossAnimator;
 
     string currentAttack;
@@ -31,7 +25,7 @@ public class AttackState : AIState, IAttackState
     {
         bossAnimator = bossTransform.GetComponent<Animator>();
 
-        if (physicalAttacks.Count == 0)
+        if (ctx.BossInformation.meleeAttacks.Count == 0)
         {
             throw new System.Exception("I has no attacks :(");
         }
