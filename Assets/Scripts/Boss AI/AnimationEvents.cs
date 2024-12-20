@@ -99,10 +99,18 @@ public abstract class AnimationEvents : MonoBehaviour
     /// </summary>
     public void SetParentToChild()
     {
-        bossAnimator.applyRootMotion = false;
-        transform.position = bossPosture.transform.position;
-        bossPosture.transform.localPosition = Vector3.zero;
-        Invoke(nameof(ReEnableApplyRootMotion), 0.5f);
+        // Store the final world position we want to maintain, use this transforms y in order to make fish have proper position
+        Vector3 finalPosition = new Vector3(modelsTransform.position.x, transform.position.y, modelsTransform.transform.position.z);
+
+        // Wait for the end of frame to ensure animation is completely finished
+        StartCoroutine(SetFinalPosition(finalPosition));
+    }
+
+    private IEnumerator SetFinalPosition(Vector3 finalPosition)
+    {
+        yield return new WaitForEndOfFrame();
+        transform.position = finalPosition;
+        modelsTransform.transform.localPosition = Vector3.zero;
     }
 
     public void PlayAttackIndicatorAudio()
