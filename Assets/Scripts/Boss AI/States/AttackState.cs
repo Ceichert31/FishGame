@@ -58,7 +58,7 @@ public class AttackState : AIState, IAttackState
         float temp = Util.DistanceNoY(bossTransform.position, Player);
         Debug.Log(temp);
         //How we rockin?
-        GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) <= ctx.BossInformation.meleeDistance ? physicalAttacks : rangedAttacks);
+        GenerateAttack(Util.DistanceNoY(bossTransform.position, Player) <= ctx.BossInformation.meleeDistance ? ctx.BossInformation.meleeAttacks : ctx.BossInformation.rangedAttacks);
         ExecuteAttack();
 
         //GenerateAttack(physicalAttacks);

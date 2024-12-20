@@ -15,15 +15,23 @@ public enum States
 /// Struct containing information related to boss distances for attacks
 /// </summary>
 [System.Serializable]
-public struct Struct_BossAttackInformation
+public class BossAttackInformation
 {
+    public BossAttackInformation()
+    {
+        meleeAttacks = new List<string>();
+        rangedAttacks = new List<string>();
+    }
+
     public float meleeDistance;
     public float maxDistance;
+    public List<string> meleeAttacks;
+    public List<string> rangedAttacks;
 }
 
 public class BossAI : MonoBehaviour
 {
-    [SerializeField] Struct_BossAttackInformation bossInformation;
+    [SerializeField] BossAttackInformation bossInformation;
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
 
@@ -103,7 +111,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    public Struct_BossAttackInformation BossInformation
+    public BossAttackInformation BossInformation
     {
         get { return bossInformation; }
     }

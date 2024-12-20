@@ -10812,6 +10812,10 @@ MonoBehaviour:
   bossInformation:
     meleeDistance: 10
     maxDistance: 60
+    meleeAttacks:
+    - Spin
+    rangedAttacks:
+    - Charge
   currentState: {fileID: 0}
   bossStates:
   - {fileID: 11400000, guid: 96b86f49fb0c479489d992bb074ef9d3, type: 2}
