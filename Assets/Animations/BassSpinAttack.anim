@@ -9409,7 +9409,14 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.15
+    functionName: UpdateBossActiveBehavior
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
     messageOptions: 0
   - time: 1.1833333
     functionName: ShakeCamera
@@ -9424,11 +9431,4 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
-    messageOptions: 0
-  - time: 3.3166666
-    functionName: UpdateBossActiveBehavior
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 2
     messageOptions: 0

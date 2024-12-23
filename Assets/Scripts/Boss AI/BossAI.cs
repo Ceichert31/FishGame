@@ -97,6 +97,11 @@ public class BossAI : MonoBehaviour
         SwitchState(States.StaggerState);
     }
 
+    public void ToIdleState()
+    {
+        SwitchState(States.IdleState);
+    }
+
 
     public List<AIState> BossStates
     {

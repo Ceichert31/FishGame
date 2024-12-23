@@ -92,6 +92,13 @@ public abstract class AnimationEvents : MonoBehaviour
         bossPosture.ResetPosture();
     }
 
+    /// <summary>
+    /// Go to the idle state, usually used for death, but can also be used for other events
+    /// </summary>
+    public void GoToIdle()
+    {
+        bossAi.ToIdleState();
+    }
 
     /// <summary>
     /// IMPORTANT FOR ANIMATION

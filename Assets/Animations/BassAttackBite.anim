@@ -3451,7 +3451,7 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 0
     messageOptions: 0
   - time: 0.5833333
     functionName: UpdateBossActiveBehavior
@@ -3461,21 +3461,7 @@ AnimationClip:
     intParameter: 1
     messageOptions: 0
   - time: 1.1666666
-    functionName: UpdateBossActiveBehavior
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 2
-    messageOptions: 0
-  - time: 1.1666666
     functionName: EndAttacking
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.1666666
-    functionName: UpdateBossActiveBehavior
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

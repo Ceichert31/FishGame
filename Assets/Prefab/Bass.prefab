@@ -26027,6 +26027,8 @@ MonoBehaviour:
   animationEvents: {fileID: 9210024909842870049}
   slowDownAmmount: 2
   dashSpeed: 25
+  chargeTime: 3
+  timeUntilNextMovement: 200
 --- !u!114 &6474511756479368406
 MonoBehaviour:
   m_ObjectHideFlags: 0
