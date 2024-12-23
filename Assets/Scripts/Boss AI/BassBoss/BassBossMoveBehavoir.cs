@@ -10,13 +10,13 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
 
     [Header("Variables for controlling unique movement")]
     [SerializeField] float slowDownAmmount = 2;
-    [SerializeField] float dashSpeed = 25f;
-    float timeUntilNextMovement = 2;
+    [SerializeField] float dashSpeed = 15f;
+    [SerializeField] float chargeTime = 3f;
+    [SerializeField] float timeUntilNextMovement = 7f;
     float currentTime;
     bool teleporting;
 
-    //Charging Variables
-    float chargeSpeed = 30;
+    private Coroutine instance;
 
     public bool Teleporting
     {
@@ -34,12 +34,13 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
 
     public void MoveBehavior()
     {
-        Debug.Log("Moving!!");
         if (Time.time > currentTime)
         {
-            //animationEvents.UpdateBossActiveBehavior(1);
             currentTime = Time.time + timeUntilNextMovement;
-            bossTransform.position += dashSpeed * Time.deltaTime * bossTransform.forward;
+
+            if (instance != null) return;
+
+            instance = StartCoroutine(nameof(Charge));
         }
     }
 
@@ -61,12 +62,20 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
     /// </summary>
     public void ChargePlayer()
     {
-        bossTransform.position += bossTransform.forward * chargeSpeed * Time.deltaTime;
+        
+    }
 
-        if (!Util.IsLookingAtTarget(bossTransform, GameManager.Instance.Player.transform, 0))
+    IEnumerator Charge()
+    {
+        animationEvents.UpdateBossActiveBehavior(1);
+        float timeElapsed = 0;
+        while (timeElapsed < chargeTime)
         {
-            Debug.Log("Fish passed up player");
-            animationEvents.UpdateBossActiveBehavior(5);
+            timeElapsed += Time.deltaTime;
+            bossTransform.position += dashSpeed * Time.deltaTime * bossTransform.forward;
+            yield return null;
         }
+        instance = null;
+        animationEvents.UpdateBossActiveBehavior(0);
     }
 }

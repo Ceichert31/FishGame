@@ -8,11 +8,17 @@ public class BassBossAnimationEvents : AnimationEvents
 
     [SerializeField] private FloatEventChannel cameraShakeChannel;
 
-    [SerializeField] private ParticleSystem explosionParticle;
+    [SerializeField] private GameObject explosionObject;
+
+    private ParticleSystem explosionParticle;
+    private AudioSource explosionAudio;
 
     private void Start()
     {
         bassBossMoveBehavior = (BassBossMoveBehavoir)bossWalkBehavior;
+
+        explosionParticle = explosionObject.GetComponent<ParticleSystem>();
+        explosionAudio = explosionObject.GetComponent<AudioSource>();
     }
 
 
@@ -39,6 +45,7 @@ public class BassBossAnimationEvents : AnimationEvents
     public void PlayExplosionParticle()
     {
         explosionParticle.Play();
+        explosionAudio.Play();
     }
 
     public void ShakeCamera(float duration)
