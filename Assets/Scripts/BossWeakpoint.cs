@@ -7,6 +7,10 @@ public class BossWeakpoint : MonoBehaviour
     [Header("Weakpoint Settings")]
     [SerializeField] private float weakpointDamageMultiplier = 1.5f;
 
+    [SerializeField] private FloatEventChannel cameraShakeChannel;
+
+    [SerializeField] private FloatEvent cameraShakeDuration;
+
     [SerializeField] private Transform harpoonHolder;
 
     private ParticleSystem bloodSprayParticle;
@@ -35,6 +39,9 @@ public class BossWeakpoint : MonoBehaviour
             health.UpdateHealth(damage);
 
             bloodSprayParticle.Play();
+
+            //Shake camera
+            cameraShakeChannel.CallEvent(cameraShakeDuration);
 
             //Parent projectile to this
             collision.gameObject.transform.parent = harpoonHolder;

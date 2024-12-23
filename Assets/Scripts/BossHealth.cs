@@ -87,7 +87,7 @@ public class BossHealth : MonoBehaviour
             UpdateHealth(damage);
 
             //Parent projectile to this
-            collision.gameObject.transform.parent = transform.GetChild(0);
+            collision.gameObject.transform.parent = transform.GetChild(2);
 
             projectileInstance.DeleteProjectile();
 

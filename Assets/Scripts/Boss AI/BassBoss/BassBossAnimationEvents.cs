@@ -6,6 +6,10 @@ public class BassBossAnimationEvents : AnimationEvents
 {
     private BassBossMoveBehavoir bassBossMoveBehavior;
 
+    [SerializeField] private FloatEventChannel cameraShakeChannel;
+
+    [SerializeField] private ParticleSystem explosionParticle;
+
     private void Start()
     {
         bassBossMoveBehavior = (BassBossMoveBehavoir)bossWalkBehavior;
@@ -30,5 +34,15 @@ public class BassBossAnimationEvents : AnimationEvents
                 //activeBehavior -= bassBossMoveBehavior.ChargePlayer;
                 break;
         }
+    }
+
+    public void PlayExplosionParticle()
+    {
+        explosionParticle.Play();
+    }
+
+    public void ShakeCamera(float duration)
+    {
+        cameraShakeChannel.CallEvent(new FloatEvent(duration));
     }
 }

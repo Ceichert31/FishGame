@@ -21,6 +21,12 @@ public class SheenController : MonoBehaviour
         parrySheen.SetFloat("_Control", DEFAULTVALUE); // Initialize sheen control
     }
 
+    [ContextMenu("Test Sheen")]
+    public void TestSheen()
+    {
+        StartSheen(new());
+    }
+
     /// <summary>
     /// Callable from a Float event listener to start the shee effect
     /// </summary>

@@ -57,28 +57,6 @@ public class BossPosture : MonoBehaviour
         UpdatePosture(ctx.FloatValue);
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //If the posture already exceeds the max posture then do nothing
-        if(currentPosture.FloatValue >= maxPosture)
-        {
-            return;
-        }
-        //If collision object is parried projectile, deal posture damage
-        if (other.TryGetComponent(out IProjectile projectileInstance))
-        {
-            if (projectileInstance.IsParried)
-            {
-                UpdatePosture(projectileInstance.ProjectileDamage);
-
-                projectileInstance.DeleteProjectile();
-
-                //Get collsion point and play special effects
-            }
-        }
-    }
-
     /// <summary>
     /// Coroutine that is a timer
     /// This Timer is used by the stagger state in order to determine if the boss is still stagered

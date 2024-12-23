@@ -9,12 +9,10 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
     [SerializeField] AnimationEvents animationEvents;
 
     [Header("Variables for controlling unique movement")]
-    [SerializeField] float initalMoveAmmount = 10;
     [SerializeField] float slowDownAmmount = 2;
     [SerializeField] float dashSpeed = 25f;
     float timeUntilNextMovement = 2;
     float currentTime;
-    float currentMoveAmmount;
     bool teleporting;
 
     //Charging Variables
@@ -30,13 +28,14 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
     private void Awake()
     {
         currentTime = timeUntilNextMovement;
-        currentMoveAmmount = initalMoveAmmount;
         animationEvents.UpdateBossActiveBehavior(0);
+        animationEvents.UpdateBossActiveBehavior(2);
     }
 
     public void MoveBehavior()
     {
-        if (currentTime < Time.time)
+        Debug.Log("Moving!!");
+        if (Time.time > currentTime)
         {
             //animationEvents.UpdateBossActiveBehavior(1);
             currentTime = Time.time + timeUntilNextMovement;

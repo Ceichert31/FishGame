@@ -10473,7 +10473,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d, type: 3}
+  - {fileID: 2100000, guid: bdf668a43cac3884f86effc37492dafb, type: 2}
   - {fileID: 2100000, guid: db92a3598b455a94195be2db30a6678b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -10617,6 +10617,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakpointDamageMultiplier: 2
+  cameraShakeChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
+  cameraShakeDuration:
+    FloatValue: 0.3
   harpoonHolder: {fileID: 4726240883445287608}
 --- !u!1 &6645988948429123648
 GameObject:
@@ -10842,8 +10845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45eb069d878fcb49a7365922d4b01eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parrySheen: {fileID: -876546973899608171, guid: e6d60823a314b6b4aa1581841da4984d,
-    type: 3}
+  parrySheen: {fileID: 2100000, guid: bdf668a43cac3884f86effc37492dafb, type: 2}
   multiplier: 0.7
 --- !u!114 &1393690083295301983
 MonoBehaviour:

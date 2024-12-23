@@ -67,7 +67,7 @@ public class WalkState : AIState
         if (fireTime <= 0)
         {
             float waitTime = projectileFireWaitTime;
-            projectileSpawner.Spawn(5);
+            //projectileSpawner.Spawn(5);
             fireTime = waitTime;
         }
 
