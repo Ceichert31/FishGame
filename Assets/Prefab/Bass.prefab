@@ -26449,7 +26449,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossInformation:
     meleeDistance: 10
-    maxDistance: 40
+    maxDistance: 60
+    waitTime: 3
+    gracePeriod: 2
     meleeAttacks:
     - Bite
     - Spin

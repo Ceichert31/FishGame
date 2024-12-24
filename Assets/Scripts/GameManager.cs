@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public float PlayerReelInSpeed { get { return playerStats.playerReelInSpeed; } }
     public float PlayerMovementMultiplier { get { return playerStats.movementSpeedMultiplier; } }
 
-    const int DAMAGE = 2;
+    const int DAMAGE = 1;
     const float FIRERATE = 30f;
     const float REELINSPEED = 20f;
     const float MOVEMENTMULTIPLIER = 1f;
