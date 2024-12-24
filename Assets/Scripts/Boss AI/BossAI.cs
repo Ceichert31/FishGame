@@ -27,9 +27,9 @@ public class BossAttackInformation
     public float meleeDistance;
     [Tooltip("Distance that the boss will be forced to iniate a ranged attack from")]
     public float maxDistance;
-    [Tooltip("Max downtime bosses will have in between attacks")]
+    [Tooltip("Maximum ammount of time a boss must wait before being forced to attack")]
     public float waitTime;
-    [Tooltip("Time in between when bosses can attack again")]
+    [Tooltip("Minimum amount of time a boss must wait before attacking again")]
     public float gracePeriod;
     [Tooltip("List of melee attack triggers for the boss")]
     public List<string> meleeAttacks;
