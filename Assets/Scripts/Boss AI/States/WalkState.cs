@@ -84,13 +84,13 @@ public class WalkState : AIState
 
     void CanChangeState(BossAI ctx)
     {
-        if(gracePeriodTimer > Time.time)
+        if(ctx.BossInformation.gracePeriod > Time.time)
         {
             return;
         }
 
         //State Changers
-        if (Util.CheckTimer(walkStateTimer))
+        if (Util.CheckTimer(ctx.BossInformation.waitTime))
         {
             ctx.SwitchState(States.AttackState);
         }

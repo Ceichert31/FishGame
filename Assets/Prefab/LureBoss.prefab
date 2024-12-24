@@ -229,6 +229,7 @@ MonoBehaviour:
     type: 2}
   bossMaxHealth: 15
   weakPointMultiplier: 3
+  parentObject: {fileID: 0}
   bossAnimator: {fileID: 5509766471598156863}
 --- !u!114 &7859916091848677769
 MonoBehaviour:
@@ -10708,6 +10709,8 @@ MonoBehaviour:
   bossInformation:
     meleeDistance: 10
     maxDistance: 60
+    waitTime: 10
+    gracePeriod: 2
     meleeAttacks:
     - Spin
     rangedAttacks:

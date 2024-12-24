@@ -23,9 +23,17 @@ public class BossAttackInformation
         rangedAttacks = new List<string>();
     }
 
+    [Tooltip("Distance boss can initiate a melee attack from")]
     public float meleeDistance;
+    [Tooltip("Distance that the boss will be forced to iniate a ranged attack from")]
     public float maxDistance;
+    [Tooltip("Time between boss attacks")]
+    public float waitTime;
+    [Tooltip("Time in between when bosses can attack again")]
+    public float gracePeriod;
+    [Tooltip("List of melee attack triggers for the boss")]
     public List<string> meleeAttacks;
+    [Tooltip("List of ranged attack trigger for the boss")]
     public List<string> rangedAttacks;
 }
 
