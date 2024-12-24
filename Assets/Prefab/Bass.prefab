@@ -10541,6 +10541,7 @@ GameObject:
   - component: {fileID: 9210024909842870049}
   - component: {fileID: 353276340482392995}
   - component: {fileID: 4975895896689395347}
+  - component: {fileID: 763171365304332699}
   m_Layer: 0
   m_Name: Bass
   m_TagString: Untagged
@@ -10724,6 +10725,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!320 &763171365304332699
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169854276685192581}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 11129af6fe76fea4b96815121878d397, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &3320201995747094213
 GameObject:
   m_ObjectHideFlags: 0
