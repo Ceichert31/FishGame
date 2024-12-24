@@ -18,7 +18,7 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
     bool teleporting;
 
     //Charging Variables
-    float chargeSpeed = 30;
+    [SerializeField] float chargeSpeed = 30;
 
     public bool Teleporting
     {

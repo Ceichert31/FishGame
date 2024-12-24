@@ -229,7 +229,7 @@ MonoBehaviour:
     type: 2}
   bossMaxHealth: 15
   weakPointMultiplier: 3
-  parentObject: {fileID: 0}
+  parentObject: {fileID: 6839625621437434146}
   bossAnimator: {fileID: 5509766471598156863}
 --- !u!114 &7859916091848677769
 MonoBehaviour:
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryAmmount: 50
-  attackDamage: 10
+  attackDamage: 30
 --- !u!1 &2234053292527268997
 GameObject:
   m_ObjectHideFlags: 0
@@ -10351,7 +10351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryAmmount: 50
-  attackDamage: 10
+  attackDamage: 40
 --- !u!1 &5239699791036602700
 GameObject:
   m_ObjectHideFlags: 0
@@ -10865,6 +10865,7 @@ MonoBehaviour:
   animationEvents: {fileID: 9083583770663827512}
   initalMoveAmmount: 10
   slowDownAmmount: 2
+  chargeSpeed: 70
 --- !u!114 &1558154629488413646
 MonoBehaviour:
   m_ObjectHideFlags: 0
