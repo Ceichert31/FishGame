@@ -13,10 +13,14 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
     [SerializeField] float dashSpeed = 15f;
     [SerializeField] float chargeTime = 3f;
     [SerializeField] float timeUntilNextMovement = 7f;
+    [SerializeField] float stopChargeDistance = 3.5f;
     float currentTime;
     bool teleporting;
 
+    private BossLookBehavior lookBehavior;
+
     private Coroutine instance;
+    private Transform Player => GameManager.Instance.Player.transform;
 
     public bool Teleporting
     {
@@ -28,8 +32,7 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
     private void Awake()
     {
         currentTime = timeUntilNextMovement;
-        animationEvents.UpdateBossActiveBehavior(0);
-        animationEvents.UpdateBossActiveBehavior(2);
+        lookBehavior = GetComponent<BossLookBehavior>();
     }
 
     public void MoveBehavior()
@@ -37,6 +40,7 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
         if (Time.time > currentTime)
         {
             currentTime = Time.time + timeUntilNextMovement;
+            lookBehavior.SetRotationSpeed(1);
 
             if (instance != null) return;
 
@@ -67,15 +71,21 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
 
     IEnumerator Charge()
     {
-        animationEvents.UpdateBossActiveBehavior(1);
+        lookBehavior.SetRotationSpeed(4);
         float timeElapsed = 0;
         while (timeElapsed < chargeTime)
         {
+            //Break out of charge if player is close
+            if (Util.DistanceNoY(Player.position, transform.position) < stopChargeDistance)
+            {
+                instance = null;
+                break;
+            }
+
             timeElapsed += Time.deltaTime;
             bossTransform.position += dashSpeed * Time.deltaTime * bossTransform.forward;
             yield return null;
         }
         instance = null;
-        animationEvents.UpdateBossActiveBehavior(0);
     }
 }

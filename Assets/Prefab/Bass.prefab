@@ -488,6 +488,7 @@ MonoBehaviour:
     type: 2}
   bossMaxHealth: 25
   weakPointMultiplier: 3
+  parentObject: {fileID: 3169854276685192581}
   bossAnimator: {fileID: 4975895896689395347}
 --- !u!114 &7020062992093209280
 MonoBehaviour:
@@ -5471,7 +5472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryAmmount: 100
-  attackDamage: 25
+  attackDamage: 50
 --- !u!1 &2423891153767230342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5609,7 +5610,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -10789,8 +10790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryAmmount: 20
-  attackDamage: 20
+  parryAmmount: 35
+  attackDamage: 30
 --- !u!1 &3471853108388985860
 GameObject:
   m_ObjectHideFlags: 0
@@ -11065,7 +11066,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -25912,11 +25913,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossInformation:
     meleeDistance: 10
-    maxDistance: 60
+    maxDistance: 40
     meleeAttacks:
     - Bite
     - Spin
-    rangedAttacks: []
+    rangedAttacks:
+    - Spit
   currentState: {fileID: 0}
   bossStates:
   - {fileID: 11400000, guid: b121299d28254de46bb8f9ff2ed4cd78, type: 2}
@@ -26027,8 +26029,9 @@ MonoBehaviour:
   animationEvents: {fileID: 9210024909842870049}
   slowDownAmmount: 2
   dashSpeed: 25
-  chargeTime: 3
-  timeUntilNextMovement: 200
+  chargeTime: 2
+  timeUntilNextMovement: 4.5
+  stopChargeDistance: 4.8
 --- !u!114 &6474511756479368406
 MonoBehaviour:
   m_ObjectHideFlags: 0

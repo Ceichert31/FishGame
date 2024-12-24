@@ -10,6 +10,7 @@ public class BassBossAnimationEvents : AnimationEvents
 
     [SerializeField] private GameObject explosionObject;
 
+    private IProjectileSpawner projectileSpawner;
     private ParticleSystem explosionParticle;
     private AudioSource explosionAudio;
 
@@ -19,6 +20,8 @@ public class BassBossAnimationEvents : AnimationEvents
 
         explosionParticle = explosionObject.GetComponent<ParticleSystem>();
         explosionAudio = explosionObject.GetComponent<AudioSource>();
+
+        transform.GetChild(0).TryGetComponent(out projectileSpawner);
     }
 
 
@@ -51,5 +54,10 @@ public class BassBossAnimationEvents : AnimationEvents
     public void ShakeCamera(float duration)
     {
         cameraShakeChannel.CallEvent(new FloatEvent(duration));
+    }
+
+    public void FireProjectiles(int amount)
+    {
+        projectileSpawner.Spawn(amount);
     }
 }

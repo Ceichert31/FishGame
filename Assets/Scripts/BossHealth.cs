@@ -14,6 +14,8 @@ public class BossHealth : MonoBehaviour
 
     [SerializeField] private float weakPointMultiplier = 2f;
 
+    [SerializeField] private GameObject parentObject;
+
     private FloatEvent currentHealth;
 
     private FloatEvent damage;
@@ -110,7 +112,7 @@ public class BossHealth : MonoBehaviour
     /// <param name="ctx"></param>
     void DisableBoss()
     {
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(parentObject);
     }
 
 
