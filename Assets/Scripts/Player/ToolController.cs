@@ -13,6 +13,8 @@ public class ToolController : MonoBehaviour
 
     private StencilController stencilController;
 
+    InputEvent mainAction;
+
     private void Start()
     {
         fishingRod = transform.GetChild(0).gameObject;
@@ -35,6 +37,7 @@ public class ToolController : MonoBehaviour
     {
         ctx.Action.Movement.SwitchStencils.performed += DebugSwitchTools;
 
+        mainAction = ctx;
         //ctx.Action.Fishing.Enable();
         //ctx.Action.Combat.Enable();
     }
@@ -55,6 +58,8 @@ public class ToolController : MonoBehaviour
             fishingRod.SetActive(false);
             harpoonGun.SetActive(true);
             stencilController.UpdateStencil(1, true);
+            mainAction.Action.Combat.Enable();
+            mainAction.Action.Fishing.Disable();
         }
         //Fishing mode
         else 
@@ -62,6 +67,8 @@ public class ToolController : MonoBehaviour
             fishingRod.SetActive(true);
             harpoonGun.SetActive(false);
             stencilController.UpdateStencil(1, false);
+            mainAction.Action.Combat.Disable();
+            mainAction.Action.Fishing.Enable();
         } 
             
     }

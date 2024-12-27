@@ -164,7 +164,7 @@ public class InputController : MonoBehaviour
         moveDirection.Normalize();
 
         //Returns unit vector
-        return moveDirection * SpeedMultiplier;
+        return moveDirection;
     }
     private void Move()
     {

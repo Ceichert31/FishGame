@@ -935,6 +935,7 @@ MonoBehaviour:
   slidingDragForce:
     minValue: 4
     maxValue: 7
+  parryFrameCount: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 6153
@@ -942,6 +943,7 @@ MonoBehaviour:
   dashForce: 80
   iFrameDuration:
     FloatValue: 0.7
+  parryBox: {fileID: 6565486206513040709}
 --- !u!114 &4893733725445465475
 MonoBehaviour:
   m_ObjectHideFlags: 0
