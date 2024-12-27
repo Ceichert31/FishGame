@@ -58,6 +58,9 @@ public class InputController : MonoBehaviour
     [Tooltip("The min and max of player slide speed")]
     [SerializeField] private RangedFloat slidingDragForce;
 
+    [Tooltip("The number of frames the parry box is active on the start of a slide")]
+    [SerializeField] private int parryFrameCount;
+
     [Tooltip("The layers the player can walk on")]
     [SerializeField] private LayerMask groundLayer;
 
@@ -107,6 +110,14 @@ public class InputController : MonoBehaviour
     private const float EFFECTTHRESHOLD = 60f;
     private const float LOOKCLAMP = 90f;
     private const float SENSITIVITYSCALEFACTOR = 100f;
+
+    //Slide References
+
+    [SerializeField] GameObject parryBox;
+
+    //Coroutine activateParry;
+
+    float actionDuration => (1f/60f) * parryFrameCount;
 
     void Awake()
     {
@@ -268,6 +279,7 @@ public class InputController : MonoBehaviour
         fov_EventChannel.CallEvent(new());
         dragRate = slidingDragForce.minValue;
         StartCoroutine(AddDrag(5f));
+        StartCoroutine(ActiveParry());
         cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.5f, cam.transform.position.z);
     }
 
@@ -279,6 +291,7 @@ public class InputController : MonoBehaviour
     private void ResetSlide()
     {
         StopAllCoroutines();
+        parryBox.SetActive(false);
         dragRate = slidingDragForce.maxValue;
         cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.5f, cam.transform.position.z);
     }
@@ -297,6 +310,15 @@ public class InputController : MonoBehaviour
             yield return null;
         }
         ResetSlide();
+    }
+
+    //Activate the parrybox for the specified number of frames
+    IEnumerator ActiveParry()
+    {
+        parryBox.SetActive(true);
+        yield return new WaitForSeconds(actionDuration);
+        Debug.Log(actionDuration);
+        parryBox.SetActive(false);
     }
 
     private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
