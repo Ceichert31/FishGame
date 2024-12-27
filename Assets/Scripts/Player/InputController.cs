@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -259,6 +260,37 @@ public class InputController : MonoBehaviour
         rb.AddForce(new(currentDirection.x, jumpForce, currentDirection.z), ForceMode.Impulse);
     }
 
+    private void StartSlide(InputAction.CallbackContext ctx)
+    {
+        fov_EventChannel.CallEvent(new());
+        dragRate = 3;
+        StartCoroutine(AddDrag(5f));
+        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.5f, cam.transform.position.z);
+    }
+
+    private void EndSlide(InputAction.CallbackContext ctx)
+    {
+        StopAllCoroutines();
+        dragRate = 7;
+        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.5f, cam.transform.position.z);
+    }
+
+    IEnumerator AddDrag(float slideDuration)
+    {
+        float timeElapsed = 0;
+        float startDrag = dragRate;
+        float endDrag = 7;
+        while (timeElapsed < slideDuration)
+        {
+            timeElapsed += Time.deltaTime;
+
+            dragRate = Mathf.Lerp(startDrag, endDrag, timeElapsed / slideDuration);
+
+            yield return null;
+        }
+        dragRate = endDrag;
+    }
+
     private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
     private void EndInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(false);
 
@@ -273,6 +305,10 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed += StartInteract;
 
         playerMovement.Interact.canceled += EndInteract;
+
+        playerMovement.Slide.performed += StartSlide;
+
+        playerMovement.Slide.canceled += EndSlide;
     }
     private void OnDisable()
     {
@@ -285,6 +321,10 @@ public class InputController : MonoBehaviour
         playerMovement.Interact.performed -= StartInteract;
 
         playerMovement.Interact.canceled -= EndInteract;
+
+        playerMovement.Slide.performed -= StartSlide;
+
+        playerMovement.Slide.canceled -= EndSlide;
 
         playerControls.Fishing.Disable();
 

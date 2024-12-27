@@ -80,6 +80,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5f23eb0-bc3a-4a35-ba73-f5af6459f1b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchStencils"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd21c62b-8722-4356-8b08-8ec654a7c120"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1025,6 +1045,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
         m_Movement_SwitchStencils = m_Movement.FindAction("SwitchStencils", throwIfNotFound: true);
+        m_Movement_Slide = m_Movement.FindAction("Slide", throwIfNotFound: true);
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Fire = m_Combat.FindAction("Fire", throwIfNotFound: true);
@@ -1113,6 +1134,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Interact;
     private readonly InputAction m_Movement_SwitchStencils;
+    private readonly InputAction m_Movement_Slide;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -1123,6 +1145,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
         public InputAction @SwitchStencils => m_Wrapper.m_Movement_SwitchStencils;
+        public InputAction @Slide => m_Wrapper.m_Movement_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1150,6 +1173,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SwitchStencils.started += instance.OnSwitchStencils;
             @SwitchStencils.performed += instance.OnSwitchStencils;
             @SwitchStencils.canceled += instance.OnSwitchStencils;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -1172,6 +1198,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SwitchStencils.started -= instance.OnSwitchStencils;
             @SwitchStencils.performed -= instance.OnSwitchStencils;
             @SwitchStencils.canceled -= instance.OnSwitchStencils;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -1431,6 +1460,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSwitchStencils(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
     public interface ICombatActions
     {
