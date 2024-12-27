@@ -55,6 +55,9 @@ public class InputController : MonoBehaviour
     [Tooltip("How high the player can jump")]
     [SerializeField] private float jumpForce = 50f;
 
+    [Tooltip("The min and max of player slide speed")]
+    [SerializeField] private RangedFloat slidingDragForce;
+
     [Tooltip("The layers the player can walk on")]
     [SerializeField] private LayerMask groundLayer;
 
@@ -263,15 +266,20 @@ public class InputController : MonoBehaviour
     private void StartSlide(InputAction.CallbackContext ctx)
     {
         fov_EventChannel.CallEvent(new());
-        dragRate = 3;
+        dragRate = slidingDragForce.minValue;
         StartCoroutine(AddDrag(5f));
         cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.5f, cam.transform.position.z);
     }
 
     private void EndSlide(InputAction.CallbackContext ctx)
     {
+        ResetSlide();
+    }
+
+    private void ResetSlide()
+    {
         StopAllCoroutines();
-        dragRate = 7;
+        dragRate = slidingDragForce.maxValue;
         cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.5f, cam.transform.position.z);
     }
 
@@ -279,16 +287,16 @@ public class InputController : MonoBehaviour
     {
         float timeElapsed = 0;
         float startDrag = dragRate;
-        float endDrag = 7;
+        float endDrag = slidingDragForce.maxValue;
         while (timeElapsed < slideDuration)
         {
-            timeElapsed += Time.deltaTime;
+            timeElapsed += Time.deltaTime * 2;
 
             dragRate = Mathf.Lerp(startDrag, endDrag, timeElapsed / slideDuration);
 
             yield return null;
         }
-        dragRate = endDrag;
+        ResetSlide();
     }
 
     private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
