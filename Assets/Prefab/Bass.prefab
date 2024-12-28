@@ -26353,12 +26353,13 @@ MonoBehaviour:
   bossInformation:
     meleeDistance: 10
     maxDistance: 80
-    waitTime: 5
-    gracePeriod: 4
+    waitTime: 4
+    gracePeriod: 2
     meleeAttacks:
     - Bite
     - Spin
-    rangedAttacks: []
+    rangedAttacks:
+    - Spit
   currentState: {fileID: 0}
   bossStates:
   - {fileID: 11400000, guid: b121299d28254de46bb8f9ff2ed4cd78, type: 2}
@@ -26468,8 +26469,8 @@ MonoBehaviour:
   slowDownAmmount: 2
   dashSpeed: 25
   chargeTime: 2
-  timeUntilNextMovement: 4.5
-  stopChargeDistance: 4.8
+  timeUntilNextMovement: 2.5
+  stopChargeDistance: 5
 --- !u!114 &6474511756479368406
 MonoBehaviour:
   m_ObjectHideFlags: 0
