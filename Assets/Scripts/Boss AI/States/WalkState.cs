@@ -48,9 +48,9 @@ public class WalkState : AIState
 
     public override void EnterState(BossAI ctx)
     {
-        walkStateTimer = waitAmmount + Time.time;
+        walkStateTimer = ctx.BossInformation.waitTime + Time.time;
 
-        gracePeriodTimer = gracePeriod + Time.time;
+        gracePeriodTimer = ctx.BossInformation.gracePeriod + Time.time;
     }
 
     public override void ExecuteState(BossAI ctx)
@@ -84,13 +84,13 @@ public class WalkState : AIState
 
     void CanChangeState(BossAI ctx)
     {
-        if(ctx.BossInformation.gracePeriod > Time.time)
+        if(gracePeriodTimer > Time.time)
         {
             return;
         }
 
         //State Changers
-        if (Util.CheckTimer(ctx.BossInformation.waitTime))
+        if (Util.CheckTimer(walkStateTimer))
         {
             ctx.SwitchState(States.AttackState);
         }
