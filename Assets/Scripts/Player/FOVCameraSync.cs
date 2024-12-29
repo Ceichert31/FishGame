@@ -2,9 +2,20 @@ using UnityEngine;
 
 public class FOVCameraSync : MonoBehaviour
 {
+    private Camera mainCam;
+
     private Camera cam;
 
-    private void Awake() => cam = GetComponent<Camera>();
+    private void Awake()
+    {
+        mainCam = Camera.main;
 
-    private void Update() => cam.fieldOfView = Camera.main.fieldOfView;
+        cam = GetComponent<Camera>();
+    }
+    private void Update()
+    {
+        if (mainCam.enabled == false) return;
+
+        cam.fieldOfView = Camera.main.fieldOfView;
+    }
 }
