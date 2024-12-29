@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceActions:
   - {fileID: 11400000, guid: 092fcf17c0928e94aa557fa128ae457a, type: 2}
-  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 71cb3b40a932d374893035ac7256449f, type: 2}
   - {fileID: 11400000, guid: 7e0aa1a004f4edc42a720fe5f2cfb1ef, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: 6b952a26a5a5ea047b96ade883505db7, type: 2}

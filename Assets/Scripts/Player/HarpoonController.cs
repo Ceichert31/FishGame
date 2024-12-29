@@ -53,7 +53,11 @@ public class HarpoonController : MonoBehaviour
     public void FireHarpoon()
     {
         //Prevents firing before reload
-        if (!canFire) return;
+        if (!canFire)
+        {
+            reloadAudio.Play(reloadAudioSource);
+            return;
+        }
 
         canFire = false;
 

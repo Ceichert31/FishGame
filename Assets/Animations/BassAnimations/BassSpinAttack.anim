@@ -948,9 +948,9 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 2.6666667
-        value: {x: 66.194, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 66.194, y: 15.604, z: 0}
+        inSlope: {x: 0, y: -21.78133, z: 0}
+        outSlope: {x: 0, y: -21.78133, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -1965,17 +1965,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.65
         value: {x: -1.67, y: -2.25, z: -6.81}
-        inSlope: {x: 0.20786732, y: 0, z: 0}
-        outSlope: {x: 0.20786732, y: 0, z: 0}
+        inSlope: {x: 2.799998, y: -8.94427, z: 0}
+        outSlope: {x: 2.799998, y: -8.94427, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 2.6666667
-        value: {x: -1.6648033, y: -1.6914141, z: -7.048901}
-        inSlope: {x: 0.031180153, y: 2.9799507, z: 0}
-        outSlope: {x: 0.031180153, y: 2.9799507, z: 0}
+        value: {x: -0.6844194, y: -2.8444283, z: -7.048901}
+        inSlope: {x: 2.5257747, y: 0, z: 0}
+        outSlope: {x: 2.5257747, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -7838,17 +7838,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.65
         value: -1.67
-        inSlope: 0.20786732
-        outSlope: 0.20786732
+        inSlope: 2.799998
+        outSlope: 2.799998
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2.6666667
-        value: -1.6648033
-        inSlope: 0.031180153
-        outSlope: 0.031180153
+        value: -0.6844194
+        inSlope: 2.5257747
+        outSlope: 2.5257747
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -7994,17 +7994,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.65
         value: -2.25
-        inSlope: 0
-        outSlope: 0
+        inSlope: -8.94427
+        outSlope: -8.94427
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2.6666667
-        value: -1.6914141
-        inSlope: 2.9799507
-        outSlope: 2.9799507
+        value: -2.8444283
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -8767,9 +8767,9 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2.6666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        value: 15.604
+        inSlope: -21.78133
+        outSlope: -21.78133
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -9121,7 +9121,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BassModel
+    path: BassModel/AttackHitBoxes/SpinHitBox
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9133,7 +9133,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BassModel
+    path: BassModel/AttackHitBoxes/SpinHitBox
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9145,7 +9145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BassModel
+    path: BassModel/AttackHitBoxes/SpinHitBox
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9373,7 +9373,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BassModel/AttackHitBoxes/SpinHitBox
+    path: BassModel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9385,7 +9385,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BassModel/AttackHitBoxes/SpinHitBox
+    path: BassModel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9397,7 +9397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BassModel/AttackHitBoxes/SpinHitBox
+    path: BassModel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -9418,7 +9418,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.15
+  - time: 1.1666666
     functionName: UpdateBossActiveBehavior
     data: 
     objectReferenceParameter: {fileID: 0}

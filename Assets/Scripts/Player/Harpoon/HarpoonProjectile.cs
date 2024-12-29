@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
     [SerializeField] private int damageLayer = 8;
     [SerializeField] private int weakPointLayer = 9;
 
+    [Tooltip("How long until the harpoon destroys itself after hitting boss")]
+    [SerializeField] private float destroyTime = 1.5f;
+
     [SerializeField] private AudioPitcherSO hitAudio;
 
     private Vector3 targetDirection;
@@ -24,6 +28,8 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
     private Rigidbody rb;
 
     private AudioSource source;
+
+    private ParticleSystem bloodSpray;
 
     private bool cannotDestroy;
 
@@ -39,6 +45,8 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
         rb = GetComponent<Rigidbody>();
 
         source = GetComponent<AudioSource>();
+
+        bloodSpray = GetComponentInChildren<ParticleSystem>();
 
         currentTime = Time.time + projectileLifetime;
     }
@@ -63,7 +71,16 @@ public class HarpoonProjectile : MonoBehaviour, IProjectile
         if (collision.gameObject.layer != damageLayer)
             Destroy(gameObject);
         else
+        {
             hitAudio.Play(source);
+            bloodSpray.Play();
+            Invoke(nameof(Destroy), destroyTime);
+        }   
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     //Interface implementation

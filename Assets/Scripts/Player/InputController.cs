@@ -151,14 +151,15 @@ public class InputController : MonoBehaviour
         input_EventChannel.CallEvent(inputEvent);
 
         cameraHolder = cam.transform.parent;
+
+        //Cache starting camera position
+        slideStartCameraPos = cameraHolder.localPosition;
     }
 
     void Update()
     {
         //Ground raycast
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, out groundHit, offsetRayDistance, groundLayer);
-
-        Debug.Log(rb.velocity.magnitude);
     }
 
     //Movement
@@ -305,13 +306,10 @@ public class InputController : MonoBehaviour
     #region Slide Functions
     private void StartSlide(InputAction.CallbackContext ctx)
     {
-        if (MoveDirection() == Vector3.zero) return;
+        if (MoveDirection() == Vector3.zero || !IsGrounded) return;
 
         //Increase FOV
-        fov_EventChannel.CallEvent(new());
-
-        //Cache camera position
-        slideStartCameraPos = cameraHolder.localPosition;
+        fov_EventChannel.CallEvent(new());        
 
         //Shrink player height
         StartCoroutine(LerpCamera(new Vector3(cameraHolder.localPosition.x, cameraHolder.localPosition.y - slideScaleY, cameraHolder.localPosition.z), transitionTime)); ;
