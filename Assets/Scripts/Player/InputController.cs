@@ -24,13 +24,59 @@ public class InputController : MonoBehaviour
         set { sensitivity = Mathf.Clamp(value, minSensitivity, maxSensitivity); } 
     }
 
-    [Header("Movement Settings")]
+    [Header("Basic Movement Settings")]
     [Tooltip("The speed the player moves at")]
     [SerializeField] private float walkSpeed = 60f;
+
+    [Tooltip("Adds more drag to the players velocity")]
+    [SerializeField] private float dragRate = 5f;
+
+    [Tooltip("How high the player can jump")]
+    [SerializeField] private float jumpForce = 50f;
+
+    [Header("Air Control Settings")]
+    [Tooltip("The amount of air resistance the player experiences")]
+    [SerializeField] private float airDragRate = 3f;
 
     [Tooltip("The players movement speed when airborn")]
     [SerializeField] private float airSpeed = 30f;
 
+    [Header("Dash Settings")]
+    [SerializeField] private float dashCooldown = 1f;
+
+    [SerializeField] private float dashForce = 50f;
+
+    [SerializeField] private FloatEvent iFrameDuration;
+
+    private bool canDash = true;
+
+    //Slide References
+    [Header("Slide Settings")]
+    [SerializeField] GameObject parryBox;
+
+    [Tooltip("How long the player is able to slide for")]
+    [SerializeField] float maxSlideTime = 5f;
+
+    [Tooltip("How fast the player can slide")]
+    [SerializeField] float slideSpeed = 5f;
+
+    [SerializeField] private float slideScaleY = 0.5f;
+
+    [SerializeField] private float transitionTime = 0.3f;
+
+    float slideTimer;
+    Vector3 slideStartCameraPos;
+    bool isSliding;
+    float slopeAngle;
+    Transform cameraHolder;
+
+    [Header("Parry Settings")]
+    [Tooltip("The number of frames the parry box is active on the start of a slide")]
+    [SerializeField] private int parryFrameCount;
+
+    float actionDuration => (1f / 60f) * parryFrameCount;
+
+    [Header("Floating Rigidbody Settings")]
     [Tooltip("The maximum angle the player can walk up without losing speed")]
     [SerializeField] private float maxSlopeAngle = 45f;
 
@@ -46,34 +92,8 @@ public class InputController : MonoBehaviour
     [Tooltip("Affects how controlled the offset is")]
     [SerializeField] private float offsetDamper = 10f;
 
-    [Tooltip("Adds more drag to the players velocity")]
-    [SerializeField] private float dragRate = 5f;
-
-    [Tooltip("The amount of air resistance the player experiences")]
-    [SerializeField] private float airDragRate = 3f;
-
-    [Tooltip("How high the player can jump")]
-    [SerializeField] private float jumpForce = 50f;
-
-    [Tooltip("The min and max of player slide speed")]
-    [SerializeField] private RangedFloat slidingDragForce;
-
-    [Tooltip("The number of frames the parry box is active on the start of a slide")]
-    [SerializeField] private int parryFrameCount;
-
     [Tooltip("The layers the player can walk on")]
     [SerializeField] private LayerMask groundLayer;
-
-    [Header("Dash Settings")]
-    [SerializeField] private float dashCooldown = 1f;
-
-    [SerializeField] private float dashForce = 50f;
-
-    [SerializeField] private FloatEvent iFrameDuration;
-
-    private bool canDash = true;
-
-    private float SpeedMultiplier => GameManager.Instance.PlayerMovementMultiplier;
 
     //Input References
     private PlayerControls playerControls;
@@ -107,17 +127,9 @@ public class InputController : MonoBehaviour
     public Vector2 MoveInput { get { return moveInput; } }
 
     //Constants
-    private const float EFFECTTHRESHOLD = 60f;
-    private const float LOOKCLAMP = 90f;
-    private const float SENSITIVITYSCALEFACTOR = 100f;
-
-    //Slide References
-
-    [SerializeField] GameObject parryBox;
-
-    //Coroutine activateParry;
-
-    float actionDuration => (1f/60f) * parryFrameCount;
+    private const float EFFECT_THRESHOLD = 60f;
+    private const float LOOK_CLAMP = 90f;
+    private const float SENSITIVITY_SCALE_FACTOR = 100f;
 
     void Awake()
     {
@@ -137,12 +149,16 @@ public class InputController : MonoBehaviour
         source = GetComponent<AudioSource>();
 
         input_EventChannel.CallEvent(inputEvent);
+
+        cameraHolder = cam.transform.parent;
     }
 
     void Update()
     {
         //Ground raycast
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, out groundHit, offsetRayDistance, groundLayer);
+
+        Debug.Log(rb.velocity.magnitude);
     }
 
     //Movement
@@ -150,6 +166,7 @@ public class InputController : MonoBehaviour
     {
         Move();
         AirControl();
+        Sliding();
     }
     private Vector3 MoveDirection()
     {
@@ -177,7 +194,7 @@ public class InputController : MonoBehaviour
         Vector3 moveForce = MoveDirection() * walkSpeed;
 
         //Find the angle between the players up position and the groundHit
-        float slopeAngle = Vector3.Angle(Vector3.up, groundHit.normal);
+        slopeAngle = Vector3.Angle(Vector3.up, groundHit.normal);
 
         //Set to (0, 0, 0)
         Vector3 yOffsetForce = Vector3.zero;
@@ -203,6 +220,17 @@ public class InputController : MonoBehaviour
         //Add forces to rigidbody
         rb.AddForce((combinedForces - dampingForces) * (100 * Time.fixedDeltaTime));
     }
+
+    private bool OnSlope()
+    {
+        return slopeAngle < maxSlopeAngle && slopeAngle != 0;
+    }
+
+    private Vector3 SlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(MoveDirection(), groundHit.normal).normalized;
+    }
+
     private void AirControl()
     {
         if (isGrounded) return;
@@ -221,20 +249,20 @@ public class InputController : MonoBehaviour
     private void Look()
     {
         //Check if player is looking too far up or down
-        applyMovementEffects = lookRotation > EFFECTTHRESHOLD || lookRotation < -EFFECTTHRESHOLD;
+        applyMovementEffects = lookRotation > EFFECT_THRESHOLD || lookRotation < -EFFECT_THRESHOLD;
 
         //Read mouse input
         //If implementing pausing, change this
         Vector2 lookForce = playerMovement.Look?.ReadValue<Vector2>() ?? Vector2.zero;
 
         //Turn the player with the X-input
-        gameObject.transform.Rotate(lookForce.x * (sensitivity * Vector3.up) / SENSITIVITYSCALEFACTOR);
+        gameObject.transform.Rotate(lookForce.x * (sensitivity * Vector3.up) / SENSITIVITY_SCALE_FACTOR);
 
         //Add Y-input multiplied by sensitivity to float
-        lookRotation += (-lookForce.y * sensitivity / SENSITIVITYSCALEFACTOR);
+        lookRotation += (-lookForce.y * sensitivity / SENSITIVITY_SCALE_FACTOR);
 
         //Clamp the look rotation so the player can't flip the camera
-        lookRotation = Mathf.Clamp(lookRotation, -LOOKCLAMP, LOOKCLAMP);
+        lookRotation = Mathf.Clamp(lookRotation, -LOOK_CLAMP, LOOK_CLAMP);
 
         //Set cameras rotation
         cam.transform.eulerAngles = new(lookRotation, cam.transform.eulerAngles.y, 0);
@@ -274,13 +302,43 @@ public class InputController : MonoBehaviour
         rb.AddForce(new(currentDirection.x, jumpForce, currentDirection.z), ForceMode.Impulse);
     }
 
+    #region Slide Functions
     private void StartSlide(InputAction.CallbackContext ctx)
     {
+        if (MoveDirection() == Vector3.zero) return;
+
+        //Increase FOV
         fov_EventChannel.CallEvent(new());
-        dragRate = slidingDragForce.minValue;
-        StartCoroutine(AddDrag(5f));
-        StartCoroutine(ActiveParry());
-        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.5f, cam.transform.position.z);
+
+        //Cache camera position
+        slideStartCameraPos = cameraHolder.localPosition;
+
+        //Shrink player height
+        StartCoroutine(LerpCamera(new Vector3(cameraHolder.localPosition.x, cameraHolder.localPosition.y - slideScaleY, cameraHolder.localPosition.z), transitionTime)); ;
+
+        //Reset slide timer
+        slideTimer = 0;
+
+        isSliding = true;
+    }
+
+    private void Sliding()
+    {
+        if (!isSliding) return;
+
+        if (!OnSlope() || rb.velocity.y > -0.1f)
+        {
+            slideTimer += Time.deltaTime;
+
+            rb.AddForce(MoveDirection() * slideSpeed, ForceMode.Force);
+        }
+        else
+        {
+            rb.AddForce(SlopeMoveDirection() * slideSpeed, ForceMode.Force);
+        }
+
+        if (slideTimer > maxSlideTime)
+            ResetSlide();
     }
 
     private void EndSlide(InputAction.CallbackContext ctx)
@@ -292,24 +350,28 @@ public class InputController : MonoBehaviour
     {
         StopAllCoroutines();
         parryBox.SetActive(false);
-        dragRate = slidingDragForce.maxValue;
-        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.5f, cam.transform.position.z);
+
+        //Reset height
+        StartCoroutine(LerpCamera(slideStartCameraPos, transitionTime));
+
+        isSliding = false;
     }
 
-    IEnumerator AddDrag(float slideDuration)
+    IEnumerator LerpCamera(Vector3 endPos, float duration)
     {
-        float timeElapsed = 0;
-        float startDrag = dragRate;
-        float endDrag = slidingDragForce.maxValue;
-        while (timeElapsed < slideDuration)
-        {
-            timeElapsed += Time.deltaTime * 2;
+        float elapsed = 0;
+        Vector3 startPos = cameraHolder.localPosition;
 
-            dragRate = Mathf.Lerp(startDrag, endDrag, timeElapsed / slideDuration);
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            cameraHolder.localPosition = Vector3.Lerp(startPos, endPos, elapsed / duration);
 
             yield return null;
         }
-        ResetSlide();
+
+        cameraHolder.localPosition = endPos;
     }
 
     //Activate the parrybox for the specified number of frames
@@ -320,6 +382,8 @@ public class InputController : MonoBehaviour
         Debug.Log(actionDuration);
         parryBox.SetActive(false);
     }
+
+    #endregion
 
     private void StartInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(true);
     private void EndInteract(InputAction.CallbackContext ctx) => playerInteractor.CanInteract(false);

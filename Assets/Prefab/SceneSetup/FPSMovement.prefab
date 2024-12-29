@@ -923,27 +923,28 @@ MonoBehaviour:
   minSensitivity: 1
   maxSensitivity: 30
   walkSpeed: 65
-  airSpeed: 17
-  maxSlopeAngle: 45
-  heightOffset: 1.5
-  offsetRayDistance: 1.5
-  offsetStrength: 300
-  offsetDamper: 25
   dragRate: 7
-  airDragRate: 3
   jumpForce: 22
-  slidingDragForce:
-    minValue: 4
-    maxValue: 7
-  parryFrameCount: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 6153
+  airDragRate: 3
+  airSpeed: 17
   dashCooldown: 1
   dashForce: 80
   iFrameDuration:
     FloatValue: 0.7
   parryBox: {fileID: 6565486206513040709}
+  maxSlideTime: 1
+  slideSpeed: 75
+  slideScaleY: 0.8
+  transitionTime: 0.3
+  parryFrameCount: 8
+  maxSlopeAngle: 45
+  heightOffset: 1.5
+  offsetRayDistance: 1.5
+  offsetStrength: 300
+  offsetDamper: 25
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 6153
 --- !u!114 &4893733725445465475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390676662645113971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2984574519eda545b67e192102a8389, type: 3}
   m_Name: 
@@ -1032,7 +1033,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390676662645113971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66c66544aa1f1144981dce73e0d4cfae, type: 3}
   m_Name: 
