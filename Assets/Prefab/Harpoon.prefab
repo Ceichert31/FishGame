@@ -665,7 +665,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 50
+    angle: 17.24
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -980,7 +980,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 40
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4991,6 +4991,7 @@ MonoBehaviour:
   projectileLifetime: 6
   damageLayer: 8
   weakPointLayer: 9
+  destroyTime: 1.5
   hitAudio: {fileID: 11400000, guid: 2ea0dcb2e54b82b4488d709469f412ee, type: 2}
 --- !u!54 &5193814131415429038
 Rigidbody:
