@@ -168,9 +168,11 @@ public abstract class AnimationEvents : MonoBehaviour
         {
             case 0:
                 activeBehavior += bossLookAtPlayer.LookAtPlayer;
+                //activeBehavior += bossLookAtPlayer.PredictPlayerPosition;
                 break;
             case 1:
                 activeBehavior -= bossLookAtPlayer.LookAtPlayer;
+                //activeBehavior -= bossLookAtPlayer.PredictPlayerPosition;
                 break;
             case 2:
                 activeBehavior += bossWalkBehavior.MoveBehavior;

@@ -11005,7 +11005,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3169854276685192581}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 11129af6fe76fea4b96815121878d397, type: 2}
   m_InitialState: 1
@@ -31553,6 +31553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
+  leadPercentage: 1
 --- !u!1 &7028522028585659813
 GameObject:
   m_ObjectHideFlags: 0

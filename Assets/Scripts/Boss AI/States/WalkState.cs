@@ -121,4 +121,5 @@ public interface IBossWalkBehavior
 public interface IBossLookAtPlayer
 {
     void LookAtPlayer();
+    void PredictPlayerPosition();
 }
