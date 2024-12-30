@@ -26,8 +26,8 @@ public class BassBossAnimationEvents : AnimationEvents
 
 
     /// <summary>
-    /// 4: Charge Player
-    /// 5: Deassign Charge Method and trigger stop charging
+    /// 4: Constantly move toward Player
+    /// 5: Deassign Constant movment Method
     /// </summary>
     public override void UpdateBossActiveBehavior(int behavior)
     {
@@ -36,11 +36,10 @@ public class BassBossAnimationEvents : AnimationEvents
         switch (behavior)
         {
             case 4:
-                //activeBehavior += bassBossMoveBehavior.ChargePlayer;
+                activeBehavior += bassBossMoveBehavior.ConstantMovement;
                 break;
             case 5:
-                //bossAnimator.SetTrigger("StopCharging");
-                //activeBehavior -= bassBossMoveBehavior.ChargePlayer;
+                activeBehavior -= bassBossMoveBehavior.ConstantMovement;
                 break;
         }
     }

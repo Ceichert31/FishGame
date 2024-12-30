@@ -48,6 +48,17 @@ public class BassBossMoveBehavoir : MonoBehaviour, IBossWalkBehavior
         }
     }
 
+    public void ConstantMovement()
+    {
+        if (Util.DistanceNoY(Player.position, transform.position) < stopChargeDistance)
+        {
+            instance = null;
+            return;
+        }
+
+        bossTransform.position += dashSpeed * Time.deltaTime * bossTransform.forward;
+    }
+
     /// <summary>
     /// Teleports the boss to the player after the player has gone farther then boss allowed
     /// </summary>
