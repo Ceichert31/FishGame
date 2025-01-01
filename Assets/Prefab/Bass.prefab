@@ -800,7 +800,7 @@ MonoBehaviour:
     type: 2}
   stagger_EventChannel: {fileID: 11400000, guid: 7c24f472c0b2d8942bb47bcba6d58560,
     type: 2}
-  maxPosture: 60
+  maxPosture: 100
 --- !u!114 &7337026546577238967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5763,8 +5763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryAmmount: 100
-  attackDamage: 50
+  parryAmmount: 50
+  attackDamage: 45
 --- !u!1 &2725555572647534529
 GameObject:
   m_ObjectHideFlags: 0
@@ -11135,7 +11135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryAmmount: 35
+  parryAmmount: 25
   attackDamage: 30
 --- !u!1 &3374567913542358636
 GameObject:
