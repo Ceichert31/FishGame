@@ -105,10 +105,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6abf517120a235e4c9fd45f8f1037ca3, type: 2}
   - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
   - {fileID: 11400000, guid: fe7077df9c33b7e489c38352caf040a0, type: 2}
+  - {fileID: 11400000, guid: fb0a80ed55cf91342a1fc7aacdf27394, type: 2}
   - {fileID: 11400000, guid: c2633b35d84b6de49be9661e8999e7e9, type: 2}
   - {fileID: 11400000, guid: 5ff6b7d922668c5449c386492e5715cb, type: 2}
   - {fileID: 11400000, guid: a8ba3a728123c7e4d879545078020ea9, type: 2}
-  - {fileID: 11400000, guid: ba27b2b71ebc3f04c896e214a2757e00, type: 2}
+  - {fileID: 11400000, guid: 9cf3762a9160c5049b6bd8f908532e65, type: 2}
   - {fileID: 11400000, guid: a503177bbab477c458ddb4629c5fd008, type: 2}
   - {fileID: 11400000, guid: 8610cde9f6d29ec4ab953d2fe989b721, type: 2}
 --- !u!1 &5760304500761564955
@@ -132,6 +133,7 @@ GameObject:
   - component: {fileID: 5699963874577652821}
   - component: {fileID: 1325245999431142144}
   - component: {fileID: 1272752521267752952}
+  - component: {fileID: 6424658362794787465}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -154,6 +156,7 @@ Transform:
   m_Children:
   - {fileID: 1191397835988440451}
   - {fileID: 7633472601157973605}
+  - {fileID: 3673257003476645371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2771201916794490991
@@ -279,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259183acd3686704caed3bdb0dde297c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneWaitTime: {fileID: 11400000, guid: 9cf3762a9160c5049b6bd8f908532e65, type: 2}
   bossSpawner: {fileID: 0}
 --- !u!114 &8339949336390617776
 MonoBehaviour:
@@ -338,8 +342,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7969155959232601949}
-        m_TargetAssemblyTypeName: BossManager, Assembly-CSharp
-        m_MethodName: SpawnBoss
+        m_TargetAssemblyTypeName: BossSpawner, Assembly-CSharp
+        m_MethodName: CacheBoss
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -454,3 +458,75 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6424658362794787465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760304500761564955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c7cfd38e11ed4f81a0bfa91dbf082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 2b59a6d869b9a004ea9d16c5fad895db, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7969155959232601949}
+        m_TargetAssemblyTypeName: BossSpawner, Assembly-CSharp
+        m_MethodName: SpawnCachedBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &8634342528370965930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3673257003476645371}
+  - component: {fileID: 74579552174586899}
+  m_Layer: 0
+  m_Name: TutorialController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3673257003476645371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634342528370965930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6562696687792210240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74579552174586899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634342528370965930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44586047f2f263468261cfdc2bafae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
