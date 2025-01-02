@@ -31421,7 +31421,6 @@ GameObject:
   - component: {fileID: 1496301721031738312}
   - component: {fileID: 4609502374127217759}
   - component: {fileID: 5651887485887201627}
-  - component: {fileID: 3634944086847219366}
   - component: {fileID: 7232245779526935244}
   - component: {fileID: 6060349203439761678}
   - component: {fileID: 6474511756479368406}
@@ -31504,7 +31503,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3634944086847219366}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PustuleController, Assembly-CSharp
         m_MethodName: OnHit
         m_Mode: 0
@@ -31535,19 +31534,6 @@ MonoBehaviour:
     type: 3}
   projectileSpawnPoints:
   - {fileID: 7600730014963775122}
---- !u!114 &3634944086847219366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6742492237100742973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e226eb55ec03f1408bdc7d781136ef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pustule: {fileID: 1234421834022376728}
 --- !u!114 &7232245779526935244
 MonoBehaviour:
   m_ObjectHideFlags: 0
