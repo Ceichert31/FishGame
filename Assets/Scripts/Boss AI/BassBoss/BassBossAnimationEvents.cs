@@ -40,8 +40,8 @@ public class BassBossAnimationEvents : AnimationEvents
 
 
     /// <summary>
-    /// 4: Constantly move toward Player
-    /// 5: Deassign Constant movment Method
+    /// 6: Constantly move toward Player
+    /// 7: Deassign Constant movment Method
     /// </summary>
     public override void UpdateBossActiveBehavior(int behavior)
     {
@@ -49,10 +49,10 @@ public class BassBossAnimationEvents : AnimationEvents
 
         switch (behavior)
         {
-            case 4:
+            case 6:
                 activeBehavior += bassBossMoveBehavior.ConstantMovement;
                 break;
-            case 5:
+            case 7:
                 activeBehavior -= bassBossMoveBehavior.ConstantMovement;
                 break;
         }

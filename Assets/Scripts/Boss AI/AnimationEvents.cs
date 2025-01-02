@@ -9,6 +9,15 @@ public enum ParticleTypes
     ParryParticles,
 }
 
+[System.Serializable]
+public enum UpdateBehaviorBaseCases
+{
+    AssignNormalLookRotation,
+    DeAssignNormalLookRotation,
+    AssignConstantMoveBehavior,
+    DeAssignConstantMoveBehavior
+}
+
 public abstract class AnimationEvents : MonoBehaviour
 {
     public delegate void ActiveBehavior();
@@ -160,6 +169,8 @@ public abstract class AnimationEvents : MonoBehaviour
     /// 1: Boss Stops Looking At The Player
     /// 2: Boss Starts Moving Toward The Player
     /// 3: Boss Stops Moving Toward The Player
+    /// 4. Boss Starts Predciting Player's Position Via Rotation
+    /// 5. Boss Stop Predicting Player's Position Via Rotation
     /// </summary>
     /// <param name="behavior"></param>
     public virtual void UpdateBossActiveBehavior(int behavior)
@@ -168,17 +179,21 @@ public abstract class AnimationEvents : MonoBehaviour
         {
             case 0:
                 activeBehavior += bossLookAtPlayer.LookAtPlayer;
-                //activeBehavior += bossLookAtPlayer.PredictPlayerPosition;
                 break;
             case 1:
                 activeBehavior -= bossLookAtPlayer.LookAtPlayer;
-                //activeBehavior -= bossLookAtPlayer.PredictPlayerPosition;
                 break;
             case 2:
                 activeBehavior += bossWalkBehavior.MoveBehavior;
                 break;
             case 3:
                 activeBehavior -= bossWalkBehavior.MoveBehavior;
+                break;
+            case 4:
+                activeBehavior += bossLookAtPlayer.PredictPlayerPosition;
+                break;
+            case 5:
+                activeBehavior -= bossLookAtPlayer.PredictPlayerPosition;
                 break;
         }
     }

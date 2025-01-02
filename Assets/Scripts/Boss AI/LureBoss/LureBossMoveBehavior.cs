@@ -78,7 +78,7 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
         if(!Util.IsLookingAtTarget(bossTransform, GameManager.Instance.Player.transform, 0))
         {
             Debug.Log("Fish passed up player");
-            animationEvents.UpdateBossActiveBehavior(5);
+            animationEvents.UpdateBossActiveBehavior(7);
         }
     }
 }

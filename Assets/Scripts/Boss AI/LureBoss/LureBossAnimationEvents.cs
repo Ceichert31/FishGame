@@ -14,8 +14,8 @@ public class LureBossAnimationEvents : AnimationEvents
 
 
     /// <summary>
-    /// 4: Charge Player
-    /// 5: Deassign Charge Method and trigger stop charging
+    /// 6: Charge Player
+    /// 7: Deassign Charge Method and trigger stop charging
     /// </summary>
     public override void UpdateBossActiveBehavior(int behavior)
     {
@@ -23,10 +23,10 @@ public class LureBossAnimationEvents : AnimationEvents
 
         switch (behavior)
         {
-            case 4:
+            case 6:
                 activeBehavior += lureBossMoveBehavior.ChargePlayer;
                 break;
-            case 5:
+            case 7:
                 bossAnimator.SetTrigger("StopCharging");
                 activeBehavior -= lureBossMoveBehavior.ChargePlayer;
                 break;

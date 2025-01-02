@@ -10880,7 +10880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
-  leadPercentage: 2
+  leadPercentage: 1
 --- !u!1 &6827196325690850589
 GameObject:
   m_ObjectHideFlags: 0
