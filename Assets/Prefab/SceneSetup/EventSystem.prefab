@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 1325245999431142144}
   - component: {fileID: 1272752521267752952}
   - component: {fileID: 6424658362794787465}
+  - component: {fileID: 8168406172798363538}
+  - component: {fileID: 4126980699132920189}
+  - component: {fileID: 1687247441390732883}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -477,6 +480,107 @@ MonoBehaviour:
       - m_Target: {fileID: 7969155959232601949}
         m_TargetAssemblyTypeName: BossSpawner, Assembly-CSharp
         m_MethodName: SpawnCachedBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8168406172798363538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760304500761564955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f6233d1a155c744bbf2508d4d6089b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.0151763
+      outSlope: 1.0151763
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06969697
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 0.05226007
+      outSlope: 0.05226007
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.7781767
+      outSlope: -0.7781767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0665758
+      outWeight: 0.116766214
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+--- !u!114 &4126980699132920189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760304500761564955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec7624202bfd43b7f71247458d176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8168406172798363538}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: StartShaking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1687247441390732883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760304500761564955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a598244afc3db40bf0a3165fceb2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 0fd13e9fedc812f4a98caa9e1e062f30, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8168406172798363538}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: SetCurrentMainCamera
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

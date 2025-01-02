@@ -6,11 +6,18 @@ public class DisableCamera : MonoBehaviour
 {
     [SerializeField] private BoolEventChannel setUIEventChannel;
 
-    private Camera cam;
+    [SerializeField] private CameraEventChannel setActiveCamera;
+
+    [SerializeField] private Camera cinematicCamera;
+
+    private Camera playerCamera;
+
+    private AudioListener audioListener;
 
     private void Awake()
     {
-        cam = Camera.main;
+        playerCamera = Camera.main;
+        audioListener = playerCamera.GetComponent<AudioListener>();
     }
 
     /// <summary>
@@ -19,7 +26,16 @@ public class DisableCamera : MonoBehaviour
     /// <param name="isEnabled"></param>
     public void SetCamera(bool isEnabled)
     {
-        cam.enabled = isEnabled;
+        //Enable/disable player camera and audio listener
+        playerCamera.enabled = isEnabled;
+        audioListener.enabled = isEnabled;
+
+        //Update current main camera
+        if (isEnabled)
+            setActiveCamera.CallEvent(new(playerCamera));
+        else
+            setActiveCamera.CallEvent(new(cinematicCamera));
+
         setUIEventChannel.CallEvent(new(isEnabled));
     }
 }

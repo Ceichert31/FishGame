@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public enum BassSounds
+{
+    Bite,
+    Swim,
+}
+
 public class BassBossAnimationEvents : AnimationEvents
 {
     private BassBossMoveBehavoir bassBossMoveBehavior;
@@ -10,9 +17,14 @@ public class BassBossAnimationEvents : AnimationEvents
 
     [SerializeField] private GameObject explosionObject;
 
+    [Header("Audio References")]
+    [SerializeField] private AudioPitcherSO swimAudio;
+    [SerializeField] private AudioPitcherSO biteAudio;
+
     private IProjectileSpawner projectileSpawner;
     private ParticleSystem explosionParticle;
     private AudioSource explosionAudio;
+    private AudioSource mainSource;
 
     private void Start()
     {
@@ -20,6 +32,8 @@ public class BassBossAnimationEvents : AnimationEvents
 
         explosionParticle = explosionObject.GetComponent<ParticleSystem>();
         explosionAudio = explosionObject.GetComponent<AudioSource>();
+        mainSource = GetComponent<AudioSource>();
+
 
         transform.GetChild(0).TryGetComponent(out projectileSpawner);
     }
@@ -50,11 +64,23 @@ public class BassBossAnimationEvents : AnimationEvents
         explosionAudio.Play();
     }
 
+    public void PlayAudio(BassSounds audio)
+    {
+        switch (audio)
+        {
+            case BassSounds.Swim:
+                swimAudio.Play(mainSource);
+                break;
+            case BassSounds.Bite:
+                biteAudio.Play(mainSource);
+                break;
+        }
+    }
+
     public void ShakeCamera(float duration)
     {
         cameraShakeChannel.CallEvent(new FloatEvent(duration));
     }
-
     public void FireProjectiles(int amount)
     {
         projectileSpawner.Spawn(amount);

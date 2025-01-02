@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 6657773975454265676}
   - component: {fileID: 5105997135630968250}
   - component: {fileID: 5379992412738581222}
+  - component: {fileID: 7152515671682641571}
   m_Layer: 0
   m_Name: CinematicCamera
   m_TagString: Untagged
@@ -277,13 +278,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457615314099600851}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.3701086, y: 0, z: 0.000000684671}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7971108745519288485}
-  m_Father: {fileID: 3010113777080436278}
+  m_Father: {fileID: 114237506779884683}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!20 &5105997135630968250
 Camera:
@@ -380,6 +381,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &7152515671682641571
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457615314099600851}
+  m_Enabled: 1
 --- !u!1 &1507591779949932321
 GameObject:
   m_ObjectHideFlags: 0
@@ -10829,7 +10838,7 @@ Transform:
   - {fileID: 1701239594637514748}
   - {fileID: 8952743772981117954}
   - {fileID: 3607155328077975494}
-  - {fileID: 6657773975454265676}
+  - {fileID: 114237506779884683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!195 &8643565869673973970
@@ -10872,6 +10881,8 @@ MonoBehaviour:
   - {fileID: 0}
   cameraShakeChannel: {fileID: 11400000, guid: 878ac75cdf3a9e6488219fb28d8acc34, type: 2}
   explosionObject: {fileID: 6171040762622588636}
+  swimAudio: {fileID: 11400000, guid: d2a5cdcdcd59518408fd14f81e0f514d, type: 2}
+  biteAudio: {fileID: 11400000, guid: bec62438641610946a0dff4a472f0dd8, type: 2}
 --- !u!82 &353276340482392995
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10893,9 +10904,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 70
+  MaxDistance: 120
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -11025,6 +11036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setUIEventChannel: {fileID: 11400000, guid: 641a35a7167fadc4a8fd7d82a2966bf4, type: 2}
+  setActiveCamera: {fileID: 11400000, guid: 0fd13e9fedc812f4a98caa9e1e062f30, type: 2}
+  cinematicCamera: {fileID: 5105997135630968250}
 --- !u!114 &7773071012943127050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11252,6 +11265,38 @@ Transform:
   m_Children:
   - {fileID: 580602317038779549}
   m_Father: {fileID: 170231036274081351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3590135739540498531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114237506779884683}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114237506779884683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590135739540498531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.97811985, y: 0, z: 0.1226177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6657773975454265676}
+  m_Father: {fileID: 3010113777080436278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3606270107815765860
 GameObject:
@@ -31248,7 +31293,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e6aa5e0b915dc004e8bf3f6342f6c121, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.34
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

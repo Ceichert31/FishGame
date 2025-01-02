@@ -7,11 +7,24 @@ public class CameraShake : MonoBehaviour
     [Header("Screen Shake Settings")]
     [SerializeField] private AnimationCurve shakeCurve;
 
+    private Camera currentMainCamera;
+
+    private void Awake()
+    {
+        currentMainCamera = Camera.main;
+    }
+
+    public void SetCurrentMainCamera(CameraEvent ctx)
+    {
+        //Set new current camera
+        currentMainCamera = ctx.Value;
+    }
+
     public void StartShaking(FloatEvent ctx) => StartCoroutine(Shake(ctx.FloatValue));
 
     IEnumerator Shake(float duration)
     {
-        Vector3 startPosition = transform.localPosition;
+        Vector3 startPosition = currentMainCamera.transform.localPosition;
 
         float elapsedTime = 0;
 
@@ -23,12 +36,12 @@ public class CameraShake : MonoBehaviour
 
             shakeAmount = new (shakeAmount.x, shakeAmount.y, 0);
 
-            transform.localPosition = startPosition + shakeAmount;
+            currentMainCamera.transform.localPosition = startPosition + shakeAmount;
 
             yield return null;
         }
 
-        transform.localPosition = startPosition;
+        currentMainCamera.transform.localPosition = startPosition;
     }
 
     [ContextMenu("TEST")]
