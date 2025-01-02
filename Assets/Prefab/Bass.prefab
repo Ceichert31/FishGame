@@ -11024,6 +11024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b023d87724a17c4287100fcdcd47484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setUIEventChannel: {fileID: 11400000, guid: 641a35a7167fadc4a8fd7d82a2966bf4, type: 2}
 --- !u!114 &7773071012943127050
 MonoBehaviour:
   m_ObjectHideFlags: 0

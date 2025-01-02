@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DisableCamera : MonoBehaviour
 {
+    [SerializeField] private BoolEventChannel setUIEventChannel;
+
     private Camera cam;
 
     private void Awake()
@@ -18,5 +20,6 @@ public class DisableCamera : MonoBehaviour
     public void SetCamera(bool isEnabled)
     {
         cam.enabled = isEnabled;
+        setUIEventChannel.CallEvent(new(isEnabled));
     }
 }
