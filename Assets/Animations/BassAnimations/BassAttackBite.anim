@@ -4265,14 +4265,14 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 6
     messageOptions: 0
-  - time: 0.016666668
+  - time: 0.033333335
     functionName: UpdateBossActiveBehavior
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 6
+    intParameter: 0
     messageOptions: 0
   - time: 0.75
     functionName: UpdateBossActiveBehavior
