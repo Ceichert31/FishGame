@@ -122,6 +122,17 @@ public class HarpoonController : MonoBehaviour
     {
         harpoon.SetActive(false);
     }
+
+    /// <summary>
+    /// Resets the harpoon to a reloaded state
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void ResetHarpoon(VoidEvent ctx)
+    {
+        HarpoonEnable();
+        CanFire();
+        SetHarpoon();
+    }
     #endregion
 }
 
