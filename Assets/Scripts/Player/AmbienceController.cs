@@ -26,13 +26,7 @@ public class AmbienceController : MonoBehaviour
         previousClip = new(source.clip, source.pitch, source.volume);
 
         //Load new music
-        source.clip = ctx.audioClip;
-
-        source.volume = ctx.volume;
-
-        source.pitch = ctx.pitch;
-
-        source.Play();
+        LoadAudio(ctx);
     }
 
     /// <summary>
@@ -41,11 +35,16 @@ public class AmbienceController : MonoBehaviour
     /// <param name="ctx"></param>
     public void LoadPreviousClip(VoidEvent ctx)
     {
-        source.clip = previousClip.audioClip;
+        LoadAudio(previousClip);
+    }
 
-        source.volume = previousClip.volume;
+    private void LoadAudio(AudioEvent ctx)
+    {
+        source.clip = ctx.audioClip;
 
-        source.pitch = previousClip.pitch;
+        source.volume = ctx.volume;
+
+        source.pitch = ctx.pitch;
 
         source.Play();
     }

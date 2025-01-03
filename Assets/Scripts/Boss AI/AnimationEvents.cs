@@ -67,7 +67,6 @@ public abstract class AnimationEvents : MonoBehaviour
 
         //temp add so delegate is never null
         activeBehavior += () => { };
-
     }
 
     /// <summary>

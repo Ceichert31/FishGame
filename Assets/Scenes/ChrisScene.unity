@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.12368473, g: 0.18786256, b: 0.2771572, a: 1}
+  m_IndirectSpecularColor: {r: 0.12368455, g: 0.18786201, b: 0.27715665, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4605,7 +4605,7 @@ MonoBehaviour:
   daySpawnPool:
   - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
   nightSpawnPool:
-  - {fileID: 11400000, guid: 40dc2bcbdc8bea349adaddf61ec7377c, type: 2}
+  - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
   fishingTickRate: 2
   fishWaitTime: 3
   isDayTime: 1

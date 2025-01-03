@@ -48,6 +48,8 @@ public class BossAI : MonoBehaviour
     [Tooltip("State Order: Idle, Walk, Attack, Stagger, tbc")]
     [SerializeField] List<AIState> bossStates = new List<AIState>();
 
+    public AIState _CurrentState { get { return currentState; } }
+
     private void Awake()
     {
         Agent = transform.parent.GetComponent<NavMeshAgent>();

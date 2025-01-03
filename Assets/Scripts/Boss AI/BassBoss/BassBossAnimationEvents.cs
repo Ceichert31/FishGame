@@ -7,6 +7,14 @@ public enum BassSounds
 {
     Bite,
     Swim,
+    Explode
+}
+
+[System.Serializable]
+public enum BassParticles
+{
+    Stagger,
+    Explode,
 }
 
 public class BassBossAnimationEvents : AnimationEvents
@@ -15,25 +23,23 @@ public class BassBossAnimationEvents : AnimationEvents
 
     [SerializeField] private FloatEventChannel cameraShakeChannel;
 
-    [SerializeField] private GameObject explosionObject;
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem staggerParticle;
+    [SerializeField] private ParticleSystem explosionParticle;
 
     [Header("Audio References")]
     [SerializeField] private AudioPitcherSO swimAudio;
     [SerializeField] private AudioPitcherSO biteAudio;
+    [SerializeField] private AudioPitcherSO explodeAudio;
 
     private IProjectileSpawner projectileSpawner;
-    private ParticleSystem explosionParticle;
-    private AudioSource explosionAudio;
     private AudioSource mainSource;
 
     private void Start()
     {
         bassBossMoveBehavior = (BassBossMoveBehavoir)bossWalkBehavior;
 
-        explosionParticle = explosionObject.GetComponent<ParticleSystem>();
-        explosionAudio = explosionObject.GetComponent<AudioSource>();
         mainSource = GetComponent<AudioSource>();
-
 
         transform.GetChild(0).TryGetComponent(out projectileSpawner);
     }
@@ -58,10 +64,17 @@ public class BassBossAnimationEvents : AnimationEvents
         }
     }
 
-    public void PlayExplosionParticle()
+    public void PlayParticle(BassParticles particle)
     {
-        explosionParticle.Play();
-        explosionAudio.Play();
+        switch (particle)
+        {
+            case BassParticles.Stagger:
+                staggerParticle.Play();
+                break;
+            case BassParticles.Explode:
+                explosionParticle.Play();
+                break;
+        }
     }
 
     public void PlayAudio(BassSounds audio)
@@ -73,6 +86,9 @@ public class BassBossAnimationEvents : AnimationEvents
                 break;
             case BassSounds.Bite:
                 biteAudio.Play(mainSource);
+                break;
+            case BassSounds.Explode:
+                explodeAudio.Play(mainSource);
                 break;
         }
     }
