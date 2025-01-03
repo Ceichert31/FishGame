@@ -3970,7 +3970,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BassModel/Body
+    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3982,7 +3982,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BassModel/Body
+    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3994,7 +3994,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BassModel/Body
+    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -4222,7 +4222,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
+    path: BassModel/Body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -4234,7 +4234,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
+    path: BassModel/Body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -4246,7 +4246,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BassModel/Body/Armature/Bone.005/Bone.006/Bone.007/Bone.008
+    path: BassModel/Body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -4272,14 +4272,14 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 4
     messageOptions: 0
   - time: 0.75
     functionName: UpdateBossActiveBehavior
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 1
+    intParameter: 5
     messageOptions: 0
   - time: 0.75
     functionName: UpdateBossActiveBehavior

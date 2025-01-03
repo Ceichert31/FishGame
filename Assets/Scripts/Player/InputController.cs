@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private AudioPitcherSO dashAudio;
     [SerializeField] private VoidEventChannel disableGrapple_EventChannel;
     [SerializeField] private FloatEventChannel iFrame_EventChannel;
+    [SerializeField] private FloatEventChannel playerDashReset_EventChannel;
 
     [Header("Camera Settings")]
     [SerializeField] private float sensitivity = 15f;
@@ -69,6 +70,13 @@ public class InputController : MonoBehaviour
     bool isSliding;
     float slopeAngle;
     Transform cameraHolder;
+
+    //DashVariables
+    float dashStartingTimer;
+    float dashTimer = 2;
+    float maxDashForce = 50;
+    float minDashForce = 5;
+    float minDashTimer;
 
     [Header("Parry Settings")]
     [Tooltip("The number of frames the parry box is active on the start of a slide")]
@@ -154,6 +162,11 @@ public class InputController : MonoBehaviour
 
         //Cache starting camera position
         slideStartCameraPos = cameraHolder.localPosition;
+    }
+
+    private void Start()
+    {
+        playerDashReset_EventChannel.CallEvent(new(dashTimer));
     }
 
     void Update()
@@ -269,7 +282,7 @@ public class InputController : MonoBehaviour
         cam.transform.eulerAngles = new(lookRotation, cam.transform.eulerAngles.y, 0);
     }
 
-    private void Dash(InputAction.CallbackContext ctx)
+    private void New_Dash(InputAction.CallbackContext ctx)
     {
         if (!canDash) return;
 
@@ -293,6 +306,47 @@ public class InputController : MonoBehaviour
         Invoke(nameof(ResetDash), dashCooldown);
     }
     private void ResetDash() => canDash = true;
+
+
+    private void Dash(InputAction.CallbackContext ctx)
+    {
+        if(!canDash)
+        {
+            return;
+        }
+
+        //If player isn't moving
+        if (MoveDirection() == Vector3.zero) return;
+
+        float normalizedTimer = ((Time.time - dashStartingTimer)) / dashTimer;
+
+        if(normalizedTimer < .3f)
+        {
+            return;
+        }
+
+        canDash = false;
+
+        //Enable IFrames
+        //iFrame_EventChannel.CallEvent(iFrameDuration);
+
+        float totalDashForce = Mathf.Lerp(minDashForce, maxDashForce, normalizedTimer);
+
+        Debug.Log(totalDashForce);
+
+        rb.AddForce(MoveDirection() * totalDashForce, ForceMode.Impulse);
+
+        dashAudio.Play(source);
+
+        fov_EventChannel.CallEvent(new());
+
+        //Start Dash Timer
+        dashStartingTimer = Time.time;
+
+        //CallEvent Channel To Reset Dash UI
+        playerDashReset_EventChannel.CallEvent(new(dashTimer));
+        canDash = true;
+    }
 
     private void Jump(InputAction.CallbackContext ctx)
     {
