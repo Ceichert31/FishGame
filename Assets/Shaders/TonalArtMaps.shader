@@ -2,10 +2,10 @@ Shader "Unlit/TonalArtMaps"
 {
     Properties
     {
-        _TAM1 ("Texture", 2D) = "white" {}
-        _TAM2 ("Texture", 2D) = "white" {}
-        _LightColor ("Light Color", Color) = (1, 1, 1, 1)
-        _LightPosition ("Light Position", Vector) = (1, 1, 1)
+        _TonalArtMap1 ("Texture", 2D) = "white" {}
+        _TonalArtMap2 ("Texture", 2D) = "white" {}
+        _TAM2DArray ("2D Array", 2DArray) = "" {} 
+        _Tiling ("Tiling", Vector) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -14,7 +14,7 @@ Shader "Unlit/TonalArtMaps"
 
         Pass
         {
-             Tags { "LightMode" = "ForwardBase" "PassFlags" = "OnlyDirectional" }
+            Tags { "LightMode"="UniversalForwardOnly" }
 
             CGPROGRAM
             #pragma vertex vert
@@ -23,34 +23,39 @@ Shader "Unlit/TonalArtMaps"
             #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
+            #include "UnityLightingCommon.cginc"
 
             struct appdata
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-                float3 normal : NORMAL;
             };
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
+                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float3 normal : NORMAL;
-                float4 color : COLOR;
+                fixed4 diff : COLOR0; //Diffuse lighting color
             };
 
-            sampler2D _TAM1;
-            float4 _TAM1_ST;
-            sampler2D _TAM2;
-            fixed4 _LightColor;
+            sampler2D _TonalArtMap1;
+            float4 _TonalArtMap1_ST;
+            UNITY_DECLARE_TEX2DARRAY(_TAM2DArray);
+            float4 _Tiling;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.normal = UnityObjectToClipPos(v.normal);
-                o.uv = TRANSFORM_TEX(v.uv, _TAM1);
+                o.uv = TRANSFORM_TEX(v.uv, _TonalArtMap1);
+
+                //Get world space vertex normal
+                half3 worldNormal = UnityObjectToWorldNormal(v.vertex);
+
+                //Get the dot product between the vertex's world normal and the light position
+                o.diff = max(0.0, dot(worldNormal, _WorldSpaceLightPos0.xyz)) * _LightColor0;
+
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -64,17 +69,21 @@ Shader "Unlit/TonalArtMaps"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed lum = Luminance(i.color);
+                fixed lum = Luminance(i.diff);
 
-                float3 lightDirection = normalize(WorldSpaceLightDir(i.vertex));
+                lum = (1 - lum);
+                
+                fixed4 tonalArtMap = UNITY_SAMPLE_TEX2DARRAY(_TAM2DArray, float3(i.uv * _Tiling, lum));
+                
+                //Get texture color
+                fixed4 col = tex2D(_TonalArtMap1, i.uv);
 
-                half diffuseIntesity = max(dot(i.normal, lightDirection), 0.0);
-
-                fixed4 diffuseColor = _LightColor * tex2D(_TAM1, i.uv) * diffuseIntesity;
+                //Apply diffuse lighting
+                col = i.diff * Luminance(col) * tonalArtMap;
 
                 // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, diffuseColor);
-                return diffuseColor;
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return col;
             }
             ENDCG
         }

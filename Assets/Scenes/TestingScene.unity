@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.14509803, g: 0.5372549, b: 0.8392157, a: 1}
+  m_FogColor: {r: 0.14653791, g: 0.5354631, b: 0.8396226, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -375,17 +375,17 @@ PrefabInstance:
     - target: {fileID: 1890317639951209873, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7176471
+      value: 0.7169812
       objectReference: {fileID: 0}
     - target: {fileID: 1890317639951209873, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.41960785
+      value: 0.41871727
       objectReference: {fileID: 0}
     - target: {fileID: 1890317639951209873, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.05098039
+      value: 0.050729793
       objectReference: {fileID: 0}
     - target: {fileID: 2392708948790788025, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
@@ -400,27 +400,27 @@ PrefabInstance:
     - target: {fileID: 3958834757622928684, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: timeOfDay
-      value: 24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4295948381104408352, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6830127
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295948381104408352, guid: e13129634afab734492a3c26f6dbf33a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
       value: 0.6830127
       objectReference: {fileID: 0}
     - target: {fileID: 4295948381104408352, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295948381104408352, guid: e13129634afab734492a3c26f6dbf33a,
+        type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.18301271
+      value: -0.18301271
       objectReference: {fileID: 0}
     - target: {fileID: 4295948381104408352, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.18301271
+      value: -0.18301271
       objectReference: {fileID: 0}
     - target: {fileID: 7013613371817796920, guid: e13129634afab734492a3c26f6dbf33a,
         type: 3}
