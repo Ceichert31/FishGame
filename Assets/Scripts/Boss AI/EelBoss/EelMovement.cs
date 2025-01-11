@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EelMovement : MonoBehaviour
 {
+    [SerializeField] Transform[] eelBones;
     private void Awake()
     {
-        for(int i = 0; i < transform.childCount - 1; i++)
+
+    }
+
+    [ContextMenu("ReAllign")]
+    public void ReAllign()
+    {
+        for(int i = 1; i < eelBones.Length; i++)
         {
-            EelJoints segment = transform.GetChild(i).GetComponent<EelJoints>();
-            segment.Follower = transform.GetChild(i + 1);
-            segment.SetMaxDistance();
+            eelBones[i].position = eelBones[i - 1].position;
         }
     }
 }
