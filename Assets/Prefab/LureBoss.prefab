@@ -10783,6 +10783,7 @@ MonoBehaviour:
     meleeAttacks:
     - Spin
     - SmallPush
+    - GroundPound
     rangedAttacks:
     - Charge
   currentState: {fileID: 0}
@@ -11215,6 +11216,7 @@ Transform:
   - {fileID: 3112253977679393111}
   - {fileID: 2767647869452783177}
   - {fileID: 842200418811344836}
+  - {fileID: 5537796993112067567}
   m_Father: {fileID: 646937776564243361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2004508550471648759
@@ -11399,6 +11401,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 526788093300199167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8650422163382541746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5537796993112067567}
+  - component: {fileID: 5725617894923470834}
+  - component: {fileID: 6334288278034416134}
+  m_Layer: 10
+  m_Name: GroundPoundHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5537796993112067567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650422163382541746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 9089354496837173246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5725617894923470834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650422163382541746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000004, y: 1, z: 3.4581144}
+  m_Center: {x: -8.5707876e-17, y: 0, z: -1.7094563}
+--- !u!114 &6334288278034416134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650422163382541746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e020391c394d3c74ba49568a3fbe9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryAmmount: 0
+  attackDamage: 100
 --- !u!1 &9036991864663185135
 GameObject:
   m_ObjectHideFlags: 0

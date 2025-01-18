@@ -35,8 +35,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Parryable")) return;
-
         if (!isVulnerable) return;
 
         if (other.gameObject.TryGetComponent(out IProjectile projectileInstance))
