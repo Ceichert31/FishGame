@@ -12,6 +12,8 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
     [Header("Variables for controlling unique movement")]
     [SerializeField] float initalMoveAmmount = 10;
     [SerializeField] float slowDownAmmount = 2;
+    [SerializeField] float stopWalkingDistance = 3.5f;
+    [SerializeField] float constantMoveSpeed = 15f;
     float timeUntilNextMovement = 1;
     float currentTime;
     float currentMoveAmmount;
@@ -19,6 +21,8 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
 
     //Charging Variables
     [SerializeField] float chargeSpeed = 30;
+    private Transform Player => GameManager.Instance.Player.transform;
+
 
     public bool Teleporting
     {
@@ -53,6 +57,16 @@ public class LureBossMoveBehavior : MonoBehaviour, IBossWalkBehavior
         bossTransform.position += bossTransform.forward * currentMoveAmmount * Time.deltaTime;
 
         currentMoveAmmount -= slowDownAmmount * Time.deltaTime;
+    }
+
+    public void ConstantMovement()
+    {
+        if (Util.DistanceNoY(Player.position, transform.position) < stopWalkingDistance)
+        {
+            return;
+        }
+
+        bossTransform.position += constantMoveSpeed * Time.deltaTime * bossTransform.forward;
     }
 
     /// <summary>

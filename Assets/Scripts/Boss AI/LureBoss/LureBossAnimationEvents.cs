@@ -16,6 +16,8 @@ public class LureBossAnimationEvents : AnimationEvents
     /// <summary>
     /// 6: Charge Player
     /// 7: Deassign Charge Method and trigger stop charging
+    /// 8: Constantly move toward Player
+    /// 9: Deassign Constant movment Method
     /// </summary>
     public override void UpdateBossActiveBehavior(int behavior)
     {
@@ -29,6 +31,12 @@ public class LureBossAnimationEvents : AnimationEvents
             case 7:
                 bossAnimator.SetTrigger("StopCharging");
                 activeBehavior -= lureBossMoveBehavior.ChargePlayer;
+                break;
+            case 8:
+                activeBehavior += lureBossMoveBehavior.ConstantMovement;
+                break;
+            case 9:
+                activeBehavior -= lureBossMoveBehavior.ConstantMovement;
                 break;
         }
     }
