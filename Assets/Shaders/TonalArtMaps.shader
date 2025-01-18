@@ -68,9 +68,10 @@ Shader "Unlit/TonalArtMaps"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
+                //Get the brightness value of diffuse lighting
                 fixed lum = Luminance(i.diff);
 
+                //Invert the brightness value
                 lum = (1 - lum);
                 
                 fixed4 tonalArtMap = UNITY_SAMPLE_TEX2DARRAY(_TAM2DArray, float3(i.uv * _Tiling, lum));
