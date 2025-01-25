@@ -26,9 +26,9 @@ MonoBehaviour:
     ctime1: 7325
     ctime2: 13685
     ctime3: 19661
-    ctime4: 39707
-    ctime5: 43253
-    ctime6: 49344
+    ctime4: 36623
+    ctime5: 41441
+    ctime6: 46260
     ctime7: 60909
     atime0: 0
     atime1: 65535
@@ -104,26 +104,26 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   ambientLight:
     serializedVersion: 2
-    key0: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 1}
-    key1: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
-    key2: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
-    key3: {r: 0.9221513, g: 0.9221513, b: 0.9221513, a: 1}
-    key4: {r: 0.9221514, g: 0.9221514, b: 0.9221514, a: 0}
-    key5: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
-    key6: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
-    key7: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 0}
-    ctime0: 9830
-    ctime1: 11141
-    ctime2: 19661
-    ctime3: 22937
-    ctime4: 42598
-    ctime5: 45875
-    ctime6: 54394
-    ctime7: 55705
-    atime0: 11141
-    atime1: 19661
-    atime2: 45875
-    atime3: 54394
+    key0: {r: 0.050729793, g: 0.41871727, b: 0.7169812, a: 1}
+    key1: {r: 0.7176471, g: 0.26331457, b: 0.14509802, a: 1}
+    key2: {r: 0.7647059, g: 0.60173213, b: 0.29019612, a: 0}
+    key3: {r: 0.9528302, g: 0.9254989, b: 0.84046817, a: 0}
+    key4: {r: 0.9811321, g: 0.9352765, b: 0.7913849, a: 0}
+    key5: {r: 0.7647059, g: 0.6, b: 0.2901961, a: 0}
+    key6: {r: 0.7176471, g: 0.2627451, b: 0.14509805, a: 0}
+    key7: {r: 0.050980393, g: 0.41960785, b: 0.7176471, a: 0}
+    ctime0: 5012
+    ctime1: 7325
+    ctime2: 13685
+    ctime3: 19661
+    ctime4: 36623
+    ctime5: 41441
+    ctime6: 46260
+    ctime7: 60909
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
     atime4: 0
     atime5: 0
     atime6: 0
@@ -131,4 +131,4 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 8
-    m_NumAlphaKeys: 4
+    m_NumAlphaKeys: 2

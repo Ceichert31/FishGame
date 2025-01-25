@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.7
   intensity:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 1.7
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Value: 512
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 32
 --- !u!114 &-758010384845797820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -191,7 +191,7 @@ MonoBehaviour:
   active: 1
   patternIndex:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -1
   ditherThreshold:
     m_OverrideState: 1
     m_Value: 1.95
