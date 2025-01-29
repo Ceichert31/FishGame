@@ -3,15 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using HelperMethods;
 
+[System.Serializable]
+struct ShockWaveInfo
+{
+    [SerializeField] GameObject shockWave;
+    [SerializeField] Transform shockWaveSpawnPosition;
+    [SerializeField] float expandRate;
+    [SerializeField] float deathTime;
+
+    public GameObject ShockWave
+    {
+        get { return shockWave; }
+    }
+
+    public Transform ShockWaveSpawnPosition
+    {
+        get { return shockWaveSpawnPosition; }
+    }
+
+    public float ExpandRate
+    {
+        get { return expandRate; }
+    }
+
+    public float DeathTime
+    {
+        get { return deathTime; }
+    }
+
+}
+
 public class LureBossAnimationEvents : AnimationEvents
 {
     private LureBossMoveBehavior lureBossMoveBehavior;
+    [SerializeField] ShockWaveInfo shockWaveInfo;
 
     private void Start()
     {
         lureBossMoveBehavior = (LureBossMoveBehavior)bossWalkBehavior;
     }
 
+    IEnumerator ShockThatWave()
+    {
+        float timer = shockWaveInfo.DeathTime + Time.time;
+        Transform shockWave = Instantiate(shockWaveInfo.ShockWave, shockWaveInfo.ShockWaveSpawnPosition.position, Quaternion.identity).transform;
+        while(timer > Time.time)
+        {
+            shockWave.localScale += (Vector3.forward * shockWaveInfo.ExpandRate + Vector3.right * shockWaveInfo.ExpandRate) * Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(shockWave.gameObject);
+    }
 
     /// <summary>
     /// 6: Charge Player

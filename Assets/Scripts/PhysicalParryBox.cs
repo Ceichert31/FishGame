@@ -35,6 +35,10 @@ public class PhysicalParryBox : MonoBehaviour, IMeele, IParryable
 
     private void Start()
     {
+        if(parryAmmount == 0)
+        {
+            return;
+        }
         parrySequencer = transform.parent.GetComponent<Sequencer>();
     }
 
