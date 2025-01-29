@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    //Write text and slow game 
-    //wait until a button is pressed
+    //Popup window with instructions
+    //E to continue?
 
-    bool firstParry;
+    //More imersive method??
 
-    public void SetTutorial(IntEvent tutorialNum)
+    bool firstShot = true;
+
+    public void SetTutorial(KeyEvent tutorialValue)
     {
-        switch (tutorialNum.Value)
+        switch (tutorialValue.ID)
         {
             case 0:
-                FirstParry();
+                if (!firstShot) break;
+                FirstShot();
                 break;
         }
     }
 
-    void FirstParry()
+    void FirstShot()
     {
-        if (firstParry) return;
+        //Popup "Press LMB to fire"
+        firstShot = false;
     }
 }

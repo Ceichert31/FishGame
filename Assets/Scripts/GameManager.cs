@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
         //Prevent duplicate keys
         foreach (KeyEvent key in collectedKeys.Values)
         {
-            if (key.keyID == ctx.keyID)
+            if (key.ID == ctx.ID)
                 return;
         }
 
-        collectedKeys.Add(ctx.keyID, ctx);
+        collectedKeys.Add(ctx.ID, ctx);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         //Check if key is collected
         foreach (KeyEvent key in collectedKeys.Values)
         {
-            if (key.keyID == ctx.keyID)
+            if (key.ID == ctx.ID)
             {
                 return true;
             }

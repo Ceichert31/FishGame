@@ -8,14 +8,14 @@ public class KeyEventChannel : GenericEventChannel<KeyEvent> {}
 [System.Serializable]
 public struct KeyEvent
 {
-    public int keyID;
+    public int ID;
 
-    public bool isCollected;
+    public bool Value;
 
-    public KeyEvent(int id, bool collected)
+    public KeyEvent(int id, bool value)
     {
-        keyID = id;
+        ID = id;
 
-        isCollected = collected;
+        Value = value;
     }
 }
