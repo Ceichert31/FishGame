@@ -1953,17 +1953,17 @@ PrefabInstance:
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 362.67517
+      value: 8.485269
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 127.465
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 324.828
+      value: 8.485294
       objectReference: {fileID: 0}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
@@ -3094,8 +3094,8 @@ MonoBehaviour:
     TextPrompt: The Gate is locked
     ClearTime: 0
   gateKey:
-    keyID: 1
-    isCollected: 0
+    ID: 0
+    Value: 0
 --- !u!65 &583964513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10991,8 +10991,8 @@ MonoBehaviour:
     TextPrompt: The Gate is locked
     ClearTime: 0
   gateKey:
-    keyID: 0
-    isCollected: 0
+    ID: 0
+    Value: 0
 --- !u!1 &1635707456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
