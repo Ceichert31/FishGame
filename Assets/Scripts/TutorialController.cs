@@ -11,20 +11,16 @@ public class TutorialController : MonoBehaviour
 
     bool firstShot = true;
 
-    public void SetTutorial(KeyEvent tutorialValue)
+    public void SetTutorial(IntEvent tutorialID)
     {
-        switch (tutorialValue.ID)
+        switch (tutorialID.Value)
         {
             case 0:
                 if (!firstShot) break;
-                FirstShot();
+                //Popup "Press LMB to fire"
+                firstShot = false;
+
                 break;
         }
-    }
-
-    void FirstShot()
-    {
-        //Popup "Press LMB to fire"
-        firstShot = false;
     }
 }

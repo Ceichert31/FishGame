@@ -33,14 +33,39 @@ struct ShockWaveInfo
 
 }
 
+[System.Serializable]
+public enum TutorialState
+{
+    Parry,
+    Fire,
+    Reload,
+}
+
 public class LureBossAnimationEvents : AnimationEvents
 {
     private LureBossMoveBehavior lureBossMoveBehavior;
     [SerializeField] ShockWaveInfo shockWaveInfo;
 
+    [Header("Tutorial References")]
+    [SerializeField] private TextEventChannel tutorialTextEventChannel;
+
+    private TextEvent tutorialParry;
+    private TextEvent tutorialFire;
+    private TextEvent tutorialReload;
+    
+    private Animator lureAnimator;
+    private float animationSpeed;
+
     private void Start()
     {
         lureBossMoveBehavior = (LureBossMoveBehavior)bossWalkBehavior;
+
+        //Init tutorial text
+        tutorialParry = new TextEvent("Press [RMB] to parry", 0);
+        tutorialFire = new TextEvent("Press [LMB] to fire", 0);
+        tutorialReload = new TextEvent("Press [R] to reload", 0);
+
+        lureAnimator = GetComponent<Animator>();
     }
 
     IEnumerator ShockThatWave()
@@ -82,5 +107,31 @@ public class LureBossAnimationEvents : AnimationEvents
                 activeBehavior -= lureBossMoveBehavior.ConstantMovement;
                 break;
         }
+    }
+
+    public void TutorialBehavior(TutorialState state)
+    {
+        switch (state)
+        {
+            case TutorialState.Parry:
+                tutorialTextEventChannel.CallEvent(tutorialParry);
+                break;
+
+            case TutorialState.Fire:
+                tutorialTextEventChannel.CallEvent(tutorialFire);
+                break;
+
+            case TutorialState.Reload:
+                tutorialTextEventChannel.CallEvent(tutorialReload);
+                break;
+        }
+
+        //Freeze boss/pause anim time
+        animationSpeed = lureAnimator.speed;
+        lureAnimator.speed = 0;
+    }
+    public void ClearTutorial(VoidEvent ctx)
+    {
+        lureAnimator.speed = animationSpeed;
     }
 }

@@ -9,6 +9,7 @@ public class TextController : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI interactPrompt;
+    [SerializeField] private TextMeshProUGUI headerPrompt;
 
     [Header("Typing Effect Settings")]
     [SerializeField] private float timePerLetter = 0.1f;
@@ -53,6 +54,11 @@ public class TextController : MonoBehaviour
 
         //Queue text event
         textQueue.Enqueue(ctx);
+    }
+
+    public void QueueHeaderPrompt(TextEvent ctx)
+    {
+        headerPrompt.text = ctx.TextPrompt;
     }
 
     public void CallResetText(VoidEvent ctx) => ResetText();
