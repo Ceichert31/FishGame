@@ -775,6 +775,8 @@ GameObject:
   - component: {fileID: 6290910717824669202}
   - component: {fileID: 8029930049824826487}
   - component: {fileID: 7791289790011814944}
+  - component: {fileID: 6525870221991764185}
+  - component: {fileID: 4121149574959314921}
   m_Layer: 6
   m_Name: FPSMovement
   m_TagString: Untagged
@@ -816,7 +818,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390676662645113971}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -919,6 +921,8 @@ MonoBehaviour:
   disableGrapple_EventChannel: {fileID: 11400000, guid: 093944a217439cf4b83159a03037dddc,
     type: 2}
   iFrame_EventChannel: {fileID: 11400000, guid: b8678e0b81b6a3c43831edc0f76cf507,
+    type: 2}
+  playerDashReset_EventChannel: {fileID: 11400000, guid: 80a65ac7591e79e4cac07433181e233b,
     type: 2}
   sensitivity: 10
   minSensitivity: 1
@@ -1234,6 +1238,46 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6525870221991764185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390676662645113971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff5580f08645a04fa77fb32abd1b6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4121149574959314921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390676662645113971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1770a436a254d61499dcfaacd87fa79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 5169ef8312d4e084a909206641ba478e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6525870221991764185}
+        m_TargetAssemblyTypeName: PlayerDisableComponents, Assembly-CSharp
+        m_MethodName: SetComponents
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2978527275371901845
 GameObject:
   m_ObjectHideFlags: 0

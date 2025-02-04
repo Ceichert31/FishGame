@@ -25738,6 +25738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b023d87724a17c4287100fcdcd47484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  componentEventChannel: {fileID: 11400000, guid: 5169ef8312d4e084a909206641ba478e,
+    type: 2}
   setUIEventChannel: {fileID: 11400000, guid: 641a35a7167fadc4a8fd7d82a2966bf4, type: 2}
   setActiveCamera: {fileID: 11400000, guid: 0fd13e9fedc812f4a98caa9e1e062f30, type: 2}
   cinematicCamera: {fileID: 5105997135630968250}

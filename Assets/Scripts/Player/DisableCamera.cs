@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class DisableCamera : MonoBehaviour
 {
+    [SerializeField] private ComponentEventChannel componentEventChannel;
+
     [SerializeField] private BoolEventChannel setUIEventChannel;
 
     [SerializeField] private CameraEventChannel setActiveCamera;
 
     [SerializeField] private Camera cinematicCamera;
-
-    private Camera playerCamera;
-
-    private AudioListener audioListener;
-
-    private void Awake()
-    {
-        playerCamera = Camera.main;
-        audioListener = playerCamera.GetComponent<AudioListener>();
-    }
-
     /// <summary>
     /// Sets main camera
     /// </summary>
@@ -27,14 +18,14 @@ public class DisableCamera : MonoBehaviour
     public void SetCamera(bool isEnabled)
     {
         //Enable/disable player camera and audio listener
-        playerCamera.enabled = isEnabled;
-        audioListener.enabled = isEnabled;
 
         //Update current main camera
-        if (isEnabled)
+       /* if (isEnabled)
             setActiveCamera.CallEvent(new(playerCamera));
         else
-            setActiveCamera.CallEvent(new(cinematicCamera));
+            setActiveCamera.CallEvent(new(cinematicCamera));*/
+
+        componentEventChannel.CallEvent(new(isEnabled, isEnabled, isEnabled, isEnabled));
 
         setUIEventChannel.CallEvent(new(isEnabled));
     }

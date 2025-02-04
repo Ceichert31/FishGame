@@ -703,29 +703,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5031592389012777530, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939591259619301516, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: playerDashReset_EventChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 80a65ac7591e79e4cac07433181e233b,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8939591259323915780}
-    - targetCorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8939591259323915781}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b9ea62f378d04da1442badcd2d715, type: 3}
 --- !u!1 &1099920165
 GameObject:
@@ -7503,12 +7484,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5129830714839711311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2390676662921233148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2390676662645113971, guid: b59b9ea62f378d04da1442badcd2d715,
-    type: 3}
-  m_PrefabInstance: {fileID: 1067756870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!199 &2426105369014938565
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -39903,46 +39878,6 @@ Transform:
   - {fileID: 5267947298727015993}
   m_Father: {fileID: 953590306955423863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8939591259323915780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2390676662921233148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff5580f08645a04fa77fb32abd1b6af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8939591259323915781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2390676662921233148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1770a436a254d61499dcfaacd87fa79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 5169ef8312d4e084a909206641ba478e, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8939591259323915780}
-        m_TargetAssemblyTypeName: PlayerDisableComponents, Assembly-CSharp
-        m_MethodName: SetComponents
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &8970195273931175689
 Transform:
   m_ObjectHideFlags: 0
