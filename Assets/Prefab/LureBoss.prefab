@@ -10462,7 +10462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9132285261076049276
 Transform:
   m_ObjectHideFlags: 0
@@ -11230,6 +11230,8 @@ MonoBehaviour:
     expandRate: 50
     deathTime: 4
   tutorialTextEventChannel: {fileID: 11400000, guid: df2a378f815b98c4dbf317771f629cc1,
+    type: 2}
+  playerComponentChannel: {fileID: 11400000, guid: 5169ef8312d4e084a909206641ba478e,
     type: 2}
 --- !u!82 &5902530300642637316
 AudioSource:

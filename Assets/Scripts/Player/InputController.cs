@@ -105,7 +105,8 @@ public class InputController : MonoBehaviour
 
     //Input References
     private PlayerControls playerControls;
-    private PlayerControls.MovementActions playerMovement;
+    private PlayerControls.MovementActions movementActions;
+    private PlayerControls.CameraActions cameraActions;
 
     private InputEvent inputEvent;
 
@@ -143,7 +144,8 @@ public class InputController : MonoBehaviour
     {
         //Initialize Controls
         playerControls = new PlayerControls();
-        playerMovement = playerControls.Movement;
+        movementActions = playerControls.Movement;
+        cameraActions = playerControls.Camera;
 
         //Initialize inputs on other scripts
         inputEvent = new InputEvent(playerControls);
@@ -175,6 +177,24 @@ public class InputController : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, out groundHit, offsetRayDistance, groundLayer);
     }
 
+    /// <summary>
+    /// Enables/Disables input actions
+    /// </summary>
+    /// <param name="canMove"></param>
+    /// <param name="canLook"></param>
+    public void SetInputActions(bool canMove, bool canLook)
+    {
+        if (canMove)
+            movementActions.Enable();
+        else
+            movementActions.Disable();
+
+        if (canLook)
+            cameraActions.Enable();
+        else
+            cameraActions.Disable();
+    }
+
     //Movement
     void FixedUpdate()
     {
@@ -185,7 +205,7 @@ public class InputController : MonoBehaviour
     private Vector3 MoveDirection()
     {
         //Read player input
-        moveInput = playerMovement.Move?.ReadValue<Vector2>() ?? Vector2.zero;
+        moveInput = movementActions.Move?.ReadValue<Vector2>() ?? Vector2.zero;
 
         //Project two vectors onto an orthagonal plane and multiply them by the players x and y inputs
         Vector3 moveDirection =
@@ -202,7 +222,7 @@ public class InputController : MonoBehaviour
         if (!isGrounded) return;
 
         //Check if moving
-        isMoving = playerMovement.Move.inProgress;
+        isMoving = movementActions.Move.inProgress;
 
         //Apply walk speed to the movement vector
         Vector3 moveForce = MoveDirection() * walkSpeed;
@@ -267,7 +287,7 @@ public class InputController : MonoBehaviour
 
         //Read mouse input
         //If implementing pausing, change this
-        Vector2 lookForce = playerMovement.Look?.ReadValue<Vector2>() ?? Vector2.zero;
+        Vector2 lookForce = cameraActions.Look?.ReadValue<Vector2>() ?? Vector2.zero;
 
         //Turn the player with the X-input
         gameObject.transform.Rotate(lookForce.x * (sensitivity * Vector3.up) / SENSITIVITY_SCALE_FACTOR);
@@ -442,35 +462,39 @@ public class InputController : MonoBehaviour
 
     private void OnEnable()
     {
-        playerMovement.Enable();
+        movementActions.Enable();
 
-        playerMovement.Dash.performed += Dash;
+        cameraActions.Enable();
 
-        playerMovement.Jump.performed += Jump;
+        movementActions.Dash.performed += Dash;
 
-        playerMovement.Interact.performed += StartInteract;
+        movementActions.Jump.performed += Jump;
 
-        playerMovement.Interact.canceled += EndInteract;
+        movementActions.Interact.performed += StartInteract;
 
-        playerMovement.Slide.performed += StartSlide;
+        movementActions.Interact.canceled += EndInteract;
 
-        playerMovement.Slide.canceled += EndSlide;
+        movementActions.Slide.performed += StartSlide;
+
+        movementActions.Slide.canceled += EndSlide;
     }
     private void OnDisable()
     {
-        playerMovement.Disable();
+        movementActions.Disable();
 
-        playerMovement.Dash.performed -= Dash;
+        cameraActions.Disable();
 
-        playerMovement.Jump.performed -= Jump;
+        movementActions.Dash.performed -= Dash;
 
-        playerMovement.Interact.performed -= StartInteract;
+        movementActions.Jump.performed -= Jump;
 
-        playerMovement.Interact.canceled -= EndInteract;
+        movementActions.Interact.performed -= StartInteract;
 
-        playerMovement.Slide.performed -= StartSlide;
+        movementActions.Interact.canceled -= EndInteract;
 
-        playerMovement.Slide.canceled -= EndSlide;
+        movementActions.Slide.performed -= StartSlide;
+
+        movementActions.Slide.canceled -= EndSlide;
 
         playerControls.Fishing.Disable();
 

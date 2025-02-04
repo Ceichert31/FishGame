@@ -39,6 +39,7 @@ public enum TutorialState
     Parry,
     Fire,
     Reload,
+    Unparryable,
 }
 
 public class LureBossAnimationEvents : AnimationEvents
@@ -48,11 +49,16 @@ public class LureBossAnimationEvents : AnimationEvents
 
     [Header("Tutorial References")]
     [SerializeField] private TextEventChannel tutorialTextEventChannel;
+    [SerializeField] private ComponentEventChannel playerComponentChannel;
 
-    private TextEvent tutorialParry;
-    private TextEvent tutorialFire;
-    private TextEvent tutorialReload;
-    
+    private ComponentEvent disablePlayerComp;
+    private ComponentEvent enablePlayerComp;
+
+    private TextEvent parryTutorial;
+    private TextEvent fireTutorial;
+    private TextEvent reloadTutorial;
+    private TextEvent unparryableTutorial;
+
     private Animator lureAnimator;
     private float animationSpeed;
 
@@ -61,9 +67,13 @@ public class LureBossAnimationEvents : AnimationEvents
         lureBossMoveBehavior = (LureBossMoveBehavior)bossWalkBehavior;
 
         //Init tutorial text
-        tutorialParry = new TextEvent("Press [RMB] to parry", 0);
-        tutorialFire = new TextEvent("Press [LMB] to fire", 0);
-        tutorialReload = new TextEvent("Press [R] to reload", 0);
+        parryTutorial = new TextEvent("Press [RMB] to parry", 0);
+        fireTutorial = new TextEvent("Press [LMB] to fire", 0);
+        reloadTutorial = new TextEvent("Press [R] to reload", 0);
+        unparryableTutorial = new TextEvent("Press [Shift + S] to dash backwards", 0);
+
+        disablePlayerComp = new ComponentEvent(true, true, false, false);
+        enablePlayerComp = new ComponentEvent(true, true, true, true);
 
         lureAnimator = GetComponent<Animator>();
     }
@@ -109,20 +119,32 @@ public class LureBossAnimationEvents : AnimationEvents
         }
     }
 
+    /// <summary>
+    /// Sets animator bool to false after playing tutorial
+    /// </summary>
+    public void HasPlayedTutorial()
+    {
+        lureAnimator.SetBool("PlayTutorial", false);
+    }
+
     public void TutorialBehavior(TutorialState state)
     {
         switch (state)
         {
             case TutorialState.Parry:
-                tutorialTextEventChannel.CallEvent(tutorialParry);
+                tutorialTextEventChannel.CallEvent(parryTutorial);
                 break;
 
             case TutorialState.Fire:
-                tutorialTextEventChannel.CallEvent(tutorialFire);
+                tutorialTextEventChannel.CallEvent(fireTutorial);
                 break;
 
             case TutorialState.Reload:
-                tutorialTextEventChannel.CallEvent(tutorialReload);
+                tutorialTextEventChannel.CallEvent(reloadTutorial);
+                break;
+
+            case TutorialState.Unparryable:
+                tutorialTextEventChannel.CallEvent(unparryableTutorial);
                 break;
         }
 
@@ -130,8 +152,18 @@ public class LureBossAnimationEvents : AnimationEvents
         animationSpeed = lureAnimator.speed;
         lureAnimator.speed = 0;
     }
+
     public void ClearTutorial(VoidEvent ctx)
     {
         lureAnimator.speed = animationSpeed;
+    }
+
+    public void EnablePlayerComponents()
+    {
+        playerComponentChannel.CallEvent(enablePlayerComp);
+    }
+    public void DisablePlayerComponents()
+    {
+        playerComponentChannel.CallEvent(disablePlayerComp);
     }
 }
