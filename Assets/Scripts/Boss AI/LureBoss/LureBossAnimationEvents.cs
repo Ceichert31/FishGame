@@ -8,6 +8,8 @@ struct ShockWaveInfo
 {
     [SerializeField] GameObject shockWave;
     [SerializeField] Transform shockWaveSpawnPosition;
+    [SerializeField] float initalExpandRate;
+    [SerializeField] float initalExpandTime;
     [SerializeField] float expandRate;
     [SerializeField] float deathTime;
 
@@ -19,6 +21,16 @@ struct ShockWaveInfo
     public Transform ShockWaveSpawnPosition
     {
         get { return shockWaveSpawnPosition; }
+    }
+
+    public float InitalExpandRate
+    {
+        get { return initalExpandRate; }
+    }
+
+    public float InitalExpandTime
+    {
+        get { return initalExpandTime; }
     }
 
     public float ExpandRate
@@ -80,9 +92,15 @@ public class LureBossAnimationEvents : AnimationEvents
 
     IEnumerator ShockThatWave()
     {
-        float timer = shockWaveInfo.DeathTime + Time.time;
+        float timer = shockWaveInfo.InitalExpandTime + Time.time;
         Transform shockWave = Instantiate(shockWaveInfo.ShockWave, shockWaveInfo.ShockWaveSpawnPosition.position, Quaternion.identity).transform;
         while(timer > Time.time)
+        {
+            shockWave.localScale += (Vector3.forward * shockWaveInfo.InitalExpandRate + Vector3.right * shockWaveInfo.InitalExpandRate) * Time.deltaTime;
+            yield return null;
+        }
+        timer = shockWaveInfo.DeathTime - shockWaveInfo.InitalExpandTime + Time.time;
+        while (timer > Time.time)
         {
             shockWave.localScale += (Vector3.forward * shockWaveInfo.ExpandRate + Vector3.right * shockWaveInfo.ExpandRate) * Time.deltaTime;
             yield return null;

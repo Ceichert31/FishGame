@@ -10913,9 +10913,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossInformation:
     meleeDistance: 10
-    maxDistance: 60
-    waitTime: 10
-    gracePeriod: 2
+    maxDistance: 30
+    waitTime: 5
+    gracePeriod: 1.5
     meleeAttacks:
     - Spin
     - SmallPush
@@ -11227,7 +11227,9 @@ MonoBehaviour:
     shockWave: {fileID: 3779810427069953173, guid: 98d7edb7aa4b4ba49b137797122b503b,
       type: 3}
     shockWaveSpawnPosition: {fileID: 7305144762280364653}
-    expandRate: 50
+    initalExpandRate: 20
+    initalExpandTime: 1
+    expandRate: 70
     deathTime: 4
   tutorialTextEventChannel: {fileID: 11400000, guid: df2a378f815b98c4dbf317771f629cc1,
     type: 2}
