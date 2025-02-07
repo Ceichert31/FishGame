@@ -271,6 +271,8 @@ MonoBehaviour:
   ORB: {fileID: 0}
   boneLength: 0
   followTime: 0
+  amplitude: 2
+  freqency: 1
 --- !u!114 &118440561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +303,8 @@ MonoBehaviour:
   ORB: {fileID: 0}
   boneLength: 0
   followTime: 0
+  amplitude: 2
+  freqency: 1
 --- !u!4 &125679465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1520096059486021138, guid: 3d0e80fe9e2fa34438807b06af77a0e9,
@@ -1283,6 +1287,8 @@ MonoBehaviour:
   ORB: {fileID: 0}
   boneLength: 0
   followTime: 0
+  amplitude: 2
+  freqency: 1
 --- !u!4 &1293027776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4607795057264882826, guid: 3d0e80fe9e2fa34438807b06af77a0e9,
@@ -2447,6 +2453,8 @@ MonoBehaviour:
   ORB: {fileID: 841936772}
   boneLength: 2.9
   followTime: 6
+  amplitude: 0.04
+  freqency: 3
 --- !u!1 &2111061111
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,10 @@ public class EelMovement : MonoBehaviour
     [SerializeField] float boneLength;
     [SerializeField] float followTime;
 
+    [Header("Idle Anim Stats")]
+    [SerializeField] float amplitude = 2.0f;
+    [SerializeField] float freqency = 1.0f;
+
     private void Start()
     {
         for (int i = 1; i < eelBones.Length; i++)
@@ -22,6 +26,7 @@ public class EelMovement : MonoBehaviour
     private void Update()
     {
         UnParent();
+        ORBRotation();
     }
 
     //Nesisary Unparent to get desired behavior
@@ -33,10 +38,10 @@ public class EelMovement : MonoBehaviour
 
 
             //NormalSnakeLike Behavior
-            ChainSlither(i);
+            //ChainSlither(i);
 
             //ReAllignmentBehavior
-            //AllignmentSlither(i);
+            AllignmentSlither(i);
 
 
             previousPositions[i] = eelBones[i].position;
@@ -70,5 +75,12 @@ public class EelMovement : MonoBehaviour
 
         Quaternion targetDirection = Quaternion.LookRotation(eelBones[i].forward, boneDirection);
         eelBones[i].rotation = Quaternion.Slerp(eelBones[i].rotation, targetDirection, Time.deltaTime * followTime);
+    }
+
+    void ORBRotation()
+    {
+        float sinWave = Mathf.Sin(freqency * Time.time) * amplitude;
+
+        ORB.eulerAngles = Vector3.up * sinWave;
     }
 }
