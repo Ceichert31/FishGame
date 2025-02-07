@@ -43,6 +43,7 @@ public class ParryObject : MonoBehaviour
                     break;
                 case (int)ParryTypes.MeleeParry:
                     //IMeele attackBox = (IMeele)parriedObject;
+                    parrySequencer.InitializeSequence();
 
                     parryAmmount.FloatValue = parriedObject.ParryAmount;
 

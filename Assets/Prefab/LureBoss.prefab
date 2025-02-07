@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4726240883445287608}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HarpoonHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7604729461851011482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 5370378362546868017}
   - component: {fileID: 5963643570084706028}
   - component: {fileID: 59391506625147438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PHook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 3504548218941423837}
   - component: {fileID: 7859916091848677769}
   - component: {fileID: 2180670208739171005}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LureBossModels
   m_TagString: Damageable
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 6622821692829692608}
   - component: {fileID: 1393897046743373320}
   - component: {fileID: 1688601570705373932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerDeathSequencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785183524729165618}
   - component: {fileID: 5325656075261354514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeathSequencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 7628668930331268725}
   - component: {fileID: 9074470058174095750}
   - component: {fileID: 7847820327131884308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PHook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7305144762280364653}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShockWaveSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 6365945377721964783}
   - component: {fileID: 8552170458999563841}
   - component: {fileID: 39890726391314361}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BloodSprayParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5468,7 +5468,7 @@ GameObject:
   - component: {fileID: 2213596824952604250}
   - component: {fileID: 5166513355896865256}
   - component: {fileID: 4652301027156007952}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10294,7 +10294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6696424113359007964}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10394,7 +10394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2733523595133852668}
   - component: {fileID: 3934761982449102328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StaggerStateScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10456,7 +10456,7 @@ GameObject:
   - component: {fileID: 15089227232904575}
   - component: {fileID: 6930621777830264957}
   - component: {fileID: 6371797845559002862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10628,7 +10628,7 @@ GameObject:
   - component: {fileID: 6948230186257230800}
   - component: {fileID: 5616556127282856940}
   - component: {fileID: 3696539760169635393}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Body
   m_TagString: Damageable
   m_Icon: {fileID: 0}
@@ -10715,7 +10715,7 @@ GameObject:
   - component: {fileID: 4633973925527457206}
   - component: {fileID: 4286608377087760923}
   - component: {fileID: 3409379983458352814}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PustuleV1
   m_TagString: Weakpoint
   m_Icon: {fileID: 0}
@@ -10846,7 +10846,7 @@ GameObject:
   - component: {fileID: 1774316683726878716}
   - component: {fileID: 1393690083295301983}
   - component: {fileID: 1558154629488413646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scritps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11098,7 +11098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 526788093300199167}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProjectileShootPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11136,7 +11136,7 @@ GameObject:
   - component: {fileID: 4791410137868637759}
   - component: {fileID: 9083583770663827512}
   - component: {fileID: 5902530300642637316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LureBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11343,7 +11343,7 @@ GameObject:
   - component: {fileID: 2004508550471648759}
   - component: {fileID: 8455241894819329005}
   - component: {fileID: 1702271699772374698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackHitBoxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11529,7 +11529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7616526417718905363}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11630,7 +11630,7 @@ GameObject:
   - component: {fileID: 1374097984516458200}
   - component: {fileID: 2212590463814213914}
   - component: {fileID: 5236114168576621587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PHook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11711,7 +11711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6782841639115625703}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hooks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11744,6 +11744,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 646937776564243361}
     m_Modifications:
+    - target: {fileID: 1325127657000575353, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4365054179605187796, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
         type: 3}
       propertyPath: m_Name
@@ -11751,8 +11756,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365054179605187796, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365054179605187796, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670067466143035625, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249357782610075365, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559531779530678212, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6562235732705281053, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
         type: 3}
@@ -11823,6 +11848,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460416644621823883, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992267375449764604, guid: a7e9fe5a0b7c20b45aa3e75bf9c3c72b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

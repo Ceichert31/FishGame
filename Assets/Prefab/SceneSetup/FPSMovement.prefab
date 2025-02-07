@@ -49,6 +49,7 @@ MonoBehaviour:
   sequenceActions:
   - {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18, type: 2}
   - {fileID: 11400000, guid: 373e796e183afc1438604a85e5915989, type: 2}
+  - {fileID: 11400000, guid: e8b33ccb0ca39cf4c9558e065a6da184, type: 2}
 --- !u!82 &2721033180974269214
 AudioSource:
   m_ObjectHideFlags: 0

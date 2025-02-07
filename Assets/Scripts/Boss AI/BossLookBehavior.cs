@@ -34,7 +34,6 @@ public class BossLookBehavior : MonoBehaviour, IBossLookAtPlayer
         Quaternion targetRotation = Quaternion.LookRotation(Util.VectorNoY(directionToPredicted));
         bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         predictionDirection = directionToPredicted;
-        Debug.Log("on");
     }
 
     public void SetRotationSpeed(float rotationSpeed) => this.rotationSpeed = rotationSpeed;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 434042018}
-  m_IndirectSpecularColor: {r: 0.12368455, g: 0.18786201, b: 0.27715665, a: 1}
+  m_IndirectSpecularColor: {r: 0.12368473, g: 0.18786256, b: 0.2771572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1950,6 +1950,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 3161925538599151822, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e8b33ccb0ca39cf4c9558e065a6da184,
+        type: 2}
+    - target: {fileID: 3161925538599151822, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: cbb8ec79e59cbca4aaee17e12c79bc18,
+        type: 2}
+    - target: {fileID: 3161925538599151822, guid: b59b9ea62f378d04da1442badcd2d715,
+        type: 3}
+      propertyPath: sequenceActions.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 373e796e183afc1438604a85e5915989,
+        type: 2}
     - target: {fileID: 4184258596113817863, guid: b59b9ea62f378d04da1442badcd2d715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2000,12 +2018,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8939591259619301516, guid: b59b9ea62f378d04da1442badcd2d715,
-        type: 3}
-      propertyPath: playerDashReset_EventChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 80a65ac7591e79e4cac07433181e233b,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14544,6 +14556,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1635707456}
+    - target: {fileID: 1325245999431142144, guid: 2d54aee9ba34c364695f9fdf6e640ee5,
+        type: 3}
+      propertyPath: duration
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5760304500761564955, guid: 2d54aee9ba34c364695f9fdf6e640ee5,
         type: 3}
       propertyPath: m_Name
