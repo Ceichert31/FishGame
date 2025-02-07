@@ -39,7 +39,7 @@ public class ParryObject : MonoBehaviour
             switch (parriedObject.ParryType)
             {
                 case (int)ParryTypes.ProjectileParry:
-                    parrySequencer.InitializeSequence();
+                    //parrySequencer.InitializeSequence();
                     break;
                 case (int)ParryTypes.MeleeParry:
                     //IMeele attackBox = (IMeele)parriedObject;

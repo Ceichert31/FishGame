@@ -7,11 +7,11 @@ public class CursorController : MonoBehaviour
     private void Awake() => Cursor.lockState = defaultMode;
 
 
-    private void Update()
+    /*private void Update()
     {
         if (Time.timeScale == 0)
             Cursor.lockState = CursorLockMode.None;
         else
             Cursor.lockState = defaultMode;
-    }
+    }*/
 }

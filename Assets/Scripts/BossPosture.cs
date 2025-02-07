@@ -38,7 +38,7 @@ public class BossPosture : MonoBehaviour
 
         //Calls the method on the Float Event Listener for the posture to be updated for the UI
         posture_EventChannel.CallEvent(currentPosture);
-        Debug.Log(currentPosture.FloatValue);
+        //Debug.Log(currentPosture.FloatValue);
     }
 
     public void ResetPosture()

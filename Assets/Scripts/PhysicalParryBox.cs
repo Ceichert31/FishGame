@@ -50,7 +50,7 @@ public class PhysicalParryBox : MonoBehaviour, IMeele, IParryable
         }
 
         OnAction();
-        parrySequencer.InitializeSequence();
+        //parrySequencer.InitializeSequence();
     }
 
     public void OnDealtDamage()
