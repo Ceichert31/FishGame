@@ -2453,7 +2453,7 @@ MonoBehaviour:
   ORB: {fileID: 841936772}
   boneLength: 2.9
   followTime: 6
-  amplitude: 0.04
+  amplitude: 8
   freqency: 3
 --- !u!1 &2111061111
 GameObject:

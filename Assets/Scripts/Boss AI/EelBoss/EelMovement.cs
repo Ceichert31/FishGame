@@ -17,6 +17,7 @@ public class EelMovement : MonoBehaviour
 
     private void Start()
     {
+        previousPositions = new Vector3[eelBones.Length];
         for (int i = 1; i < eelBones.Length; i++)
         {
             previousPositions[i] = eelBones[i].position;
@@ -82,5 +83,8 @@ public class EelMovement : MonoBehaviour
         float sinWave = Mathf.Sin(freqency * Time.time) * amplitude;
 
         ORB.eulerAngles = Vector3.up * sinWave;
+
+        /*float sinWave = Mathf.Sin(freqency * Time.time + Mathf.PerlinNoise(Time.time * 0.1f, 0) * 0.5f) * amplitude;
+        ORB.localRotation = Quaternion.Euler(0, sinWave, 0);*/
     }
 }
