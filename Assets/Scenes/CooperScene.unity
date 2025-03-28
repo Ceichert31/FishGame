@@ -744,6 +744,64 @@ Transform:
   - {fileID: 1940071272}
   m_Father: {fileID: 1415061173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &542532970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542532972}
+  - component: {fileID: 542532971}
+  m_Layer: 0
+  m_Name: FlockTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &542532971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542532970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19e27a361ffc7249b652a10ab0ad32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flockUnitPrefab: {fileID: 3671723439865698372, guid: 942585e61382ed448a9420e1033598a1,
+    type: 3}
+  flockSize: 100
+  spawnBounds: {x: 10, y: 5, z: 10}
+  minSpeed: 1
+  maxSpeed: 5
+  cohesionDistance: 5
+  avoidanceDistance: 1
+  allignmentDistance: 1
+  boundsDistance: 20
+  cohesionWeight: 1
+  avoidanceWeight: 1
+  allignmentWeight: 1
+  boundsWeight: 10
+--- !u!4 &542532972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542532970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.7407, y: -13.826335, z: 26.165941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &651451542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4994254101198997727, guid: 3d0e80fe9e2fa34438807b06af77a0e9,
@@ -2663,3 +2721,4 @@ SceneRoots:
   - {fileID: 1579945106}
   - {fileID: 2079602017}
   - {fileID: 482317370}
+  - {fileID: 542532972}

@@ -39,10 +39,10 @@ public class EelMovement : MonoBehaviour
 
 
             //NormalSnakeLike Behavior
-            //ChainSlither(i);
+            ChainSlither(i);
 
             //ReAllignmentBehavior
-            AllignmentSlither(i);
+            //AllignmentSlither(i);
 
 
             previousPositions[i] = eelBones[i].position;
