@@ -26,7 +26,13 @@ public class AmbienceController : MonoBehaviour
         previousClip = new(source.clip, source.pitch, source.volume);
 
         //Load new music
-        LoadAudio(ctx);
+        source.clip = ctx.audioClip;
+
+        source.volume = ctx.volume;
+
+        source.pitch = ctx.pitch;
+
+        source.Play();
     }
 
     /// <summary>
@@ -43,8 +49,6 @@ public class AmbienceController : MonoBehaviour
         source.clip = ctx.audioClip;
 
         source.volume = ctx.volume;
-
-        source.pitch = ctx.pitch;
 
         source.Play();
     }
