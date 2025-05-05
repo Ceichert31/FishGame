@@ -22,6 +22,7 @@ public class FlockUnit : MonoBehaviour
     Flock assignedFlock;
 
     public Transform myTransform { get; set; }
+    public int assignedVert;
 
     private void Start()
     {

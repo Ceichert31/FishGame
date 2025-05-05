@@ -113,14 +113,24 @@ public class Flock : MonoBehaviour
 
     public FlockUnit[] allUnits { get; set; }
 
+    [SerializeField] bool shouldFlock;
+
+
+    public bool ShouldFlock { get => shouldFlock; set { shouldFlock = value; } }
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GenerateFlock();
     }
 
     private void Update()
     {
+        if(!shouldFlock)
+        {
+            return;
+        }
+
         for(int i = 0; i < flockSize; i++)
         {
             allUnits[i].MoveUnit();

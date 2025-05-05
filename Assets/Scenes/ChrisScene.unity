@@ -4749,7 +4749,7 @@ MonoBehaviour:
   animation_EventChannel: {fileID: 11400000, guid: 3103e7216622cb049906eca8a1a10a82,
     type: 2}
   daySpawnPool:
-  - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
+  - {fileID: 11400000, guid: cb84e9918611fa34dbedd1b47c30d40f, type: 2}
   nightSpawnPool:
   - {fileID: 11400000, guid: 0fc14aa024de1ac4183bebb492372664, type: 2}
   fishingTickRate: 2
