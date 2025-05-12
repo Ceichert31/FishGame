@@ -11,7 +11,7 @@ public class ToolController : MonoBehaviour
 
     private Animator fishRodAnimator;
 
-    private StencilController stencilController;
+    //private StencilController stencilController;
 
     InputEvent mainAction;
 
@@ -23,7 +23,7 @@ public class ToolController : MonoBehaviour
 
         fishRodAnimator = transform.GetChild(0).GetComponent<Animator>();
 
-        stencilController = GetComponentInChildren<StencilController>();
+        //stencilController = GetComponentInChildren<StencilController>();
     }
 
     public void EnableFishingPoleModel(VoidEvent ctx)
@@ -57,7 +57,7 @@ public class ToolController : MonoBehaviour
         {
             fishingRod.SetActive(false);
             harpoonGun.SetActive(true);
-            stencilController.UpdateStencil(1, true);
+            //stencilController.UpdateStencil(1, true);
             mainAction.Action.Combat.Enable();
             mainAction.Action.Fishing.Disable();
         }
@@ -66,7 +66,7 @@ public class ToolController : MonoBehaviour
         {
             fishingRod.SetActive(true);
             harpoonGun.SetActive(false);
-            stencilController.UpdateStencil(1, false);
+            //stencilController.UpdateStencil(1, false);
             mainAction.Action.Combat.Disable();
             mainAction.Action.Fishing.Enable();
         } 

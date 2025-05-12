@@ -6,6 +6,7 @@ public class TransitionController : MonoBehaviour
 {
     [Header("Teleport Manager Settings")]
     [SerializeField] private Transform arenaTransform;
+    [SerializeField] private BoolEventChannel setTerrainChannel;
 
     private Vector3 lastPosition;
     private Transform Player => GameManager.Instance.Player.transform;
@@ -31,6 +32,9 @@ public class TransitionController : MonoBehaviour
             TransportToArena();
         else
             ReturnPlayer();
+
+        //Enable/disable rock walls
+        setTerrainChannel.CallEvent(ctx);
     }
 
     private void TransportToArena()

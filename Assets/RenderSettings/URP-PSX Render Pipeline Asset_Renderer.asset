@@ -46,13 +46,13 @@ MonoBehaviour:
   - {fileID: 2606515335583478340}
   - {fileID: 6965443398785072023}
   - {fileID: -1925210268287778290}
+  - {fileID: 6574878147236587839}
+  - {fileID: 646229438349087207}
   - {fileID: 8312331284757968187}
   - {fileID: 1399844831302696018}
   - {fileID: 8627387757711346877}
   - {fileID: 5277186768535039034}
-  - {fileID: 6574878147236587839}
-  - {fileID: 646229438349087207}
-  m_RendererFeatureMap: 44b20f47e3332c24977bacdfdd39aa600ec2c510764748e53b755d4b43555b7352bc7616753f6d13bd4cf0ad74a3ba773a2cecff67553c493fe983f7d6a83e5be791321440def708
+  m_RendererFeatureMap: 44b20f47e3332c24977bacdfdd39aa600ec2c510764748e53fe983f7d6a83e5be791321440def7083b755d4b43555b7352bc7616753f6d13bd4cf0ad74a3ba773a2cecff67553c49
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 1535
+    m_Bits: 1531
   m_TransparentLayerMask:
     serializedVersion: 2
     m_Bits: 1535
