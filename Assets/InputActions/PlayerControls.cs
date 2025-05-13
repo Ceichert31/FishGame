@@ -80,6 +80,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""XrayVision"",
+                    ""type"": ""Button"",
+                    ""id"": ""afbb2e27-7c52-4e23-b4c6-81caf1cfe8fc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +276,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""631e0038-72e6-49cb-bee7-a516c3702292"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""XrayVision"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1053,6 +1073,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
         m_Movement_SwitchStencils = m_Movement.FindAction("SwitchStencils", throwIfNotFound: true);
         m_Movement_Slide = m_Movement.FindAction("Slide", throwIfNotFound: true);
+        m_Movement_XrayVision = m_Movement.FindAction("XrayVision", throwIfNotFound: true);
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Fire = m_Combat.FindAction("Fire", throwIfNotFound: true);
@@ -1144,6 +1165,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Interact;
     private readonly InputAction m_Movement_SwitchStencils;
     private readonly InputAction m_Movement_Slide;
+    private readonly InputAction m_Movement_XrayVision;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -1154,6 +1176,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
         public InputAction @SwitchStencils => m_Wrapper.m_Movement_SwitchStencils;
         public InputAction @Slide => m_Wrapper.m_Movement_Slide;
+        public InputAction @XrayVision => m_Wrapper.m_Movement_XrayVision;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1181,6 +1204,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
+            @XrayVision.started += instance.OnXrayVision;
+            @XrayVision.performed += instance.OnXrayVision;
+            @XrayVision.canceled += instance.OnXrayVision;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -1203,6 +1229,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
+            @XrayVision.started -= instance.OnXrayVision;
+            @XrayVision.performed -= instance.OnXrayVision;
+            @XrayVision.canceled -= instance.OnXrayVision;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -1508,6 +1537,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSwitchStencils(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnXrayVision(InputAction.CallbackContext context);
     }
     public interface ICombatActions
     {

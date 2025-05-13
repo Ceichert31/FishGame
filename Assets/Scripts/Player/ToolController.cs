@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class ToolController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ToolController : MonoBehaviour
     private GameObject harpoonGun;
 
     private Animator fishRodAnimator;
+
+    [SerializeField] private Animator xrayAnimator;
 
     //private StencilController stencilController;
 
@@ -37,9 +40,22 @@ public class ToolController : MonoBehaviour
     {
         ctx.Action.Movement.SwitchStencils.performed += DebugSwitchTools;
 
+        ctx.Action.Movement.XrayVision.performed += SetXRayVision;
+
         mainAction = ctx;
-        //ctx.Action.Fishing.Enable();
-        //ctx.Action.Combat.Enable();
+    }
+
+    bool isXrayEnabled;
+    void SetXRayVision(InputAction.CallbackContext ctx)
+    {
+        if (xrayAnimator == null) return;
+
+        isXrayEnabled = !isXrayEnabled;
+
+        if (isXrayEnabled)
+            xrayAnimator.SetTrigger("OpenLens");
+        else
+            xrayAnimator.SetTrigger("CloseLens");
     }
 
     //Debug
